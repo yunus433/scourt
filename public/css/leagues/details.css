@@ -1,0 +1,223 @@
+.league {
+  width: 80%;
+  padding: 10px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.Tamamlandı {
+  color: red;
+}
+.Devam.Ediyor {
+  color: green;
+}
+.leagueHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  background-color: white;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+.league-header-info {
+  flex: 1;
+  padding-left: 25px;
+  height: 100%;
+}
+.generalInfo {
+  margin-top: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.league-header-video {
+  flex: 1;
+  height: 100%;
+  padding-top: 10%;
+}
+.leagueName {
+  padding-right: 10px;
+}
+.generalInfo {
+  padding-right: 10px;
+}
+.matches {
+  flex: 2;
+}
+.lists {
+  flex: 1;
+}
+.each-match {
+  display: flex;
+  height: 100px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  border-radius: 10px;
+}
+.matches-feature {
+  align-self: center;
+  height: 60%;
+}
+.matches-teamOne {
+  flex: 2;
+  text-align: right;
+  font-size: 1.1em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-top: 5%;
+}
+.matches-teamTwo {
+  flex: 2;
+  font-size: 1.1em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-top: 5%;
+}
+.matches-result {
+  flex: 0.5;
+  text-align: center;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%); 
+  font-size: 2em;
+}
+.matches-date {
+  font-size: 1.2em;
+  text-align: center;
+  flex: 1;
+  font-weight: bold;
+  height: 70%;
+  border-right: 1px solid rgba(0, 0, 0, 0.50);
+  padding-top: 15px;
+}
+.leagueContent {
+  display: flex;
+  flex-direction: column;
+}
+.leagueContentHeader {
+  display: flex;
+  width: 50%;
+  height: 50px;
+}
+.matches-header, .league-order-header, .all-videos-header {
+  flex: 1;
+  border-top-right-radius: 10px;
+  background-color: white;
+  border-right: 1px solid rgba(0, 0, 0, 0.50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -7px;
+}
+.symbol {
+  flex: 0.5;
+  background-color: white;
+  text-align: center;
+}
+.symbol-image {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+.Galatasaray.Lisesi {
+  border-radius: 0px;
+  height: 35px;
+  width: 30px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+.matches-header {
+  background-color: rgb(212, 206, 206);
+  z-index: 3;
+}
+.league-order-header {
+  z-index: 2;
+}
+.all-videos-header {
+  z-index: 1;
+}
+.matches {
+  padding: 10px;
+}
+.league-order {
+  display: none;
+}
+.all-videos {
+  display: none;
+}
+.info {
+  width: 100%;
+  padding: 10px 0px 20px 0px;
+  color: rgba(66, 66, 66, 0.9);
+}
+.no-match-warning  {
+  color: rgba(66, 66, 66, 0.5);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.forms {
+  display: flex;
+}
+.forms form {
+  margin-right: 100px;
+}
+.forms h4 {
+  margin: none;
+}
+.input-video {
+  outline: none;
+  border: none;
+  background: none;
+  height: 30px;
+  width: 100%;
+  font-family: "Roboto Slab", Roboto;
+  font-size: 100%;
+}
+.each-video {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+.each-video-left {
+  flex: 2;
+  padding: 5px;
+}
+.each-video-right {
+  flex: 4;
+  padding: 5px;
+}
+.each-videos {
+  border: none;
+  width: 100%;
+}
+.sides {
+  display: flex;
+  align-items: center;
+}
+.video-teamOne, .video-teamTwo {
+  font-size: 1.1em;
+}
+.video-skor {
+  margin: 0px 10px;
+  font-size: 1.1em;
+}
+.video-date {
+  color: rgba(66, 66, 66, 0.7);
+  padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+}
+.explanation {
+  padding: 15px;
+}

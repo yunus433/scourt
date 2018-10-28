@@ -1,0 +1,147 @@
+.leagues {
+  width: 90%;
+  background-color: white;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.50);
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 1%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.leagueHeader {
+  display: flex;
+  align-items: center;
+  flex: 5;
+  padding: 10px;
+}
+.headerVideo {
+  flex: 4;
+  height: 100%;
+}
+.numberedList {
+  position: absolute;
+  margin-right: 95%;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: rgb(66, 66, 66);
+  margin-left: -50px;
+  align-self: center;
+  font-size: 2em;
+  z-index: 1;
+  margin-top: -150px;
+  color: white;
+  z-index: 2;
+}
+.headerInfo {
+  padding: 10px;
+  display: flex;
+  flex: 6;
+  height: 100%;
+}
+.header-left {
+  margin-top: 10px;
+  flex: 1;
+}
+.matches {
+  flex: 2;
+}
+.leagueContent {
+  flex: 2;
+  display: flex;
+  padding: 20px
+}
+.leagueContent span {
+  font-size: 1.2em;
+  padding-right: 10px;
+}
+.details {
+  margin-left: 75%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+.leagueList {
+  min-height: 10vw;
+}
+.leagueCommunication {
+  margin: 75px 0px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  text-align: center;
+}
+.details i {
+  padding-left: 8px;
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.filter-form {
+  height: 50px;
+  margin: 0px 25px;
+  display: flex;
+  align-content: center;
+}
+.ended {
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+}
+#checkbox-ended {
+  margin-right: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.each-match {
+  display: flex;
+  height: 60px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  border-radius: 5px;
+}
+.matches-feature {
+  align-self: center;
+  height: 60%;
+}
+.matches-date {
+  font-size: 0.8em;
+  text-align: right;
+  margin-right: 10px;
+  flex: 2;
+  font-weight: bold;
+}
+.matches-teamOne {
+  border-left: 1px solid rgba(0, 0, 0, 0.50);
+  flex: 2;
+  text-align: right;
+  font-size: 0.8em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.matches-teamTwo {
+  flex: 2;
+  font-size: 0.8em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-left: 5px;
+}
+.matches-result {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  top: 25%;
+  transform: translateY(-50%); 
+  font-size: 1.6em;
+}

@@ -1,0 +1,44 @@
+extends ../partials/header
+block main
+  .all
+    .rode
+      a.rodePart.rodeLeagues(href="/leagues") Ligler >
+    h2 Takip Ettiğimiz Ligler
+    .filter-form
+      form.ended(action="/leagues" method="GET")
+        input#checkbox-ended(type="checkbox" name="ended")
+      span Sadece devam edenleri göster 
+    .leagueList
+      each record, index in tournaments
+        - if (record) {
+          a(href="/leagues/details/?id=" + record.getId())
+            .leagues
+              .leagueHeader
+                .headerInfo
+                  .numberedList #{index+1}
+                  .header-left
+                    h2 #{record.get("Name")}
+                    span #{record.get("Tarih")}
+                  .matches
+                    h4 En Son Oynanan Maçlar:
+                    each match in record.matches.slice(0, 3)
+                      .each-match
+                        span.matches-feature.matches-date= match.get("Tarih")
+                        span.matches-feature.matches-teamOne= match.teamOne.get("Name")
+                        span.matches-feature.matches-result= match.get("Skor")
+                        span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+                .headerVideo
+                  h3 En son yayınladığımız lig videosu:
+                  iframe.leagueVideos(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+              .leagueContent  
+                span Toplam Maç: #{record.get("Maçlar").length} 
+                span.condition Durum: #{record.get("Durum")}
+              .details
+                span Detaylar için tıklayın
+                i.fas.fa-info-circle
+        - }
+    .leagueCommunication 
+      span Şimdilik bu kadar ligi takip ediyoruz. Kendi şehrinden ya da okulundan bir ligin takip edilmesini istersen bize bir mail atman yeterli! 
+  .footer
+    .copyright
+      span Copyright 2018 ® - Yunus Gürlek

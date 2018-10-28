@@ -1,0 +1,95 @@
+extends ../partials/header
+block main
+  .all
+    .rode
+      a.rodePart.rodeLeagues(href="/leagues") Ligler > 
+      a.rodePart.rodeDetails(href="/leagues/details?id=" + record.id) #{record.get("Name")} >
+    .league
+      .leagueHeader
+        .league-header-info
+          h2.leagueName= record.get("Name")
+          span(class="" + record.get("Durum")) (#{record.get('Durum')})
+          .generalInfo
+            span Tarih: #{record.get("Tarih")}
+            span Oynanmış Maç Sayısı: #{record.matches.length}
+        .league-header-video
+          h3 En son yayınladığımız lig videosu:
+          iframe.leagueVideo(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+      .leagueContent
+        .leagueContentHeader 
+          .matches-header
+            h4 Tüm Maçlar
+          .league-order-header
+            h4 Lig Sıralaması
+          .all-videos-header
+            h4 Lig Videoları
+        .matches
+          .content
+            - if(record.matches.length > 0) {
+            .info
+              span Maç detaylarını ve videoları görmek için maçların üzerine tıklayın
+            each match in record.matches
+              .each-match
+                .matches-feature.matches-date            
+                  span= match.get("Tarih")
+                .matches-feature.matches-teamOne
+                  span= match.teamOne.get("Name")
+                .matches-feature.symbol
+                  img.symbol-image(src="/res/schoolLogos/" + match.teamOne.get("Logo") class="" + match.teamOne.get("Name")) 
+                .matches-feature.matches-result
+                  span= match.get("Skor")
+                .matches-feature.symbol
+                  img.symbol-image.match(src="/res/schoolLogos/" + match.teamTwo.get("Logo") class="" + match.teamTwo.get("Name"))  
+                .matches-feature.matches-teamTwo             
+                  span= match.teamTwo.get("Name")
+            - } else {
+              .no-match-warning 
+                span Şimdilik oynanmış bir maç kaydı görünmüyor
+            - }
+        .league-order
+          .content
+            - if(record.leagueOrder) {
+              .info
+                span Okul sayfalarını görmek için okulların üzerine tıklayın
+              each match in record.matches
+                - if (match.get("Video")) {
+                  .each-video
+                    iframe.all-video(src="https://www.youtube.com/embed/" + match.get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                    span.matches-feature.matches-date= match.get("Tarih")
+                - }
+            - } else {
+              .no-match-warning 
+                span Şimdilik mevcut bir sıralama görünmüyor
+            - }
+        .all-videos
+          .content
+            - if(record.matches.length > 0) {
+              .info
+                span İstediğiniz videoları arayın ve izleyin
+              //- .forms
+              //-   form#video-form(action="/players" method="GET")
+              //-   h4 Aradığınız oyuncunun ismini girin:
+              //-   input.input-video(name="video" placeholder="Arama yapın" autocomplete="off")  
+              each match in record.matches
+                - if (match.get("Video")) {
+                  .each-video
+                    .each-video-left
+                      iframe.each-videos(src="https://www.youtube.com/embed/" + match.get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                    .each-video-right
+                      .sides
+                        span.video-teamOne= match.teamOne.get("Name")
+                        span -
+                        span.video-teamTwo= match.teamTwo.get("Name")
+                        span.video-skor (#{match.get("Skor")})
+                      .video-date
+                        span (#{match.get("Tarih")})
+                      .explanation
+                        span Video Açıklaması: #{match.get("Video Açıklaması")}
+                - }
+            - } else {
+              .no-match-warning 
+                span Şimdilik hiç bir video kaydı görünmüyor
+            - }
+  .footer
+    .copyright
+      span Copyright 2018 ® - Yunus Gürlek
