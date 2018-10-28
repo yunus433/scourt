@@ -1,0 +1,176 @@
+.school-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 25px;
+}
+.each-school {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.school-top, .school-bottom {
+  flex: 1;
+  height: 100%;
+}
+.school-top {
+  display: flex;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(66, 66, 66, 0.3);
+}
+.school-bottom {
+  padding: 0px 15px;
+}
+.school-name {
+  flex: 4;
+  display: flex;
+  font-size: 1.1em;
+}
+.school-symbol-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.school-symbol {
+  height: 70px;
+  width: 70px;
+  margin-right: 15px;
+}
+.Galatasaray.Lisesi {
+  border-radius: 0px;
+  height: 60px;
+  width: 55px;
+}
+.school-players {
+  display: flex;
+  flex-direction: column;
+}
+.player-names {
+  line-height: 25px;
+}
+.school-communication {
+  margin: 75px 0px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  text-align: center;
+}
+.details {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: rgba(66, 66, 66, 0.8);
+}
+.details i {
+  padding-left: 8px;
+}
+
+@media only screen and (max-width: 900px) and (min-width: 740px) {
+  .all {
+    font-size: 0.8em;
+  }
+  .rode {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 740px) and (min-width: 600px) {
+  .all {
+    font-size: 0.7em;
+  }
+  .rode {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 500px) {
+  .all {
+    font-size: 0.7em;
+  }
+  .rode {
+    font-size: 1.5em;
+  }
+  .content-item.birthdate {
+    display: none;
+  }
+  .header-item-one {
+    display: none;
+  }
+  .school-bottom {
+    padding-right: 5px;
+  }
+  .school-symbol {
+    height: 50px;
+    width: 50px;
+  }
+  .Galatasaray.Lisesi {
+    border-radius: 0px;
+    height: 50px;
+    width: 45px;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .all {
+    font-size: 0.7em;
+  }
+  .rode {
+    font-size: 1.5em;
+  }
+  .content-item.birthdate {
+    display: none;
+  }
+  .header-item-one {
+    display: none;
+  }
+  .school-bottom {
+    padding-right: 5px;
+  }
+  .school-symbol {
+    height: 45px;
+    width: 45px;
+  }
+  .Galatasaray.Lisesi {
+    border-radius: 0px;
+    height: 45px;
+    width: 40px;
+  }
+  .school-communication {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+  .details {
+    font-size: 0.6em;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .all {
+    font-size: 0.5em;
+  }
+  .rode {
+    font-size: 1.5em;
+  }
+  .header-item-one {
+    display: none;
+  }
+  .school-symbol {
+    height: 45px;
+    width: 45px;
+  }
+  .Galatasaray.Lisesi {
+    border-radius: 0px;
+    height: 45px;
+    width: 40px;
+  }
+  .school-communication {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}

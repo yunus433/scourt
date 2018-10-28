@@ -1,0 +1,102 @@
+extends ../partials/header
+block main
+  .all
+    .school-header
+      .header-top
+        .school-symbol-wrapper
+          img.school-symbol(src="/res/schoolLogos/" + school.get("Logo") class="header-" + school.get("Name"))
+        .school-name
+          h3.school-name #{school.get("Name")}
+      .header-bottom
+        .school-players
+          h3 İlk Beş Oyuncu:
+          each player, index in school.playerData.slice(0, 5)
+            span.player-names #{index+1}. #{player.get("Name")}
+        .numbers 
+          .player-number
+            h3 Oyuncu Sayısı:
+            span #{school.playerData.length}
+          .match-number
+            h3 Toplam Maç Sayısı:
+            span #{school.matchData.length + school.matchTwoData.length}
+        .video-number
+          h3 Scourt Tarafından Yayınlanmış Video Sayısı:
+          - let videoNumber = 0;
+          - school.matchData.forEach(data => {
+          -  if (data.get("Video")) {
+          -   videoNumber++;
+          -  }
+          - });
+          - school.matchTwoData.forEach(data => {
+          -  if (data.get("Video")) {
+          -   videoNumber++;
+          -  }
+          - });
+          span= videoNumber
+    .school-details
+      .details-header
+        .matches-header
+          h4 Tüm Maçlar
+        .players-header
+          h4 Tüm Oyuncular
+      .details-matches
+        - if (school.matchData.length > 0 || school.matchTwoData.length > 0) {
+          each match in school.matchData
+            .each-match
+              .matches-feature.matches-date            
+                span= match.get("Tarih")
+              .matches-feature.matches-teamOne
+                span= match.teamOne.get("Name")
+              .matches-feature.symbol
+                img.symbol-image(src="/res/schoolLogos/" + match.teamOne.get("Logo") class="" + match.teamOne.get("Name")) 
+              .matches-feature.matches-result
+                span= match.get("Skor")
+              .matches-feature.symbol
+                img.symbol-image.match(src="/res/schoolLogos/" + match.teamTwo.get("Logo") class="" + match.teamTwo.get("Name"))  
+              .matches-feature.matches-teamTwo             
+                span= match.teamTwo.get("Name")
+          each match in school.matchTwoData
+            .each-match
+              .matches-feature.matches-date            
+                span= match.get("Tarih")
+              .matches-feature.matches-teamOne
+                span= match.teamOne.get("Name")
+              .matches-feature.symbol
+                img.symbol-image(src="/res/schoolLogos/" + match.teamOne.get("Logo") class="" + match.teamOne.get("Name")) 
+              .matches-feature.matches-result
+                span= match.get("Skor")
+              .matches-feature.symbol
+                img.symbol-image.match(src="/res/schoolLogos/" + match.teamTwo.get("Logo") class="" + match.teamTwo.get("Name"))  
+              .matches-feature.matches-teamTwo             
+                span= match.teamTwo.get("Name")
+        - } else {
+          .no-warning 
+            span Şimdilik bu okulun kaydedilmiş bir maçı görünmüyor
+        -}
+      .details-players
+        - if (school.playerData.length > 0) {
+            h3 Oyuncu Listesi:
+            each person, index in school.playerData
+              a.personLink(href="/players/details/?id=" + person.getId())
+                .Person
+                  .numberedList
+                    span= index+1
+                  .content-item.name
+                    span #{person.get("Name")}
+                  .content-item.position
+                    span #{person.get("Pozisyon")}
+                  .content-item.birthdate
+                    span #{person.get("Notes")}
+                  .content-item.school
+                    span #{person.school.get("Name")}
+                  .content-item.gol
+                    span #{person.get("Gol")}
+                  .content-item.asist 
+                    span #{person.get("Asist")}
+        - } else {
+            .no-warning 
+              span Şimdilik bu okul adına bir oyuncu kaydı görünmüyor
+        - }
+  .footer
+    .copyright
+      span Copyright 2018 ® - Yunus Gürlek
