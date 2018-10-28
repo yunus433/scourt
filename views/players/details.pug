@@ -1,0 +1,60 @@
+extends ../partials/header
+block main
+  .all
+    .rode
+      a.rodePart.rodeLeagues(href="/players") Oyuncular > 
+      a.rodePart.rodeDetails(href="/players/details?id=" + record.getId()) #{record.get("Name")}
+    .player-data
+      .player-header
+        .header-info
+          h1.name= record.get("Name")
+          .header-bottom
+            .header-info-left
+              span.age Doğum Tarihi: #{record.get("Notes")}
+              span.position Pozisyon: #{record.get("Pozisyon")}
+              span.gol Gol: #{record.get("Gol")}
+              span.asist Asist: #{record.get("Asist")}
+        .header-image
+          - if(record.get("Kullanıcı Resmi") == '-') {
+            img.player-img(src="/res/defaultUserPicture.png")
+          - } else { 
+            img.player-img(src="/res/" + record.get("Kullanıcı Resmi"))
+          - }
+      .player-content
+        .player-content-header
+          .details-header
+            h4 Oyuncu Detayları
+          .videos-header
+            h4 Oyuncu Videoları
+        .details
+          .symbol
+            img.symbol-image(src="/res/schoolLogos/" + record.school.get("Logo") class="" + record.school.get("Name")) 
+            span.school Okul: #{record.school.get("Name")}
+          .each-detail
+            span.detail-name Klüp:
+            span.detail-info= record.get("Kulüp")  
+          .each-detail
+            span.detail-name Puan:
+            span.detail-info= record.get("Puan")
+          .each-detail
+            span.detail-name Klasman Sıralaması:
+            span.detail-info= record.get("Klasman Sıralaması")
+          .each-detail
+            span.detail-name Boy:
+            span.detail-info= record.get("Boy")   
+          .each-detail
+            span.detail-name Kilo:
+            span.detail-info= record.get("Kilo") 
+          .each-detail
+            span.detail-name Ayak:
+            span.detail-info= record.get("Ayak")      
+        .videos
+          - if(record.videos) {
+
+          - } else {
+            .no-warning 
+              span Şimdilik oynanmış bir maç kaydı görünmüyor
+          - }
+  .footer
+    .copyright
+      span Copyright 2018 ® - Yunus Gürlek
