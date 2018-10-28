@@ -1,0 +1,12 @@
+extends ../partials/head
+block content
+  .header
+    a(href="/")
+      img.logo(src="/res/logo.jpeg")
+    a.toPlayers.toButton(href="/players") Oyuncular
+    a.toLeagues.toButton(href="/leagues") Ligler
+    a.toSchools.toButton(href="/schools") Okullar
+    //- a.toVideos.toButton(href="#") Videolar
+    a.toCommunication.toButton(href="/help") Bize Ulaş!
+  .main
+    block main

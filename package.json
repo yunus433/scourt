@@ -1,0 +1,19 @@
+{
+  "name": "scourt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "airtable": "^0.5.6",
+    "async": "^2.6.1",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "pug": "^2.0.3",
+    "serve-favicon": "^2.5.0"
+  }
+}

@@ -1,0 +1,77 @@
+extends ../partials/header
+block main
+  .all
+    .top
+      .matches
+        .matches-title 
+          span En Son Maçlar
+        .matches-content
+            each match in matches
+              .each-match
+                span.matches-feature.matches-tournament= match.league.get("Name")
+                span.matches-feature.matches-teamOne= match.teamOne.get("Name")
+                span.matches-feature.matches-result= match.get("Skor")
+                span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+      .news
+        iframe.videoOne(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+    .players
+      .players-header 
+        .players-title
+          span Top 10 - Oyuncular
+        .players-info 
+          .players-gol
+            span Gol
+          .players-asist
+            span Asist
+      .players-content
+        each topPerson, index in players 
+          div(class="person-" + index)
+            a.personLink(href="/players/details/?id=" + topPerson.getId())
+              .person
+                .numberedList
+                  span= index+1
+                .content-item-name
+                  span #{topPerson.get("Name")}
+                .content-item.content-item-position
+                  span #{topPerson.get("Pozisyon")}
+                .content-item.content-item-date
+                  span #{topPerson.get("Notes")}
+                .content-item-team
+                  span #{topPerson.school.get("Name")}
+                .content-item-gol
+                  span #{topPerson.get("Gol")}
+                .content-item-last
+                  span #{topPerson.get("Asist")}
+    .tournaments
+      .tournament-header 
+        span En yeni turnuvalar
+      each record in tournaments
+        a(href="/leagues/details/?id=" + record.getId())
+          .leagues
+            .leagueHeader
+              .headerInfo
+                .header-left
+                  h2 #{record.get("Name")}
+                  span #{record.get("Tarih")}
+                .matches-league
+                  h4 En Son Oynanan Maçlar:
+                  each match in record.matches.slice(0, 3)
+                    .each-match
+                      span.matches-feature.matches-tournament= match.league.get("Name")
+                      span.matches-feature.matches-teamOne= match.teamOne.get("Name")
+                      span.matches-feature.matches-result= match.get("Skor")
+                      span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+              .headerVideo
+                h3 En son yayınladığımız lig videosu:
+                iframe.leagueVideos(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+            .leagueContent  
+              span Toplam Maç: #{record.get("Maçlar").length} 
+              span.condition Durum: #{record.get("Durum")}
+            .details
+              span Detaylar için tıklayın
+              i.fas.fa-info-circle
+  .footer
+    .copyright
+      span Copyright 2018 ® - Yunus Gürlek
+
+
