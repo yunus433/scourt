@@ -1,5 +1,4 @@
 .question-wrapper {
-  padding-top: 90px;
   display: flex;
   flex-direction: column;
 }
@@ -151,5 +150,11 @@
   .school-communication {
     margin-top: 25px;
     margin-bottom: 25px;
+  }
+  .app-wrapper {
+    margin-right: 2.5px;
+  }
+  .google-wrapper {
+    margin-left: 2.5px;
   }
 }
