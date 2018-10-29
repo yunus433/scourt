@@ -27,12 +27,9 @@ block main
           .videos-header
             h4 Oyuncu Videoları
         .details
-          .symbol
-            img.symbol-image(src="/res/schoolLogos/" + record.school.get("Logo") class="" + record.school.get("Name")) 
-            span.school Okul: #{record.school.get("Name")}
           .each-detail
-            span.detail-name Klüp:
-            span.detail-info= record.get("Kulüp")  
+            span.detail-name Okul:
+            span.detail-info= record.school.get("Name")  
           .each-detail
             span.detail-name Puan:
             span.detail-info= record.get("Puan")
