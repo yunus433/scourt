@@ -17,12 +17,54 @@ block main
           iframe.leagueVideo(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
       .leagueContent
         .leagueContentHeader 
-          .matches-header
-            h4 Tüm Maçlar
           .league-order-header
             h4 Lig Sıralaması
+          .matches-header
+            h4 Tüm Maçlar
           .all-videos-header
             h4 Lig Videoları
+        .league-order
+          .content
+            - if(sort) {
+              .info 
+                span Mevcut takım sıralaması
+              .sort-header
+                .sort-feature-number
+                .sort-feature-logo
+                .sort-feature-school
+                .sort-feature-header
+                  span Atılan gol
+                .sort-feature-header
+                  span Yenilen gol
+              each school, index in sort
+                .school-sort
+                  - if (school.yenilen === 1000) {
+                    .sort-feature-number
+                      span #{index+1}. 
+                    .sort-feature-school
+                      span #{school.name}
+                    .sort-feature-logo
+                      img.symbol-image-sort(src="/res/schoolLogos/" + school.logo) 
+                    .sort-feature
+                      span -
+                    .sort-feature
+                      span -
+                  - } else {
+                    .sort-feature-number
+                      span #{index+1}. 
+                    .sort-feature-school
+                      span #{school.name}
+                    .sort-feature-logo
+                      img.symbol-image-sort(src="/res/schoolLogos/" + school.logo class="sort-" + school.name) 
+                    .sort-feature
+                      span #{school.atılan}
+                    .sort-feature
+                      span #{school.yenilen}
+                  - }
+            - } else {
+              .no-match-warning 
+                span Şimdilik mevcut bir sıralama görünmüyor
+            - }
         .matches
           .content
             - if(record.matches.length > 0) {
@@ -46,30 +88,11 @@ block main
               .no-match-warning 
                 span Şimdilik oynanmış bir maç kaydı görünmüyor
             - }
-        .league-order
-          .content
-            - if(record.leagueOrder) {
-              .info
-                span Okul sayfalarını görmek için okulların üzerine tıklayın
-              each match in record.matches
-                - if (match.get("Video")) {
-                  .each-video
-                    iframe.all-video(src="https://www.youtube.com/embed/" + match.get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
-                    span.matches-feature.matches-date= match.get("Tarih")
-                - }
-            - } else {
-              .no-match-warning 
-                span Şimdilik mevcut bir sıralama görünmüyor
-            - }
         .all-videos
           .content
             - if(record.matches.length > 0) {
               .info
-                span İstediğiniz videoları arayın ve izleyin
-              //- .forms
-              //-   form#video-form(action="/players" method="GET")
-              //-   h4 Aradığınız oyuncunun ismini girin:
-              //-   input.input-video(name="video" placeholder="Arama yapın" autocomplete="off")  
+                span İstediğiniz lig videolarını ve maç özetlerini izleyin
               each match in record.matches
                 - if (match.get("Video")) {
                   .each-video
@@ -78,7 +101,7 @@ block main
                     .each-video-right
                       .sides
                         span.video-teamOne= match.teamOne.get("Name")
-                        span -
+                        span  - 
                         span.video-teamTwo= match.teamTwo.get("Name")
                         span.video-skor (#{match.get("Skor")})
                       .video-date
@@ -90,6 +113,3 @@ block main
               .no-match-warning 
                 span Şimdilik hiç bir video kaydı görünmüyor
             - }
-  .footer
-    .copyright
-      span Copyright 2018 ® - Yunus Gürlek
