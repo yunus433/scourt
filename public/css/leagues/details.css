@@ -132,23 +132,25 @@
   transform: translateY(-50%);  
 }
 .matches-header {
-  background-color: rgb(212, 206, 206);
-  z-index: 3;
+  z-index: 2;
 }
 .league-order-header {
-  z-index: 2;
+  z-index: 3;
+  background-color: rgb(212, 206, 206);
 }
 .all-videos-header {
   z-index: 1;
 }
 .matches {
   padding: 10px;
-}
-.league-order {
   display: none;
 }
 .all-videos {
   display: none;
+  padding: 10px;
+}
+.league-order {
+  padding: 10px;
 }
 .info {
   width: 100%;
@@ -220,4 +222,70 @@
 }
 .explanation {
   padding: 15px;
+}
+.school-sort {
+  height: 100px;
+  display: flex;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  align-items: center;
+}
+.sort-header {
+  height: 20px;
+  display: flex;
+  margin-bottom: 5px;
+}
+.sort-feature {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.sort-feature-header {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  color: rgba(66, 66, 66, 0.5);
+  font-size: 0.8em;
+  justify-content: center;
+}
+.sort-feature-number {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-weight: bold;
+  font-size: 2em;
+  justify-content: center;
+}
+.sort-feature-logo {
+  flex: 0.75;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.symbol-image-sort {
+  height: 60px;
+  width: 60px;
+}
+.sort-feature-school {
+  flex: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-size: 1.1em;
+}
+.sort-Galatasaray.Lisesi {
+  height: 55px;
+  width: 50px; 
 }
