@@ -45,7 +45,7 @@ a {
   border-radius: 7%;
 }
 .toButton:hover {
-  border-bottom: 5px solid rgb(51, 69, 229);
+  border-bottom: 5px solid green;
 }
 .footer {
   height: 175px;
