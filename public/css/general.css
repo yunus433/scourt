@@ -50,17 +50,32 @@ a {
 .footer {
   height: 175px;
   width: 100%;
+  padding: 10px;
   background-color: rgb(66, 66, 66);
   margin-top: 50px;
   color: white;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+}
+.social-media {
+  flex: 1;
+}
+.social-media i {
+  color: white;
+  padding-right: 10px;
+  font-size: 5;
+}
+.about-us {
+  flex: 1;
+}
+.addres {
+  flex: 1;
 }
 .copyright {
-  margin: 25px;
+  flex: 1;
   display: flex;
-  flex-direction: column;
+}
+.loy-logo {
+  color: white;
 }
 .copyright span {
   padding-top: 10px;
@@ -82,6 +97,7 @@ a {
 .rodePart:hover {
   color: black;
 }
+
 
 @media only screen and (max-width: 1400px) and (min-width: 1024px) {
   .all {
