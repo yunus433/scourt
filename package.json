@@ -12,7 +12,6 @@
   },
   "author": "Yunus Gürlek",
   "license": "ISC",
-  "homepage": "https://github.com/yunus433/scourt#readme",
   "dependencies": {
     "airtable": "^0.5.7",
     "async": "^2.6.1",
