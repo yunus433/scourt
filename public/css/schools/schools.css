@@ -1,12 +1,11 @@
 .school-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 25px;
+  grid-gap: 25px;
 }
 .each-school {
   background-color: white;
   border-radius: 10px;
-  margin-bottom: 25px;
   display: flex;
   flex-direction: column;
   padding: 15px;
@@ -151,6 +150,10 @@
 }
 
 @media only screen and (max-width: 400px) and (min-width: 300px) {
+  .school-list {
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
   .all {
     font-size: 0.5em;
   }

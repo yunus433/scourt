@@ -2,17 +2,23 @@
   "name": "scourt",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js ",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yunus433/scourt.git"
+  },
+  "author": "Yunus Gürlek",
   "license": "ISC",
+  "homepage": "https://github.com/yunus433/scourt#readme",
   "dependencies": {
-    "airtable": "^0.5.6",
+    "airtable": "^0.5.7",
     "async": "^2.6.1",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "helmet": "^3.14.0",
     "pug": "^2.0.3",
     "serve-favicon": "^2.5.0"
   }
