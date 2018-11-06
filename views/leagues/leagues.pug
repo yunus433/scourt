@@ -29,7 +29,7 @@ block main
                           span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
                   .headerVideo
                     h3 En son yayınladığımız lig videosu:
-                    iframe.leagueVideos(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                    iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
                 .leagueContent  
                   span Toplam Maç: #{record.get("Maçlar").length} 
                   span.condition Durum: #{record.get("Durum")}

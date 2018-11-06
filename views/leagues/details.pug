@@ -15,7 +15,7 @@ block main
               span Oynanmış Maç Sayısı: #{record.matches.length}
           .league-header-video
             h3 En son yayınladığımız lig videosu:
-            iframe.leagueVideo(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+            iframe.leagueVideo(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
         .leagueContent
           .leagueContentHeader 
             .league-order-header

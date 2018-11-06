@@ -12,6 +12,15 @@ block main
                 span.matches-feature.matches-teamOne= match.teamOne.get("Name")
                 span.matches-feature.matches-result= match.get("Skor")
                 span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+        - if (5-matches.length > 0) {
+          - for(i=0; i<5-matches.length; i++) {
+            .each-match
+                span.matches-feature.matches-tournament -
+                span.matches-feature.matches-teamOne -
+                span.matches-feature.matches-result -
+                span.matches-feature.matches-teamTwo -
+          - }
+        - }
       .news
         iframe.videoOne(src="https://www.youtube.com/embed/" + lastMatch.get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
     .players
@@ -67,7 +76,7 @@ block main
                       span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
               .headerVideo
                 h3 En son yayınladığımız lig videosu:
-                iframe.leagueVideos(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
             .leagueContent  
               span Toplam Maç: #{record.get("Maçlar").length} 
               span.condition Durum: #{record.get("Durum")}
