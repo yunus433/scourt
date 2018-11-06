@@ -3,24 +3,25 @@ block main
   .all
     .rode
       a.rodePart.rodeLeagues(href="/schools") Okullar >
-    .school-list
-      each school in schools
-        - if(school.get("Name")) {
-          a(href="/schools/details/?id=" + school.getId())
-            .each-school
-              .school-top
-                .school-symbol-wrapper
-                  img.school-symbol(src="/res/schoolLogos/" + school.get("Logo") class="" + school.get("Name"))
-                .school-name
-                  h3.school-name #{school.get("Name")}
-              .school-bottom
-                .school-players
-                  h3 İlk Beş Oyuncu:
-                  each player, index in school.playerData.slice(0, 5)
-                    span.player-names #{index+1}. #{player.get("Name")}
-                .details
-                  span Detaylar için tıklayın
-                  i.fas.fa-info-circle
-        - }
-    .school-communication
-      span Şimdilik sadece bu okulların liglerini takip ediyoruz. Eğer kendi okulunun takip edilmesini istersen bize bir mail atman yeterli!
+    .all-content
+      .school-list
+        each school in schools
+          - if(school.get("Name")) {
+            a(href="/schools/details/?id=" + school.getId())
+              .each-school
+                .school-top
+                  .school-symbol-wrapper
+                    img.school-symbol(src="/res/schoolLogos/" + school.get("Logo") class="" + school.get("Name"))
+                  .school-name
+                    h3.school-name #{school.get("Name")}
+                .school-bottom
+                  .school-players
+                    h3 İlk Beş Oyuncu:
+                    each player, index in school.playerData.slice(0, 5)
+                      span.player-names #{index+1}. #{player.get("Name")}
+                  .details
+                    span Detaylar için tıklayın
+                    i.fas.fa-info-circle
+          - }
+      .school-communication
+        span Şimdilik sadece bu okulların liglerini takip ediyoruz. Eğer kendi okulunun takip edilmesini istersen bize bir mail atman yeterli!

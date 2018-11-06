@@ -4,7 +4,7 @@ window.onload = () => {
   const names = document.querySelectorAll('.name');
   const schools = document.querySelectorAll('.school');
 
-  nameForm.onkeyup = function (event) {
+  nameForm.oninput = function (event) {
     names.forEach(eachName => {
       let takenName = eachName.textContent.toLowerCase().split(""); 
       let namesValue = event.target.value.trim().toLowerCase().split("");
@@ -53,7 +53,7 @@ window.onload = () => {
     });
   }
 
-  schoolForm.onkeyup = function (event) {
+  schoolForm.onchange = function (event) {
     schools.forEach(school => {
       let takenName = school.textContent.toLowerCase().split(""); 
       let namesValue = event.target.value.trim().toLowerCase().split("");

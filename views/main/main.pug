@@ -13,7 +13,7 @@ block main
                 span.matches-feature.matches-result= match.get("Skor")
                 span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
       .news
-        iframe.videoOne(src="https://www.youtube.com/embed/mf711o8jAQA" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+        iframe.videoOne(src="https://www.youtube.com/embed/" + lastMatch.get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
     .players
       .players-header 
         .players-title
@@ -31,7 +31,11 @@ block main
                 .numberedList
                   span= index+1
                 .content-item-name
-                  span #{topPerson.get("Name")}
+                  - if (topPerson.get("Name") == "Kerem Gümüşgerdan") {
+                    span Kerem G.
+                  - } else {
+                    span #{topPerson.get("Name")}
+                  - }
                 .content-item.content-item-position
                   span #{topPerson.get("Pozisyon")}
                 .content-item.content-item-date

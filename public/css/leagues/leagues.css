@@ -33,7 +33,7 @@
   align-self: center;
   font-size: 2em;
   z-index: 1;
-  margin-top: -150px;
+  margin-top: -60px;
   color: white;
   z-index: 2;
 }
@@ -65,9 +65,10 @@
   align-items: center;
   padding: 10px;
   width: 100%;
+  color: rgba(66, 66, 66, 0.7);
 }
 .leagueList {
-  min-height: 10vw;
+  min-height: 15vh;
 }
 .leagueCommunication {
   margin: 75px 0px;
@@ -144,4 +145,108 @@ span {
   top: 25%;
   transform: translateY(-50%); 
   font-size: 1.6em;
+}
+
+@media only screen and (max-width: 1140px) and (min-width: 850px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .details {
+    margin-left: 72%;
+  }
+  .headerInfo, .headerVideo {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 850px) and (min-width: 624px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .details {
+    margin-left: 60%;
+  }
+  .headerInfo, .headerVideo {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 624px) and (min-width: 540px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .details {
+    margin-left: 55%;
+  }
+  .headerInfo, .headerVideo {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 540px) and (min-width: 500px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .details {
+    margin-left: 50%;
+  }
+  .headerInfo, .headerVideo {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .all-content {
+    font-size: 0.8em;
+  }
+  .matches-date {
+    display: none;
+  }
+  .details {
+    margin-left: 40%;
+  }
+  .headerInfo, .headerVideo {
+    width: 100%;
+    flex-direction: column;
+  }
+  .matches-teamOne {
+    border: none;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .all-content {
+    font-size: 0.8em;
+  }
+  .matches {
+    display: none;
+  }
+  .matches-date {
+    display: none;
+  }
+  .details {
+    margin-left: 28%;
+  }
+  .headerInfo, .headerVideo {
+    width: 100%;
+    flex-direction: column;
+  }
+  .matches-teamOne {
+    border: none;
+  }
+  .headerVideo {
+    width: 100%;
+  }
+  .leagueVideos {
+    width: 90%;
+  }
 }

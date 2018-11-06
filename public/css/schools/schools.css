@@ -71,29 +71,20 @@
 }
 
 @media only screen and (max-width: 900px) and (min-width: 740px) {
-  .all {
+  .all-content {
     font-size: 0.8em;
-  }
-  .rode {
-    font-size: 1.5em;
   }
 }
 
 @media only screen and (max-width: 740px) and (min-width: 600px) {
-  .all {
+  .all-content {
     font-size: 0.7em;
-  }
-  .rode {
-    font-size: 1.5em;
   }
 }
 
 @media only screen and (max-width: 600px) and (min-width: 500px) {
-  .all {
+  .all-content {
     font-size: 0.7em;
-  }
-  .rode {
-    font-size: 1.5em;
   }
   .content-item.birthdate {
     display: none;
@@ -116,11 +107,8 @@
 }
 
 @media only screen and (max-width: 500px) and (min-width: 400px) {
-  .all {
+  .all-content {
     font-size: 0.7em;
-  }
-  .rode {
-    font-size: 1.5em;
   }
   .content-item.birthdate {
     display: none;
@@ -154,11 +142,8 @@
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
-  .all {
+  .all-content {
     font-size: 0.5em;
-  }
-  .rode {
-    font-size: 1.5em;
   }
   .header-item-one {
     display: none;

@@ -19,6 +19,7 @@ module.exports = (req, res, next) => {
       },
       players: arrays[0],
       matches: arrays[1],
+      lastMatch: arrays[1][0],
       tournaments: arrays[2].slice(0, 3)
     });
   });

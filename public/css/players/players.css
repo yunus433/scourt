@@ -77,29 +77,20 @@
 }
 
 @media only screen and (max-width: 900px) and (min-width: 740px) {
-  .all {
+  .all-content {
     font-size: 0.8em;
-  }
-  .rode {
-    font-size: 1.4em;
   }
 }
 
 @media only screen and (max-width: 740px) and (min-width: 600px) {
-  .all {
+  .all-content {
     font-size: 0.7em;
-  }
-  .rode {
-    font-size: 1.5em;
   }
 }
 
 @media only screen and (max-width: 600px) and (min-width: 400px) {
-  .all {
+  .all-content {
     font-size: 0.7em;
-  }
-  .rode {
-    font-size: 1.5em;
   }
   .content-item.birthdate {
     display: none;
@@ -110,14 +101,11 @@
 }
 
 @media only screen and (max-width: 400px) and (min-width: 300px) {
-  .all {
+  .all-content {
     font-size: 0.5em;
   }
   .forms form {
     margin-right: 50px;
-  }
-  .rode {
-    font-size: 1.5em;
   }
   .content-item.birthdate {
     display: none;

@@ -15,9 +15,8 @@
 }
 .leagueHeader {
   display: flex;
-  align-items: center;
   width: 100%;
-  height: 400px;
+  padding: 15px;
   background-color: white;
   margin-bottom: 25px;
   border-radius: 10px;
@@ -28,7 +27,7 @@
   height: 100%;
 }
 .generalInfo {
-  margin-top: 50%;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
 }
@@ -144,13 +143,16 @@
 .matches {
   padding: 10px;
   display: none;
+  padding-right: 0px;
 }
 .all-videos {
   display: none;
   padding: 10px;
+  padding-right: 0px;
 }
 .league-order {
   padding: 10px;
+  padding-right: 0px;
 }
 .info {
   width: 100%;
@@ -202,6 +204,7 @@
 .each-videos {
   border: none;
   width: 100%;
+  height: auto;
 }
 .sides {
   display: flex;
@@ -231,6 +234,7 @@
   margin-bottom: 10px;
   padding: 0px 10px;
   align-items: center;
+  width: 100%;
 }
 .sort-header {
   height: 20px;
@@ -288,4 +292,189 @@
 .sort-Galatasaray.Lisesi {
   height: 55px;
   width: 50px; 
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 850px) {
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 850px) and (min-width: 624px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 75%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+  }
+  .symbol {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 624px) and (min-width: 540px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 85%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 540px) and (min-width: 500px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 85%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.9em;
+  }
+  .all-content {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 90%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.8em;
+  }
+  .all-content {
+    font-size: 0.7em;
+  }
+  .each-video {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 110%;
+    height: 40px;
+    font-size: 0.9em;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.8em;
+  }
+  .all-content {
+    font-size: 0.7em;
+  }
+  .each-video {
+    flex-direction: column;
+  }
+  .leagueVideo {
+    width: 100%;
+  }
+  .sort-feature, .sort-feature-header {
+    display: none;
+  }
+  .matches-date {
+    display: none;
+  }
+  .each-match {
+    padding: none;
+  }
+  .content {
+    width: 100%;
+  }
 }

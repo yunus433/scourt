@@ -449,6 +449,9 @@
   .top {
     flex-direction: column;
   }
+  .person {
+    font-size: 0.7em;
+  }
   .matches {
     margin: 0px;
   }
@@ -536,5 +539,11 @@
   }
   .tournament-header {
     height: 30px;
+  }
+  .content-item-gol, .content-item-last, .players-gol, .players-asist {
+    flex: 0.5;
+  }
+  .content-item-team {
+    flex: 1;
   }
 }
