@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
             page: "leagues/details",
             title: record.get('Name'),
             includes: {
-              external: ["fontawesome", "js"]
+              external: ["fontawesome", "js", "js-header"]
             },
             record,
             sort

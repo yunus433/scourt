@@ -11,6 +11,8 @@ html(lang="tr")
             crossorigin="anonymous")
       if includes.external.indexOf('js') > -1
         script(src=`/js/${page}.js`)
+      if includes.external.indexOf('js-header') > -1
+        script(src='/js/header.js')
     link(rel="stylesheet", href=`/css/${page}.css`)
     link(href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet")
     link(rel="stylesheet", href=`/css/general.css`)

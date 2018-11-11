@@ -3,7 +3,7 @@ module.exports = (req, res, next) => {
     page: "help/help",
     title: "İletişim",
     includes: {
-      external: ["fontawesome"]
+      external: ["fontawesome", "js-header"]
     }
   });
 }

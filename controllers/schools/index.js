@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
       page: "schools/schools",
       title: "Okullar",
       includes: {
-        external: ["fontawesome"]
+        external: ["fontawesome", "js-header"]
       },
       schools
     });

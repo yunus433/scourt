@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
       page: "players/players",
       title: "Oyuncular",
       includes: { 
-        external: ["fontawesome", "js"]
+        external: ["fontawesome", "js", "js-header"]
       },
       players
     });

@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
       page: "main/main",
       title: "Ana Sayfa",
       includes: {
-        external: ["fontawesome"]
+        external: ["fontawesome", "js-header"]
       },
       players: arrays[0],
       matches: arrays[1],
