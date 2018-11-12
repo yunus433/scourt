@@ -3,6 +3,8 @@ block main
   .all
     .rode
       a.rodePart(href="/leagues") Ligler >
+    .rode-english
+      a.rodePart(href="/leagues") Leagues >
     .all-content
       h2 Takip Ettiğimiz Ligler
       .filter-form
@@ -39,3 +41,43 @@ block main
           - }
       .leagueCommunication 
         span Şimdilik bu kadar ligi takip ediyoruz. Kendi şehrinden ya da okulundan bir ligin takip edilmesini istersen bize bir mail atman yeterli! 
+    .all-content-english
+      h2 The Leagues that We Fallow
+      .filter-form
+        form.ended(action="/leagues" method="GET")
+          input#checkbox-ended(type="checkbox" name="ended")
+        span Show only the contunuing ones
+      .leagueList
+        each record, index in tournaments
+          - if (record) {
+            a(href="/leagues/details/?id=" + record.getId())
+              .leagues
+                .leagueHeader
+                  .headerInfo
+                    .header-left
+                      h2 #{record.get("Name")}
+                      span #{record.get("Tarih")}
+                    .matches
+                      h4 Latest Matches:
+                      each match in record.matches.slice(0, 3)
+                        .each-match
+                          span.matches-feature.matches-date= match.get("Tarih")
+                          span.matches-feature.matches-teamOne= match.teamOne.get("Name")
+                          span.matches-feature.matches-result= match.get("Skor")
+                          span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+                  .headerVideo
+                    h3 Latest League Video:
+                    iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                .leagueContent  
+                  span Total Match: #{record.get("Maçlar").length} 
+                  - if (record.get("Durum") == "Devam Ediyor") {
+                    span.condition Status: Continuing
+                  - } else {
+                    span.condition Status: Ended
+                  - }
+                .details
+                  span Click for Details
+                  i.fas.fa-info-circle
+          - }
+      .leagueCommunication 
+        span That's all for now. If you want us another league from your country or city, just send us an e-mail!

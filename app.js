@@ -3,11 +3,9 @@ const path = require('path');
 const dotenv = require('dotenv');
 const airtable = require('airtable');
 const favicon = require('serve-favicon');
-const http = require('http');
 const helmet = require('helmet');
 
 const app = express();
-const server = http.Server(app);
 
 const indexRouteController = require('./routes/indexRoute');
 const leagueRouteController = require('./routes/leagueRoute');
@@ -41,7 +39,7 @@ app.use('/players', playersRouteController);
 app.use('/help', helpRouteController);
 app.use('/schools', schoolRouteController);
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Port on ${PORT}`);
 })
 

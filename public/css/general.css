@@ -40,11 +40,9 @@ a {
   color: white;
 }
 .language-choices-english {
-  padding: 10px;
   position: absolute;
   margin-left: 100%;
-  transform: translateX(-100%);
-  padding-right: 25px;
+  transform: translateX(-120%);
   color: white;
   font-size: 1.3em;
   border-radius: 7%;
@@ -78,12 +76,16 @@ a {
 .toButton:hover {
   border-bottom: 5px solid green;
 }
+.language-choices:hover {
+  border-bottom: 5px solid green;
+}
+.language-choices-english:hover {
+  border-bottom: 5px solid green;
+}
 .language-choices {
-  padding: 10px;
   position: absolute;
   margin-left: 100%;
-  transform: translateX(-100%);
-  padding-right: 25px;
+  transform: translateX(-120%);
   color: white;
   font-size: 1.3em;
   border-radius: 7%;
@@ -142,6 +144,12 @@ a {
   padding: 20px;
   font-size: 1em;
 }
+.rode-english {
+  display: none;
+  color: rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  font-size: 1em;
+}
 .rodePart {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.50);
@@ -149,7 +157,12 @@ a {
 .rodePart:hover {
   color: black;
 }
-
+.all-content-english {
+  display: none;
+}
+.rode-english {
+  display: none;
+}
 
 @media only screen and (max-width: 1400px) and (min-width: 1024px) {
   .all {

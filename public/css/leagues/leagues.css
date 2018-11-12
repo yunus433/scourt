@@ -1,3 +1,6 @@
+.all-content-english {
+  display: none;
+}
 .leagues {
   width: 90%;
   background-color: white;
@@ -202,7 +205,7 @@ span {
   .leagueHeader {
     flex-direction: column;
   }
-  .all-content {
+  .all-content, .all-content-english {
     font-size: 0.8em;
   }
   .matches-date {
@@ -224,7 +227,7 @@ span {
   .leagueHeader {
     flex-direction: column;
   }
-  .all-content {
+  .all-content, .all-content-english {
     font-size: 0.8em;
   }
   .matches {

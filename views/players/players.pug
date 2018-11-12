@@ -3,6 +3,8 @@ block main
   .all
     .rode
       a.rodePart.rodeLeagues(href="/players") Oyuncular >
+    .rode-english
+      a.rodePart.rodeLeagues(href="/players") Players >
     .all-content
       h2.sidebar-title Oyuncu Listesi
       .forms
@@ -40,4 +42,40 @@ block main
                   span #{person.get("Gol")}
                 .content-item.asist 
                   span #{person.get("Asist")}
-    
+    .all-content-english
+      h2.sidebar-title Oyuncu Listesi
+      .forms
+        form#name-form(action="/players" method="GET")
+          h4 Aradığınız oyuncunun ismini girin:
+          input.input-name(name="name" placeholder="İsim" autocomplete="off")   
+        form#school-form(action="/players" method="GET")
+          h4 Aradığınız oyuncunun okulunu girin:
+          input.input-name(name="school" placeholder="Okul" autocomplete="off")       
+      .players
+        .players-header 
+          .header-item.header-item-one
+          .header-item
+          .header-item
+          .header-item
+          .header-item 
+            span Gol
+          .header-item
+            span Asist
+        .players-content(id="playersContent")
+          each person, index in players 
+            a.personLink(href="/players/details/?id=" + person.getId())
+              .Person
+                .numberedList
+                  span= index+1
+                .content-item.name
+                  span #{person.get("Name")}
+                .content-item.position
+                  span #{person.get("Pozisyon")}
+                .content-item.birthdate
+                  span #{person.get("Notes")}
+                .content-item.school
+                  span #{person.school.get("Name")}
+                .content-item.gol
+                  span #{person.get("Gol")}
+                .content-item.asist 
+                  span #{person.get("Asist")}
