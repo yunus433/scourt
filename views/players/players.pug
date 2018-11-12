@@ -43,14 +43,14 @@ block main
                 .content-item.asist 
                   span #{person.get("Asist")}
     .all-content-english
-      h2.sidebar-title Oyuncu Listesi
+      h2.sidebar-title Player List
       .forms
         form#name-form(action="/players" method="GET")
-          h4 Aradığınız oyuncunun ismini girin:
-          input.input-name(name="name" placeholder="İsim" autocomplete="off")   
+          h4 Enter the player's name:
+          input.input-name(name="name" placeholder="Name" autocomplete="off")   
         form#school-form(action="/players" method="GET")
-          h4 Aradığınız oyuncunun okulunu girin:
-          input.input-name(name="school" placeholder="Okul" autocomplete="off")       
+          h4 Enter the player's school:
+          input.input-name(name="school" placeholder="School" autocomplete="off")       
       .players
         .players-header 
           .header-item.header-item-one
@@ -58,9 +58,9 @@ block main
           .header-item
           .header-item
           .header-item 
-            span Gol
+            span Goal
           .header-item
-            span Asist
+            span Assist
         .players-content(id="playersContent")
           each person, index in players 
             a.personLink(href="/players/details/?id=" + person.getId())

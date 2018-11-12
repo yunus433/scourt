@@ -31,22 +31,35 @@ window.onload = () => {
     englishRode.style.display = 'none';
   };
   
-  const matches = document.querySelector('.matches-header');
-  const players = document.querySelector('.players-header');
+  const matches = document.querySelectorAll('.matches-header');
+  const players = document.querySelectorAll('.players-header');
 
-  const matchesWrapper = document.querySelector('.details-matches');
-  const playersWrapper = document.querySelector('.details-players');
+  const matchesWrapper = document.querySelectorAll('.details-matches');
+  const playersWrapper = document.querySelectorAll('.details-players');
 
-  matches.onclick = () => {
-    matchesWrapper.style.display = 'block';
-    playersWrapper.style.display = 'none';
-    matches.style.backgroundColor = 'rgb(212, 206, 206)';
-    players.style.backgroundColor = 'white';
+  matches[0].onclick = () => {
+    matchesWrapper[0].style.display = 'block';
+    playersWrapper[0].style.display = 'none';
+    matches[0].style.backgroundColor = 'rgb(212, 206, 206)';
+    players[0].style.backgroundColor = 'white';
   }
-  players.onclick = () => {
-    matchesWrapper.style.display = 'none';
-    playersWrapper.style.display = 'block';
-    players.style.backgroundColor = 'rgb(212, 206, 206)';
-    matches.style.backgroundColor = 'white';
+  players[0].onclick = () => {
+    matchesWrapper[0].style.display = 'none';
+    playersWrapper[0].style.display = 'block';
+    players[0].style.backgroundColor = 'rgb(212, 206, 206)';
+    matches[0].style.backgroundColor = 'white';
+  }
+
+  matches[1].onclick = () => {
+    matchesWrapper[1].style.display = 'block';
+    playersWrapper[1].style.display = 'none';
+    matches[1].style.backgroundColor = 'rgb(212, 206, 206)';
+    players[1].style.backgroundColor = 'white';
+  }
+  players[1].onclick = () => {
+    matchesWrapper[1].style.display = 'none';
+    playersWrapper[1].style.display = 'block';
+    players[1].style.backgroundColor = 'rgb(212, 206, 206)';
+    matches[1].style.backgroundColor = 'white';
   }
  }

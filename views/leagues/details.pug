@@ -73,7 +73,7 @@ block main
             .content
               - if(record.matches.length > 0) {
               .info
-                span Maç detaylarını ve videoları görmek için maçların üzerine tıklayın
+                span Maç detaylarını ve videoları 
               each match in record.matches
                 .each-match
                   .matches-feature.matches-date            
@@ -126,32 +126,32 @@ block main
             h2.leagueName= record.get("Name")
             span(class="" + record.get("Durum")) (#{record.get('Durum')})
             .generalInfo
-              span Tarih: #{record.get("Tarih")}
-              span Oynanmış Maç Sayısı: #{record.matches.length}
+              span Date: #{record.get("Tarih")}
+              span Number of Played Matches: #{record.matches.length}
           .league-header-video
-            h3 En son yayınladığımız lig videosu:
+            h3 The Latest League Video:
             iframe.leagueVideo(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
         .leagueContent
           .leagueContentHeader 
             .league-order-header
-              h4 Lig Sıralaması
+              h4 League Order
             .matches-header
-              h4 Tüm Maçlar
+              h4 All Matches
             .all-videos-header
-              h4 Lig Videoları
+              h4 League Videos
           .league-order
             .content
               - if(sort) {
                 .info 
-                  span Mevcut takım sıralaması
+                  span The Current League Order
                 .sort-header
                   .sort-feature-number
                   .sort-feature-logo
                   .sort-feature-school
                   .sort-feature-header
-                    span Atılan
+                    span Thrown
                   .sort-feature-header
-                    span Yenilen
+                    span Eaten
                 each school, index in sort
                   .school-sort
                     - if (school.yenilen === 1000) {
@@ -179,13 +179,13 @@ block main
                     - }
               - } else {
                 .no-match-warning 
-                  span Şimdilik mevcut bir sıralama görünmüyor
+                  span There isn't a current order yet
               - }
           .matches
             .content
               - if(record.matches.length > 0) {
               .info
-                span Maç detaylarını ve videoları görmek için maçların üzerine tıklayın
+                span Match details and videos
               each match in record.matches
                 .each-match
                   .matches-feature.matches-date            
@@ -202,13 +202,13 @@ block main
                     span= match.teamTwo.get("Name")
               - } else {
                 .no-match-warning 
-                  span Şimdilik oynanmış bir maç kaydı görünmüyor
+                  span There isn't a match record yet
               - }
           .all-videos
             .content
               - if(record.matches.length > 0) {
                 .info
-                  span İstediğiniz lig videolarını ve maç özetlerini izleyin
+                  span Watch all the match videos and summaries
                 each match in record.matches
                   - if (match.get("Video")) {
                     .each-video
@@ -225,9 +225,9 @@ block main
                         .video-date
                           span (#{match.get("Tarih")})
                         .explanation
-                          span Video Açıklaması: #{match.get("Video Açıklaması")}
+                          span Video Explanation: #{match.get("Video Açıklaması")}
                   - }
               - } else {
                 .no-match-warning 
-                  span Şimdilik hiç bir video kaydı görünmüyor
+                  span There isn't a video record yet
               - }

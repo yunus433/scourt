@@ -40,12 +40,12 @@ block main
                     h3.school-name #{school.get("Name")}
                 .school-bottom
                   .school-players
-                    h3 İlk Beş Oyuncu:
+                    h3 First Five:
                     each player, index in school.playerData.slice(0, 5)
                       span.player-names #{index+1}. #{player.get("Name")}
                   .details
-                    span Detaylar için tıklayın
+                    span Click for Details
                     i.fas.fa-info-circle
           - }
       .school-communication
-        span Şimdilik sadece bu okulların liglerini takip ediyoruz. Eğer kendi okulunun takip edilmesini istersen bize bir mail atman yeterli!
+        span That's all for now. If you want us to fallow any team you would like to see here, just send us an e-mail or call one of our representers!

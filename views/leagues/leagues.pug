@@ -45,8 +45,8 @@ block main
       h2 The Leagues that We Fallow
       .filter-form
         form.ended(action="/leagues" method="GET")
-          input#checkbox-ended(type="checkbox" name="ended")
-        span Show only the contunuing ones
+          input#checkbox-ended-english(type="checkbox" name="ended")
+        span Show only the continuing ones
       .leagueList
         each record, index in tournaments
           - if (record) {
@@ -80,4 +80,4 @@ block main
                   i.fas.fa-info-circle
           - }
       .leagueCommunication 
-        span That's all for now. If you want us another league from your country or city, just send us an e-mail!
+        span That's all for now. If you want us to fallow another league from your country or city, just send us an e-mail!

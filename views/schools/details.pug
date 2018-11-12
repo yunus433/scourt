@@ -79,7 +79,7 @@ block main
                   span= match.teamTwo.get("Name")
           - } else {
             .no-warning 
-              span Şimdilik bu okulun kaydedilmiş bir maçı görünmüyor
+              span Şimdilik bu takımın kaydedilmiş bir maçı görünmüyor
           -}
         .details-players
           - if (school.playerData.length > 0) {
@@ -103,7 +103,7 @@ block main
                       span #{person.get("Asist")}
           - } else {
               .no-warning 
-                span Şimdilik bu okul adına bir oyuncu kaydı görünmüyor
+                span Şimdilik bu takım adına bir oyuncu kaydı görünmüyor
           - }
     .all-content-english
       .school-header
@@ -114,25 +114,25 @@ block main
             h3.school-name #{school.get("Name")}
         .header-bottom
           .school-players
-            h3 İlk Beş Oyuncu:
+            h3 First Five:
             each player, index in school.playerData.slice(0, 5)
               span.player-names #{index+1}. #{player.get("Name")}
           .numbers 
             .player-number
-              h3 Oyuncu Sayısı:
+              h3 Players:
               span #{school.playerData.length}
             .match-number
-              h3 Toplam Maç Sayısı:
+              h3 Match Number:
               span #{school.matchData.length + school.matchTwoData.length}
           .video-number
-            h3 Scourt Tarafından Yayınlanmış Video Sayısı:
+            h3 The Number of Videos:
             span= videoNumber
       .school-details
         .details-header
           .matches-header
-            h4 Tüm Maçlar
+            h4 All Matches
           .players-header
-            h4 Tüm Oyuncular
+            h4 All Players
         .details-matches
           - if (school.matchData.length > 0 || school.matchTwoData.length > 0) {
             each match in school.matchData
@@ -165,11 +165,11 @@ block main
                   span= match.teamTwo.get("Name")
           - } else {
             .no-warning 
-              span Şimdilik bu okulun kaydedilmiş bir maçı görünmüyor
+              span There isn't a played match record for this team
           -}
         .details-players
           - if (school.playerData.length > 0) {
-              h3 Oyuncu Listesi:
+              h3 Player List:
               each person, index in school.playerData
                 a.personLink(href="/players/details/?id=" + person.getId())
                   .Person
@@ -189,5 +189,5 @@ block main
                       span #{person.get("Asist")}
           - } else {
               .no-warning 
-                span Şimdilik bu okul adına bir oyuncu kaydı görünmüyor
+                span There isn't a player record for this team
           - }

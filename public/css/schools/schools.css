@@ -71,19 +71,19 @@
 }
 
 @media only screen and (max-width: 900px) and (min-width: 740px) {
-  .all-content {
+  .all-content, .all-content-english {
     font-size: 0.8em;
   }
 }
 
 @media only screen and (max-width: 740px) and (min-width: 600px) {
-  .all-content {
+  .all-content .all-content-english  {
     font-size: 0.7em;
   }
 }
 
 @media only screen and (max-width: 600px) and (min-width: 500px) {
-  .all-content {
+  .all-content .all-content-english  {
     font-size: 0.7em;
   }
   .content-item.birthdate {
@@ -107,7 +107,7 @@
 }
 
 @media only screen and (max-width: 500px) and (min-width: 400px) {
-  .all-content {
+  .all-content .all-content-english  {
     font-size: 0.7em;
   }
   .content-item.birthdate {
@@ -142,7 +142,7 @@
     grid-template-columns: 1fr;
     grid-gap: 10px;
   }
-  .all-content {
+  .all-content .all-content-english  {
     font-size: 0.5em;
   }
   .header-item-one {

@@ -63,10 +63,10 @@ block main
             h1.name= record.get("Name")
             .header-bottom
               .header-info-left
-                span.age Doğum Tarihi: #{record.get("Notes")}
-                span.position Pozisyon: #{record.get("Pozisyon")}
-                span.gol Gol: #{record.get("Gol")}
-                span.asist Asist: #{record.get("Asist")}
+                span.age Birth Day: #{record.get("Notes")}
+                span.position Position: #{record.get("Pozisyon")}
+                span.gol Goal: #{record.get("Gol")}
+                span.asist Assist: #{record.get("Asist")}
           .header-image
             - if(record.get("Kullanıcı Resmi") == '-') {
               img.player-img(src="/res/defaultUserPicture.png")
@@ -76,32 +76,32 @@ block main
         .player-content
           .player-content-header
             .details-header
-              h4 Oyuncu Detayları
+              h4 Player Details
             .videos-header
-              h4 Oyuncu Videoları
+              h4 Player Videos
           .details
             .each-detail
-              span.detail-name Okul:
+              span.detail-name School:
               span.detail-info= record.school.get("Name")  
             .each-detail
-              span.detail-name Puan:
+              span.detail-name Point:
               span.detail-info= record.get("Puan")
             .each-detail
-              span.detail-name Klasman Sıralaması:
+              span.detail-name Classification Rank:
               span.detail-info= record.get("Klasman Sıralaması")
             .each-detail
-              span.detail-name Boy:
+              span.detail-name Lenght:
               span.detail-info= record.get("Boy")   
             .each-detail
-              span.detail-name Kilo:
+              span.detail-name Weight:
               span.detail-info= record.get("Kilo") 
             .each-detail
-              span.detail-name Ayak:
+              span.detail-name Foot:
               span.detail-info= record.get("Ayak")      
           .videos
             - if(record.videos) {
 
             - } else {
               .no-warning 
-                span Şimdilik oynanmış bir maç kaydı görünmüyor
+                span There is no match record yet
             - }
