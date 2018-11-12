@@ -198,3 +198,15 @@
   top: 50%;
   transform: translateY(-50%);  
 }
+.players-header-info {
+  display: flex;
+} 
+.players-header-item {
+  flex: 4;
+}
+.players-gol {
+  flex: 1;
+}
+.players-asist {
+  flex: 1;
+}

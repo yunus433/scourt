@@ -27,7 +27,7 @@ block main
             h3.school-name #{school.get("Name")}
         .header-bottom
           .school-players
-            h3 İlk Beş Oyuncu:
+            h3 En İyi Beş:
             each player, index in school.playerData.slice(0, 5)
               span.player-names #{index+1}. #{player.get("Name")}
           .numbers 
@@ -84,6 +84,12 @@ block main
         .details-players
           - if (school.playerData.length > 0) {
               h3 Oyuncu Listesi:
+              .players-header-info 
+                .players-header-item
+                .players-gol
+                  span Goal
+                .players-asist
+                  span Assist
               each person, index in school.playerData
                 a.personLink(href="/players/details/?id=" + person.getId())
                   .Person
@@ -92,7 +98,7 @@ block main
                     .content-item.name
                       span #{person.get("Name")}
                     .content-item.position
-                      span #{person.get("Pozisyon")}
+                      span #{person.get("Position")}
                     .content-item.birthdate
                       span #{person.get("Notes")}
                     .content-item.school
@@ -114,7 +120,7 @@ block main
             h3.school-name #{school.get("Name")}
         .header-bottom
           .school-players
-            h3 First Five:
+            h3 Top Five:
             each player, index in school.playerData.slice(0, 5)
               span.player-names #{index+1}. #{player.get("Name")}
           .numbers 
