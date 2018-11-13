@@ -5,7 +5,7 @@ block main
       .top
         .matches
           .matches-title 
-            span En Son Maçlar
+            span Latest Matches
           .matches-content
               each match in matches
                 .each-match
@@ -27,16 +27,16 @@ block main
       .players
         .players-header 
           .players-title
-            span Top 10 - Oyuncular
+            span Top 10 - Players
           .players-info 
             .players-gol
-              span Gol
+              span Goal
             .players-asist
-              span Asist
+              span Assist
         .players-content
           each topPerson, index in players 
             div(class="person-" + index)
-              a.personLink(href="/players/details/?id=" + topPerson.getId())
+              a.personLink(href="/english/players/details/?id=" + topPerson.getId())
                 .person
                   .numberedList
                     span= index+1
@@ -47,7 +47,7 @@ block main
                       span #{topPerson.get("Name")}
                     - }
                   .content-item.content-item-position
-                    span #{topPerson.get("Pozisyon")}
+                    span #{topPerson.get("Position")}
                   .content-item.content-item-date
                     span #{topPerson.get("Notes")}
                   .content-item-team
@@ -58,9 +58,9 @@ block main
                     span #{topPerson.get("Asist")}
       .tournaments
         .tournament-header 
-          span En yeni turnuvalar
+          span Latest Matches
         each record in tournaments
-          a(href="/leagues/details/?id=" + record.getId())
+          a(href="/english/leagues/details/?id=" + record.getId())
             .leagues
               .leagueHeader
                 .headerInfo
@@ -68,7 +68,7 @@ block main
                     h2 #{record.get("Name")}
                     span #{record.get("Tarih")}
                   .matches-league
-                    h4 En Son Oynanan Maçlar:
+                    h4 Latest Matches:
                     each match in record.matches.slice(0, 3)
                       .each-match
                         span.matches-feature.matches-tournament= match.league.get("Name")
@@ -76,13 +76,17 @@ block main
                         span.matches-feature.matches-result= match.get("Skor")
                         span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
                 .headerVideo
-                  h3 En son yayınladığımız lig videosu:
+                  h3 Latest League Video:
                   iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
               .leagueContent  
-                span Toplam Maç: #{record.get("Maçlar").length} 
-                span.condition Durum: #{record.get("Durum")}
+                span Total Match: #{record.get("Maçlar").length} 
+                - if (record.get("Durum") == "Devam Ediyor") {
+                  span.condition Status: Continuing
+                - } else {
+                  span.condition Status: Ended
+                - }
               .details
-                span Detaylar için tıklayın
+                span Click for details
                 i.fas.fa-info-circle
 
 

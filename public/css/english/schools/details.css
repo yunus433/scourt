@@ -1,0 +1,212 @@
+.school-header {
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+}
+.header-top, .header-bottom {
+  flex: 1;
+  height: 100%;
+}
+.header-top {
+  display: flex;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(66, 66, 66, 0.3);
+}
+.header-bottom {
+  padding: 0px 15px;
+  display: flex;
+}
+.school-name {
+  flex: 4;
+  display: flex;
+  font-size: 1.5em;
+}
+.school-symbol-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.school-symbol {
+  height: 125px;
+  width: 125px;
+}
+.header-Galatasaray.Lisesi {
+  border-radius: 0px;
+  height: 100px;
+  width: 90px;
+}
+.school-players {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.numbers {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.player-names {
+  line-height: 25px;
+}
+.player-number {
+  flex: 1;
+}
+.match-number {
+  flex: 1;
+}
+.video-number {
+  flex: 1;
+}
+.details-header {
+  display: flex;
+  width: 50%;
+  margin: 25px 0px;
+  height: 60px;
+}
+.matches-header, .players-header {
+  flex: 1;
+  border-top-right-radius: 10px;
+  background-color: white;
+  border-right: 1px solid rgba(0, 0, 0, 0.50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -7px;
+  font-size: 1.2em;
+}
+.matches-header {
+  background-color: rgb(212, 206, 206);
+  z-index: 2;
+}
+.players-header {
+  z-index: 1;
+}
+.no-warning {
+  color: rgba(66, 66, 66, 0.5);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.details-players {
+  display: none;
+}
+.Person {
+  display: flex;
+  border-radius: 10px;
+  min-height: 55px;
+  align-items: center;
+  margin-top: 15px;
+  background-color: white;
+}
+.content-item {
+  height: 35px;
+  padding-right: 10px;
+  flex: 1;
+  border-right: 1px solid rgba(66, 66, 66, 0.1);
+  padding: 5px 5px;
+  font-size: 0.9em;
+  color: rgba(66, 66, 66, 0.7);
+  display: flex;
+  align-items: center;
+}
+.name {
+  color: rgba(66, 66, 66);
+  font-weight: bold;
+  padding-left: 20px;
+}
+.gol {
+  color: rgba(66, 66, 66);
+  font-weight: bold;
+}
+.asist {
+  color: rgba(66, 66, 66);
+  font-weight: bold;
+}
+.numberedList {
+  height: 20px;
+  width: 20px;
+  margin-left: -27px;
+  color: rgb(66, 66, 66);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.each-match {
+  display: flex;
+  height: 100px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  border-radius: 10px;
+}
+.matches-feature {
+  align-self: center;
+  height: 60%;
+}
+.matches-teamOne {
+  flex: 2;
+  text-align: right;
+  font-size: 1.1em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-top: 5%;
+}
+.matches-teamTwo {
+  flex: 2;
+  font-size: 1.1em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-top: 5%;
+}
+.matches-result {
+  flex: 0.5;
+  text-align: center;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%); 
+  font-size: 2em;
+}
+.matches-date {
+  font-size: 1.2em;
+  text-align: center;
+  flex: 1;
+  font-weight: bold;
+  height: 70%;
+  border-right: 1px solid rgba(0, 0, 0, 0.50);
+  padding-top: 15px;
+}
+.symbol {
+  flex: 0.5;
+  background-color: white;
+  text-align: center;
+}
+.symbol-image {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+.Galatasaray.Lisesi {
+  border-radius: 0px;
+  height: 35px;
+  width: 30px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+.players-header-info {
+  display: flex;
+} 
+.players-header-item {
+  flex: 4;
+}
+.players-gol {
+  flex: 1;
+}
+.players-asist {
+  flex: 1;
+}

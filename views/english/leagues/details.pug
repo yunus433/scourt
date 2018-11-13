@@ -1,0 +1,118 @@
+extends ../partials/header
+block main
+  .all
+    .rode
+      a.rodePart.rodeLeagues(href="/english/leagues") Leagues > 
+      a.rodePart.rodeDetails(href="/english/leagues/details?id=" + record.id) #{record.get("Name")} >
+    .all-content
+      .league
+        .leagueHeader
+          .league-header-info
+            h2.leagueName= record.get("Name")
+            span(class="" + record.get("Durum")) (#{record.get('Durum')})
+            .generalInfo
+              span Date: #{record.get("Tarih")}
+              span Number of Played Matches: #{record.matches.length}
+          .league-header-video
+            h3 The Latest League Video:
+            iframe.leagueVideo(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+        .leagueContent
+          .leagueContentHeader 
+            .league-order-header
+              h4 League Order
+            .matches-header
+              h4 All Matches
+            .all-videos-header
+              h4 League Videos
+          .league-order
+            .content
+              - if(sort) {
+                .info 
+                  span The Current League Order
+                .sort-header
+                  .sort-feature-number
+                  .sort-feature-logo
+                  .sort-feature-school
+                  .sort-feature-header
+                    span Scored
+                  .sort-feature-header
+                    span Conceded
+                each school, index in sort
+                  .school-sort
+                    - if (school.yenilen === 1000) {
+                      .sort-feature-number
+                        span #{index+1}. 
+                      .sort-feature-school
+                        span #{school.name}
+                      .sort-feature-logo
+                        img.symbol-image-sort(src="/res/schoolLogos/" + school.logo) 
+                      .sort-feature
+                        span -
+                      .sort-feature
+                        span -
+                    - } else {
+                      .sort-feature-number
+                        span #{index+1}. 
+                      .sort-feature-school
+                        span #{school.name}
+                      .sort-feature-logo
+                        img.symbol-image-sort(src="/res/schoolLogos/" + school.logo class="sort-" + school.name) 
+                      .sort-feature
+                        span #{school.atılan}
+                      .sort-feature
+                        span #{school.yenilen}
+                    - }
+              - } else {
+                .no-match-warning 
+                  span There isn't a current order yet
+              - }
+          .matches
+            .content
+              - if(record.matches.length > 0) {
+              .info
+                span Match details and videos
+              each match in record.matches
+                .each-match
+                  .matches-feature.matches-date            
+                    span= match.get("Tarih")
+                  .matches-feature.matches-teamOne
+                    span= match.teamOne.get("Name")
+                  .matches-feature.symbol
+                    img.symbol-image(src="/res/schoolLogos/" + match.teamOne.get("Logo") class="" + match.teamOne.get("Name")) 
+                  .matches-feature.matches-result
+                    span= match.get("Skor")
+                  .matches-feature.symbol
+                    img.symbol-image.match(src="/res/schoolLogos/" + match.teamTwo.get("Logo") class="" + match.teamTwo.get("Name"))  
+                  .matches-feature.matches-teamTwo             
+                    span= match.teamTwo.get("Name")
+              - } else {
+                .no-match-warning 
+                  span There isn't a match record yet
+              - }
+          .all-videos
+            .content
+              - if(record.matches.length > 0) {
+                .info
+                  span Watch all the match videos and summaries
+                each match in record.matches
+                  - if (match.get("Video")) {
+                    .each-video
+                      .each-video-left
+                        iframe.each-videos(src="https://www.youtube.com/embed/" + match.get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                      .each-video-right
+                        .sides
+                          .sides-info
+                            span.video-teamOne= match.teamOne.get("Name")
+                            span  - 
+                            span.video-teamTwo= match.teamTwo.get("Name")
+                          .sides-score
+                            span.video-skor (#{match.get("Skor")})
+                        .video-date
+                          span (#{match.get("Tarih")})
+                        .explanation
+                          span Video Explanation: #{match.get("Video Açıklaması")}
+                  - }
+              - } else {
+                .no-match-warning 
+                  span There isn't a video record yet
+              - }

@@ -1,0 +1,55 @@
+extends ../partials/header
+block main
+  .all
+    .rode
+      a.rodePart.rodeLeagues(href="/english/players") Players > 
+      a.rodePart.rodeDetails(href="/english/players/details?id=" + record.getId())  #{record.get("Name")}
+    .all-content
+      .player-data
+        .player-header
+          .header-info
+            h1.name= record.get("Name")
+            .header-bottom
+              .header-info-left
+                span.age Birth Day: #{record.get("Notes")}
+                span.position Position: #{record.get("Pozisyon")}
+                span.gol Goal: #{record.get("Gol")}
+                span.asist Assist: #{record.get("Asist")}
+          .header-image
+            - if(record.get("Kullanıcı Resmi") == '-') {
+              img.player-img(src="/res/defaultUserPicture.png")
+            - } else { 
+              img.player-img(src="/res/" + record.get("Kullanıcı Resmi"))
+            - }
+        .player-content
+          .player-content-header
+            .details-header
+              h4 Player Details
+            .videos-header
+              h4 Player Videos
+          .details
+            .each-detail
+              span.detail-name School:
+              span.detail-info= record.school.get("Name")  
+            .each-detail
+              span.detail-name Point:
+              span.detail-info= record.get("Puan")
+            .each-detail
+              span.detail-name Classification Rank:
+              span.detail-info= record.get("Klasman Sıralaması")
+            .each-detail
+              span.detail-name Height:
+              span.detail-info= record.get("Boy")   
+            .each-detail
+              span.detail-name Weight:
+              span.detail-info= record.get("Kilo") 
+            .each-detail
+              span.detail-name Foot:
+              span.detail-info= record.get("Ayak")      
+          .videos
+            - if(record.videos) {
+
+            - } else {
+              .no-warning 
+                span There is no match record yet
+            - }

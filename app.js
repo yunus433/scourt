@@ -8,10 +8,7 @@ const helmet = require('helmet');
 const app = express();
 
 const indexRouteController = require('./routes/indexRoute');
-const leagueRouteController = require('./routes/leagueRoute');
-const helpRouteController = require('./routes/helpRoute');
-const playersRouteController = require('./routes/playersRoute');
-const schoolRouteController = require('./routes/schoolsRoute');
+const englishRouteController = require('./routes/englishRoute');
 
 dotenv.config({path: path.join(__dirname, '.env')});
 
@@ -34,10 +31,7 @@ app.use((req, res, next) => {
 app.use(helmet());
 
 app.use('/', indexRouteController);
-app.use('/leagues', leagueRouteController);
-app.use('/players', playersRouteController);
-app.use('/help', helpRouteController);
-app.use('/schools', schoolRouteController);
+app.use('/english', englishRouteController);
 
 app.listen(PORT, () => {
   console.log(`Port on ${PORT}`);
