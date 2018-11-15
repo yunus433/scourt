@@ -1,0 +1,42 @@
+extends ../partials/header
+block main
+  .all
+    .rode
+      a.rodePart.rodeLeagues(href="/german/spieler") Spieler >
+    .all-content
+      h2.sidebar-title Spielerliste
+      .forms
+        form#name-form(action="/players" method="GET")
+          h4 Geben Sie den Namen des Spielers ein:
+          input.input-name(name="name" placeholder="Name" autocomplete="off")   
+        form#school-form(action="/players" method="GET")
+          h4 Geben Sie die Schule des Spielers:
+          input.input-name(name="school" placeholder="Team" autocomplete="off")       
+      .players
+        .players-header 
+          .header-item.header-item-one
+          .header-item
+          .header-item
+          .header-item
+          .header-item 
+            span Tor
+          .header-item
+            span Assist
+        .players-content(id="playersContent")
+          each person, index in players 
+            a.personLink(href="/german/spieler/details/?id=" + person.getId())
+              .Person
+                .numberedList
+                  span= index+1
+                .content-item.name
+                  span #{person.get("Name")}
+                .content-item.position
+                  span #{person.get("Pozisyon")}
+                .content-item.birthdate
+                  span #{person.get("Notes")}
+                .content-item.school
+                  span #{person.school.get("Name")}
+                .content-item.gol
+                  span #{person.get("Gol")}
+                .content-item.asist 
+                  span #{person.get("Asist")}

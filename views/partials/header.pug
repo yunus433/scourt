@@ -2,22 +2,18 @@ extends ../partials/head
 block content
   .header
     .header-content
-      a(href="/")
-        img.logo(src="/res/logo.jpeg")
-      a.toPlayers.toButton(href="/players") Oyuncular
-      a.toLeagues.toButton(href="/leagues") Ligler
-      a.toSchools.toButton(href="/schools") Takımlar
-      a.toCommunication.toButton(href="/help") Bize Ulaş!
-      a.language-choices(href="/english") English
-    .header-content-english
-      a(href="/")
-        img.logo(src="/res/logo.jpeg")
-      a.toPlayers.toButton(href="/players") Players
-      a.toLeagues.toButton(href="/leagues") Leagues
-      a.toSchools.toButton(href="/schools") Teams
-      //- a.toVideos.toButton(href="#") Videolar
-      a.toCommunication.toButton(href="/help") Help
-      .language-choices-english Türkçe
+      .left-side
+        a(href="/")
+          img.logo(src="/res/logo.jpeg")
+        a.toPlayers.toButton(href="/players") Oyuncular
+        a.toLeagues.toButton(href="/leagues") Ligler
+        a.toSchools.toButton(href="/schools") Takımlar
+        a.toCommunication.toButton(href="/help") Bize Ulaş
+      .right-side
+        a.language-choice(href="/english")
+          img.flag-icon(src="https://lipis.github.io/flag-icon-css/flags/4x3/gb.svg")
+        a.language-choice(href="/german")
+          img.flag-icon(src="https://lipis.github.io/flag-icon-css/flags/4x3/de.svg")
   .main
     block main
     .footer

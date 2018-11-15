@@ -9,6 +9,7 @@ const app = express();
 
 const indexRouteController = require('./routes/indexRoute');
 const englishRouteController = require('./routes/englishRoute');
+const germanRouteController = require('./routes/germanRoute');
 
 dotenv.config({path: path.join(__dirname, '.env')});
 
@@ -32,6 +33,7 @@ app.use(helmet());
 
 app.use('/', indexRouteController);
 app.use('/english', englishRouteController);
+app.use('/german', germanRouteController);
 
 app.listen(PORT, () => {
   console.log(`Port on ${PORT}`);

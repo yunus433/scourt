@@ -6,8 +6,8 @@ module.exports = (req, res, next) => {
 
   schoolRequest(req.base, arrayschools, (err, schools) => {
     if (err) return console.log(err);
-    res.render("english/schools/schools", {
-      page: "english/schools/schools",
+    res.render("german/schools/schools", {
+      page: "german/schools/schools",
       title: "Teams",
       includes: {
         external: ["fontawesome", "js"]

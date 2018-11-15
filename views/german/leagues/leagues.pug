@@ -1,0 +1,45 @@
+extends ../partials/header
+block main
+  .all
+    .rode
+      a.rodePart(href="/german/ligen") Ligen >
+    .all-content
+      h2 Die Ligen, denen wir folgen
+      .filter-form
+        form.ended(action="/leagues" method="GET")
+          input#checkbox-ended-english(type="checkbox" name="ended")
+        span Nur die fortlaufenden Ligen anzeigen
+      .leagueList
+        each record, index in tournaments
+          - if (record) {
+            a(href="/german/ligen/details/?id=" + record.getId())
+              .leagues
+                .leagueHeader
+                  .headerInfo
+                    .header-left
+                      h2 #{record.get("Name")}
+                      span #{record.get("Tarih")}
+                    .matches
+                      h4 Freundschaftsliga
+                      each match in record.matches.slice(0, 3)
+                        .each-match
+                          span.matches-feature.matches-date= match.get("Tarih")
+                          span.matches-feature.matches-teamOne= match.teamOne.get("Name")
+                          span.matches-feature.matches-result= match.get("Skor")
+                          span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+                  .headerVideo
+                    h3 Das neueste Liga-Video:
+                    iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                .leagueContent  
+                  span Anzahl der gespielten Spiele: #{record.get("Maçlar").length} 
+                  - if (record.get("Durum") == "Devam Ediyor") {
+                    span.condition Status: Continuing
+                  - } else {
+                    span.condition Status: Ended
+                  - }
+                .details
+                  span Click for Details
+                  i.fas.fa-info-circle
+          - }
+      .leagueCommunication 
+        span Das ist alles für jetzt. Wenn Sie möchten, dass wir einer anderen Liga aus Ihrem Land oder Ihrer Stadt folgen, senden Sie uns einfach eine E-Mail!

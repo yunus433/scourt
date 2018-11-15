@@ -1,0 +1,480 @@
+.league {
+  width: 80%;
+  padding: 10px;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.Tamamlandı {
+  color: red;
+}
+.Devam.Ediyor {
+  color: green;
+}
+.leagueHeader {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  margin-bottom: 25px;
+  border-radius: 10px;
+}
+.league-header-info {
+  flex: 1;
+  padding-left: 25px;
+  height: 100%;
+}
+.generalInfo {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.league-header-video {
+  flex: 1;
+  height: 100%;
+  padding-top: 10%;
+}
+.leagueName {
+  padding-right: 10px;
+}
+.generalInfo {
+  padding-right: 10px;
+}
+.matches {
+  flex: 2;
+}
+.lists {
+  flex: 1;
+}
+.each-match {
+  display: flex;
+  height: 100px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  border-radius: 10px;
+}
+.matches-feature {
+  align-self: center;
+  height: 60%;
+}
+.matches-teamOne {
+  flex: 2;
+  text-align: right;
+  font-size: 1.1em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-top: 5%;
+}
+.matches-teamTwo {
+  flex: 2;
+  font-size: 1.1em;
+  color: rgba(66, 66, 66, 0.7);
+  padding-top: 5%;
+}
+.matches-result {
+  flex: 0.5;
+  text-align: center;
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%); 
+  font-size: 2em;
+}
+.matches-date {
+  font-size: 1.2em;
+  text-align: center;
+  flex: 1;
+  font-weight: bold;
+  height: 70%;
+  border-right: 1px solid rgba(0, 0, 0, 0.50);
+  padding-top: 15px;
+}
+.leagueContent {
+  display: flex;
+  flex-direction: column;
+}
+.leagueContentHeader {
+  display: flex;
+  width: 50%;
+  height: 50px;
+}
+.matches-header, .league-order-header, .all-videos-header {
+  flex: 1;
+  border-top-right-radius: 10px;
+  background-color: white;
+  border-right: 1px solid rgba(0, 0, 0, 0.50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: -7px;
+}
+.symbol {
+  flex: 0.5;
+  background-color: white;
+  text-align: center;
+}
+.symbol-image {
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+.Galatasaray.Lisesi {
+  border-radius: 0px;
+  height: 35px;
+  width: 30px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);  
+}
+.matches-header {
+  z-index: 2;
+}
+.league-order-header {
+  z-index: 3;
+  background-color: rgb(212, 206, 206);
+}
+.all-videos-header {
+  z-index: 1;
+}
+.matches {
+  padding: 10px;
+  display: none;
+  padding-right: 0px;
+}
+.all-videos {
+  display: none;
+  padding: 10px;
+  padding-right: 0px;
+}
+.league-order {
+  padding: 10px;
+  padding-right: 0px;
+}
+.info {
+  width: 100%;
+  padding: 10px 0px 20px 0px;
+  color: rgba(66, 66, 66, 0.9);
+}
+.no-match-warning  {
+  color: rgba(66, 66, 66, 0.5);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+.forms {
+  display: flex;
+}
+.forms form {
+  margin-right: 100px;
+}
+.forms h4 {
+  margin: none;
+}
+.input-video {
+  outline: none;
+  border: none;
+  background: none;
+  height: 30px;
+  width: 100%;
+  font-family: "Roboto Slab", Roboto;
+  font-size: 100%;
+}
+.each-video {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+.each-video-left {
+  flex: 2;
+  padding: 5px;
+}
+.each-video-right {
+  flex: 4;
+  padding: 5px;
+}
+.each-videos {
+  border: none;
+  width: 100%;
+  height: auto;
+}
+.sides {
+  display: flex;
+  align-items: center;
+}
+.video-teamOne, .video-teamTwo {
+  font-size: 1.1em;
+}
+.video-skor {
+  margin: 0px 10px;
+  font-size: 1.1em;
+}
+.video-date {
+  color: rgba(66, 66, 66, 0.7);
+  padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+}
+.explanation {
+  padding: 15px;
+}
+.school-sort {
+  height: 100px;
+  display: flex;
+  border-radius: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 0px 10px;
+  align-items: center;
+  width: 100%;
+}
+.sort-header {
+  height: 20px;
+  display: flex;
+  margin-bottom: 5px;
+}
+.sort-feature {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.sort-feature-header {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  color: rgba(66, 66, 66, 0.5);
+  font-size: 0.8em;
+  justify-content: center;
+}
+.sort-feature-number {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-weight: bold;
+  font-size: 2em;
+  justify-content: center;
+}
+.sort-feature-logo {
+  flex: 0.75;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.symbol-image-sort {
+  height: 60px;
+  width: 60px;
+}
+.sort-feature-school {
+  flex: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  font-size: 1.1em;
+}
+.sort-Galatasaray.Lisesi {
+  height: 55px;
+  width: 50px; 
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 850px) {
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 850px) and (min-width: 624px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 75%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+  }
+  .symbol {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 624px) and (min-width: 540px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 85%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 540px) and (min-width: 500px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 85%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.9em;
+  }
+  .all-content {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 90%;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.8em;
+  }
+  .all-content {
+    font-size: 0.7em;
+  }
+  .each-video {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .leagueHeader {
+    flex-direction: column;
+  }
+  .league-header-info, .league-header-video{
+    width: 100%;
+    flex-direction: column;
+  }
+  .leagueContentHeader {
+    width: 110%;
+    height: 40px;
+    font-size: 0.9em;
+  }
+  .sides {
+    display: flex;
+    flex-direction: column;
+  }
+  .each-match {
+    font-size: 0.8em;
+  }
+  .matches-result {
+    font-size: 1.5em;
+    margin: 0 2px;
+  }
+  .symbol {
+    display: none;
+  }
+  .explanation {
+    font-size: 0.8em;
+  }
+  .all-content {
+    font-size: 0.7em;
+  }
+  .each-video {
+    flex-direction: column;
+  }
+  .leagueVideo {
+    width: 100%;
+  }
+  .sort-feature, .sort-feature-header {
+    display: none;
+  }
+  .matches-date {
+    display: none;
+  }
+  .each-match {
+    padding: none;
+  }
+  .content {
+    width: 100%;
+  }
+}
