@@ -23,8 +23,7 @@ a {
   font-size: 1.3em;
   margin-right: 5px;
   display: flex;
-  justify-items: stretch;
-  align-content: stretch;
+  align-items: center;
   height: 40px;
   width: 50px;
 }
@@ -38,12 +37,15 @@ a {
   display: flex;
   align-items: center;  
 }
-.left-side, .right-side {
-  flex: 1;
+.left-side {
+  flex: 4;
   display: flex;
   align-items: center;
 }
 .right-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
   justify-content: flex-end;
 }
 .flag-icon {
@@ -171,6 +173,13 @@ a {
     font-size: 0.8em;
     height: 150px;
   }
+  .header {
+    font-size: 0.9em;
+  }
+  .flag-icon {
+    height: 30px;
+    width: 40px;
+  }
 }
 
 @media only screen and (max-width: 650px) and (min-width: 450px) {
@@ -181,6 +190,24 @@ a {
   .adres {
     display: none;
   }
+  .header {
+    font-size: 0.8em;
+  }
+  .flag-icon {
+    height: 25px;
+    width: 30px;
+  }
+  .language-choice {
+    width: 30px;
+  }
+  .left-side img {
+    margin-right: 8px;
+    margin-left: 5px;
+  }
+  .toButton {
+    margin-left: 0px;
+  }
+  
 }
 
 @media only screen and (max-width: 450px) and (min-width: 300px) {
@@ -191,6 +218,29 @@ a {
   .adres {
     display: none;
   }
+  .left-side img {
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  .toButton {
+    margin-left: 0px;
+    margin-right: 2px;
+  }
+  .flag-icon {
+    height: 20px;
+    width: 25px;
+  }
+  .language-choice {
+    width: 25px;
+  }
+  .left-side {
+    flex: 5;
+  }
+  .header-content a {
+    margin-right: 5px;
+  }
 }
 
 @media only screen and (max-width: 540px) and (min-width: 460px) {
@@ -199,6 +249,13 @@ a {
   }
   .header-item {
     margin-bottom: -10px;
+  }
+  .left-side img {
+    margin-right: 8px;
+    margin-left: 5px;
+  }
+  .toButton {
+    margin-left: 0px;
   }
 } 
 
@@ -210,11 +267,18 @@ a {
   .footer {
     font-size: 0.8em;
   }
-  .header img {
-    margin-right: 10px;
+  .left-side img {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .toButton {
+    margin-left: 0px;
   }
   .header-item {
     margin-bottom: -10px;
+  }
+  .header {
+    font-size: 0.8em;
   }
 } 
 
@@ -226,8 +290,12 @@ a {
   .footer {
     font-size: 0.65em;
   }
-  .header img {
-    margin-right: 7px;
+  .left-side img {
+    margin-right: 3px;
+    margin-left: 5px;
+  }
+  .toButton {
+    margin-left: 0px;
   }
   .header-item {
     margin-bottom: -10px;

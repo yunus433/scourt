@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
       page: "english/main/main",
       title: "Main Page",
       includes: {
-        external: ["fontawesome", "js"]
+        external: ["fontawesome"]
       },
       players: arrays[0],
       matches: arrays[1],
