@@ -145,6 +145,12 @@ a {
 .rode-english {
   display: none;
 }
+button {
+  outline: none;
+  font-weight: normal;
+  border: none;
+  font-family: "Roboto Slab", "Roboto";
+}
 
 @media only screen and (max-width: 1400px) and (min-width: 1024px) {
   .all {
