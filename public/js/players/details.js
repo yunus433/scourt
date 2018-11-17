@@ -5,8 +5,6 @@ window.onload = () => {
   const detailsWrapper = document.querySelector('.details');
   const videosWrapper = document.querySelector('.videos');
 
-  details.on
-
   document.addEventListener('tap', (event) => {
     if (event.target) {
       if (event.target.closest('.details-header')) {
