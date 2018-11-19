@@ -4,9 +4,6 @@ block main
     .rode
       a.rodePart.rodeLeagues(href="/players") Oyuncular > 
       a.rodePart.rodeDetails(href="/players/details?id=" + record.getId())  #{record.get("Name")}
-    .rode-english
-      a.rodePart.rodeLeagues(href="/players") Players > 
-      a.rodePart.rodeDetails(href="/players/details?id=" + record.getId())  #{record.get("Name")}
     .all-content
       .player-data
         .player-header

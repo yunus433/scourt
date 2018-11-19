@@ -16,11 +16,11 @@ block main
                     h3.school-name #{school.get("Name")}
                 .school-bottom
                   .school-players
-                    h3 First Five:
+                    h3 Erste Fünf:
                     each player, index in school.playerData.slice(0, 5)
                       span.player-names #{index+1}. #{player.get("Name")}
                   .details
-                    span Click for Details
+                    span Fur details hier klicken
                     i.fas.fa-info-circle
           - }
       .school-communication
