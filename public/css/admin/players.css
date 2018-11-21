@@ -1,0 +1,99 @@
+.forms {
+  display: flex;
+  padding-right: 25px;
+  margin-bottom: 25px;
+  align-items: center;
+}
+.forms form {
+  margin-right: 100px;
+  flex: 1;
+}
+.add-new {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+  padding: 10px 15px;
+  background-color: white;
+  border-radius: 15px;
+  color: rgb(66, 66, 66);
+}
+.add-new i {
+  font-size: 1.4em;
+  padding-right: 7.5px;
+}
+.forms h4 {
+  margin: none;
+}
+.input-name {
+  outline: none;
+  border: none;
+  background: none;
+  height: 30px;
+  flex: 1;
+  font-family: "Roboto Slab", Roboto;
+  font-size: 100%;
+}
+.players {
+  width: 90%;
+  min-height: 38vh;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+}
+.players-header {
+  display: flex;
+  align-items: center;
+}
+.header-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.Person {
+  display: flex;
+  border-radius: 10px;
+  min-height: 55px;
+  align-items: center;
+  margin-top: 15px;
+  background-color: white;
+}
+.content-item {
+  height: 35px;
+  padding-right: 10px;
+  flex: 1;
+  border-right: 1px solid rgba(66, 66, 66, 0.1);
+  padding: 5px 5px;
+  font-size: 0.9em;
+  color: rgba(66, 66, 66, 0.7);
+  display: flex;
+  align-items: center;
+}
+.name {
+  color: rgba(66, 66, 66);
+  font-weight: bold;
+  padding-left: 20px;
+}
+.gol {
+  color: rgba(66, 66, 66);
+  font-weight: bold;
+}
+.asist {
+  color: rgba(66, 66, 66);
+  font-weight: bold;
+}
+.numberedList {
+  height: 20px;
+  width: 20px;
+  margin-left: -27px;
+  color: rgb(66, 66, 66);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.all {
+  padding: 25px;
+  font-size: 0.9em;
+  overflow: scroll;
+}

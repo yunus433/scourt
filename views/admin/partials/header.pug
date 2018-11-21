@@ -1,0 +1,13 @@
+extends ../partials/head
+block content
+  .sidebar
+    .sidebar-header
+      .logo
+        img(src="./../res/logo.jpeg")
+      h2.sidebar-title Admin Sayfası
+    a.sidebar-players.sidebar-button(href="/admin/players") Oyuncu Bilgileri
+    a.sidebar-leagues.sidebar-button(href="#") Lig Bilgileri
+    a.sidebar-matches.sidebar-button(href="#") Maç Bilgileri
+    a.sidebar-teams.sidebar-button(href="#") Kayıtlı Takım Bilgileri
+  .main
+    block main

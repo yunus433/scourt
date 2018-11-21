@@ -1,0 +1,14 @@
+extends ../partials/head
+block content
+  .all
+    .form-wrapper
+      .form-description
+        h1 Admin Olarak Giriş Yap
+        h2 Admin şifresi ile Scourt yönetim paneline giriş yap
+      form.form(method="POST", action="/admin/login")
+        input.field-password(type="password", name="password", placeholder="Şifreyi girin", autofocus)
+        input.button-submit(type="submit", value="Giriş Yap")
+      - if (wrong) {
+        .wrong-password
+          span Şifre yanlış. Lütfen tekrar deneyin.
+      - }
