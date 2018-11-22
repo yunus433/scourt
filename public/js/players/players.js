@@ -53,7 +53,7 @@ window.onload = () => {
     });
   }
 
-  schoolForm.onchange = function (event) {
+  schoolForm.oninput = function (event) {
     schools.forEach(school => {
       let takenName = school.textContent.toLowerCase().split(""); 
       let namesValue = event.target.value.trim().toLowerCase().split("");

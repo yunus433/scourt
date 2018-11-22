@@ -1,5 +1,6 @@
 extends ../admin/partials/header
 block main
+  .add-new.block
   .all
     h1.sidebar-title Oyuncu Listesi
     .forms
@@ -9,7 +10,7 @@ block main
       form#school-form(action="/players" method="GET")
         h4 Aradığınız oyuncunun okulunu girin:
         input.input-name(name="school" placeholder="Okul" autocomplete="off") 
-      a(href="#").add-new
+      .add-new
         i.fas.fa-plus-circle
         h2 Yeni Oyuncu Ekle
     .players
