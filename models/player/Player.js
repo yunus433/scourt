@@ -36,12 +36,12 @@ const PlayerSchema = new Schema({
     type: String
   },
   boy: {
-    type: Number,
-    default: undefined
+    type: String,
+    default: '-'
   },
   kilo: {
-    type: Number,
-    default: undefined
+    type: String,
+    default: '-'
   },
   ayak: {
     type: String,
