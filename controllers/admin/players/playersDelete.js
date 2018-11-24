@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Player = require('../../models/player/Player');
+const Player = require('../../../models/player/Player');
 
 module.exports = (req, res, next) => {
   Player

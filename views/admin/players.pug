@@ -1,46 +1,5 @@
 extends ../admin/partials/header
 block main
-  .add-new-block
-    h2.add-new-title Yeni Oyuncu Ekle
-    form.add-new-form(action="/admin/players" method="POST")
-      h4 Yeni oyuncu girişini tamamlamak için aşağıdaki bilgileri doldurun:
-      .form-line
-        input(type="text" placeholder="Oyuncu İsmi" autocomplete="false" autofocus name="name")
-        input(type="text" placeholder="Doğum Tarihi" autocomplete="false" name="date") 
-        input(type="text" name="pozisyon" autocomplete="false" placeholder="Pozisyon")
-      .form-line
-        span Cinsiyet:
-        select(name="gender")
-          option(value="Erkek") Erkek
-          option(value="Kız") Kız
-        span Takım:
-        select(name="team")
-          option(value="Üsküdar Amerikan Lisesi") Üsküdar Amerikan Lisesi
-          option(value="Robert Kolej") Robert Kolej
-          option(value="Koç Lisesi") Koç Lisesi
-          option(value="Marmara Koleji") Marmara Koleji
-          option(value="Galatasaray Lisesi") Galatasaray Lisesi
-          option(value="Darüşşafaka Lisesi") Darüşşafaka Lisesi
-      .form-line
-        span Gol sayısı:
-        input(type="number" name="gol" value=0)
-        span Asist sayısı:
-        input(type="number", name="asist" value=0)
-      .form-line
-        span Oyuncunun Uzunluğu:
-        input(type="text" name="boy")
-      .form-line
-        span Oyuncunun Kilosu:
-        input(type="number" name="kilo")
-      .form-line
-        span Oyuncunun Oynadığı Ayak:
-        select(name="ayak")
-          option(value="Sağ") Sağ 
-          option(value="Sol") Sol 
-          option(value="Her ikisi de") Her ikisi de
-      .exit-add-new-block-wrapper
-        span.exit-add-new-block Çıkış
-        button.add-new-submit(type="submit") Kaydet  
   .all
     h1.sidebar-title Oyuncu Listesi
     .forms
@@ -50,7 +9,7 @@ block main
       form#school-form(action="/players" method="GET")
         h4 Aradığınız oyuncunun okulunu girin:
         input.input-name(name="school" placeholder="Okul" autocomplete="off") 
-      .add-new
+      a(href="/admin/players/new").add-new
         i.fas.fa-plus-circle
         h2 Yeni Oyuncu Ekle
     .players

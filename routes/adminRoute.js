@@ -4,15 +4,18 @@ const router = express.Router();
 const loginRouteController = require('../controllers/admin/login');
 const mainRouteController = require('../controllers/admin/main');
 const indexRouteController = require('../controllers/admin/index');
-const playersRouteController = require('../controllers/admin/players');
-const deletePlayerGet = require('../controllers/admin/deletePlayerPost');
-const playersEditRouteController = require('../controllers/admin/playersEdit');
+const playersRouteController = require('../controllers/admin/players/players');
+const playersDeleteRouteController = require('../controllers/admin/players/playersDelete');
+const playersEditRouteController = require('../controllers/admin/players/playersEdit');
+const playersAddRouteController = require('../controllers/admin/players/playersAdd');
+const leaguesRouteController = require('../controllers/admin/leagues/leagues');
 
 const loginPostController = require('../controllers/admin/loginPost');
-const newPlayerPostController = require('../controllers/admin/newPlayerPost');
-const editPlayersPostController = require('../controllers/admin/editPlayerPost');
+const newPlayerPostController = require('../controllers/admin/players/newPlayerPost');
+const editPlayersPostController = require('../controllers/admin/players/editPlayerPost');
 
 const isAdmin = require('../middleware/isAdmin');
+const deleteAdmin = require('../middleware/deleteAdmin');
 
 router.get(
   '/',
@@ -21,6 +24,10 @@ router.get(
 router.get(
   '/login',
   loginRouteController
+);
+router.get(
+  '/exit',
+  deleteAdmin
 );
 router.get(
   '/main',
@@ -33,13 +40,22 @@ router.get(
   playersRouteController
 );
 router.get(
+  '/players/new',
+  playersAddRouteController
+)
+router.get(
   '/players/delete',
-  deletePlayerGet
+  playersDeleteRouteController
 );
 router.get(
   '/players/edit',
   isAdmin,
   playersEditRouteController
+);
+router.get(
+  '/leagues',
+  isAdmin,
+  leaguesRouteController
 );
 
 router.post(
@@ -47,7 +63,7 @@ router.post(
   loginPostController
 );
 router.post(
-  '/players',
+  '/players/new',
   newPlayerPostController
 );
 router.post(
