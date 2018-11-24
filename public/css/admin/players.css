@@ -185,3 +185,6 @@
   font-size: 0.9em;
   overflow: scroll;
 }
+.sidebar-players {
+  border-right: 5px black solid;
+}

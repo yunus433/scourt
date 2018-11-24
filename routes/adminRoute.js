@@ -40,7 +40,7 @@ router.get(
   '/players/edit',
   isAdmin,
   playersEditRouteController
-)
+);
 
 router.post(
   '/login',
