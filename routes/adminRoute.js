@@ -10,6 +10,7 @@ const playersEditRouteController = require('../controllers/admin/playersEdit');
 
 const loginPostController = require('../controllers/admin/loginPost');
 const newPlayerPostController = require('../controllers/admin/newPlayerPost');
+const editPlayersPostController = require('../controllers/admin/editPlayerPost');
 
 router.get(
   '/',
@@ -44,5 +45,9 @@ router.post(
   '/players',
   newPlayerPostController
 );
+router.post(
+  '/players/edit',
+  editPlayersPostController
+)
 
 module.exports = router;

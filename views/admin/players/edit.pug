@@ -2,7 +2,7 @@ extends ../partials/head
 block content
   .edit-block
     h2.title Oyuncu Kaydını Düzenle - #{player.name}
-    form.form(action="/admin/players" method="POST")
+    form.form(action="/admin/players/edit/?id=" + player.id method="POST")
       h4 Düzenlemeleri yapıp kaydedin:
       .form-line
         input(type="text" placeholder="Oyuncu İsmi" autocomplete="false" autofocus name="name" value="" + player.name)
@@ -39,5 +39,5 @@ block content
           option(value="Sol") Sol 
           option(value="Her ikisi de") Her ikisi de
       .exit-edit-block-wrapper
-        span.exit-edit-block Çıkış
+        a.exit-edit-block(href="/admin/players") Çıkış
         button.edit-submit(type="submit") Kaydet  
