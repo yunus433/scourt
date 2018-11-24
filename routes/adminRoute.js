@@ -12,6 +12,8 @@ const loginPostController = require('../controllers/admin/loginPost');
 const newPlayerPostController = require('../controllers/admin/newPlayerPost');
 const editPlayersPostController = require('../controllers/admin/editPlayerPost');
 
+const isAdmin = require('../middleware/isAdmin');
+
 router.get(
   '/',
   indexRouteController
@@ -22,10 +24,12 @@ router.get(
 );
 router.get(
   '/main',
+  isAdmin,
   mainRouteController
 );
 router.get(
   '/players',
+  isAdmin,
   playersRouteController
 );
 router.get(
@@ -34,6 +38,7 @@ router.get(
 );
 router.get(
   '/players/edit',
+  isAdmin,
   playersEditRouteController
 )
 
