@@ -18,6 +18,10 @@ const PlayerSchema = new Schema({
     type: String,
     required: true
   },
+  teamId: {
+    type: String,
+    required: true
+  },
   gol: {
     type: Number,
     default: 0

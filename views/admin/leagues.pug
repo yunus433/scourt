@@ -1,2 +1,41 @@
 extends ../admin/partials/header
 block main
+  .all
+    h1.sidebar-title Lig Listesi
+    .forms 
+      .form
+      .form
+      a(href="/admin/leagues/new").add-new
+        i.fas.fa-plus-circle
+        h2 Yeni Lig Ekle
+    .leagues
+      .leagues-header 
+        .header-item.header-item-one
+          span Lig İsmi
+        .header-item
+          span Tarih
+        .header-item
+          span Durum
+        .header-item
+          span Oynanmış Maç Sayısı
+        .header-item
+          span Yayınlanmış Video Sayısı
+      .leagues-content
+        each league in leagues 
+          .leagueLink
+            .League
+              .numberedList
+                a.edit-league-record(href="/admin/leagues/edit/?id=" + league.id)
+                  i.fas.fa-cog
+                a.delete-league-record(href="/admin/leagues/delete/?id=" + league.id method="POST" onclick="return confirm('Bu oyuncu kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
+                  i.fas.fa-trash
+              .league-name
+                span= league.name
+              .league-date
+                span= league.date
+              .league-status(class="" + league.status)
+                span= league.status
+              .match-number
+                span= league.matches.lenght
+              .video-number
+                span= league.videos.length

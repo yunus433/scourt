@@ -16,6 +16,9 @@ const LeagueSchema = new Schema({
   status: {
     type: String,
     required: true
+  },
+  videos: {
+    type: Array
   }
 });
 

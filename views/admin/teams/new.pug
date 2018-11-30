@@ -1,0 +1,16 @@
+extends ../partials/head
+block content 
+  .all
+    .add-new-block
+      h2.title Yeni Takım Ekle
+      form.form(action="/admin/teams/new" method="POST")
+        h4 Yeni takım girişini tamamlamak için aşağıdaki bilgileri doldurun:
+        .form-line
+          span Takım ismi:
+          input(type="text" placeholder="Takım İsmi" autocomplete="off" autofocus name="name")
+        .form-line
+          span Logo
+          input(type="text" placeholder="Takım Logosu" autocomplete="off" name="logo")
+        .exit-add-new-block-wrapper
+          a(href="/admin/teams").exit-add-new-block Çıkış
+          button.add-new-submit(type="submit") Devam  
