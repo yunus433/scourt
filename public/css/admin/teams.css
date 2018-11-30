@@ -78,9 +78,9 @@
 .team-content-bottom {
   display: flex;
 }
-.logo {
-  height: 100px;
-  width: 100px;
+.team-logo-image {
+  height: 90px;
+  width: 90px;
 }
 .team-item {
   display: flex;
