@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Player = require('../../../models/player/Player');
 
 module.exports = (req, res, next) => {
+  console.log(req.query.id)
   Player
     .findOneAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$set: {
       "name": req.body.name,

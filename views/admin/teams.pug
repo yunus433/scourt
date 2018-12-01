@@ -19,7 +19,7 @@ block main
                 h2= team.name
                 a.edit-team-record(href="/admin/teams/edit/?id=" + team.id)
                   i.fas.fa-cog
-                a.delete-team-record(href="/admin/teams/delete/?id=" + team.id method="POST" onclick="return confirm('Bu oyuncu kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
+                a.delete-team-record(href="/admin/teams/delete/?id=" + team.id onclick="return confirm('Bu oyuncu kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
                   i.fas.fa-trash
               .team-content-bottom
                 .team-item.match-number

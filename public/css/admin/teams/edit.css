@@ -1,10 +1,9 @@
-.edit-block {
-  width: 50%;
+.add-new-block {
+  width: 70%;
   position: absolute;
-  height: 50%;
-  margin-top: 25%;
+  margin-top: 75px;
   margin-left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   background-color: white;
   opacity: 1;
   display: flex;
@@ -12,7 +11,7 @@
   padding: 15px 25px;
   border-radius: 15px;
 }
-.exit-edit-block-wrapper {
+.exit-add-new-block-wrapper {
   width: 100%;
   align-content: center;
   margin-top: 5px;
@@ -22,7 +21,7 @@
 .form-line span{
   margin: 0px 10px;
 }
-.exit-edit-block {
+.exit-add-new-block {
   border: none;
   outline: none;
   border: 1px solid rgb(66, 66, 66);
@@ -38,7 +37,7 @@
   font-size: 1.3em;
   color: black;
 }
-.edit-submit {
+.add-new-submit {
   border: none;
   outline: none;
   border: 1px solid rgb(66, 66, 66);
@@ -58,7 +57,6 @@
   margin: none;
 }
 .form {
-  height: 70%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -76,10 +74,14 @@
   flex: 1;
   display: flex;
   align-items: center;
+  margin-bottom: 15px;
 }
 .form-line-last {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex: 2;
+}
+.add-players-wrapper {
+  padding-left: 15px;
 }

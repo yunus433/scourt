@@ -11,6 +11,8 @@ const playersAddRouteController = require('../controllers/admin/players/playersA
 const teamsRouteController = require('../controllers/admin/teams/teams');
 const teamsAddRouteController = require('../controllers/admin/teams/teamAdd');
 const teamsPlayerAddRouteController = require('../controllers/admin/teams/playersAdd');
+const teamsDeleteRouteController = require('../controllers/admin/teams/teamsDelete');
+const teamsEditRouteController = require('../controllers/admin/teams/teamsEdit');
 const leaguesRouteController = require('../controllers/admin/leagues/leagues');
 const leaguesAddRouteController = require('../controllers/admin/leagues/leaguesAdd');
 
@@ -19,6 +21,7 @@ const newPlayerPostController = require('../controllers/admin/players/newPlayerP
 const editPlayersPostController = require('../controllers/admin/players/editPlayerPost');
 const newTeamPostController = require('../controllers/admin/teams/newTeamPost');
 const teamsPlayersPostController = require('../controllers/admin/teams/playersAddPost');
+const editTeamsPostController = require('../controllers/admin/teams//editTeamPost');
 
 const isAdmin = require('../middleware/isAdmin');
 const deleteAdmin = require('../middleware/deleteAdmin');
@@ -49,7 +52,7 @@ router.get(
   '/players/new',
   isAdmin,
   playersAddRouteController
-)
+);
 router.get(
   '/players/delete',
   isAdmin,
@@ -75,6 +78,16 @@ router.get(
   isAdmin,
   teamsPlayerAddRouteController
 );
+router.get(
+  '/teams/delete',
+  isAdmin,
+  teamsDeleteRouteController
+);
+router.get(
+  '/teams/edit',
+  isAdmin,
+  teamsEditRouteController
+)
 router.get(
   '/leagues',
   isAdmin,
@@ -109,6 +122,11 @@ router.post(
   '/teams/addPlayer',
   isAdmin,
   teamsPlayersPostController
+);
+router.post(
+  '/teams/edit',
+  isAdmin,
+  editTeamsPostController
 );
 
 module.exports = router;
