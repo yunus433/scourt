@@ -18,19 +18,19 @@ module.exports = (req, res, next) => {
             array.push(team);
           };
         };
-        
-        let newLeagueData = {
-          name: req.body.name,
-          date: req.body.date,
-          status: req.body.status,
-          teams: array
-        };
 
-        const newLeague = new League(newLeagueData);
-        newLeague.save(err =>  {
+        League
+        .findOneAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$set: {
+          "name": req.body.name,
+          "date": req.body.date,
+          "status": req.body.status,
+          "teams": array
+        }}, {upsert: true})
+        .exec((err) => {
           if (err) return console.log(err);
-      
+    
           res.redirect('/admin/leagues');
-        });
-      })
-};
+        })
+      }
+    );
+}

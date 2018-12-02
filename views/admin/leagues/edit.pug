@@ -1,0 +1,23 @@
+extends ../partials/head
+block content
+  .add-new-block
+    h2.title Yeni Oyuncu Ekle
+    form.form(action="/admin/leagues/edit/?id=" + league.id method="POST")
+      h4 Aşağıdan istediğiniz verileri değiştirip kaydedin:
+      .form-line
+        input(type="text" placeholder="Lig İsmi" autocomplete="off" autofocus name="name" value=league.name)
+        input(type="text" placeholder="Yapıldığı Tarih (ay yıl)" autocomplete="off" name="date" value=league.date)
+        span Durum:
+        select(name="status")
+          option(value="Devam Ediyor") Devam Ediyor
+          option(value="Sonlandı") Sonlandı 
+      .checkboxes
+        h4 Katılan Takımlar:
+        .checkboxes
+          each team, index in teams
+            .checkbox-line
+              input.checkbox-input(type="checkbox" name="team" + index value= team.id) 
+              span #{team.name}
+      .exit-add-new-block-wrapper
+        a(href="/admin/leagues").exit-add-new-block Çıkış
+        button.add-new-submit(type="submit") Değiştir  

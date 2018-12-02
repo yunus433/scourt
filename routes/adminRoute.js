@@ -16,6 +16,7 @@ const teamsEditRouteController = require('../controllers/admin/teams/teamsEdit')
 const leaguesRouteController = require('../controllers/admin/leagues/leagues');
 const leaguesAddRouteController = require('../controllers/admin/leagues/leaguesAdd');
 const leaguesDeleteRouteController = require('../controllers/admin/leagues/leagueDelete');
+const leaguesEditRouteController = require('../controllers/admin/leagues/leaguesEdit');
 
 const loginPostController = require('../controllers/admin/loginPost');
 const newPlayerPostController = require('../controllers/admin/players/newPlayerPost');
@@ -24,6 +25,7 @@ const newTeamPostController = require('../controllers/admin/teams/newTeamPost');
 const teamsPlayersPostController = require('../controllers/admin/teams/playersAddPost');
 const editTeamsPostController = require('../controllers/admin/teams//editTeamPost');
 const newLeaguePostController = require('../controllers/admin/leagues/newLeaguePost');
+const editLeaguesPostController = require('../controllers/admin/leagues/editLeaguesPost');
 
 const isAdmin = require('../middleware/isAdmin');
 const deleteAdmin = require('../middleware/deleteAdmin');
@@ -105,6 +107,12 @@ router.get(
   isAdmin,
   leaguesDeleteRouteController
 );
+router.get(
+  '/leagues/edit',
+  isAdmin,
+  leaguesEditRouteController
+);
+
 
 router.post(
   '/login',
@@ -139,6 +147,11 @@ router.post(
   '/leagues/new',
   isAdmin,
   newLeaguePostController
+);
+router.post(
+  '/leagues/edit',
+  isAdmin,
+  editLeaguesPostController
 );
 
 module.exports = router;
