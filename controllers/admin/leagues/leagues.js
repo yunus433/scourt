@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Leagues = require('../../../models/league/Leagues');
+const Leagues = require('../../../models/league/League');
 
 module.exports = (req, res, next) => {
   Leagues
@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
           page: 'admin/leagues',
           title: 'Lig Bilgileri',
           includes: {
-            external: ["fontawesome"]
+            external: ["fontawesome", "js"]
           },
           leagues
         })

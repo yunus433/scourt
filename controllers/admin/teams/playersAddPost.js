@@ -29,10 +29,12 @@ module.exports = (req, res, next) => {
       const newPlayer = new Player(newPlayerData);
       newPlayer.save((err, result) =>  {
         if (err) return console.log(err);
-  
+
+        let playersArray = team.players;
+        playersArray.push(result);
         Team
           .findByIdAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$set: {
-            players: team.players.push(result)
+            players: playersArray
           }}, {upsert: true})
           .exec((err) => {
             if (err) return console.log(err);

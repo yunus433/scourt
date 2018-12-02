@@ -10,6 +10,10 @@ const LeagueSchema = new Schema({
     type: String,
     required: true
   },
+  teams: {
+    type: Array, 
+    required: true
+  },
   matches: {
     type: Array
   },

@@ -1,6 +1,3 @@
-.sidebar-leagues {
-  border-right: 5px black solid;
-}
 .forms {
   display: flex;
   padding-right: 25px;
@@ -31,60 +28,20 @@
   margin-left: 50%;
   transform: translate(-50%, 0);
 }
-.leagues-header {
-  display: flex;
-  align-items: center;
-}
-.header-item {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-.Person {
-  display: flex;
+.League {
   border-radius: 10px;
-  min-height: 55px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   align-items: center;
   margin-top: 15px;
   background-color: white;
-}
-.content-item {
-  height: 35px;
-  padding-right: 10px;
-  flex: 1;
-  border-right: 1px solid rgba(66, 66, 66, 0.1);
-  padding: 5px 5px;
-  font-size: 0.9em;
-  color: rgba(66, 66, 66, 0.7);
-  display: flex;
-  align-items: center;
+  padding: 15px;
+  padding-left: 25px;
 }
 .name {
   color: rgba(66, 66, 66);
   font-weight: bold;
   padding-left: 20px;
-}
-.gol {
-  color: rgba(66, 66, 66);
-  font-weight: bold;
-}
-.asist {
-  color: rgba(66, 66, 66);
-  font-weight: bold;
-}
-.numberedList {
-  height: 20px;
-  width: 20px;
-  margin-left: -30px;
-  color: rgb(66, 66, 66);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.1em;
-}
-.numberedList i {
-  margin-right: 10px;
 }
 .all {
   padding: 25px;
@@ -93,4 +50,98 @@
 }
 .sidebar-leagues {
   border-right: 5px black solid;
+}
+.league-top {
+  display: flex;
+  align-items: center;
+}
+.league-middle {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  color: rgba(66, 66, 66, 0.6)
+}
+.league-date {
+  margin-right: 5px;
+}
+.league-bottom {
+  display: flex;
+  height: 25px;
+  align-items: center;
+}
+.league-top i {
+  margin-left: 15px;
+  font-size: 1.4em;
+}
+.triangle {
+  width: 0px;
+  height: 0px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 7px solid rgba(66, 66, 66, 0.7);
+  margin-left: 5px;
+  margin-bottom: -7px;
+}
+.team-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.team-item-content {
+  outline: none;
+  border: none;
+  background: none;
+  margin-bottom: -5px;
+}
+.team-item-content:hover {
+  color: rgb(66, 66, 66);
+}
+.league-info-teams {
+  padding-left: 10%;
+  display: none;
+}
+.Team {
+  display: flex;
+  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  align-items: center;
+  margin-top: 15px;
+  background-color: white;
+}
+.team-item {
+  height: 35px;
+  padding-right: 10px;
+  flex: 1;
+  padding: 5px 5px;
+  font-size: 0.9em;
+  color: rgba(66, 66, 66, 0.7);
+  display: flex;
+  align-items: center;
+}
+.team-logo {
+  width: 100%;
+  margin: 0px 10px;
+  flex: 1;
+}
+.team-content {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.team-content-top {
+  display: flex;
+  align-items: center;
+}
+.team-content-top i {
+  margin-left: 15px;
+  font-size: 1.4em;
+}
+.team-content-bottom {
+  display: flex;
+}
+.team-logo-image {
+  height: 90px;
+  width: 90px;
 }

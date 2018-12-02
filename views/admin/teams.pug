@@ -19,7 +19,7 @@ block main
                 h2= team.name
                 a.edit-team-record(href="/admin/teams/edit/?id=" + team.id)
                   i.fas.fa-cog
-                a.delete-team-record(href="/admin/teams/delete/?id=" + team.id onclick="return confirm('Bu oyuncu kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
+                a.delete-team-record(href="/admin/teams/delete/?id=" + team.id onclick="return confirm('Bu takım kaydını silmek istediğinize emin misiniz? Silmeniz halinde takıma ait oyuncular da kalıcı olarak silinecektir.')")
                   i.fas.fa-trash
               .team-content-bottom
                 .team-item.match-number
@@ -29,28 +29,40 @@ block main
                     span.team-item-content #{team.players.length} kayıtlı oyuncu
                     .triangle
           .team-info-players
-            each player in players
-              - if (player.teamId = team._id) {
-                .personLink
-                  .Person
-                    .player-edit
-                      a.edit-player-record(href="/admin/players/edit/?id=" + player.id)
-                        i.fas.fa-cog
-                      a.delete-player-record(href="/admin/players/delete/?id=" + player.id method="POST" onclick="return confirm('Bu oyuncu kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
-                        i.fas.fa-trash
-                    .content-item.name
-                      span #{player.name}
-                    .content-item.position
-                      span #{player.pozisyon}
-                    .content-item.birthdate
-                      span #{player.date}
-                    .content-item.school
-                      span #{player.team}
-                    .content-item.gol
-                      span #{player.gol}
-                    .content-item.asist 
-                      span #{player.asist}
-              - }
+            - if (players) {
+              each player in players
+                - if (player.teamId == team.id) {
+                  .personLink
+                    .Person
+                      .player-edit
+                        a.edit-player-record(href="/admin/players/edit/?id=" + player.id)
+                          i.fas.fa-cog
+                        a.delete-player-record(href="/admin/players/delete/?id=" + player.id onclick="return confirm('Bu oyuncu kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
+                          i.fas.fa-trash
+                      .content-item.name
+                        span #{player.name}
+                      .content-item.position
+                        span #{player.pozisyon}
+                      .content-item.birthdate
+                        span #{player.date}
+                      .content-item.school
+                        span #{player.team}
+                      .content-item.gol
+                        span #{player.gol}
+                      .content-item.asist 
+                        span #{player.asist}
+                - } 
+            - } else {
+              .no-record-info
+                span Henüz bir oyuncu kaydı görünmüyor
+            - }
           .team-info-matches
+            - if (matches) {
+
+            - } else {
+              .no-record-info
+                span Henüz bir maç kaydı görünmüyor
+            - }
+ 
 
 

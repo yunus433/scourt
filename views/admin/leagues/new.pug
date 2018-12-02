@@ -5,27 +5,19 @@ block content
     form.form(action="/admin/leagues/new" method="POST")
       h4 Yeni lig girişini tamamlamak için aşağıdaki bilgileri doldurun:
       .form-line
-        input(type="text" placeholder="Lig İsmi" autocomplete="false" autofocus name="name")
-        input(type="text" placeholder="Yapıldığı Tarih (ay yıl)" autocomplete="false" name="date") 
-      .form-line
+        input(type="text" placeholder="Lig İsmi" autocomplete="off" autofocus name="name")
+        input(type="text" placeholder="Yapıldığı Tarih (ay yıl)" autocomplete="off" name="date")
         span Durum:
-        select(name="gender")
-          option(value="continuing") Devam Ediyor
-          option(value="ended") Tamamlandı
-        //- span Katılan Takımlar:
-        //- .checkboxes
-        //- input(type="checkbox" name="teamOne" value="Üsküdar Amerikan Lisesi") 
-        //- span Üsküdar Amerikan Lisesi
-        //- input(type="checkbox" name="teamTwo" value="Robert Kolej") 
-        //- span Robert Kolej
-        //- input(type="checkbox" name="teamThree" value="Koç Lisesi") 
-        //- span Koç Lisesi
-        //- input(type="checkbox" name="teamFour" value="Marmara Koleji") 
-        //- span Marmara Koleji
-        //- input(type="checkbox" name="teamFive" value="Galatasaray Lisesi") 
-        //- span Galatasaray Lisesi
-        //- input(type="checkbox" name="teamSix" value="Darüşşafaka Lisesi") 
-        span Darüşşafaka Lisesi
+        select(name="status")
+          option(value="Devam Ediyor") Devam Ediyor
+          option(value="Sonlandı") Sonlandı 
+      .checkboxes
+        h4 Katılan Takımlar:
+        .checkboxes
+          each team, index in teams
+            .checkbox-line
+              input.checkbox-input(type="checkbox" name="team" + index value= team.id) 
+              span #{team.name}
       .exit-add-new-block-wrapper
         a(href="/admin/leagues").exit-add-new-block Çıkış
         button.add-new-submit(type="submit") Kaydet  

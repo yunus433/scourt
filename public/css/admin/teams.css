@@ -179,3 +179,10 @@
   font-size: 0.9em;
   overflow: scroll;
 }
+.no-record-info {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-top: 25px;
+  color: rgba(66, 66, 66, 0.7);
+}

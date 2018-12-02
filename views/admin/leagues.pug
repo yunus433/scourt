@@ -9,33 +9,48 @@ block main
         i.fas.fa-plus-circle
         h2 Yeni Lig Ekle
     .leagues
-      .leagues-header 
-        .header-item.header-item-one
-          span Lig İsmi
-        .header-item
-          span Tarih
-        .header-item
-          span Durum
-        .header-item
-          span Oynanmış Maç Sayısı
-        .header-item
-          span Yayınlanmış Video Sayısı
       .leagues-content
         each league in leagues 
           .leagueLink
             .League
-              .numberedList
+              .league-top
+                h2= league.name
                 a.edit-league-record(href="/admin/leagues/edit/?id=" + league.id)
                   i.fas.fa-cog
-                a.delete-league-record(href="/admin/leagues/delete/?id=" + league.id method="POST" onclick="return confirm('Bu oyuncu kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
+                a.delete-league-record(href="/admin/leagues/delete/?id=" + league.id onclick="return confirm('Bu lig kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
                   i.fas.fa-trash
-              .league-name
-                span= league.name
-              .league-date
-                span= league.date
-              .league-status(class="" + league.status)
-                span= league.status
-              .match-number
-                span= league.matches.lenght
-              .video-number
-                span= league.videos.length
+              .league-middle
+                .league-date
+                  span #{league.date} 
+                .league-status(class="" + league.status)
+                  span (#{league.status})
+              .league-bottom
+                .team-item.team-number
+                  span.team-item-content #{league.teams.length} kayıtlı takım
+                  .triangle
+                .team-item.match-number
+                  span.team-item-content #{league.matches.length} oynanmış maç
+                  .triangle
+                .team-item.video-number
+                  span.team-item-content #{league.videos.length} yayınlanmış video
+                  .triangle
+            .league-info-teams
+              each team in league.teams 
+                .teamLink
+                  .Team
+                    .team-logo
+                      img.team-logo-image(src="/res/schoolLogos/" + team[0].logo)
+                    .team-content
+                      .team-content-top
+                        h2= team[0].name
+                        a.edit-team-record(href="/admin/teams/edit/?id=" + team[0].id)
+                          i.fas.fa-cog
+                        a.delete-team-record(href="/admin/teams/delete/?id=" + team[0].id onclick="return confirm('Bu lig kaydını silmek istediğinize emin misiniz? Bu işlemi geri alamazsınız.')")
+                          i.fas.fa-trash
+                      .team-content-bottom
+                        .team-item.match-number
+                            span.team-item-content #{team[0].matches.length} oynanmış maç
+                        .team-item.player-number
+                            span.team-item-content #{team[0].players.length} kayıtlı oyuncu
+            .league-info-matches
+            .league-info-videos

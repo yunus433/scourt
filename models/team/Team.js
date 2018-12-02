@@ -12,7 +12,8 @@ const TeamSchema = new Schema({
     required: true
   },
   matches: {
-    type: Array
+    type: Array,
+    default: []
   },
   logo: {
     type: String

@@ -63,10 +63,11 @@
   display: flex;
   flex-direction: column;
 }
-.form input {
+.form-line input {
   width: 30%;
   height: 20px;
   outline: none;
+  margin-right: 5px;
 }
 .form h4 {
   margin: 0px;
@@ -82,4 +83,17 @@
   align-items: center;
   justify-content: space-between;
   flex: 2;
+}
+.checkboxes {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.checkbox-input {
+  margin-right: 10px;
+}
+.checkbox-line {
+  display: flex;
+  align-items: center;
 }

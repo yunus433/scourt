@@ -1,13 +1,31 @@
 const mongoose = require('mongoose');
 const Team = require('../../../models/team/Team');
+const Player = require('../../../models/player/Player');
 
 module.exports = (req, res, next) => {
   Team
-    .findByIdAndDelete(mongoose.Types.ObjectId(req.query.id))
+    .findById(mongoose.Types.ObjectId(req.query.id))
     .exec(
-      (err) => {
+      (err, team) => {
         if (err) return console.log(err);
-        res.redirect('/admin/teams');
+        team.players.forEach(player => {
+          Player
+            .findByIdAndDelete(player._id)
+            .exec(
+              (err) => {
+                if (err) return console.log(err);
+              }
+            )
+        });
+
+        Team
+        .findByIdAndDelete(mongoose.Types.ObjectId(req.query.id))
+        .exec(
+          (err) => {
+            if (err) return console.log(err);
+            res.redirect('/admin/teams');
+          }
+        );
       }
     );
-}
+};
