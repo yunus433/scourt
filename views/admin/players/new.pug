@@ -5,9 +5,9 @@ block content
     form.form(action="/admin/players/new" method="POST")
       h4 Yeni oyuncu girişini tamamlamak için aşağıdaki bilgileri doldurun:
       .form-line
-        input(type="text" placeholder="Oyuncu İsmi" autocomplete="false" autofocus name="name")
-        input(type="text" placeholder="Doğum Tarihi" autocomplete="false" name="date") 
-        input(type="text" name="pozisyon" autocomplete="false" placeholder="Pozisyon")
+        input(type="text" placeholder="Oyuncu İsmi" autocomplete="off" autofocus name="name")
+        input(type="text" placeholder="Doğum Tarihi" autocomplete="off" name="date") 
+        input(type="text" name="pozisyon" autocomplete="off" placeholder="Pozisyon")
       .form-line
         span Cinsiyet:
         select(name="gender")
@@ -24,10 +24,10 @@ block content
         input(type="number", name="asist" value=0)
       .form-line
         span Oyuncunun Uzunluğu:
-        input(type="text" name="boy")
+        input(type="text" name="boy" autocomplete="off")
       .form-line
         span Oyuncunun Kilosu:
-        input(type="number" name="kilo")
+        input(type="text" name="kilo" autocomplete="off")
       .form-line
         span Oyuncunun Oynadığı Ayak:
         select(name="ayak")

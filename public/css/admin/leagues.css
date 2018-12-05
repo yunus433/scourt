@@ -96,10 +96,6 @@
 .team-item-content:hover {
   color: rgb(66, 66, 66);
 }
-.league-info-teams {
-  padding-left: 10%;
-  display: none;
-}
 .Team {
   display: flex;
   border-radius: 10px;
@@ -144,4 +140,32 @@
 .team-logo-image {
   height: 90px;
   width: 90px;
+}
+.league-info {
+  display: none;
+  padding-left: 10%;
+}
+.Person {
+  display: flex;
+  border-radius: 10px;
+  min-height: 55px;
+  align-items: center;
+  margin-top: 15px;
+  background-color: white;
+}
+.content-item {
+  height: 35px;
+  flex: 1;
+  border-right: 1px solid rgba(66, 66, 66, 0.1);
+  font-size: 0.9em;
+  color: rgba(66, 66, 66, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-one {
+  padding-left: 15px;
+}
+.result {
+  flex: 0.5;
 }

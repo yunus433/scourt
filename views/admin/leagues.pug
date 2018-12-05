@@ -17,7 +17,7 @@ block main
                 h2= league.name
                 a.edit-league-record(href="/admin/leagues/edit/?id=" + league.id)
                   i.fas.fa-cog
-                a.delete-league-record(href="/admin/leagues/delete/?id=" + league.id onclick="return confirm('Bu lig kaydını silmek istediğinize emin misiniz? Bu işlem geri alınamaz.')")
+                a.delete-league-record(href="/admin/leagues/delete/?id=" + league.id onclick="return confirm('Bu lig kaydını silmek istediğinize emin misiniz? Lige ait tüm maçlarda kalıcı olarak silinecektir.')")
                   i.fas.fa-trash
               .league-middle
                 .league-date
@@ -34,23 +34,36 @@ block main
                 .team-item.video-number
                   span.team-item-content #{league.videos.length} yayınlanmış video
                   .triangle
-            .league-info-teams
+            .league-info
               each team in league.teams 
                 .teamLink
                   .Team
                     .team-logo
-                      img.team-logo-image(src="/res/schoolLogos/" + team[0].logo)
+                      img.team-logo-image(src="/res/schoolLogos/" + team.logo)
                     .team-content
                       .team-content-top
-                        h2= team[0].name
-                        a.edit-team-record(href="/admin/teams/edit/?id=" + team[0].id)
+                        h2= team.name
+                        a.edit-team-record(href="/admin/teams/edit/?id=" + team.id)
                           i.fas.fa-cog
-                        a.delete-team-record(href="/admin/teams/delete/?id=" + team[0].id onclick="return confirm('Bu lig kaydını silmek istediğinize emin misiniz? Bu işlemi geri alamazsınız.')")
+                        a.delete-team-record(href="/admin/teams/delete/?id=" + team.id onclick="return confirm('Bu lig kaydını silmek istediğinize emin misiniz? Bu işlemi geri alamazsınız.')")
                           i.fas.fa-trash
                       .team-content-bottom
                         .team-item.match-number
-                            span.team-item-content #{team[0].matches.length} oynanmış maç
+                            span.team-item-content #{team.matches.length} oynanmış maç
                         .team-item.player-number
-                            span.team-item-content #{team[0].players.length} kayıtlı oyuncu
-            .league-info-matches
-            .league-info-videos
+                            span.team-item-content #{team.players.length} kayıtlı oyuncu
+            .league-info
+              each match in league.matches 
+                .personLink
+                  .Person
+                    .content-item.team-one
+                      span #{match.teamOne.name}
+                    .content-item.result
+                      span #{match.result}
+                    .content-item.team-two
+                      span #{match.teamTwo.name}
+                    .content-item.date
+                      span #{match.date}
+                    .content-item.league
+                      span #{match.league.name}
+            .league-info

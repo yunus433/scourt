@@ -57,8 +57,20 @@ block main
                 span Henüz bir oyuncu kaydı görünmüyor
             - }
           .team-info-matches
-            - if (matches) {
-
+            - if (team.matches) {
+              each match in team.matches 
+                .personLink
+                  .Person
+                    .content-item.team-one
+                      span #{match.teamOne.name}
+                    .content-item.result
+                      span #{match.result}
+                    .content-item.team-two
+                      span #{match.teamTwo.name}
+                    .content-item.date
+                      span #{match.date}
+                    .content-item.league
+                      span #{match.league.name}
             - } else {
               .no-record-info
                 span Henüz bir maç kaydı görünmüyor

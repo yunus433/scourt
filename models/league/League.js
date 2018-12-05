@@ -11,11 +11,12 @@ const LeagueSchema = new Schema({
     required: true
   },
   teams: {
-    type: Array, 
-    required: true
+    type: Array,
+    default: []
   },
   matches: {
-    type: Array
+    type: Array,
+    default: []
   },
   status: {
     type: String,

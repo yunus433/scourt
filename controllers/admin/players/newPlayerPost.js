@@ -24,10 +24,18 @@ module.exports = (req, res, next) => {
       };
 
       const newPlayer = new Player(newPlayerData);
-      newPlayer.save(err =>  {
+      newPlayer.save((err, result) =>  {
         if (err) return console.log(err);
-    
-        res.redirect('/admin/players');
+        Team
+          .findOneAndUpdate({"_id": mongoose.Types.ObjectId(req.body.team)},  {$push: {
+            "players": result
+          }}, {upsert: true}).exec(
+            err => {
+              if (err) return console.log(err);
+
+              res.redirect('/admin/players');
+            }
+          );
       });
     });
 };
