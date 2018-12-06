@@ -11,8 +11,8 @@ module.exports = (req, res, next) => {
 
   indexRequest(arrayPlayers, arrayMatches, arrayTournaments, req.base, (err, arrays) => {
     if (err) return console.log(err);
-    res.render("main/main", {
-      page: "main/main",
+    res.render("index/main/main", {
+      page: "index/main/main",
       title: "Ana Sayfa",
       includes: {
         external: ["fontawesome"]

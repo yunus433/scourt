@@ -14,8 +14,8 @@ module.exports = (req, res, next) => {
         sortingAlgorithm(tournament.matches, (err, sort) => {
           if (err) return console.log(err);
 
-          res.render("leagues/details", {
-            page: "leagues/details",
+          res.render("index/leagues/details", {
+            page: "index/leagues/details",
             title: record.get('Name'),
             includes: {
               external: ["fontawesome", "js", "js-header"]

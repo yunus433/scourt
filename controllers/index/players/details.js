@@ -9,8 +9,8 @@ module.exports = (req, res, next) => {
     players.forEach(player => {
       if(player.getId() == req.query.id) {
         record = player;
-        res.render("players/details", {
-          page: "players/details",
+        res.render("index/players/details", {
+          page: "index/players/details",
           title: "Oyuncu Detayları",
           includes: {
             external: ["fontawesome", "js"]

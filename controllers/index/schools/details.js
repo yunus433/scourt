@@ -8,8 +8,8 @@ module.exports = (req, res, next) => {
     if (err) return console.log(err);
     schools.forEach(school => {
       if (school.getId() == req.query.id) {
-        res.render("schools/details", {
-          page: "schools/details",
+        res.render("index/schools/details", {
+          page: "index/schools/details",
           title: school.get("Name"),
           includes: {
             external: ["fontawesome", "js"]

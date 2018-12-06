@@ -26,8 +26,8 @@ module.exports = (req, res, next) => {
   //       if (err) return console.log(err);
   //     });
   //   });
-    res.render("players/players", {
-      page: "players/players",
+    res.render("index/players/players", {
+      page: "index/players/players",
       title: "Oyuncular",
       includes: { 
         external: ["fontawesome", "js", "js-header"]
