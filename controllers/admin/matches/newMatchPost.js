@@ -24,10 +24,10 @@ module.exports = (req, res, next) => {
             if (err) return console.log(err);
 
             let newMatchData = {
-              date: req.body.date,
-              teamOne: req.body.teamOne,
-              teamTwo: req.body.teamTwo,
-              result: req.body.result,
+              date: req.body.date || 'default',
+              teamOne: req.body.teamOne || 'default',
+              teamTwo: req.body.teamTwo || 'default',
+              result: req.body.result || 'default',
               league: league
             };
       

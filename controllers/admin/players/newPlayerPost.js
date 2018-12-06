@@ -7,19 +7,19 @@ module.exports = (req, res, next) => {
     .findById(mongoose.Types.ObjectId(req.body.team), (err, team) => {
       if (err) return console.log(err);
       let newPlayerData = {
-        name: req.body.name,
-        date: req.body.date,
-        gender: req.body.gender,
-        team: team.name,
-        teamId: req.body.team,
-        gol: req.body.gol,
-        asist: req.body.asist,
-        pozisyon: req.body.pozisyon,
-        position: req.body.pozisyon,
-        positionGerman: req.body.pozisyon,
-        boy: req.body.boy,
-        kilo: req.body.kilo,
-        ayak: req.body.ayak,
+        name: req.body.name || 'default',
+        date: req.body.date || 'default',
+        gender: req.body.gender || 'default',
+        team: team.name || 'default',
+        teamId: req.body.team || 'default',
+        gol: req.body.gol || 'default',
+        asist: req.body.asist || 'default',
+        pozisyon: req.body.pozisyon || 'default',
+        position: req.body.pozisyon || 'default',
+        positionGerman: req.body.pozisyon || 'default',
+        boy: req.body.boy || 'default',
+        kilo: req.body.kilo || 'default',
+        ayak: req.body.ayak || 'default',
         profile: req.body.profile || undefined
       };
 

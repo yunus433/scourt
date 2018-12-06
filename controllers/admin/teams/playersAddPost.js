@@ -23,18 +23,16 @@ module.exports = (req, res, next) => {
         boy: req.body.boy,
         kilo: req.body.kilo,
         ayak: req.body.ayak,
-        profile: req.body.profile || undefined
+        profile: req.body.profile
       };
   
       const newPlayer = new Player(newPlayerData);
       newPlayer.save((err, result) =>  {
         if (err) return console.log(err);
 
-        let playersArray = team.players;
-        playersArray.push(result);
         Team
-          .findByIdAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$set: {
-            players: playersArray
+          .findByIdAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$push: {
+            "players": result
           }}, {upsert: true})
           .exec((err) => {
             if (err) return console.log(err);

@@ -26,6 +26,7 @@ const leaguesEditRouteController = require('../controllers/admin/leagues/leagues
 const matchesRouteController = require('../controllers/admin/matches/matches');
 const matchesAddRouteController = require('../controllers/admin/matches/matchesAdd');
 const matchesDeleteRouteController = require('../controllers/admin/matches/matchesDelete');
+const matchesEditRouteController = require('../controllers/admin/matches/matchesEdit');
 
 // Post controllers
 
@@ -141,6 +142,11 @@ router.get(
   '/matches/delete',
   isAdmin,
   matchesDeleteRouteController
+);
+router.get(
+  '/matches/edit',
+  isAdmin,
+  matchesEditRouteController
 );
 
 router.post(

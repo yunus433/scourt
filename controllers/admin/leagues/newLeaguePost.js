@@ -11,9 +11,9 @@ module.exports = (req, res, next) => {
         if (err) return console.log(err);
         
         let newLeagueData = {
-          name: req.body.name,
-          date: req.body.date,
-          status: req.body.status
+          name: req.body.name || 'default',
+          date: req.body.date || 'default',
+          status: req.body.status || 'default'
         };
 
         const newLeague = new League(newLeagueData);

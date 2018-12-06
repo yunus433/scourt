@@ -19,18 +19,32 @@ module.exports = (req, res, next) => {
           };
         };
 
+        console.log(array);
+
         League
-        .findOneAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$set: {
-          "name": req.body.name,
-          "date": req.body.date,
-          "status": req.body.status,
-          "teams": array
-        }}, {upsert: true})
-        .exec((err) => {
-          if (err) return console.log(err);
-    
-          res.redirect('/admin/leagues');
-        })
+          .findOneAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$set: {
+            "name": req.body.name,
+            "date": req.body.date,
+            "status": req.body.status,
+            "teams": []
+          }}, {upsert: true})
+          .exec((err) => {
+            if (err) return console.log(err);
+      
+          });
+
+        array.forEach(item => {
+          League
+            .findOneAndUpdate({"_id": mongoose.Types.ObjectId(req.query.id)},  {$push: {
+              "teams": item
+            }}, {upsert: true})
+            .exec((err) => {
+              if (err) return console.log(err);
+      
+            });
+        });
+
+        res.redirect('/admin/leagues');
       }
     );
 }
