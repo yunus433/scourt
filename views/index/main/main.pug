@@ -34,7 +34,7 @@ block main
             .players-asist
               span Asist
         .players-content
-          each topPerson, index in players 
+          each topPerson, index in players.slice(0, 10) 
             div(class="person-" + index)
               a.personLink(href="/players/details/?id=" + topPerson.id)
                 .person
