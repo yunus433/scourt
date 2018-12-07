@@ -1,18 +1,21 @@
-const tournamentRequest = require('./../../../utils/airtableRequests/tournamentRequest');
-let arrayTournaments = [];
+const League = require('./../../../models/league/League');
 
 module.exports = (req, res, next) => {
-  arrayTournaments = [];
 
-  tournamentRequest(req.base, arrayTournaments, (err, tournaments) => {
-    if (err) return console.log(err);
-    res.render("index/leagues/leagues", {
-      page: "index/leagues/leagues",
-      title: "Ligler",
-      includes: {
-        external: ["fontawesome", "js"]
-      },
-      tournaments
-    });
-  });
+    League
+      .find()
+      .exec(
+        (err, leagues) => {
+          if (err) return console.log(err);
+
+          res.render("index/leagues/leagues", {
+            page: "index/leagues/leagues",
+            title: "Ligler",
+            includes: {
+              external: ["fontawesome", "js"]
+            },
+            leagues
+          });
+        }
+      );
 };

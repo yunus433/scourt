@@ -1,30 +1,23 @@
-const tournamentRequest = require('./../../../utils/airtableRequests/tournamentRequest');
-const sortingAlgorithm = require('./../../../utils/sortingAlgorithm/tournamentSort');
-let arrayTournaments = [];
-let record;
+const mongoose = require('mongoose');
+const League = require('./../../../models/league/League');
 
 module.exports = (req, res, next) => {
-  arrayTournaments = [];
 
-  tournamentRequest(req.base, arrayTournaments, (err, tournaments) => {
-    if (err) return console.log(err);
-    tournaments.forEach(tournament => {
-      if (tournament.getId() == req.query.id) {
-        record = tournament;
-        sortingAlgorithm(tournament.matches, (err, sort) => {
+    League
+      .findById(mongoose.Types.ObjectId(req.query.id))
+      .exec(
+        (err, record) => {
           if (err) return console.log(err);
 
-          res.render("index/leagues/details", {
-            page: "index/leagues/details",
-            title: record.get('Name'),
-            includes: {
-              external: ["fontawesome", "js", "js-header"]
-            },
-            record,
-            sort
-          });
-        }); 
-      };
-    });
+            if (err) return console.log(err);
+
+            res.render("index/leagues/details", {
+              page: "index/leagues/details",
+              title: record.name,
+              includes: {
+                external: ["fontawesome", "js", "js-header"]
+              },
+              record
+            });
   });
-}
+};

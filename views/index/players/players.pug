@@ -3,8 +3,6 @@ block main
   .all
     .rode
       a.rodePart.rodeLeagues(href="/players") Oyuncular >
-    .rode-english
-      a.rodePart.rodeLeagues(href="/players") Players >
     .all-content
       h2.sidebar-title Oyuncu Listesi
       .forms
@@ -26,19 +24,19 @@ block main
             span Asist
         .players-content(id="playersContent")
           each person, index in players 
-            a.personLink(href="/players/details/?id=" + person.getId())
+            a.personLink(href="/players/details/?id=" + person.id)
               .Person
                 .numberedList
                   span= index+1
                 .content-item.name
-                  span #{person.get("Name")}
+                  span #{person.name}
                 .content-item.position
-                  span #{person.get("Pozisyon")}
+                  span #{person.pozisyon}
                 .content-item.birthdate
-                  span #{person.get("Notes")}
+                  span #{person.date}
                 .content-item.school
-                  span #{person.school.get("Name")}
+                  span #{person.team}
                 .content-item.gol
-                  span #{person.get("Gol")}
+                  span #{person.gol}
                 .content-item.asist 
-                  span #{person.get("Asist")}
+                  span #{person.asist}

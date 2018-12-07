@@ -3,23 +3,23 @@ block main
   .all
     .rode
       a.rodePart.rodeLeagues(href="/players") Oyuncular > 
-      a.rodePart.rodeDetails(href="/players/details?id=" + record.getId())  #{record.get("Name")}
+      a.rodePart.rodeDetails(href="/players/details?id=" + record.id)  #{record.name}
     .all-content
       .player-data
         .player-header
           .header-info
-            h1.name= record.get("Name")
+            h1.name= record.name
             .header-bottom
               .header-info-left
-                span.age Doğum Tarihi: #{record.get("Notes")}
-                span.position Pozisyon: #{record.get("Pozisyon")}
-                span.gol Gol: #{record.get("Gol")}
-                span.asist Asist: #{record.get("Asist")}
+                span.age Doğum Tarihi: #{record.date}
+                span.position Pozisyon: #{record.pozisyon}
+                span.gol Gol: #{record.gol}
+                span.asist Asist: #{record.asist}
           .header-image
-            - if(record.get("Kullanıcı Resmi") == '-') {
+            - if(record.profile == '-' || !record.profile) {
               img.player-img(src="/res/defaultUserPicture.png")
             - } else { 
-              img.player-img(src="/res/" + record.get("Kullanıcı Resmi"))
+              img.player-img(src="/res/" + record.profile)
             - }
         .player-content
           .player-content-header
@@ -30,22 +30,16 @@ block main
           .details
             .each-detail
               span.detail-name Okul:
-              span.detail-info= record.school.get("Name")  
-            .each-detail
-              span.detail-name Puan:
-              span.detail-info= record.get("Puan")
-            .each-detail
-              span.detail-name Klasman Sıralaması:
-              span.detail-info= record.get("Klasman Sıralaması")
+              span.detail-info= record.team
             .each-detail
               span.detail-name Boy:
-              span.detail-info= record.get("Boy")   
+              span.detail-info= record.boy   
             .each-detail
               span.detail-name Kilo:
-              span.detail-info= record.get("Kilo") 
+              span.detail-info= record.kilo
             .each-detail
               span.detail-name Ayak:
-              span.detail-info= record.get("Ayak")      
+              span.detail-info= record.ayak
           .videos
             - if(record.videos) {
 

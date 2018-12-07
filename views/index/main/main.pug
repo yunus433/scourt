@@ -9,12 +9,12 @@ block main
           .matches-content
               each match in matches
                 .each-match
-                  span.matches-feature.matches-tournament= match.league.get("Name")
-                  span.matches-feature.matches-teamOne= match.teamOne.get("Name")
-                  span.matches-feature.matches-result= match.get("Skor")
-                  span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+                  span.matches-feature.matches-tournament= match.league.name
+                  span.matches-feature.matches-teamOne= match.teamOne.name
+                  span.matches-feature.matches-result= match.result
+                  span.matches-feature.matches-teamTwo= match.teamTwo.name
           - if (5-matches.length > 0) {
-            - for(i=0; i<5-matches.length; i++) {
+            - for (i=0; i<5-matches.length; i++) {
               .each-match
                   span.matches-feature.matches-tournament -
                   span.matches-feature.matches-teamOne -
@@ -23,7 +23,7 @@ block main
             - }
           - }
         .news
-          iframe.videoOne(src="https://www.youtube.com/embed/" + lastMatch.get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+          iframe.videoOne(src="https://www.youtube.com/embed/" + "913p6ERWQpI" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
       .players
         .players-header 
           .players-title
@@ -36,51 +36,51 @@ block main
         .players-content
           each topPerson, index in players 
             div(class="person-" + index)
-              a.personLink(href="/players/details/?id=" + topPerson.getId())
+              a.personLink(href="/players/details/?id=" + topPerson.id)
                 .person
                   .numberedList
                     span= index+1
                   .content-item-name
-                    - if (topPerson.get("Name") == "Kerem Gümüşgerdan") {
+                    - if (topPerson.name == "Kerem Gümüşgerdan") {
                       span Kerem G.
                     - } else {
-                      span #{topPerson.get("Name")}
+                      span #{topPerson.name}
                     - }
                   .content-item.content-item-position
-                    span #{topPerson.get("Pozisyon")}
+                    span #{topPerson.name}
                   .content-item.content-item-date
-                    span #{topPerson.get("Notes")}
+                    span #{topPerson.date}
                   .content-item-team
-                    span #{topPerson.school.get("Name")}
+                    span #{topPerson.team}
                   .content-item-gol
-                    span #{topPerson.get("Gol")}
+                    span #{topPerson.gol}
                   .content-item-last
-                    span #{topPerson.get("Asist")}
+                    span #{topPerson.asist}
       .tournaments
         .tournament-header 
           span En yeni turnuvalar
-        each record in tournaments
-          a(href="/leagues/details/?id=" + record.getId())
+        each record in leagues
+          a(href="/leagues/details/?id=" + record.id)
             .leagues
               .leagueHeader
                 .headerInfo
                   .header-left
-                    h2 #{record.get("Name")}
-                    span #{record.get("Tarih")}
+                    h2 #{record.name}
+                    span #{record.date}
                   .matches-league
                     h4 En Son Oynanan Maçlar:
                     each match in record.matches.slice(0, 3)
                       .each-match
-                        span.matches-feature.matches-tournament= match.league.get("Name")
-                        span.matches-feature.matches-teamOne= match.teamOne.get("Name")
-                        span.matches-feature.matches-result= match.get("Skor")
-                        span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+                        span.matches-feature.matches-tournament= match.league.name
+                        span.matches-feature.matches-teamOne= match.teamOne.name
+                        span.matches-feature.matches-result= match.result
+                        span.matches-feature.matches-teamTwo= match.teamTwo.name
                 .headerVideo
                   h3 En son yayınladığımız lig videosu:
-                  iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                  //- iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
               .leagueContent  
-                span Toplam Maç: #{record.get("Maçlar").length} 
-                span.condition Durum: #{record.get("Durum")}
+                span Toplam Maç: #{record.matches.length} 
+                span.condition Durum: #{record.status}
               .details
                 span Detaylar için tıklayın
                 i.fas.fa-info-circle

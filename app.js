@@ -7,6 +7,7 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
+const cloudinary = require('cloudinary');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,6 +21,12 @@ const adminRouteController = require('./routes/adminRoute');
 dotenv.config({path: path.join(__dirname, '.env')});
 
 const base = new airtable({apiKey:'keyKcUWJzmFWttJZw'}).base('appnel3k2hx34yMk6');
+
+cloudinary.config({ 
+  cloud_name: 'dvnac86j8', 
+  api_key: '225569931328295', 
+  api_secret: 'G2IlEQrKxNrR_JMoBYKqGkPaNBM' 
+});
 
 const {
   SESSION_SECRET
@@ -43,6 +50,7 @@ const session = expressSession({
 app.use(session);
 app.use((req, res, next) => {
   req.base = base;
+  req.cloudinary = cloudinary;
   next();
 });
 
