@@ -1,18 +1,20 @@
-const schoolRequest = require('./../../../utils/airtableRequests/schoolRequest');
-let arrayschools = [];
+const Team = require('../../../models/team/Team');
 
 module.exports = (req, res, next) => {
-  arrayschools = [];
-
-  schoolRequest(req.base, arrayschools, (err, schools) => {
-    if (err) return console.log(err);
-    res.render("index/schools/schools", {
-      page: "index/schools/schools",
-      title: "Okullar",
-      includes: {
-        external: ["fontawesome", "js"]
-      },
-      schools
-    });
-  });
+  Team
+    .find()
+    .exec(
+      (err, schools) => {
+        if (err) return console.log(err);
+        
+        res.render("index/schools/schools", {
+          page: "index/schools/schools",
+          title: "Okullar",
+          includes: {
+            external: ["fontawesome", "js"]
+          },
+          schools
+        });
+      }
+    );
 };

@@ -5,7 +5,7 @@ window.onload = () => {
   const detailsWrapper = document.querySelector('.details');
   const videosWrapper = document.querySelector('.videos');
 
-  document.addEventListener('tap', (event) => {
+  document.addEventListener('click', (event) => {
     if (event.target) {
       if (event.target.closest('.details-header')) {
         detailsWrapper.style.display = 'block';
