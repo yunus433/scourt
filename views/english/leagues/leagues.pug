@@ -10,29 +10,29 @@ block main
           input#checkbox-ended-english(type="checkbox" name="ended")
         span Show only the continuing ones
       .leagueList
-        each record, index in tournaments
+        each record, index in leagues
           - if (record) {
-            a(href="/english/leagues/details/?id=" + record.getId())
+            a(href="/english/leagues/details/?id=" + record.id)
               .leagues
                 .leagueHeader
                   .headerInfo
                     .header-left
-                      h2 #{record.get("Name")}
-                      span #{record.get("Tarih")}
+                      h2 #{record.name}
+                      span #{record.date}
                     .matches
                       h4 Latest Matches:
                       each match in record.matches.slice(0, 3)
                         .each-match
-                          span.matches-feature.matches-date= match.get("Tarih")
-                          span.matches-feature.matches-teamOne= match.teamOne.get("Name")
-                          span.matches-feature.matches-result= match.get("Skor")
-                          span.matches-feature.matches-teamTwo= match.teamTwo.get("Name")
+                          span.matches-feature.matches-date= match.date
+                          span.matches-feature.matches-teamOne= match.teamOne.name
+                          span.matches-feature.matches-result= match.result
+                          span.matches-feature.matches-teamTwo= match.teamTwo.name
                   .headerVideo
                     h3 Latest League Video:
-                    iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+                    //- iframe.leagueVideos(src="https://www.youtube.com/embed/" + record.matches[0].get("Video") allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
                 .leagueContent  
-                  span Total Match: #{record.get("Maçlar").length} 
-                  - if (record.get("Durum") == "Devam Ediyor") {
+                  span Total Match: #{record.matches.length} 
+                  - if (record.status == "Devam Ediyor") {
                     span.condition Status: Continuing
                   - } else {
                     span.condition Status: Ended

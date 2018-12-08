@@ -6,19 +6,19 @@ block main
     .all-content
       .school-list
         each school in schools
-          - if(school.get("Name")) {
-            a(href="/english/teams/details/?id=" + school.getId())
+          - if(school.name) {
+            a(href="/english/teams/details/?id=" + school.id)
               .each-school
                 .school-top
                   .school-symbol-wrapper
-                    img.school-symbol(src="/res/schoolLogos/" + school.get("Logo") class="" + school.get("Name"))
+                    img.school-symbol(src="/res/schoolLogos/" + school.logo class="" + school.name)
                   .school-name
-                    h3.school-name #{school.get("Name")}
+                    h3.school-name #{school.name}
                 .school-bottom
                   .school-players
                     h3 First Five:
-                    each player, index in school.playerData.slice(0, 5)
-                      span.player-names #{index+1}. #{player.get("Name")}
+                    each player, index in school.players.slice(0, 5)
+                      span.player-names #{index+1}. #{player.name}
                   .details
                     span Click for Details
                     i.fas.fa-info-circle

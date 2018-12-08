@@ -1,14 +1,13 @@
-const playerRequest = require('./../../../utils/airtableRequests/playerRequest');
-let arrayPlayers = [];
-let record;
+const mongoose = require('mongoose');
+const Player = require('../../../models/player/Player');
 
 module.exports = (req, res, next) => {
-  arrayPlayers = [];
-  playerRequest(req.base, arrayPlayers, (err, players) => {
-    if (err) return console.log(err);
-    players.forEach(player => {
-      if(player.getId() == req.query.id) {
-        record = player;
+  Player
+    .findById(mongoose.Types.ObjectId(req.query.id))
+    .exec(
+      (err, record) => {
+        if (err) return console.log(err);
+
         res.render("english/players/details", {
           page: "english/players/details",
           title: "Player Details",
@@ -18,6 +17,5 @@ module.exports = (req, res, next) => {
           record
         });
       }
-    });
-  });
+    );
 }

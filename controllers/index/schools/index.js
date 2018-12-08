@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
         
         res.render("index/schools/schools", {
           page: "index/schools/schools",
-          title: "Okullar",
+          title: "Takımlar",
           includes: {
             external: ["fontawesome", "js"]
           },
