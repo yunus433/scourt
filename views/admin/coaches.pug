@@ -1,0 +1,24 @@
+extends ../admin/partials/header
+block main
+  .all
+    h1.sidebar-title Lig Listesi
+    .forms 
+      .form
+      form.form(action="/admin/coaches/new" method="POST")
+        input.add-new(type="submit" onclick="return confirm('Yeni bir antrenör kaydı yaratacaksınız. Lütfen onaylayın.')")
+        i.fas.fa-plus-circle
+        h2 Yeni Antrenör Ekle
+    .leagues
+      .coaches-content
+        .content-header 
+          .content-header-part
+            span Antrenör id'si
+          .content-header-part
+            span Antrenör şifresi
+        .content-box
+          each coach in coaches
+            .each-coach
+              .content-header-part
+                span= coach.coachId
+              .content-header-part
+                span scourt123

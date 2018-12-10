@@ -4,20 +4,22 @@ const Schema = mongoose.Schema;
 const hashPassword = require('./functions/hashPassword');
 const verifyPassword = require('./functions/verifyPassword');
 
-const UserSchema = new Schema({
+const CoachSchema = new Schema({
   name: {
     type: String
   },
   profileFoto: {
     type: String,
-    default: "defaultUserPicture.png"
+    default: "defaultCoachPicture.jpg"
+  },
+  coachId: {
+    type: String,
+    required: true
   },
   email: {
     type: String,
-    required: true,
     minlength: 1,
-    trim: true,
-    unique: true
+    trim: true
   },
   password: {
     type: String,
@@ -31,29 +33,26 @@ const UserSchema = new Schema({
   phone: {
     type: String
   },
-  date: {
-    type: Date
-  },
   completed: {
     type: Boolean,
     default: false
   }
 });
 
-UserSchema.pre('save', hashPassword);
+CoachSchema.pre('save', hashPassword);
 
-UserSchema.statics.findUser = function (email, password, callback) {
-  let User = this;
+CoachSchema.statics.findCoach = function (id, password, callback) {
+  let Coach = this;
 
-  return User.findOne({email}).then((user) => {
+  return Coach.findOne({"coachId": id}).then((coach) => {
         
-    if (!user) {
+    if (!coach) {
         return callback(true);
     }
 
-    verifyPassword(password, user, (err, res) => {
+    verifyPassword(password, coach, (err, res) => {
       if (res) {
-        return callback(undefined, user);
+        return callback(undefined, coach);
       } else {
         return callback(err);
       }
@@ -61,4 +60,4 @@ UserSchema.statics.findUser = function (email, password, callback) {
   });
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Coach', CoachSchema);

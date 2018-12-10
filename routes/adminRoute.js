@@ -28,6 +28,8 @@ const matchesAddRouteController = require('../controllers/admin/matches/matchesA
 const matchesDeleteRouteController = require('../controllers/admin/matches/matchesDelete');
 const matchesEditRouteController = require('../controllers/admin/matches/matchesEdit');
 
+const coachesRouteController = require('../controllers/admin/coaches/coaches');
+
 // Post controllers
 
 const loginPostController = require('../controllers/admin/loginPost');
@@ -45,6 +47,8 @@ const newLeaguePostController = require('../controllers/admin/leagues/newLeagueP
 const editLeaguesPostController = require('../controllers/admin/leagues/editLeaguesPost');
 
 const newMatchPostController = require('../controllers/admin/matches/newMatchPost');
+
+const newCoachPostController = require('../controllers/admin/coaches/newCoachPost');
 
 router.get(
   '/',
@@ -148,6 +152,11 @@ router.get(
   isAdmin,
   matchesEditRouteController
 );
+router.get(
+  '/coaches',
+  isAdmin,
+  coachesRouteController
+)
 
 router.post(
   '/login',
@@ -192,6 +201,11 @@ router.post(
   '/matches/new',
   isAdmin,
   newMatchPostController
+);
+router.post(
+  '/coaches/new',
+  isAdmin,
+  newCoachPostController
 );
 
 module.exports = router;

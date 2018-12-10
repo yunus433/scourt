@@ -13,6 +13,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/scourt';
 
+const appRouteController = require('./routes/appRoute');
 const indexRouteController = require('./routes/indexRoute');
 const englishRouteController = require('./routes/englishRoute');
 const germanRouteController = require('./routes/germanRoute');
@@ -56,7 +57,8 @@ app.use((req, res, next) => {
 
 app.use(helmet());
 
-app.use('/', indexRouteController);
+app.use('/', appRouteController);
+app.use('/index', indexRouteController);
 app.use('/english', englishRouteController);
 app.use('/german', germanRouteController);
 app.use('/admin', adminRouteController);

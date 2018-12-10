@@ -13,9 +13,6 @@ const playersDetailsController = require('./../controllers/index/players/details
 const teamsController = require('./../controllers/index/schools/index');
 const teamsDetailsControlller = require('./../controllers/index/schools/details');
 const indexController = require('./../controllers/index/index/index');
-const registerGetController = require('./../controllers/index/auth/register/get');
-
-const registerPostController = require('./../controllers/index/auth/register/post');
 
 // Get Controllers
 router.get(
@@ -50,18 +47,6 @@ router.get(
   '/help',
   helpController
 );
-router.get(
-  '/auth/register',
-  registerGetController
-);
-
-
-// Post Controllers
-router.post(
-  '/auth/register',
-  upload.single('profile'),
-  registerPostController
-)
 
 module.exports = router;
 

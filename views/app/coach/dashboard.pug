@@ -1,0 +1,61 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      span.name scourt
+    .all-content
+      .messages-block
+        .each-message.left
+          .message-sender
+            span Messi
+          .message-content
+            span Coach can you please share the last match?
+        .each-message.left
+          .message-sender
+            span Ronaldo
+          .message-content
+            span Yeah, that would be great. I think I have missed a position at the fifty fifth minute...
+        .each-message.right
+          .message-sender
+            span you
+          .message-content
+            iframe.leagueVideos(src="https://www.youtube.com/embed/913p6ERWQpI"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
+        .each-message.right
+          .message-sender
+            span you
+          .message-content
+            span.blue @messi in 34.42
+            br
+            span You should stay in your position and mark your man
+        .each-message.right
+          .message-sender
+            span you
+          .message-content
+            span.blue @ronaldo in 55.32
+            br
+            span Yeah, you realy had a very good position. That's very bad. You should have been more attentive
+        .each-message.left
+          .message-sender
+            span Ronaldo
+          .message-content
+            span I'm sorry coach. When will be our next practice? Maybe we can go on this problem.
+        .each-message.right
+          .message-sender
+            span you
+          .message-content
+            span Tomarrow, 15.30. I want everyone to be there.
+        .each-message.left
+          .message-sender
+            span Anreas
+          .message-content
+            span Coach, you didn't comment on my play. How was I?
+        //- each message in messages
+        //-   - if (message.type == 'video') {
+
+        //-   - } else {
+
+        //-   - } 
+      .message-sending
+        form(action="/newMessage")
+          input.message-sending-button(type="submit" value="Send")
+          input.message-sending-input(type="text", name="message", autocomplete="off", autofocus)

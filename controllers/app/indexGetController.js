@@ -1,7 +1,7 @@
 module.exports = (req, res, next) => {
-  res.render('index/auth/register', {
-    page: 'index/auth/register',
-    title: 'Kayıt Ol',
+  res.render('app/index', {
+    page: 'app/index',
+    title: 'App',
     includes: {
       external: ["fontawesome"]       
     }

@@ -1,0 +1,22 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      span.name scourt
+      a(href="/edit").user-description
+        span.user-name Hi, #{user.name.split(" ")[0]}
+        img.user-image(src="/res/uploads/" + user.profileFoto)
+    .all-content
+      .content-left-side.content-side
+        .left-side-top
+          .content-side-header
+            span Your mails
+        .left-side-bottom
+          .content-side-header
+            span Latest news
+      .content-right-side.content-side
+        .content-side-header
+          span Latest team messages
+        .content-right-info
+          span Your are not a member of a team
+          a(href="/team").join-team-button Join a team
