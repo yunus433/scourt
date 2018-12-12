@@ -2,12 +2,13 @@ extends ../partials/head
 block content
   .all-wrapper
     .all-header
-      span.name scourt
+      span.all-header-name scourt
     .all-content
-      h1 Your Coaching Platform 
-      span.title-info Record analyze your matches, give feedback to players
-      span.title-info Get recognized by scouts
-      a.register-button(href="/register") Get Started
-      a.login-link(href="/login") Already have an account?
-      a.login-link(href="/coachlogin") Login as a coach
+      .all-content-wrapper
+        h1 Your Coaching Platform 
+        span.content-title-info Record analyze your matches, give feedback to players
+        span.content-title-info Get recognized by scouts
+        a.register-button.--button(href="/auth/register") Get Started
+        a.login-link(href="/auth/login") Already have an account?
+        a.login-link(href="/auth/coach/login") Login as a coach
       

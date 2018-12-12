@@ -1,0 +1,34 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      span.all-header-name scourt
+    .all-content
+      form.form(action="/app/validate" method="POST" enctype="multipart/form-data")
+        .form-left-side
+          label.profile-picture(for="profile")
+            img.image(src="/res/uploads/" + user.profileFoto)
+          input.profile-input(type="file" id="profile" name="profile" accept="image/*")
+          - if (err) {
+            - if (err==1) {
+              .err-message 
+                span.err-message-text Please type all the necessary information
+            - }
+          - }
+        .form-right-side
+          .form-explanation
+            h2 Hi #{user.email},
+            span Thank you for joining us! Please enter the following information and choose a profile picture before you move on, so that the teams can find you. 
+          .form-part
+            span.input-info Your name:
+            input(type="text" name="name" autocomplete="off") 
+            span.red *
+          .form-part
+            span.input-info Your birthday:
+            input(type="date" name="date" autocomplete="off") 
+            span.red *
+          .form-part
+            span.input-info Your phone number:
+            input(type="text" name="phone" autocomplete="off") 
+          .form-submit
+            input.submit-button(type="submit" value="Ok") 

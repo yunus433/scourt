@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const dotenv = require('dotenv');
-const airtable = require('airtable');
 const favicon = require('serve-favicon');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
@@ -13,15 +12,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/scourt';
 
-const appRouteController = require('./routes/appRoute');
 const indexRouteController = require('./routes/indexRoute');
-const englishRouteController = require('./routes/englishRoute');
-const germanRouteController = require('./routes/germanRoute');
+const authRouteController = require('./routes/authRoute');
+const appRouteController = require('./routes/appRoute');
 const adminRouteController = require('./routes/adminRoute');
 
 dotenv.config({path: path.join(__dirname, '.env')});
-
-const base = new airtable({apiKey:'keyKcUWJzmFWttJZw'}).base('appnel3k2hx34yMk6');
 
 cloudinary.config({ 
   cloud_name: 'dvnac86j8', 
@@ -50,17 +46,15 @@ const session = expressSession({
 });
 app.use(session);
 app.use((req, res, next) => {
-  req.base = base;
   req.cloudinary = cloudinary;
   next();
 });
 
 app.use(helmet());
 
-app.use('/', appRouteController);
-app.use('/index', indexRouteController);
-app.use('/english', englishRouteController);
-app.use('/german', germanRouteController);
+app.use('/', indexRouteController)
+app.use('/app', appRouteController);
+app.use('/auth', authRouteController)
 app.use('/admin', adminRouteController);
 
 app.listen(port, () => {

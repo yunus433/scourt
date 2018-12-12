@@ -3,307 +3,54 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow-x: hidden;
-}
-.main {
-  padding: 0px;
+  overflow: hidden;
 }
 body {
+  height: 100vw;
+  widows: 100vh;
+  background: url("/res/images/app_background.jpg");
+  background-size: cover;
   font-family: "Roboto Slab", "Roboto";
-  background-color: rgb(238, 238, 238);
   color: rgba(66, 66, 66, 1);
   -webkit-font-smoothing: subpixel-antialiased;
 }
 a {
   text-decoration: none;
-  color: black;
 }
-.language-choice {
-  color: white;
-  font-size: 1.3em;
-  margin-right: 5px;
-  display: flex;
-  align-items: center;
-  height: 40px;
-  width: 50px;
+.main {
+  padding: 0px;
 }
-.header-content {
-  z-index: 10;
+.all-wrapper {
+  background-color: rgba(66, 66, 66, 0.1);
+  width: 100vw;
+  height: 95vh;
   position: fixed;
-  height: 60px;
-  width: 100%;
-  background-color: rgba(66, 66, 66, 1);
-  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15);
   display: flex;
-  align-items: center;  
+  flex-direction: column;
+  justify-content: center;
 }
-.left-side {
-  flex: 4;
+.all-header {
+  height: 5vh;
   display: flex;
-  align-items: center;
+  padding: 25px 25px;
 }
-.right-side {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-.flag-icon {
-  height: 40px;
-  width: 50px;
-  border-radius: 0px;
-}
-.left-side img {
-  width: 50px;
-  height: 50px;
-  margin: 0px 20px;
-  border-radius: 50%;
-}
-.header-content a {
-  text-decoration: none;
-  margin-right: 10px;
-  color: white;
-}
-.toButton {
-  margin-left: 15px;
-  font-size: 1.3em;
-  border-radius: 7%;
-}
-.toButton:hover {
-  border-bottom: 5px solid green;
-}
-.footer {
-  height: 175px;
-  width: 100%;
-  padding: 25px;
-  background-color: rgb(66, 66, 66);
-  color: white;
-  display: flex;
-  letter-spacing: 2px;
-}
-.footer-english {
-  height: 175px;
-  width: 100%;
-  padding: 25px;
-  background-color: rgb(66, 66, 66);
-  color: white;
-  display: flex;
-  letter-spacing: 2px;
-  display: none;
-}
-.social-media {
-  flex: 1;
-}
-.i {
-  color: white;
+.all-header-name {
   font-size: 2em;
-  margin-right: 20px;
-}
-.about-us {
-  flex: 1;
-}
-.adres {
-  flex: 1;
-}
-.copyright {
-  flex: 1;
-  display: flex;
-}
-.loy-logo {
-  color: white;
-}
-.copyright span {
-  padding-top: 10px;
-}
-.all {
-  margin: 0px 15%;
-  border-radius: 10px;
-  padding: 10px;
-  padding-top: 90px;
-}
-.rode {
-  color: rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  font-size: 1em;
-}
-.rode-english {
-  display: none;
-  color: rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  font-size: 1em;
-}
-.rodePart {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.50);
-}
-.rodePart:hover {
   color: black;
 }
-.all-content-english {
-  display: none;
+.all-content {
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  height: 90vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.rode-english {
-  display: none;
+.--button {
+  color: rgb(66, 66, 66);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
 }
-button {
-  outline: none;
-  font-weight: normal;
-  border: none;
-  font-family: "Roboto Slab", "Roboto";
-}
-
-@media only screen and (max-width: 1400px) and (min-width: 1024px) {
-  .all {
-    margin: 0px 5%;
-  }
-}
-
-@media only screen and (max-width: 1024px) and (min-width: 0px) {
-  .all {
-    margin: 0px 0px;
-    padding: 0px;
-    padding-right: 25px;
-    padding-top: 90px;
-    padding-left: 25px;
-  }
-}
-
-@media only screen and (max-width: 1100px) and (min-width: 800px) {
-  .footer {
-    font-size: 0.9em;
-  }
-}
-
-@media only screen and (max-width: 800px) and (min-width: 650px) {
-  .footer {
-    font-size: 0.8em;
-    height: 150px;
-  }
-  .header {
-    font-size: 0.9em;
-  }
-  .flag-icon {
-    height: 30px;
-    width: 40px;
-  }
-}
-
-@media only screen and (max-width: 650px) and (min-width: 450px) {
-  .footer {
-    font-size: 0.8em;
-    height: 150px;
-  }
-  .adres {
-    display: none;
-  }
-  .header {
-    font-size: 0.8em;
-  }
-  .flag-icon {
-    height: 25px;
-    width: 30px;
-  }
-  .language-choice {
-    width: 30px;
-  }
-  .left-side img {
-    margin-right: 8px;
-    margin-left: 5px;
-  }
-  .toButton {
-    margin-left: 0px;
-  }
-  
-}
-
-@media only screen and (max-width: 450px) and (min-width: 300px) {
-  .footer {
-    font-size: 0.7em;
-    height: 150px;
-  }
-  .adres {
-    display: none;
-  }
-  .left-side img {
-    margin-right: 5px;
-    margin-left: 5px;
-    width: 40px;
-    height: 40px;
-  }
-  .toButton {
-    margin-left: 0px;
-    margin-right: 2px;
-  }
-  .flag-icon {
-    height: 20px;
-    width: 25px;
-  }
-  .language-choice {
-    width: 25px;
-  }
-  .left-side {
-    flex: 5;
-  }
-  .header-content a {
-    margin-right: 5px;
-  }
-}
-
-@media only screen and (max-width: 540px) and (min-width: 460px) {
-  .toButton, .footer {
-    font-size: 1em;
-  }
-  .header-item {
-    margin-bottom: -10px;
-  }
-  .left-side img {
-    margin-right: 8px;
-    margin-left: 5px;
-  }
-  .toButton {
-    margin-left: 0px;
-  }
-} 
-
-@media only screen and (max-width: 460px) and (min-width: 360px) {
-  .toButton {
-    font-size: 0.8em;
-    margin-left: 5px;
-  }
-  .footer {
-    font-size: 0.8em;
-  }
-  .left-side img {
-    margin-right: 5px;
-    margin-left: 5px;
-  }
-  .toButton {
-    margin-left: 0px;
-  }
-  .header-item {
-    margin-bottom: -10px;
-  }
-  .header {
-    font-size: 0.8em;
-  }
-} 
-
-@media only screen and (max-width: 360px) and (min-width: 300px) {
-  .toButton {
-    font-size: 0.65em;
-    margin-left: 2px;
-  }
-  .footer {
-    font-size: 0.65em;
-  }
-  .left-side img {
-    margin-right: 3px;
-    margin-left: 5px;
-  }
-  .toButton {
-    margin-left: 0px;
-  }
-  .header-item {
-    margin-bottom: -10px;
-  }
-} 

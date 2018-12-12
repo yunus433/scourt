@@ -1,58 +1,24 @@
-body {
-  height: 100vw;
-  widows: 100vh;
-  background: url("/res/images/app_background.jpg") rgba(66, 66, 66, 0.4);
-  background-size: cover;
-}
-.all-wrapper {
-  background-color: rgba(66, 66, 66, 0.4);
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.all-header {
-  height: 5vh;
-  display: flex;
-  padding: 25px 25px;
-}
-.name {
-  font-size: 2em;
-  color: black;
-}
-.all-content {
-  color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  height: 90vh;
-  width: 100vw;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.all-footer {
-  height: 5vh;
-  width: 100vw;
-  padding-bottom: 15px;
-}
-.title-info {
+.content-title-info {
   margin: none;
   padding: none;
   font-size: 1.7em;
 }
-.register-button {
-  margin: 25px 0px;
-  width: 15%;
-  height: 8%;
-  border-radius: 50px;
-  color: rgb(66, 66, 66);
-  font-size: 1.4em;
-  background: white;
+.all-content-wrapper {
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
+  padding: 25px;
+  border-radius: 10px;
+}
+.register-button {
+  margin: 25px 0px;
+  width: 20%;
+  height: 5vh;
+  border-radius: 50px;
+  font-size: 1.4em;
+  padding: 5px;
 }
 .login-link {
   color: white;
@@ -63,7 +29,4 @@ body {
 .login-link:hover {
   padding-bottom: 0px;
   border-bottom: 4px solid rgba(255, 255, 255, 0.8);
-}
-.register-button:hover {
-  box-shadow: 3px 3px 3px rgba(66, 66, 66, 0.6);
 }

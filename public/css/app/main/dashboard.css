@@ -1,31 +1,8 @@
-body {
-  height: 100vw;
-  widows: 100vh;
-  background: url("/res/images/app_background.jpg") rgba(66, 66, 66, 0.4);
-  background-size: cover;
-}
-.all-wrapper {
-  background-color: rgba(66, 66, 66, 0.4);
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-}
-.all-header {
-  height: 10hv;
-  display: flex;
-  padding: 25px 25px;
-  justify-content: space-between;
-}
-.name {
-  font-size: 2em;
-  color: black;
-}
-.all-content {
-  color: white;
+.all-content-dashboard {
+  color: rgba(255, 255, 255, 0.9);
   display: flex;
   height: 90vh;
   width: 90vw;
-  padding-bottom: 25px;
   margin-left: 50%;
   transform: translateX(-50%);
 }
@@ -34,6 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-left: 60%;
 }
 .user-name {
   font-size: 1.6em;
@@ -96,17 +74,41 @@ body {
   justify-content: center;
   color: rgba(255, 255, 255, 0.8);
 }
+.content-right-not-member {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .join-team-button {
   margin: 25px 0px;
-  width: 20%;
-  height: 8%;
+  width: 60%;
+  height: 40px;
   border-radius: 15px;
-  color: rgb(66, 66, 66);
-  font-size: 1.2em;
+  color: black;
+  font-size: 1.3em;
   background: white;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
+  outline: none;
+}
+.content-right-join-team {
+  display: none;
+  flex-direction: column;
+}
+.join-team-form {
+  margin-bottom: 15px;
+} 
+.join-team-form input {
+  height: 45px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5em;
+  padding-left: 10px;
 }
