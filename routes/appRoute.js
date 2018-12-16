@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer  = require('multer');
 
-const upload = multer({dest: 'public/res/uploads/'});
+const upload = multer({dest: './public/res/uploads/'});
 
 const isLoggedIn = require('./../middleware/isLoggedin');
 
