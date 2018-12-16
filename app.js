@@ -16,7 +16,7 @@ const app = express();
 let server = http.createServer(app);
 let io = socketIO(server);
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/scourt';
 
 const indexRouteController = require('./routes/indexRoute');
@@ -69,5 +69,5 @@ io.on('connection', (socket) => {
   sockets(socket);
 });
 
-server.listen(port);
+server.listen(PORT);
 
