@@ -8,21 +8,23 @@ module.exports = (req, res, next) => {
         if (err) return console.log(err);
         let cantFind = true;
 
-        teams.forEach(team => {
-          if (team.creator._id == req.session.coach._id.toString()) {
-            cantFind = false;
-
-            return res.render("app/coach/dashboard", {
-              page: "app/coach/dashboard",
-              title: "Coach Page",
-              includes: {
-                external: ["fontawesome", "js"]
-              },
-              coach,
-              team: team
-            });
-          }
-        });
+        if (teams) {
+          teams.forEach(team => {
+            if (team.creator._id == req.session.coach._id.toString()) {
+              cantFind = false;
+  
+              return res.render("app/coach/dashboard", {
+                page: "app/coach/dashboard",
+                title: "Coach Page",
+                includes: {
+                  external: ["fontawesome", "js"]
+                },
+                coach,
+                team: team
+              });
+            }
+          });
+        }
 
         if (cantFind) {
           res.render("app/coach/dashboard", {
