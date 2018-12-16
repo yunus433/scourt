@@ -4,7 +4,7 @@ const Team = require("../../../../models/team/Team");
 module.exports = (req, res, next) => {
   if (req.session.coach) {
     Coach.findOne({ email: req.session.coach.email }).then(coach => {
-      Team.findOne({ creator: { _id: req.session.coach._id.toString() } }).exec(
+      Team.findOne({"creator._id":  req.session.coach._id.toString()}).exec(
         (err, team) => {
           if (err) return res.redirect("/");
 
