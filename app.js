@@ -69,7 +69,7 @@ io.on('connection', (socket) => {
   sockets(socket);
 });
 
-server.listen(port, () => {
+server.listen(process.env.PORT || port, () => {
   console.log(`Port on ${port}`);
 })
 
