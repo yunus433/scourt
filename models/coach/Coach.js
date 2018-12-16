@@ -11,7 +11,7 @@ const CoachSchema = new Schema({
   },
   profileFoto: {
     type: String,
-    default: "defaultCoachPicture.jpg"
+    default: "defaultCoachPicture.png"
   },
   email: {
     type: String,

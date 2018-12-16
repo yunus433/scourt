@@ -12,6 +12,7 @@ body {
   background-size: cover;
   font-family: "Roboto Slab", "Roboto";
   -webkit-font-smoothing: subpixel-antialiased;
+  overflow: hidden;
 }
 a {
   text-decoration: none;
