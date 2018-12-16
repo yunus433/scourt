@@ -102,3 +102,27 @@
     border-bottom: 2px solid rgba(255, 255, 255, 0.8);
   }
 } 
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .all-content-wrapper h1{
+    font-size: 1.1em;
+  }
+  .content-title-info {
+    font-size: 0.8em;
+  }
+  .register-button {
+    font-size: 0.7em;
+    height: 4vh;
+    margin: 15px 0px;
+    width: 30%;
+  }
+  .login-link {
+    font-size: 0.8em;
+    padding: 2px 0px;
+    border-radius: 0px;
+  }
+  .login-link:hover {
+    padding-bottom: 0px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+  }
+} 
