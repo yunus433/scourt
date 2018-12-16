@@ -6,15 +6,12 @@ const verifyPassword = require('./functions/verifyPassword');
 
 const CoachSchema = new Schema({
   name: {
-    type: String
+    type: String,
+    default: "-"
   },
   profileFoto: {
     type: String,
     default: "defaultCoachPicture.jpg"
-  },
-  coachId: {
-    type: String,
-    required: true
   },
   email: {
     type: String,
@@ -26,12 +23,12 @@ const CoachSchema = new Schema({
     required: true,
     minlength: 6
   },
-  teams: {
-    type: Array,
-    default: []
+  team: {
+    type: Object
   },
   phone: {
-    type: String
+    type: String,
+    default: "-"
   },
   completed: {
     type: Boolean,
@@ -41,11 +38,11 @@ const CoachSchema = new Schema({
 
 CoachSchema.pre('save', hashPassword);
 
-CoachSchema.statics.findCoach = function (id, password, callback) {
+CoachSchema.statics.findCoach = function (email, password, callback) {
   let Coach = this;
 
-  return Coach.findOne({"coachId": id}).then((coach) => {
-        
+  return Coach.findOne({email: email}).then((coach) => {
+
     if (!coach) {
         return callback(true);
     }
@@ -54,7 +51,7 @@ CoachSchema.statics.findCoach = function (id, password, callback) {
       if (res) {
         return callback(undefined, coach);
       } else {
-        return callback(err);
+        return callback(true);
       }
     });
   });

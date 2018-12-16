@@ -3,25 +3,28 @@ block content
   .all-wrapper
     .all-header
       span.all-header-name scourt
-      a(href="/edit").user-description
+      a(href="/app/edit").user-description
         span.user-name Hi, #{user.name.split(" ")[0]}
         img.user-image(src="/res/uploads/" + user.profileFoto)
     .all-content-dashboard
-      .content-left-side.content-side
-        .left-side-top
-          .content-side-header
-            span Your mails
-        .left-side-bottom
-          .content-side-header
-            span Latest news
       .content-right-side.content-side
         .content-side-header
-          span Latest team messages
+          -if (team) {
+            .edit-team
+              img.team-photo(src="/res/uploads/" + team.teamPhoto)
+              span.team-name #{team.name} 
+            span.player-number #{team.players.length} joined players
+          - }
         .content-right-info
-          .content-right-not-member
-            span Your are not a member of a team
-            button.join-team-button Join a team
-          .content-right-join-team
-            form.join-team-form(action="/app/team/join" method="POST")
-              input(type="text" placeholder="Team id" name="id" autocomplete="off" autofocus)
-            span Please type a team id to join
+          - if (!team) {
+            .content-right-not-member
+              span Your are not a member of a team
+              button.join-team-button Join a team
+            .content-right-join-team
+              form.join-team-form(action="/app/team/join" method="POST")
+                input(type="text" placeholder="Team id" name="id" autocomplete="off" autofocus)
+              span Please type a team id to join
+          - } else {
+              a.go-to-team-button(href="/app/team/?id=" + team.teamId) Go to your team page
+          - }
+

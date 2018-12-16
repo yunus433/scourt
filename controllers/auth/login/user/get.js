@@ -1,4 +1,5 @@
 module.exports = (req, res, next) => {
+  req.session.destroy();
   if (req.query.err) {
     res.render('auth/login', {
       page: 'auth/login',

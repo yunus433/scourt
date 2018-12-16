@@ -4,7 +4,7 @@ block content
     .all-header
       span.all-header-name scourt
     .all-content
-      form.form(action="/app/validate" method="POST" enctype="multipart/form-data")
+      form.form(action="/app/validate" method="post" enctype="multipart/form-data")
         .form-left-side
           label.profile-picture(for="profile")
             img.image(src="/res/uploads/" + user.profileFoto)
@@ -25,7 +25,7 @@ block content
             span.red *
           .form-part
             span.input-info Your birthday:
-            input(type="date" name="date" autocomplete="off") 
+            input(type="text" placeholder="dd/mm/yyyy" name="date" autocomplete="off") 
             span.red *
           .form-part
             span.input-info Your phone number:

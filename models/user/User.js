@@ -24,19 +24,19 @@ const UserSchema = new Schema({
     required: true,
     minlength: 6
   },
-  teams: {
-    type: Array,
-    default: []
-  },
   phone: {
     type: String
   },
   date: {
-    type: Date
+    type: String
   },
   completed: {
     type: Boolean,
     default: false
+  },
+  team: {
+    type: Object,
+    default: undefined
   }
 });
 

@@ -11,6 +11,8 @@ html(lang="tr")
             crossorigin="anonymous")
       if includes.external.indexOf('js') > -1 
         script(src=`/js/${page}.js`)
+      if includes.external.indexOf('socket.io') > -1 
+        script(src=`/socket.io/socket.io.js`)
     link(rel="stylesheet", href=`/css/${page}.css`)
     link(href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet")
     link(rel="stylesheet", href=`/css/general.css`)

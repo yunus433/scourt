@@ -1,0 +1,25 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      span.all-header-name scourt
+      a(href="/app/coach/edit").user-description
+        span.user-name Hi, #{coach.name.split(" ")[0]}
+        img.user-image(src="/res/uploads/" + coach.profileFoto)
+    .all-content
+      .content-side 
+        form.create-team-form(action="/app/coach/team/edit/?id=" + team._id method="POST" enctype="multipart/form-data")
+          .team-left-side 
+            label.team-picture(for="teamPicture")
+              img.team-picture-image(src="/res/uploads/" + team.teamPhoto)
+              input.team-picture-input(type="file" id="teamPicture" name="teamPhoto" accept="image/*")
+            a(href="/app/coach/dashboard").exit-create-team 
+              i.fas.fa-arrow-circle-left
+            button.create-team-button Submit
+          .team-right-side
+            span.team-id Your team id is #{team.teamId}
+            span.create-team-form-info  From this page you can edit the informations you want to change
+            span Write your team's name: 
+            input(type="text" placeholder="Team name" name="name" autocomplete="off" autofocus value= team.name)
+            span Write a short description of you team
+            textarea.text-area(name="description", cols="25", rows="8") #{team.description}

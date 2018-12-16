@@ -4,6 +4,6 @@ module.exports = (req, res, next) => {
   } else if (req.session && req.session.coach) {
     next();
   } else {
-    res.redirect('/auth/login');
+    res.redirect('/');
   }
 }

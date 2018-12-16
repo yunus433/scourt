@@ -6,7 +6,7 @@ block content
     .all-content
       .all-content-wrapper
         form.form(action="/auth/coach/login" method="POST")
-          input.form-inputs(type="text" name="id" placeholder="your id" autocomplete="off" autofocus)
+          input.form-inputs(type="text" name="email" placeholder="your e-mail" autocomplete="off" autofocus)
           input.form-inputs(type="password" name="password" placeholder="password" autocomplete="off")
           - if (err) {
             - if (err == 1) {

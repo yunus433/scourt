@@ -1,14 +1,13 @@
 const Coach = require('../../../../models/coach/Coach');
 
 module.exports = (req, res, next) => {
-  if (req.body && req.body.id && req.body.password) {
-      Coach.findCoach(req.body.id, req.body.password, (err, coach) => {
+  if (req.body && req.body.email && req.body.password) {
+      Coach.findCoach(req.body.email, req.body.password, (err, coach) => {
         if (err) return res.redirect('/auth/coach/login/?err=2');
 
         if (!coach) {
           return res.redirect('/auth/coach/login/?err=2');
         }
-        console.log(coach);
         
         req.session.coach = coach;
         

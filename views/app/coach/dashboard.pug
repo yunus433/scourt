@@ -1,61 +1,43 @@
 extends ../../partials/head
 block content
+  span.team-object-value= team
   .all-wrapper
     .all-header
-      span.name scourt
-    .all-content
-      .messages-block
-        .each-message.left
-          .message-sender
-            span Messi
-          .message-content
-            span Coach can you please share the last match?
-        .each-message.left
-          .message-sender
-            span Ronaldo
-          .message-content
-            span Yeah, that would be great. I think I have missed a position at the fifty fifth minute...
-        .each-message.right
-          .message-sender
-            span you
-          .message-content
-            iframe.leagueVideos(src="https://www.youtube.com/embed/913p6ERWQpI"  allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen")
-        .each-message.right
-          .message-sender
-            span you
-          .message-content
-            span.blue @messi in 34.42
-            br
-            span You should stay in your position and mark your man
-        .each-message.right
-          .message-sender
-            span you
-          .message-content
-            span.blue @ronaldo in 55.32
-            br
-            span Yeah, you realy had a very good position. That's very bad. You should have been more attentive
-        .each-message.left
-          .message-sender
-            span Ronaldo
-          .message-content
-            span I'm sorry coach. When will be our next practice? Maybe we can go on this problem.
-        .each-message.right
-          .message-sender
-            span you
-          .message-content
-            span Tomarrow, 15.30. I want everyone to be there.
-        .each-message.left
-          .message-sender
-            span Anreas
-          .message-content
-            span Coach, you didn't comment on my play. How was I?
-        //- each message in messages
-        //-   - if (message.type == 'video') {
+      span.all-header-name scourt
+      .user-description
+        span.user-name Hi, #{coach.name.split(" ")[0]}
+        img.user-image(src="/res/uploads/" + coach.profileFoto)
+    .all-content-dashboard
+      .content-right-side.content-side
+        .content-side-header
+          -if (team) {
+            a(href="/app/team/edit/?id=" + team._id).edit-team
+              img.team-photo(src="/res/uploads/" + team.teamPhoto)
+              span.team-name #{team.name} 
+              span.click-for-details (Click to see team id)
+            span.player-number #{team.players.length} joined players
+          - }
+        .content-right-info
+          - if (team) {
+            a.go-to-team-button(href="/app/team/?id=" + team.teamId) Go to your team page
+          - } else {
+            .content-right-not-member
+              span Your didn't create a team
+              button.join-team-button Create a team
+            .content-right-join-team
+              form.create-team-form(action="/app/team/new" method="POST" enctype="multipart/form-data")
+                .team-left-side 
+                  label.team-picture(for="teamPicture")
+                    img.team-picture-image(src="/res/uploads/defaultTeamPicture.png")
+                    input.team-picture-input(type="file" id="teamPicture" name="teamPhoto" accept="image/*")
+                  .exit-create-team 
+                    i.fas.fa-arrow-circle-left
+                  button.create-team-button Create
+                .team-right-side
+                  span.create-team-form-info  You should type the following informations before you create your team. After you have created it, you can share it with your players by giving them its unique sharing id.
+                  span Write your team's name: 
+                  input(type="text" placeholder="Team name" name="name" autocomplete="off" autofocus)
+                  span Write a short description of you team
+                  textarea.text-area(name="description", cols="25", rows="8")
+          - }
 
-        //-   - } else {
-
-        //-   - } 
-      .message-sending
-        form(action="/newMessage")
-          input.message-sending-button(type="submit" value="Send")
-          input.message-sending-input(type="text", name="message", autocomplete="off", autofocus)

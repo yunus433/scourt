@@ -1,0 +1,181 @@
+.all-content-dashboard {
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  height: 90vh;
+  width: 90vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+}
+.user-description {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 60%;
+}
+.user-name {
+  font-size: 1.6em;
+  color: black;
+  margin-right: 5px;
+}
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+.content-side-header {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 5px;
+  font-size: 1.5em;
+  width: 95%;
+  padding-left: 15px;
+  padding-top: 5px;
+  height: 40px;
+  margin-top: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.team-photo {
+  height: 100%;
+  border-radius: 10px;
+}
+.team-name {
+  margin: 0px 10px;
+  font-size: 0.8em;
+}
+.click-for-details {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.6em;
+}
+.player-number {
+  font-size: 0.7em;
+  padding-right: 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.edit-team {
+  color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.content-side-header {
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 99%;
+  margin-bottom: 0px;
+  margin: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.team-players-list {
+  margin-top: 50px;
+  position: fixed;
+  margin-left: 100%;
+  transform: translateX(-110%);
+  margin-top: 0px;
+  padding-top: 10px;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-bottom-left-radius: 10px;
+  min-height: 80px;
+  overflow: scroll;
+  display: none;
+  flex-direction: column;
+}
+.each-team-player {
+  padding: 2px 0px;
+  color: black;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  height: 20px;
+}
+
+.messages-block {
+  width: 100% - 100px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 25px;
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.each-message {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 5px;
+}
+.message-sender {
+  padding-bottom: 5px;
+  padding-left: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+.message-content {
+  color: black;
+  padding: 5px;
+  display: flex;
+}
+.message-content span {
+  text-align: left;
+}
+.message-sender-input {
+  display: none;
+}
+.message-sender-team-input {
+  display: none;
+}
+.left {
+  width: 50%;
+}
+.right {
+  width: 50%;
+  margin-left: 100%;
+  transform: translateX(-100%);
+}
+.new-message-form {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 0px;
+  margin-top: 100% -50px;
+}
+.message-sending-input {
+  width: 100%;
+  border-radius: 10px;
+  height: 95%;
+  font-size: 1.6em;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.message-sending-button {
+  width: 100px;
+  height: 46px;
+  background-color: gray;
+  margin: 2px;
+  border-radius: 10px;
+  font-size: 1.4em;
+  color: black;
+  cursor: pointer;
+  outline: none;
+}
+.team-object-value {
+  display: none;
+}
+.user-object-value {
+  display: none;
+}
