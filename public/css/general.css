@@ -3,7 +3,8 @@ html, body {
   height: 100%;
   margin: 0px;
   padding: 0px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 body {
   height: 100vw;
@@ -12,7 +13,6 @@ body {
   background-size: cover;
   font-family: "Roboto Slab", "Roboto";
   -webkit-font-smoothing: subpixel-antialiased;
-  overflow: hidden;
 }
 a {
   text-decoration: none;
