@@ -22,8 +22,10 @@ module.exports = (req, res, next) => {
                 coach.password  = req.body.password;
                 coach.profileFoto = req.file.filename;
 
-                coach.save();
-                return res.redirect('/app/coach/dashboard');
+                coach.save((err, coach) => {
+                  if (err) res.redirect('/');
+                  return res.redirect('/app/coach/dashboard');
+                });
               } else {
 
                 coach.name = req.body.name;
@@ -33,8 +35,10 @@ module.exports = (req, res, next) => {
                 coach.password  = req.body.password;
                 coach.completed = true;
 
-                coach.save();
-                return res.redirect('/app/coach/dashboard');
+                coach.save((err, coach) => {
+                  if (err) res.redirect('/');
+                  return res.redirect('/app/coach/dashboard');
+                });
               };
             });
         } else {
