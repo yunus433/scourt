@@ -12,6 +12,7 @@
   padding: 25px;
   border-radius: 10px;
   width: 50%;
+  overflow-y: scroll;
 }
 .form-inputs {
   height: 45px;
