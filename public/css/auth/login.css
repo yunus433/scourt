@@ -20,8 +20,6 @@
 }
 .submit-button {
   width: 50%;
-  margin-left: 50%;
-  transform: translateX(-50%);
   margin-top: 10px;
   border-radius: 20px;
   height: 45px;
@@ -57,6 +55,9 @@
   .submit-button {
     font-size: 1.5em;
   }
+  .err-message {
+    font-size: 0.9em;
+  }
 }
 
 @media only screen and (max-width: 600px) and (min-width: 500px) {
@@ -69,6 +70,9 @@
   }
   .register-link {
     font-size: 1.1em;
+  }
+  .err-message {
+    font-size: 0.8em;
   }
 }
 
@@ -83,6 +87,9 @@
   }
   .register-link {
     font-size: 0.9em;
+  }
+  .err-message {
+    font-size: 0.7em;
   }
 }
 
@@ -100,5 +107,8 @@
   }
   .register-link {
     font-size: 0.9em;
+  }
+  .err-message {
+    font-size: 0.7em;
   }
 }
