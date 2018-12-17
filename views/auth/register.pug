@@ -5,7 +5,7 @@ block content
       span.all-header-name scourt
     .all-content
       form.form(action="/auth/register" method="POST")
-        input.form-inputs(type="text" name="email" placeholder="email" autocomplete="off" autofocus)
+        input.form-inputs(type="email" name="email" placeholder="email" autocomplete="off" autofocus)
         input.form-inputs(type="password" name="password" placeholder="password" autocomplete="off")
         input.form-inputs(type="password" name="confirmpassword" placeholder="confirm password" autocomplete="off")
         - if (err) {
