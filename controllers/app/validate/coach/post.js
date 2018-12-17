@@ -23,8 +23,9 @@ module.exports = (req, res, next) => {
                 coach.profileFoto = req.file.filename;
 
                 coach.save((err, coach) => {
-                  if (err) res.redirect('/');
-                  return res.redirect('/app/coach/dashboard');
+                  if (err) return res.redirect('/');
+                  if (!coach) return res.redirect('/');
+                  return res.redirect('/auth/coach/login');
                 });
               } else {
 
@@ -36,8 +37,9 @@ module.exports = (req, res, next) => {
                 coach.completed = true;
 
                 coach.save((err, coach) => {
-                  if (err) res.redirect('/');
-                  return res.redirect('/app/coach/dashboard');
+                  if (err) return res.redirect('/');
+                  if (!coach) return res.redirect('/');
+                  return res.redirect('/auth/coach/login');
                 });
               };
             });
