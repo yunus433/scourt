@@ -26,7 +26,6 @@ module.exports = socket => {
         };
 
         socket.to(params.team).emit("newMessage", { message });
-        socket.emit("newMessage", { message });
 
         let newMessageData = {
           sender: user,

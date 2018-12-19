@@ -2,7 +2,7 @@ extends ../../partials/head
 block content
   .all-wrapper
     .all-header
-      span.all-header-name scourt
+      a(href="/").all-header-name scourt
       a(href="/app/edit").user-description
         span.user-name Hi, #{user.name.split(" ")[0]}
         img.user-image(src="/res/uploads/" + user.profileFoto)
