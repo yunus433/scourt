@@ -8,8 +8,6 @@ html {
   background-size: cover;
 }
 body {
-  height: 100vw;
-  widows: 100vh;
   font-family: "Roboto Slab", "Roboto";
   -webkit-font-smoothing: subpixel-antialiased;
   overflow: scroll;

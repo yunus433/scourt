@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
-const cloudinary = require('cloudinary');
+// const cloudinary = require('cloudinary');
 const socketIO = require('socket.io');
 
 const sockets = require('./sockets/sockets');
@@ -16,7 +16,7 @@ const app = express();
 let server = http.createServer(app);
 let io = socketIO(server);
 
-const PORT = process.env.PORT|| 3000;
+const PORT = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/scourt';
 
 const indexRouteController = require('./routes/indexRoute');
@@ -26,11 +26,11 @@ const adminRouteController = require('./routes/adminRoute');
 
 dotenv.config({path: path.join(__dirname, '.env')});
 
-cloudinary.config({ 
-  cloud_name: 'dvnac86j8', 
-  api_key: '225569931328295', 
-  api_secret: 'G2IlEQrKxNrR_JMoBYKqGkPaNBM' 
-});
+// cloudinary.config({ 
+//   cloud_name: 'dvnac86j8', 
+//   api_key: '225569931328295', 
+//   api_secret: 'G2IlEQrKxNrR_JMoBYKqGkPaNBM' 
+// });
 
 const {
   SESSION_SECRET
@@ -39,7 +39,7 @@ const {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-mongoose.connect(mongoUri, {useNewUrlParser: true,  server: { auto_reconnect: true }});
+mongoose.connect(mongoUri, {useNewUrlParser: true, auto_reconnect: true});
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -54,7 +54,6 @@ const session = expressSession({
 app.use(session);
 app.use((req, res, next) => {
   req.io = io;
-  req.cloudinary = cloudinary;
   next();
 });
 

@@ -1,5 +1,6 @@
 const User = require('../../../models/user/User');
 const validator = require('validator');
+const sendMail = require('../../../utils/sendMail');
 
 module.exports = (req, res, next) => {
   if (req.body && req.body.email && req.body.password && req.body.confirmpassword) {
@@ -18,6 +19,13 @@ module.exports = (req, res, next) => {
               return res.redirect('/auth/register/?err=5');
             } else {
               if (err) return console.log(err.code);
+
+              sendMail({
+                email: user.email,
+              }, 'userRegister', (err, info) => {
+                if (err) return console.log(err);
+                res.redirect('/app/validate');
+              });
 
               req.session.user = user;
               return res.redirect('/app/validate');
