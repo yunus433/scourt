@@ -5,7 +5,7 @@
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   height: 60%;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 .form-left-side {
   flex: 1;

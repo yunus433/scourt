@@ -4,15 +4,13 @@ html {
   margin: 0px;
   padding: 0px;
   background: url("/res/images/app_background.jpg");
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
   background-size: cover;
 }
 body {
   font-family: "Roboto Slab", "Roboto";
   -webkit-font-smoothing: subpixel-antialiased;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -26,8 +24,7 @@ a {
 .all-wrapper {
   background-color: rgba(66, 66, 66, 0.1);
   width: 100vw;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -49,8 +46,7 @@ a {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 .--button {
   display: flex;
