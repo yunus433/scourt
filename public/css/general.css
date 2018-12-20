@@ -11,8 +11,9 @@ body {
   font-family: "Roboto Slab", "Roboto";
   -webkit-font-smoothing: subpixel-antialiased;
   overflow: scroll;
+  overflow-x: hidden;
   width: 100%;
-  height: 100%;
+  height: auto;
   margin: 0px;
   padding: 0px;
 }
@@ -25,7 +26,7 @@ a {
 .all-wrapper {
   background-color: rgba(66, 66, 66, 0.1);
   width: 100vw;
-  height: 95vh;
+  height: auto;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -44,6 +45,7 @@ a {
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   width: 100vw;
+  height: auto;
   align-items: center;
   justify-content: center;
   flex-direction: column;
