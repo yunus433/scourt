@@ -137,6 +137,7 @@
   }
   .form-explanation {
     font-size: 1em;
+    display: none;
   }
   .phone-number-wrapper {
     flex-direction: column;
@@ -163,6 +164,7 @@
   }
   .form-explanation {
     font-size: 0.9em;
+    display: none;
   }
   .phone-number-wrapper {
     flex-direction: column;
@@ -192,6 +194,7 @@
   }
   .form-explanation {
     font-size: 0.9em;
+    display: none;
   }
   .phone-number-wrapper {
     flex-direction: column;

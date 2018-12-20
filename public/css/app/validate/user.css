@@ -23,9 +23,8 @@
   align-items: center;
 }
 .image {
-  width: 50%;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
   border-radius: 100%;
 }
 .profile-picture {
@@ -33,6 +32,7 @@
   flex-direction: column;
   cursor: pointer;
   border-radius: 100%;
+  align-items: center;
 }
 .profile-input {
   margin-left: 50%;
@@ -40,6 +40,12 @@
   outline: none;
   margin-top: 15px;
   cursor: pointer;
+  display: none;
+}
+.profile-input-explanation {
+  margin-top: 5px;
+  font-size: 0.8em;
+  font-style: italic;
 }
 .red {
   color: red;
@@ -96,4 +102,69 @@
 }
 .err-message-text {
   text-align: center;
+}
+
+@media only screen and (max-width: 815px) and (min-width: 700px) {
+  .form-right-side {
+    font-size: 0.9em;
+  }
+  .form-part input {
+    font-size: 1.4em;
+  }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 500px) {
+  .form-right-side {
+    font-size: 0.9em;
+    width: 100%;
+  }
+  .form-left-side {
+    width: 100%;
+  }
+  .form-part input {
+    font-size: 1.4em;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .form-right-side {
+    font-size: 0.8em;
+    width: 100%;
+  }
+  .form-left-side {
+    width: 100%;
+  }
+  .form-part input {
+    font-size: 1.1em;
+    height: 35px;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .form-right-side {
+    font-size: 0.8em;
+    width: 100%;
+  }
+  .form-left-side {
+    width: 100%;
+  }
+  .form-part input {
+    font-size: 1.1em;
+    height: 35px;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+  }
+  .input-info {
+    font-size: 1em;
+  }
 }

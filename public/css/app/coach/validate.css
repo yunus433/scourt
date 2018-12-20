@@ -26,12 +26,16 @@
   margin-left: 50%;
   transform: translateX(-50%);
   border-radius: 100%;
+  display: flex;
+  justify-content: center;
 }
 .profile-picture {
   display: flex;
   flex-direction: column;
   cursor: pointer;
   border-radius: 100%;
+  display: flex;
+  justify-content: center;
 }
 .profile-input {
   margin-left: 50%;
@@ -39,6 +43,8 @@
   outline: none;
   margin-top: 15px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 .red {
   color: red;

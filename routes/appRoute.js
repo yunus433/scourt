@@ -15,6 +15,7 @@ const teamPageGetController = require('../controllers/app/teams/teams');
 const editTeamGetController = require('../controllers/app/teams/coach/editTeam');
 
 const validatePostController = require('./../controllers/app/validate/user/post');
+const validateImageRoutePostController = require('../controllers/app/validate/user/imagePost');
 const coachValidatePostController = require('../controllers/app/validate/coach/post');
 const coachCreateTeamPostController = require('../controllers/app/teams/coach/postNewTeam');
 const editRoutePostController = require('../controllers/app/edit/user/post');
@@ -51,7 +52,7 @@ router.get(
   isLoggedIn,
   editGetController
 );
-router.get('/coach/edit')
+// router.get('/coach/edit')
 
 router.get(
   '/team',
@@ -68,9 +69,14 @@ router.get(
 // Post Controllers
 router.post(
   '/validate',
-  upload.single('profile'),
   isLoggedIn,
   validatePostController
+);
+router.post(
+  '/validate/image',
+  upload.single('profile'),
+  isLoggedIn,
+  validateImageRoutePostController
 );
 router.post(
   '/coach/validate',
