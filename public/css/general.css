@@ -43,7 +43,6 @@ a {
 .all-content {
   color: rgba(255, 255, 255, 0.9);
   display: flex;
-  height: 90vh;
   width: 100vw;
   align-items: center;
   justify-content: center;
