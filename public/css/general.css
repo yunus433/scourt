@@ -14,7 +14,6 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   width: 100%;
-  height: auto;
   margin: 0px;
   padding: 0px;
 }
@@ -27,7 +26,6 @@ a {
 .all-wrapper {
   background-color: rgba(66, 66, 66, 0.1);
   width: 100vw;
-  height: auto;
   overflow-x: hidden;
   overflow-y: scroll;
   position: fixed;
@@ -48,7 +46,6 @@ a {
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   width: 100vw;
-  height: auto;
   align-items: center;
   justify-content: center;
   flex-direction: column;
