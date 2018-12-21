@@ -5,6 +5,9 @@
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   height: 60%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  justify-self: flex-end;
 }
 .form-left-side {
   flex: 1;
@@ -13,6 +16,7 @@
   width: 33%;
   justify-content: center;
   align-items: center;
+  height: 
 }
 .form-right-side {
   flex: 2;
@@ -21,6 +25,7 @@
   width: 66%;
   justify-content: center;
   align-items: center;
+  height: 
 }
 .image {
   width: 180px;
@@ -127,6 +132,8 @@
   .form {
     flex-direction: column;
     height: auto;
+    position: absolute;
+    margin-bottom: 25px;
   }
 }
 
@@ -145,6 +152,8 @@
   .form {
     flex-direction: column;
     height: auto;
+    position: absolute;
+    margin-bottom: 25px;
   }
 }
 
@@ -163,6 +172,8 @@
   .form {
     flex-direction: column;
     height: auto;
+    position: absolute;
+    margin-bottom: 25px;
   }
   .input-info {
     font-size: 1em;

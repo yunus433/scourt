@@ -38,7 +38,7 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 .all-header {
-  height: 5vh;
+  height: 100px;
   display: flex;
   padding: 25px 25px;
 }
@@ -50,9 +50,7 @@ a {
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   width: 100vw;
-  height: 85vh;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 .--button {
