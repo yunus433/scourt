@@ -19,8 +19,6 @@ html::before {
 body {
   font-family: "Roboto Slab", "Roboto";
   -webkit-font-smoothing: subpixel-antialiased;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -30,12 +28,9 @@ a {
 }
 .main {
   padding: 0px;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 .all-wrapper {
   width: 100vw;
-  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,10 +50,10 @@ a {
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   width: 100vw;
+  height: 85vh;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: scroll;
 }
 .--button {
   display: flex;
