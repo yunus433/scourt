@@ -11,13 +11,14 @@ html::before {
 	right:0;
 	bottom:0;
 	left:0;
-	background:#333 url("/res/images/app_background.jpg") center;
+	background:rgba(66, 66, 66, 1) url("/res/images/app_background.jpg") center;
 	background-size:cover
 }
 body {
   font-family: "Roboto Slab", "Roboto";
   -webkit-font-smoothing: subpixel-antialiased;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -29,9 +30,7 @@ a {
   padding: 0px;
 }
 .all-wrapper {
-  background-color: rgba(66, 66, 66, 0.1);
   width: 100vw;
-  overflow: scroll;
   position: fixed;
   display: flex;
   flex-direction: column;
