@@ -2,6 +2,8 @@ html {
   width: 100%;
   margin: 0px;
   padding: 0px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 html::before {
   content:"";
@@ -28,6 +30,8 @@ a {
 }
 .main {
   padding: 0px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .all-wrapper {
   width: 100vw;
@@ -35,6 +39,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .all-header {
   height: 5vh;
