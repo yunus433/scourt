@@ -136,3 +136,48 @@
   cursor: pointer;
   outline: none;
 }
+
+@media only screen and (max-width: 750px) and (min-width: 550px) {
+  .user-name {
+    font-size: 1.4em;
+  }
+  .user-description {
+    width: 50%;
+    margin-left: 40%;
+  }
+}
+
+@media only screen and (max-width: 550px) and (min-width: 400px) {
+  .user-name {
+    font-size: 1.2em;
+  }
+  .user-image {
+    width: 40px;
+    height: 40px;
+  }
+  .user-description {
+    width: 70%;
+    margin-left: 30%;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .user-name {
+    font-size: 1.1em;
+  }
+  .user-image {
+    width: 35px;
+    height: 35px;
+  }
+  .user-description {
+    width: 80%;
+    margin-left: 0px;
+  }
+  .content-right-not-member {
+    font-size: 0.8em;
+  }
+  .join-team-button {
+    height: 35px;
+    margin-top: 5px;
+  }
+}

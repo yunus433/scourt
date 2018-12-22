@@ -14,7 +14,7 @@ html::before {
 	bottom:0;
 	left:0;
 	background:rgba(66, 66, 66, 1) url("/res/images/app_background.jpg") center;
-	background-size:cover
+	background-size: cover;
 }
 body {
   font-family: "Roboto Slab", "Roboto";
@@ -38,9 +38,10 @@ a {
   -webkit-overflow-scrolling: touch;
 }
 .all-header {
-  height: 100px;
+  height: 50px;
   display: flex;
   padding: 25px 25px;
+  align-items: center;
 }
 .all-header-name {
   font-size: 2em;
