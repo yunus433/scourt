@@ -8,6 +8,7 @@
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   justify-self: flex-end;
+  z-index: 3;
 }
 .form-left-side {
   flex: 1;
