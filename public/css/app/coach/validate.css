@@ -22,12 +22,11 @@
   align-items: center;
 }
 .image {
-  width: 50%;
   margin-left: 50%;
   transform: translateX(-50%);
   border-radius: 100%;
-  display: flex;
-  justify-content: center;
+  height: 180px;
+  width: 180px;
 }
 .profile-picture {
   display: flex;
@@ -38,13 +37,7 @@
   justify-content: center;
 }
 .profile-input {
-  margin-left: 50%;
-  transform: translateX(-25%);
-  outline: none;
-  margin-top: 15px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
+  display: none;
 }
 .red {
   color: red;
@@ -102,3 +95,91 @@
 .err-message-text {
   text-align: center;
 }
+.profile-input-explanation {
+  margin-top: 5px;
+  font-size: 0.8em;
+  font-style: italic;
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 850px) and (min-width: 750px) {
+  .form-right-side {
+    font-size: 0.9em;
+  }
+  .form-part input {
+    font-size: 1.4em;
+  }
+} 
+
+@media only screen and (max-width: 750px) and (min-width: 600px) {
+  .form-right-side {
+    font-size: 0.9em;
+  }
+  .form-part input {
+    font-size: 1.2em;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+  }
+  .form-left-side {
+    align-self: center;
+  }
+  .form-right-side {
+    width: 100%;
+  }
+  .form-submit {
+    padding-right: 50px;
+  }
+} 
+
+@media only screen and (max-width: 600px) and (min-width: 500px) {
+  .form-right-side {
+    font-size: 0.9em;
+  }
+  .form-part input {
+    font-size: 1.2em;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 25px;
+  }
+  .form-left-side {
+    align-self: center;
+  }
+  .form-right-side {
+    width: 100%;
+  }
+  .form-submit {
+    padding-right: 50px;
+  }
+} 
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+  .form-right-side {
+    font-size: 0.8em;
+    margin: 0px;
+  }
+  .form-part input {
+    font-size: 0.9em;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 25px;
+  }
+  .form-left-side {
+    align-self: center;
+  }
+  .form-right-side {
+    width: 100%;
+  }
+  .form-submit {
+    padding-right: 50px;
+  }
+  .submit-part {
+    width: 50%;
+  }
+} 
