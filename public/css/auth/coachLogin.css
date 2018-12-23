@@ -1,7 +1,10 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 60%;
+  position: relative;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .all-content-wrapper {
   background-color: rgba(0, 0, 0, 0.7);
@@ -77,11 +80,13 @@
 @media only screen and (max-width: 850px) and (min-width: 700px) {
   .form-inputs {
     font-size: 1.5em;
-    width: 100%;
   }
   .submit-button {
     font-size: 1.5em;
     width: 60%;
+  }
+  .form {
+    width: 80%;
   }
   .err-message {
     font-size: 0.9em;
@@ -100,7 +105,9 @@
 @media only screen and (max-width: 700px) and (min-width: 600px) {
   .form-inputs {
     font-size: 1.4em;
-    width: 100%;
+  }
+  .form {
+    width: 70%;
   }
   .submit-button {
     font-size: 1.4em;
@@ -122,11 +129,10 @@
 
 @media only screen and (max-width: 600px) and (min-width: 500px) {
   .form {
-    width: 50%;
+    width: 80%;
   }
   .form-inputs {
     font-size: 1.4em;
-    width: 100%;
   }
   .submit-button {
     font-size: 1.4em;
@@ -137,7 +143,6 @@
   }
   .form-explanation {
     font-size: 1em;
-    display: none;
   }
   .phone-number-wrapper {
     flex-direction: column;
@@ -148,12 +153,15 @@
 }
 
 @media only screen and (max-width: 500px) and (min-width: 400px) {
+  .all-content-wrapper {
+    width: 70%;
+    margin-bottom: 25px;
+  }
   .form {
-    width: 60%;
+    width: 80%;
   }
   .form-inputs {
     font-size: 1.4em;
-    width: 100%;
   }
   .submit-button {
     font-size: 1.4em;
@@ -164,7 +172,6 @@
   }
   .form-explanation {
     font-size: 0.9em;
-    display: none;
   }
   .phone-number-wrapper {
     flex-direction: column;
@@ -178,12 +185,15 @@
 }
 
 @media only screen and (max-width: 400px) and (min-width: 300px) {
-  .form {
+  .all-content-wrapper {
     width: 70%;
+    margin-bottom: 25px;
+  }
+  .form {
+    width: 100%;
   }
   .form-inputs {
     font-size: 1.2em;
-    width: 100%;
   }
   .submit-button {
     font-size: 1.2em;
@@ -194,7 +204,6 @@
   }
   .form-explanation {
     font-size: 0.9em;
-    display: none;
   }
   .phone-number-wrapper {
     flex-direction: column;
