@@ -109,7 +109,6 @@ router.post(
 );
 router.post(
   '/team/new',
-  upload.single('teamPhoto'),
   isLoggedIn,
   coachCreateTeamPostController
 );

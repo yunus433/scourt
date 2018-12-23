@@ -25,19 +25,16 @@ block content
               span Your didn't create a team
               button.join-team-button Create a team
             .content-right-join-team
-              form.create-team-form(action="/app/team/new" method="POST" enctype="multipart/form-data")
+              form.create-team-form(action="/app/team/new" method="POST")
                 .team-left-side 
-                  label.team-picture(for="teamPicture")
-                    img.team-picture-image(src="/res/uploads/defaultTeamPicture.png")
-                    input.team-picture-input(type="file" id="teamPicture" name="teamPhoto" accept="image/*")
+                  span.create-team-form-info  You should type the following informations before you create your team. After you have created it, you can share it with your players by giving them its unique sharing id.      
                   .exit-create-team 
                     i.fas.fa-arrow-circle-left
-                  button.create-team-button Create
+                    button.create-team-button Create
                 .team-right-side
-                  span.create-team-form-info  You should type the following informations before you create your team. After you have created it, you can share it with your players by giving them its unique sharing id.
-                  span Write your team's name: 
+                  span.team-right-side-explanation Write your team's name: 
                   input(type="text" placeholder="Team name" name="name" autocomplete="off" autofocus)
-                  span Write a short description of you team
+                  span.team-right-side-explanation Write a short description of your team
                   textarea.text-area(name="description", cols="25", rows="8")
           - }
 
