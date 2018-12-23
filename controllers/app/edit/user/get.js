@@ -1,7 +1,8 @@
 const User = require('../../../../models/user/User');
 
 module.exports = (req, res, next) => {
-  User.findById(req.session.user._id, (err, user) => {
+  let user = req.session.user || req.session.coach;
+  User.findById(user._id, (err, user) => {
     if (err) return res.redirect('/');
 
     res.render('app/edit/user', {

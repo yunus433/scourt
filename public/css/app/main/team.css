@@ -1,18 +1,19 @@
 .all-content-dashboard {
   color: rgba(255, 255, 255, 0.9);
   display: flex;
-  height: 90vh;
   width: 90vw;
+  height: 80vh;
   margin-left: 50%;
   transform: translateX(-50%);
   flex-direction: column;
+  margin-bottom: 25px;
 }
 .user-description {
-  width: 30%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left: 60%;
+  margin-left: 20%;
 }
 .user-name {
   font-size: 1.6em;
@@ -137,10 +138,10 @@
   display: none;
 }
 .left {
-  width: 50%;
+  width: 60%;
 }
 .right {
-  width: 50%;
+  width: 60%;
   margin-left: 100%;
   transform: translateX(-100%);
 }
@@ -156,7 +157,7 @@
 .message-sending-input {
   width: 100%;
   border-radius: 10px;
-  height: 95%;
+  height: 90%;
   font-size: 1.6em;
   outline: none;
   border: none;
@@ -164,7 +165,7 @@
 }
 .message-sending-button {
   width: 100px;
-  height: 46px;
+  height: 90%;
   background-color: gray;
   margin: 2px;
   border-radius: 10px;
@@ -178,4 +179,10 @@
 }
 .user-object-value {
   display: none;
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .user-name {
+    font-size: 1em;
+  }
 }

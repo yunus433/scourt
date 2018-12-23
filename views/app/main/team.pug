@@ -5,9 +5,15 @@ block content
   .all-wrapper
     .all-header
       a(href="/").all-header-name scourt
-      a(href="/edit").user-description
-        span.user-name Hi, #{user.name.split(" ")[0]}
-        img.user-image(src="/res/uploads/" + user.profileFoto)
+      - if(user.date) {
+        a(href="/app/edit").user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profileFoto)
+      - } else {
+        .user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profileFoto)
+      - }
     .all-content-dashboard
       .content-side-header
         .edit-team
