@@ -38,11 +38,6 @@
   align-items: center;
 }
 .profile-input {
-  margin-left: 50%;
-  transform: translateX(-25%);
-  outline: none;
-  margin-top: 15px;
-  cursor: pointer;
   display: none;
 }
 .profile-input-explanation {
@@ -94,6 +89,7 @@
   cursor: pointer;
   outline: none;
   background-color: rgba(255, 255, 255, 0.8);
+  justify-content: center;
 }
 .err-message {
   margin-top: 25px;

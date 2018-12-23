@@ -5,6 +5,9 @@
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   height: 60%;
+  position: relative;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .password-form {
   flex-direction: column;
@@ -35,9 +38,8 @@
   margin-left: 25px;
 }
 .image {
-  width: 50%;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
   border-radius: 100%;
 }
 .profile-picture {
@@ -47,11 +49,7 @@
   border-radius: 100%;
 }
 .profile-input {
-  margin-left: 50%;
-  transform: translateX(-25%);
-  outline: none;
-  margin-top: 15px;
-  cursor: pointer;
+  display: none;
 }
 .red {
   color: red;
@@ -86,10 +84,15 @@
   width: 100%;
 }
 .submit-button {
-  width: 20%;
+  width: 50%;
   margin-left: 100%;
   transform: translateX(-100%);
   margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.submit-button input {
   border-radius: 20px;
   height: 45px;
   font-size: 1.6em;
@@ -97,6 +100,8 @@
   cursor: pointer;
   outline: none;
   background-color: rgba(255, 255, 255, 0.8);
+  margin-left: 25px;
+  width: 50%;
 }
 .err-message {
   margin-top: 25px;
@@ -117,11 +122,15 @@
   margin-top: 25px;
   border-radius: 20px;
   height: 50px;
-  font-size: 1.2em;
   color: black;
   cursor: pointer;
   outline: none;
   background-color: rgba(255, 255, 255, 0.8);
+}
+.change-password-button span {
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
 }
 .submit-part {
   width: 25%;
@@ -142,7 +151,151 @@
   width: 50%;
   margin-left: 15px;
 }
+.password-form-part {
+  display: flex;
+}
 .password-exit-button {
   font-size: 2em;
   cursor: pointer;
 }
+.profile-input-explanation {
+  margin-top: 5px;
+  font-size: 0.8em;
+  font-style: italic;
+  width: 100%;
+  text-align: center;
+}
+.exit-edit-page-button {
+  font-size: 2em;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media only screen and (max-width: 850px) and (min-width: 750px) {
+  .form-right-side {
+    font-size: 0.9em;
+  }
+  .form-part input {
+    font-size: 1.4em;
+  }
+  .change-password-button span {
+    font-size: 1em;
+  }
+} 
+
+@media only screen and (max-width: 750px) and (min-width: 600px) {
+  .form-right-side {
+    font-size: 0.9em;
+  }
+  .form-part input {
+    font-size: 1.2em;
+  }
+  .change-password-button span {
+    font-size: 0.9em;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+  }
+  .form-left-side {
+    align-self: center;
+  }
+  .form-right-side {
+    width: 100%;
+  }
+  .form-submit {
+    padding-right: 50px;
+  }
+  .password-form {
+    margin: 0px;
+    padding: 15px;
+    font-size: 0.8em;
+  }
+} 
+
+@media only screen and (max-width: 600px) and (min-width: 500px) {
+  .form-right-side {
+    font-size: 0.9em;
+  }
+  .form-part input {
+    font-size: 1.2em;
+  }
+  .change-password-button {
+    width: 100%;
+  }
+  .change-password-button span {
+    font-size: 0.9em;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 25px;
+  }
+  .form-left-side {
+    align-self: center;
+  }
+  .form-right-side {
+    width: 100%;
+  }
+  .form-submit {
+    padding-right: 50px;
+  }
+  .password-form {
+    margin: 0px;
+    padding: 15px;
+    font-size: 0.8em;
+  }
+} 
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+  .form-right-side {
+    font-size: 0.8em;
+    margin: 0px;
+  }
+  .form-part input {
+    font-size: 1em;
+  }
+  .change-password-button {
+    width: 125%;
+  }
+  .change-password-button span {
+    font-size: 0.8em;
+  }
+  .form {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 25px;
+  }
+  .form-left-side {
+    align-self: center;
+  }
+  .form-right-side {
+    width: 100%;
+  }
+  .form-submit {
+    padding-right: 50px;
+  }
+  .password-form {
+    margin: 0px;
+    padding: 15px;
+    font-size: 0.7em;
+  }
+  .password-form .form-submit {
+    padding: 0px;
+  }
+  .submit-part {
+    width: 50%;
+  }
+  .password-form-part {
+    margin-top: 3px;
+  }
+  .password-form-part input {
+    font-size: 1.2em;
+  }
+  .password-form-part-wrapper {
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    width: 100%;
+  }
+} 

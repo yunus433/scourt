@@ -3,6 +3,8 @@ window.onload = () => {
   const normalForm = document.querySelector('.form');
   const passwordForm = document.querySelector('.password-form');
   const exitButton = document.querySelector('.password-exit-button');
+  const imageUpload = document.querySelector('.profile-input');
+  const form = document.querySelector('.form-left-side');
 
   changeButton.onclick = () => {
     normalForm.style.display = 'none';
@@ -12,5 +14,9 @@ window.onload = () => {
   exitButton.onclick = () => {
     normalForm.style.display = 'flex';
     passwordForm.style.display = 'none';
+  }
+
+  imageUpload.onchange = (event) => {
+    form.submit(); 
   }
 }

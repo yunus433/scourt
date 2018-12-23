@@ -19,6 +19,7 @@ const validateImageRoutePostController = require('../controllers/app/validate/us
 const coachValidatePostController = require('../controllers/app/validate/coach/post');
 const coachCreateTeamPostController = require('../controllers/app/teams/coach/postNewTeam');
 const editRoutePostController = require('../controllers/app/edit/user/post');
+const editRouteImagePostController = require('../controllers/app/edit/user/imagePost');
 const editPasswordPostController = require('../controllers/app/edit/user/passwordPost');
 const userJoinTeamPostController = require('../controllers/app/teams/user/joinTeamPost');
 const editTeamPostController = require('../controllers/app/teams/coach/editTeamPostController');
@@ -86,9 +87,14 @@ router.post(
 );
 router.post(
   '/edit',
-  upload.single('profile'),
   isLoggedIn,
   editRoutePostController
+);
+router.post(
+  '/edit/image',
+  upload.single('profile'),
+  isLoggedIn,
+  editRouteImagePostController
 );
 router.post(
   '/edit/password',

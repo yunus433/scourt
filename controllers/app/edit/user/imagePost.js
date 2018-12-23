@@ -1,7 +1,7 @@
 const User = require("../../../../models/user/User");
 
 module.exports = (req, res, next) => {
-  if (req.body && req.body.name && req.body.date) {
+  if (req.file) {
     User.findUser(req.session.user.email, req.session.user.password, err => {
       if (err) return res.redirect("/auth/login");
 
@@ -9,18 +9,16 @@ module.exports = (req, res, next) => {
         { email: req.session.user.email },
         {
           $set: {
-            name: req.body.name,
-            date: req.body.date,
-            phone: req.body.phone || undefined
+            profileFoto: req.file.filename
           }
         },
         { upsert: true }
       ).exec(err => {
         if (err) return console.log(err);
-        res.redirect("/app/dashboard");
+        res.redirect("/app/edit");
       });
     });
   } else {
-    return res.redirect("/app/edit/?err=1");
+    return res.redirect("/app/edit");
   }
 };

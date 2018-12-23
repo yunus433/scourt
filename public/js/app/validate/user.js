@@ -3,7 +3,6 @@ window.onload = () => {
   const form = document.querySelector('.form-left-side');
 
   imageUpload.onchange = (event) => {
-    console.log('submitted');
     form.submit(); 
   }
 }

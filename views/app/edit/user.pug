@@ -4,10 +4,11 @@ block content
     .all-header
       a(href="/").all-header-name scourt
     .all-content
-      form.form(action="/app/edit" method="POST" enctype="multipart/form-data")
-        .form-left-side
+      .form
+        form.form-left-side(action="/app/edit/image" method="POST" enctype="multipart/form-data")
           label.profile-picture(for="profile")
             img.image(src="/res/uploads/" + user.profileFoto)
+            span.profile-input-explanation Click to change
           input.profile-input(type="file" id="profile" name="profile" accept="image/*")
           - if (err) {
             - if (err==1) {
@@ -15,8 +16,9 @@ block content
                 span.err-message-text You can't delete your name and your birthday
             - }
           - }
-          .change-password-button Change your password
-        .form-right-side
+          .change-password-button 
+            span Change your password
+        form.form-right-side(action="/app/edit" method="POST")
           .form-explanation
             h2 Hi #{user.name.split(' ')[0]},
             span Please change the informations you want to edit.
@@ -36,20 +38,26 @@ block content
             span.input-info Your phone number:
             input(type="text" name="phone" autocomplete="off" value=user.phone) 
           .form-submit
-            input.submit-button(type="submit" value="Ok") 
+            .submit-button
+              a.exit-edit-page-button-wrapper(href="/app/dashboard") 
+                i.exit-edit-page-button.fas.fa-arrow-circle-left
+              input(type="submit" value="Ok") 
       form.password-form(action="/app/edit/password" method="POST")
-        .form-part
+        .form-part.password-form-part-wrapper
           span.input-info Your old password:
-          input(type="password" name="oldPassword" autocomplete="off" autofocus) 
-          span.red *
-        .form-part
+          .password-form-part
+            input(type="password" name="oldPassword" autocomplete="off" autofocus) 
+            span.red *
+        .form-part.password-form-part-wrapper
           span.input-info Your new password:
-          input(type="password" name="password" autocomplete="off") 
-          span.red *
-        .form-part
+          .password-form-part
+            input(type="password" name="password" autocomplete="off") 
+            span.red *
+        .form-part.password-form-part-wrapper
           span.input-info Confirm your new password:
-          input(type="password" name="confirmPassword" autocomplete="off") 
-          span.red *
+          .password-form-part
+            input(type="password" name="confirmPassword" autocomplete="off") 
+            span.red *
         .form-submit
           .submit-part
             i.password-exit-button.fas.fa-arrow-circle-left
