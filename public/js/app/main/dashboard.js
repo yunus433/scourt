@@ -4,7 +4,7 @@ window.onload = () => {
   const joinTeam = document.querySelector('.content-right-join-team');
 
   if (joinTeamButton) {
-    joinTeamButton.onclick = () => {
+    joinTeamButton.addEventListener('click', function() {
       notMember.style.animationPlayState = 'running';
       joinTeam.style.animationPlayState = "running";
   
@@ -12,6 +12,6 @@ window.onload = () => {
         notMember.style.display = 'none';
         joinTeam.style.display = 'flex';
       }, 200);
-    };
+    });
   }
 };

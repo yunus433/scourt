@@ -6,17 +6,17 @@ window.onload = () => {
   const imageUpload = document.querySelector('.profile-input');
   const form = document.querySelector('.form-left-side');
 
-  changeButton.onclick = () => {
+  changeButton.addEventListener('click', () => {
     normalForm.style.display = 'none';
     passwordForm.style.display = 'flex';
-  }
+  });
 
-  exitButton.onclick = () => {
+  exitButton.addEventListener('click', () => {
     normalForm.style.display = 'flex';
     passwordForm.style.display = 'none';
-  }
+  });
 
-  imageUpload.onchange = (event) => {
+  imageUpload.addEventListener('click', (event) => {
     form.submit(); 
-  }
-}
+  });
+};
