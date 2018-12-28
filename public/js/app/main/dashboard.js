@@ -3,8 +3,8 @@ window.onload = () => {
   const notMember = document.querySelector('.content-right-not-member');
   const joinTeam = document.querySelector('.content-right-join-team');
 
-  if (joinTeamButton) {
-    joinTeamButton.addEventListener('click', function() {
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.join-team-button')) {
       notMember.style.animationPlayState = 'running';
       joinTeam.style.animationPlayState = "running";
   
@@ -12,6 +12,6 @@ window.onload = () => {
         notMember.style.display = 'none';
         joinTeam.style.display = 'flex';
       }, 200);
-    });
-  }
+    }
+  });
 };

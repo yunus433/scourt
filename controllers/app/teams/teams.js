@@ -3,14 +3,63 @@ const User = require('../../../models/user/User');
 const Coach = require('../../../models/coach/Coach');
 
 module.exports = (req, res, next) => {
+  let month = [{
+    name: "January",
+    day: 31
+  },
+  {
+    name: "February",
+    day: 28,
+    day2: 29
+  },
+  {
+    name: "March",
+    day: 31
+  },
+  {
+    name: "April",
+    day: 30
+  },
+  {
+    name: "May",
+    day: 31
+  },
+  {
+    name: "June",
+    day: 30
+  },
+  {
+    name: "July",
+    day: 31
+  },
+  {
+    name: "August",
+    day: 31
+  },
+  {
+    name: "September",
+    day: 30
+  },
+  {
+    name: "October",
+    day: 31
+  },
+  {
+    name: "November",
+    day: 30
+  },
+  {
+    name: "December",
+    day: 31
+  }];
   Team
-    .find({"teamId": req.query.id})
+    .findOne({"teamId": req.query.id})
     .exec((err, team) => {
       if (err) return console.log(err);
 
       if (req.session.user) {
         User
-          .find({"_id": req.session.user._id})
+          .findOne({"_id": req.session.user._id})
           .exec((err, user) => {
             res.render('app/main/team', {
               page: 'app/main/team',
@@ -18,13 +67,14 @@ module.exports = (req, res, next) => {
               includes: {
                 external: ['fontawesome', 'js', 'socket.io']
               },
-              team: team[0],
-              user: user[0]
+              team,
+              user,
+              month
             });
           })
       } else {
         Coach
-          .find({"_id": req.session.coach._id})
+          .findOne({"_id": req.session.coach._id})
           .exec((err, user) => {
             res.render('app/main/team', {
               page: 'app/main/team',
@@ -32,8 +82,9 @@ module.exports = (req, res, next) => {
               includes: {
                 external: ['fontawesome', 'js', 'socket.io']
               },
-              team: team[0],
-              user: user[0]
+              team,
+              user,
+              month
             });
           })
       }

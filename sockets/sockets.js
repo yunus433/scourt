@@ -13,7 +13,7 @@ module.exports = socket => {
 
     let user;
 
-    User.findById(params.sender, (err, data) => {
+    Coach.findById(params.sender, (err, data) => {
       if (err) return false;
 
       if (data) {
@@ -52,46 +52,47 @@ module.exports = socket => {
             }
           );
         });
-      } else {
-        Coach.findById(params.sender, (err, data) => {
-          if (err) return false;
+      }
+    });
+    User.findById(params.sender, (err, data) => {
+      if (err) return false;
 
-          user = data;
+      if (data) {
+        user = data;
 
-          let message = {
-            sender: user,
-            content: params.content,
-            team: params.team
-          };
-
-          socket.to(params.team).emit("newMessage", { message });
-          socket.emit("newMessage", { message });
-
-          let newMessageData = {
-            sender: user,
-            content: params.content,
-            team: params.team
-          };
-
-          let newMessage = new Message(newMessageData);
-
-          newMessage.save((err, message) => {
-            if (err) return console.log(err);
-
-            Team.findByIdAndUpdate(
-              params.team,
-              {
-                $push: {
-                  messages: message
-                }
-              },
-              err => {
-                if (err) return callback(err);
-
-                return callback();
+        let message = {
+          sender: user,
+          content: params.content,
+          team: params.team
+        };
+  
+        socket.to(params.team).emit("newMessage", { message });
+        socket.emit("newMessage", { message });
+  
+        let newMessageData = {
+          sender: user,
+          content: params.content,
+          team: params.team
+        };
+  
+        let newMessage = new Message(newMessageData);
+  
+        newMessage.save((err, message) => {
+          if (err) return console.log(err);
+  
+          Team.findByIdAndUpdate(
+            params.team,
+            {
+              $push: {
+                messages: message
               }
-            );
-          });
+            },
+            err => {
+              if (err) return callback(err);
+  
+              return callback();
+            }
+          );
         });
       }
     });

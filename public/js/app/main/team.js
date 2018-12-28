@@ -32,7 +32,6 @@ window.onload = () => {
           content: messageContent.value,
           team: messageSenderTeamInput.value
         }, function () {
-          
           messageContent.value = '';
         });
       };
@@ -71,4 +70,44 @@ window.onload = () => {
       });
     };
   }); 
+
+  const teamWrapper = document.querySelector('.team-main-wrapper');
+  const messageWrapper = document.querySelector('.messages-wrapper');
+  const calendarWrapper = document.querySelector('.calendar-wrapper');
+
+  document.addEventListener('click', (event) => {
+    if (event.target.closest('.team-header-part')) {
+      messageWrapper.style.display = 'none';
+      calendarWrapper.style.display = 'none';
+      teamWrapper.style.display = 'flex';
+      document.querySelector('.team-header-part').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      document.querySelector('.team-header-part').style.color = 'white';
+      document.querySelector('.message-header-part').style.backgroundColor = 'white';
+      document.querySelector('.message-header-part').style.color = 'rgba(0, 0, 0, 0.8)';
+      document.querySelector('.date-header-part').style.backgroundColor = 'white';
+      document.querySelector('.date-header-part').style.color = 'rgba(0, 0, 0, 0.8)';
+    } else if (event.target.closest('.message-header-part')) {
+      document.querySelector('.team-header-part').style.backgroundColor = 'white';
+      document.querySelector('.team-header-part').style.color = 'rgba(0, 0, 0, 0.8)';
+      document.querySelector('.message-header-part').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      document.querySelector('.message-header-part').style.color = 'white';
+      document.querySelector('.date-header-part').style.backgroundColor = 'white';
+      document.querySelector('.date-header-part').style.color = 'rgba(0, 0, 0, 0.8)';
+      messageWrapper.style.display = 'flex';
+      calendarWrapper.style.display = 'none';
+      teamWrapper.style.display = 'none';
+      let elem = document.getElementById('messages-block');
+      elem.scrollTop = elem.scrollHeight;
+    } else if (event.target.closest('.date-header-part')) {
+      document.querySelector('.team-header-part').style.backgroundColor = 'white';
+      document.querySelector('.team-header-part').style.color = 'rgba(0, 0, 0, 0.8)';
+      document.querySelector('.message-header-part').style.backgroundColor = 'white';
+      document.querySelector('.message-header-part').style.color = 'rgba(0, 0, 0, 0.8)';
+      document.querySelector('.date-header-part').style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      document.querySelector('.date-header-part').style.color = 'white';
+      calendarWrapper.style.display = 'flex';
+      messageWrapper.style.display = 'none';
+      teamWrapper.style.display = 'none';
+    }
+  });
 };
