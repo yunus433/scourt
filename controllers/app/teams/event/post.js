@@ -1,6 +1,9 @@
+const crypto = require('crypto');
 const Team = require('../../../../models/team/Team');
 
 module.exports = (req, res, next) => {
+  let id = crypto.randomBytes(8).toString('hex');
+
   const newEventObject = {
     name: req.body.name,
     type: req.body.type,
@@ -9,8 +12,9 @@ module.exports = (req, res, next) => {
       month: req.body.month,
       year: req.body.year
     },
-    note: req.body.description
-  }
+    note: req.body.description,
+    _id: id
+  };
 
   Team
     .findByIdAndUpdate(req.query.id, {$push: {

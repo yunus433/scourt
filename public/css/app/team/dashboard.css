@@ -466,6 +466,14 @@
   background-color: rgba(190, 190, 190, 1);
   margin-bottom: 5px;
 }
+.trash-icon {
+  margin-left: 10px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.trash-icon:hover {
+  color: black;
+}
 .calendar-each-event {
   padding: 2px;
   background-color: white;

@@ -147,6 +147,10 @@ block content
                           .calendar-each-event(class="each-event-" + event.type)
                             .each-event-line
                               span.each-event-name #{event.name}
+                              - if(user.type == 'coach') {
+                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id)
+                                i.fas.fa-trash.trash-icon
+                            - }
                             .each-event-line
                               span.each-event-note #{event.note}
                         - }
@@ -160,6 +164,10 @@ block content
                           .calendar-each-event(class="each-event-" + event.type)
                             .each-event-line
                               span.each-event-name #{event.name}
+                              - if(user.type == 'coach') {
+                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id)
+                                i.fas.fa-trash.trash-icon
+                            - }
                             .each-event-line
                               span.each-event-note #{event.note}
                         - }
@@ -177,6 +185,10 @@ block content
                           .calendar-each-event(class="each-event-" + event.type)
                             .each-event-line
                               span.each-event-name #{event.name}
+                              - if(user.type == 'coach') {
+                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id)
+                                i.fas.fa-trash.trash-icon
+                            - }
                             .each-event-line
                               span.each-event-note #{event.note}
                         - }
@@ -190,6 +202,10 @@ block content
                         .calendar-each-event(class="each-event-" + event.type)
                           .each-event-line
                             span.each-event-name #{event.name}
+                            - if(user.type == 'coach') {
+                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id)
+                                i.fas.fa-trash.trash-icon
+                            - }
                           .each-event-line
                             span.each-event-note #{event.note}
                       - }
@@ -208,6 +224,10 @@ block content
                         .calendar-each-event(class="each-event-" + event.type)
                           .each-event-line
                             span.each-event-name #{event.name}
+                            - if(user.type == 'coach') {
+                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id)
+                                i.fas.fa-trash.trash-icon
+                            - }
                           .each-event-line
                             span.each-event-note #{event.note}
                       - }
@@ -221,6 +241,10 @@ block content
                         .calendar-each-event(class="each-event-" + event.type)
                           .each-event-line
                             span.each-event-name #{event.name}
+                            - if(user.type == 'coach') {
+                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id)
+                                i.fas.fa-trash.trash-icon
+                            - }
                           .each-event-line
                             span.each-event-note #{event.note}
                       - }

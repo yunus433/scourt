@@ -32,6 +32,7 @@ const teamEditGetController = require('../controllers/app/teams/edit/get');
 const teamEditPostController = require('../controllers/app/teams/edit/post');
 const teamProfileEditPostController = require('../controllers/app/teams/edit/profilePost');
 const newTeamEventPostController = require('../controllers/app/teams/event/post');
+const deleteTeamEventPostController = require('../controllers/app/teams/event/delete');
 
 
 // Get Controllers
@@ -140,6 +141,11 @@ router.post(
   '/team/calendar/new',
   isLoggedIn, 
   newTeamEventPostController
+);
+router.get(
+  '/team/calendar/delete',
+  isLoggedIn,
+  deleteTeamEventPostController
 );
 
 
