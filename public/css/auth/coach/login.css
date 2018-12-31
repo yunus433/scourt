@@ -1,0 +1,217 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  position: relative;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.all-content-wrapper {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border-radius: 10px;
+  width: 50%;
+  overflow: scroll;
+}
+.form-inputs {
+  height: 45px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5em;
+}
+.submit-button {
+  width: 50%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  border-radius: 20px;
+  height: 45px;
+  font-size: 1.6em;
+  color: black;
+  cursor: pointer;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.err-message {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: rgba(255, 0, 0, 0.7);
+  font-size: 1.1em;
+}
+.err-message-text {
+  text-align: center;
+}
+.login-link {
+  margin-top: 10px;
+  color: black;
+  font-size: 1.2em;
+  color: white;
+}
+.form-explanation {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1em;
+  overflow: scroll;
+}
+.form-explanation-title {
+  text-align: center;
+}
+.phone-number-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+} 
+.phone-number-part {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 850px) and (min-width: 700px) {
+  .form-inputs {
+    font-size: 1.5em;
+  }
+  .submit-button {
+    font-size: 1.5em;
+    width: 60%;
+  }
+  .form {
+    width: 80%;
+  }
+  .err-message {
+    font-size: 0.9em;
+  }
+  .form-explanation {
+    font-size: 1em;
+  }
+  .phone-number-wrapper {
+    flex-direction: column;
+  }
+  .phone-number-part {
+    margin-bottom: 25px;
+  }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 600px) {
+  .form-inputs {
+    font-size: 1.4em;
+  }
+  .form {
+    width: 70%;
+  }
+  .submit-button {
+    font-size: 1.4em;
+    width: 60%;
+  }
+  .err-message {
+    font-size: 0.9em;
+  }
+  .form-explanation {
+    font-size: 1em;
+  }
+  .phone-number-wrapper {
+    flex-direction: column;
+  }
+  .phone-number-part {
+    margin-bottom: 25px;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 500px) {
+  .form {
+    width: 80%;
+  }
+  .form-inputs {
+    font-size: 1.4em;
+  }
+  .submit-button {
+    font-size: 1.4em;
+    width: 70%;
+  }
+  .err-message {
+    font-size: 0.9em;
+  }
+  .form-explanation {
+    font-size: 1em;
+  }
+  .phone-number-wrapper {
+    flex-direction: column;
+  }
+  .phone-number-part {
+    margin-bottom: 25px;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .all-content-wrapper {
+    width: 70%;
+    margin-bottom: 25px;
+  }
+  .form {
+    width: 80%;
+  }
+  .form-inputs {
+    font-size: 1.4em;
+  }
+  .submit-button {
+    font-size: 1.4em;
+    width: 70%;
+  }
+  .err-message {
+    font-size: 0.9em;
+  }
+  .form-explanation {
+    font-size: 0.9em;
+  }
+  .phone-number-wrapper {
+    flex-direction: column;
+  }
+  .phone-number-part {
+    margin-bottom: 25px;
+  }
+  .form-explanation-title {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .all-content-wrapper {
+    width: 70%;
+    margin-bottom: 25px;
+  }
+  .form {
+    width: 100%;
+  }
+  .form-inputs {
+    font-size: 1.2em;
+  }
+  .submit-button {
+    font-size: 1.2em;
+    width: 70%;
+  }
+  .err-message {
+    font-size: 0.9em;
+  }
+  .form-explanation {
+    font-size: 0.9em;
+  }
+  .phone-number-wrapper {
+    flex-direction: column;
+  }
+  .phone-number-part {
+    margin-bottom: 25px;
+  }
+  .form-explanation-title {
+    font-size: 0.9em;
+  }
+}

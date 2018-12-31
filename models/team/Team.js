@@ -36,6 +36,10 @@ const TeamSchema = new Schema({
   createdAt: {
     type: String,
     default: moment(Date.now()).format("dddd, MMMM Do YYYY")
+  },
+  events: {
+    type: Array,
+    default: []
   }
 });
 

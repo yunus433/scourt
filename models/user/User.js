@@ -5,13 +5,6 @@ const hashPassword = require('./functions/hashPassword');
 const verifyPassword = require('./functions/verifyPassword');
 
 const UserSchema = new Schema({
-  name: {
-    type: String
-  },
-  profileFoto: {
-    type: String,
-    default: "defaultUserPicture.png"
-  },
   email: {
     type: String,
     required: true,
@@ -24,6 +17,17 @@ const UserSchema = new Schema({
     required: true,
     minlength: 6
   },
+  type: {
+    required: true,
+    type: String
+  },
+  name: {
+    type: String
+  },
+  profilePhoto: {
+    type: String,
+    default: "defaultUserPicture.png"
+  },
   phone: {
     type: String
   },
@@ -35,17 +39,17 @@ const UserSchema = new Schema({
     default: false
   },
   team: {
-    type: Object,
+    type: String,
     default: undefined
   }
 });
 
 UserSchema.pre('save', hashPassword);
 
-UserSchema.statics.findUser = function (email, password, callback) {
+UserSchema.statics.findUser = function (email, password, type, callback) {
   let User = this;
 
-  return User.findOne({email}).then((user) => {
+  return User.findOne({email, type}).then(user => {
         
     if (!user) {
         return callback(true);

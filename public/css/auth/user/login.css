@@ -1,0 +1,114 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.form-inputs {
+  height: 45px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5em;
+}
+.submit-button {
+  width: 50%;
+  margin-top: 10px;
+  border-radius: 20px;
+  height: 45px;
+  font-size: 1.6em;
+  color: black;
+  cursor: pointer;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.err-message {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: rgba(255, 0, 0, 0.7);
+  font-size: 1.1em;
+}
+.err-message-text {
+  text-align: center;
+}
+.register-link {
+  margin-top: 10px;
+  color: black;
+  font-size: 1.2em;
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) and (min-width: 600px) {
+  .form-inputs {
+    font-size: 1.5em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.5em;
+  }
+  .err-message {
+    font-size: 0.9em;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 500px) {
+  .form-inputs {
+    font-size: 1.3em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.3em;
+  }
+  .register-link {
+    font-size: 1.1em;
+  }
+  .err-message {
+    font-size: 0.8em;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .form-inputs {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.1em;
+    width: 60%;
+  }
+  .register-link {
+    font-size: 0.9em;
+  }
+  .err-message {
+    font-size: 0.7em;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .form {
+    width: 50%;
+  }
+  .form-inputs {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.1em;
+    width: 60%;
+  }
+  .register-link {
+    font-size: 0.9em;
+  }
+  .err-message {
+    font-size: 0.7em;
+  }
+}

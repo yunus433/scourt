@@ -1,6 +1,4 @@
-const Message = require("../models/message/Message");
 const Team = require("../models/team/Team");
-const Coach = require("../models/coach/Coach");
 const User = require("../models/user/User");
 
 module.exports = socket => {
@@ -11,90 +9,31 @@ module.exports = socket => {
   socket.on("sendMessage", (params, callback) => {
     if (!params.sender || !params.content || !params.team) return callback();
 
-    let user;
-
-    Coach.findById(params.sender, (err, data) => {
+    User.findById(params.sender, (err, user) => {
       if (err) return false;
 
-      if (data) {
-        user = data;
+      let message = {
+        sender: user,
+        content: params.content,
+        team: params.team
+      };
 
-        let message = {
-          sender: user,
-          content: params.content,
-          team: params.team
-        };
+      socket.to(params.team).emit("newMessage", { message });
 
-        socket.to(params.team).emit("newMessage", { message });
+      Team.findByIdAndUpdate(
+        params.team,
+        {
+          $push: {
+            "messages": message
+          }
+        },
+        { upsert: true },
+        err => {
+          if (err) return callback(err);
 
-        let newMessageData = {
-          sender: user,
-          content: params.content,
-          team: params.team
-        };
-
-        let newMessage = new Message(newMessageData);
-
-        newMessage.save((err, message) => {
-          if (err) return console.log(err);
-
-          Team.findByIdAndUpdate(
-            params.team,
-            {
-              $push: {
-                messages: message
-              }
-            },
-            err => {
-              if (err) return callback(err);
-
-              return callback();
-            }
-          );
-        });
-      }
-    });
-    User.findById(params.sender, (err, data) => {
-      if (err) return false;
-
-      if (data) {
-        user = data;
-
-        let message = {
-          sender: user,
-          content: params.content,
-          team: params.team
-        };
-  
-        socket.to(params.team).emit("newMessage", { message });
-        socket.emit("newMessage", { message });
-  
-        let newMessageData = {
-          sender: user,
-          content: params.content,
-          team: params.team
-        };
-  
-        let newMessage = new Message(newMessageData);
-  
-        newMessage.save((err, message) => {
-          if (err) return console.log(err);
-  
-          Team.findByIdAndUpdate(
-            params.team,
-            {
-              $push: {
-                messages: message
-              }
-            },
-            err => {
-              if (err) return callback(err);
-  
-              return callback();
-            }
-          );
-        });
-      }
+          return callback(undefined, message);
+        }
+      );
     });
   });
 };

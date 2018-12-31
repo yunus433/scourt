@@ -1,23 +1,18 @@
-const Coach = require('../../../../models/coach/Coach');
+const User = require('../../../../models/user/User');
 
 module.exports = (req, res, next) => {
   if (req.body && req.body.email && req.body.password) {
-      Coach.findCoach(req.body.email, req.body.password, (err, coach) => {
-        if (err) return res.redirect('/auth/coach/login/?err=2');
+      User.findUser(req.body.email, req.body.password, "coach", (err, coach) => {
+        if (err) return res.redirect('/auth/login/coach/?err=2');
 
         if (!coach) {
-          return res.redirect('/auth/coach/login/?err=2');
+          return res.redirect('/auth/login/coach/?err=2');
         }
         
-        req.session.coach = coach;
-        
-        if (coach.completed) {
-          return res.redirect('/app/coach/dashboard');
-        } else {
-          return res.redirect('/app/coach/validate');
-        }
+        req.session.user = coach;
+        return res.redirect('/app/dashboard/coach');
       })
   } else {
-    return res.redirect('/auth/coach/login/?err=1');
+    return res.redirect('/auth/login/coach/?err=1');
   }
 }

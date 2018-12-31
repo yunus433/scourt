@@ -1,0 +1,233 @@
+extends ../../partials/head
+block content
+  input.team-object-value(value= team._id)
+  input.user-object-value(value= user._id)
+  .calendar-adding-new-event-wrapper
+    h2 Add a new event:
+    form.calendar-adding-form(action="/app/team/calendar/new/?id=" + team._id method="post")
+      .calendar-form-left-side
+        .calendar-form-part
+          select(name="day")
+            - for(let i = 0; i<month[new Date().getMonth()].day; i++) {
+              option(value=i+1) #{i+1}
+            - } 
+          select(name="month")
+            option(value=new Date().getMonth()) #{month[new Date().getMonth()].day}
+          select(name="year")
+            option(value=new Date().getFullYear()) #{new Date().getFullYear()}
+        span Write a short name for the event
+        input(type="text" placeholder="Name" name="name" autocomplete="off" autofocus required)
+        span Write a short note 
+        textarea.text-area(name="description", cols="25", rows="8")
+      .calendar-form-right-side
+        span Type of the event
+        .calendar-form-part
+          label
+            input.radio-input(type="radio" name="type" value="training" required) 
+            span Training
+        .calendar-form-part
+          label
+            input.radio-input(type="radio" name="type" value="match" required) 
+            span Match
+        .calendar-form-part
+          label
+            input.radio-input(type="radio" name="type" value="todo" required) 
+            span Todo
+        .calendar-form-part
+          label
+            input.radio-input(type="radio" name="type" value="special" required) 
+            span Special
+        .calendar-form-send-part
+          a.calendar-form-back-button
+            i.fas.fa-arrow-circle-left
+            span Back
+          button.calendar-form-send-button Ok
+  .all-wrapper
+    .all-header
+      a(href="/").all-header-name scourt
+      - if(user.type == 'user') {
+        a(href="/app/edit").user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - } else {
+        .user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - }
+    .all-content-dashboard
+      .content-side-header
+        .header-part-first.team-header-part
+          span Team Page
+        .header-part.message-header-part
+          span Messages
+        .header-part.date-header-part
+          span Calendar
+      .team-main-wrapper
+        .team-main-header
+          h2 #{team.name}
+          span #{team.players.length} joined players
+          span created at #{team.createdAt}
+        .team-main-content
+          .team-main-content-left
+            .team-picture-wrapper
+              img.team-picture(src="/res/uploads/" + team.teamPhoto)
+            span.team-header-span Team Description:
+            span.team-description "#{team.description}"
+            span.team-header-span Team Id:
+            span.team-id #{team.teamId}
+            span.team-id-explanation You can use this id to invite your team members to your team
+          .team-main-content-right
+            span.team-header-span Players List:
+            .players-list-wrapper 
+              each player in team.players
+                .each-player-in-team
+                  span #{player.name}
+                  span.each-player-email (#{player.email})
+      .messages-wrapper
+        .messages-block#messages-block
+          each message in team.messages
+            - let classValue
+            - if (message.sender._id.toString() === user._id.toString()) {
+            - classValue = 'right';
+            - } else {
+            - classValue = 'left'; 
+            - }
+            .each-message(class=classValue)
+              .message-sender
+                span #{message.sender.name}
+              .message-content
+                span #{message.content}
+        form.new-message-form
+          input.message-sender-team-input(type="text" value=team._id)
+          input.message-sender-input(type="text" value=user._id)
+          input.message-sending-input(type="text", name="message", autocomplete="off", autofocus, placeholder="Your message")
+          button.message-sending-button Send
+      .calendar-wrapper
+        - if (!user.date) {
+          .add-new-event-line 
+            .add-new-button
+              i.add-new-button-i.fas.fa-plus
+              span Add a new event
+        - }
+        .calendar-header
+          .calendar-header-part
+            span Monday
+          .calendar-header-part
+            span Tuesday
+          .calendar-header-part
+            span Wendsday
+          .calendar-header-part
+            span Thursday
+          .calendar-header-part
+            span Friday
+          .calendar-header-part
+            span Saturday
+          .calendar-header-part
+            span Sunday
+        .calendar-main-box
+          - if ((((new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay() - 1) % 7)) == 0) {
+            - for(let i = 0; i < 6; i++) {
+              .calendar-each-day
+            - }
+          - } else {
+            - for(let i = 0; i < (new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay() - 1); i++) {
+              .calendar-each-day
+            - }
+          - }
+          - if (month[new Date().getMonth()].name == 'February') {
+            - if (new Date().getFullYear() % 4 == 0) {
+              - for(let i = 1; i <= month[new Date().getMonth()].day2; i++) {
+                - if (i == new Date().getDate()) {
+                  .calendar-each-day
+                    .calendar-each-day-header.today
+                      span #{i} #{month[new Date().getMonth()].name}
+                    .calendar-each-day-content
+                      each event in team.events
+                        - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                          .calendar-each-event(class="each-event-" + event.type)
+                            .each-event-line
+                              span.each-event-name #{event.name}
+                            .each-event-line
+                              span.each-event-note #{event.note}
+                        - }
+                - } else {
+                  .calendar-each-day
+                    .calendar-each-day-header
+                      span #{i} #{month[new Date().getMonth()].name}
+                    .calendar-each-day-content
+                      each event in team.events
+                        - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                          .calendar-each-event(class="each-event-" + event.type)
+                            .each-event-line
+                              span.each-event-name #{event.name}
+                            .each-event-line
+                              span.each-event-note #{event.note}
+                        - }
+                - }
+              - }
+            - } else {
+              - for(let i = 1; i <= month[new Date().getMonth()].day; i++) {
+                - if (i == new Date().getDate()) {
+                  .calendar-each-day
+                    .calendar-each-day-header.today
+                      span #{i} #{month[new Date().getMonth()].name}
+                    .calendar-each-day-content
+                      each event in team.events
+                        - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                          .calendar-each-event(class="each-event-" + event.type)
+                            .each-event-line
+                              span.each-event-name #{event.name}
+                            .each-event-line
+                              span.each-event-note #{event.note}
+                        - }
+                - } else {
+                  .calendar-each-day
+                    .calendar-each-day-header
+                      span #{i} #{month[new Date().getMonth()].name}
+                  .calendar-each-day-content
+                    each event in team.events
+                      - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                        .calendar-each-event(class="each-event-" + event.type)
+                          .each-event-line
+                            span.each-event-name #{event.name}
+                          .each-event-line
+                            span.each-event-note #{event.note}
+                      - }
+                - }
+              - }
+            - } 
+          - } else {
+            - for(let i = 1; i <= month[new Date().getMonth()].day; i++) {
+              - if (i == new Date().getDate()) {
+                .calendar-each-day
+                  .calendar-each-day-header.today
+                    span #{i} #{month[new Date().getMonth()].name}
+                  .calendar-each-day-content
+                    each event in team.events
+                      - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                        .calendar-each-event(class="each-event-" + event.type)
+                          .each-event-line
+                            span.each-event-name #{event.name}
+                          .each-event-line
+                            span.each-event-note #{event.note}
+                      - }
+              - } else {
+                .calendar-each-day
+                  .calendar-each-day-header
+                    span #{i} #{month[new Date().getMonth()].name}
+                  .calendar-each-day-content
+                    each event in team.events
+                      - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                        .calendar-each-event(class="each-event-" + event.type)
+                          .each-event-line
+                            span.each-event-name #{event.name}
+                          .each-event-line
+                            span.each-event-note #{event.note}
+                      - }
+              - }
+            - }
+          - }
+          - for(let i = 0; i < 7 - ((new Date(new Date().getFullYear(), new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
+            .calendar-each-day
+          - }
+          

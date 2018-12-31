@@ -1,21 +1,15 @@
 module.exports = (req, res, next) => {
   req.session.destroy();
   if (req.query.err) {
-    res.render('auth/login', {
-      page: 'auth/login',
+    res.render('auth/user/login', {
+      page: 'auth/user/login',
       title: 'Login',
-      includes: {
-        external: ["fontawesome"]       
-      },
       err: req.query.err
     });
   } else {
-    res.render('auth/login', {
-      page: 'auth/login',
-      title: 'Login',
-      includes: {
-        external: ["fontawesome"]       
-      }
+    res.render('auth/user/login', {
+      page: 'auth/user/login',
+      title: 'Login'
     });
-  }
-}
+  };
+};

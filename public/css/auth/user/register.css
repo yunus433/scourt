@@ -1,0 +1,148 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 25px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.form-inputs {
+  height: 45px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 1);
+  margin-bottom: 3px;
+  padding-left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5em;
+  width: 90%;
+}
+.submit-button {
+  width: 50%;
+  margin-top: 10px;
+  border-radius: 20px;
+  height: 45px;
+  font-size: 1.6em;
+  color: rgba(66, 66, 66, 1);
+  cursor: pointer;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 1);
+  outline: none;  
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.err-message {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: rgba(255, 0, 0, 0.7);
+  font-size: 1.1em;
+}
+.err-message-text {
+  text-align: center;
+}
+.login-link {
+  margin-top: 10px;
+  color: black;
+  font-size: 1.2em;
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (max-width: 820px) and (min-width: 700px) {
+  .form-inputs {
+    font-size: 1.3em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.4em;
+    width: 60%;
+  }
+  .err-message {
+    font-size: 0.9em;
+  }
+  .login-link {
+    font-size: 1.1em;
+  }
+}
+
+@media only screen and (max-width: 700px) and (min-width: 600px) {
+  .form {
+    width: 30%;
+  }
+  .form-inputs {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.2em;
+    width: 60%;
+  }
+  .err-message {
+    font-size: 0.8em;
+  }
+  .login-link {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 500px) {
+  .form {
+    width: 40%;
+  }
+  .form-inputs {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.2em;
+    width: 60%;
+  }
+  .err-message {
+    font-size: 0.8em;
+  }
+  .login-link {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  .form {
+    width: 50%;
+  }
+  .form-inputs {
+    font-size: 1.1em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.2em;
+    width: 60%;
+  }
+  .err-message {
+    font-size: 0.8em;
+  }
+  .login-link {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .form {
+    width: 50%;
+  }
+  .form-inputs {
+    font-size: 0.9em;
+    width: 100%;
+  }
+  .submit-button {
+    font-size: 1.1em;
+    width: 70%;
+  }
+  .err-message {
+    font-size: 0.7em;
+  }
+  .login-link {
+    font-size: 0.9em;
+  }
+}

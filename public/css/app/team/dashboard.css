@@ -1,0 +1,506 @@
+.all-content-dashboard {
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  width: 90vw;
+  height: 80vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+.user-description {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: 20%;
+}
+.user-name {
+  font-size: 1.6em;
+  color: black;
+  margin-right: 5px;
+}
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+.team-photo {
+  height: 100%;
+  border-radius: 10px;
+}
+.team-name {
+  margin: 0px 10px;
+  font-size: 0.8em;
+}
+.click-for-details {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.6em;
+}
+.player-number {
+  font-size: 0.7em;
+  padding-right: 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.edit-team {
+  color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.content-side-header {
+  height: 45px;
+  width: 99%;
+  margin: 0px;
+  margin-bottom: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+.header-part-first {
+  width: 10vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  border-top-right-radius: 20px;
+  box-shadow: 2px 1px black;
+  cursor: pointer;
+}
+.header-part {
+  width: 10vw;
+  background-color: white;
+  color: black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: -15px;
+  padding-left: 25px;
+  border-top-right-radius: 20px;
+  box-shadow: 2px 1px black;
+  cursor: pointer;
+}
+.team-header-part {
+  z-index: 10;
+}
+.message-header-part {
+  z-index: 5;
+}
+.date-header-part {
+  z-index: 1;
+}
+.team-main-wrapper {
+  flex-direction: column;
+  display: flex;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0px 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.team-main-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid white;
+  padding-left: 25px;
+}
+.team-main-header span {
+  margin-left: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+.team-main-content {
+  display: flex;
+  padding: 15px 0px;
+  height: 100%;
+}
+.team-main-content-right {
+  flex: 1;
+  width: 50%;
+  height: 100%;
+  padding-left: 15px;
+  border-left: 1px solid white;
+  display: flex;
+  flex-direction: column;
+}
+.team-main-content-left {
+  flex: 1;
+  width: 50%;
+  height: 100%;  
+  padding-left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.team-header-span {
+  margin-bottom: 5px;
+  font-size: 1.3em;
+}
+.team-picture-wrapper {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+.team-picture {
+  width: 70%;
+  border-radius: 20px;
+}
+.team-description {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+  align-self: center;
+}
+.team-id {
+  font-size: 1.2em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 5px;
+  align-self: center;
+}
+.team-id-explanation {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  margin-top: 15px;
+  align-self: center;
+}
+.players-list-wrapper {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 80%;
+  margin: 5px;
+  border-radius: 10px;
+}
+.each-player-in-team {
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 35px;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  margin-bottom: 5px;
+}
+.each-player-email {
+  color: rgba(0, 0, 0, 0.7);
+  margin-left: 5px;
+}
+.messages-block {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 25px;
+  overflow: scroll;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+}
+.messages-wrapper {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.each-message {
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 5px;
+}
+.message-sender {
+  padding-bottom: 5px;
+  padding-left: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+.message-content {
+  color: black;
+  padding: 5px;
+  display: flex;
+}
+.message-content span {
+  text-align: left;
+}
+.message-sender-input {
+  display: none;
+}
+.message-sender-team-input {
+  display: none;
+}
+.left {
+  width: 60%;
+}
+.right {
+  width: 60%;
+  margin-left: 100%;
+  transform: translateX(-100%);
+}
+.new-message-form {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  margin-bottom: 0px;
+}
+.message-sending-input {
+  width: 100%;
+  border-radius: 10px;
+  height: 90%;
+  font-size: 1.6em;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-left: 15px;
+}
+.message-sending-button {
+  width: 100px;
+  height: 90%;
+  background-color: gray;
+  margin: 2px;
+  border-radius: 10px;
+  font-size: 1.4em;
+  color: black;
+  cursor: pointer;
+  outline: none;
+}
+.team-object-value {
+  display: none;
+}
+.user-object-value {
+  display: none;
+}
+.calendar-adding-new-event-wrapper {
+  background-color: white;
+  position: absolute;
+  z-index: 5;
+  width: 40%;
+  min-height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  box-shadow: 2px 2px black;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 0px 15px;
+  color: black;
+  display: none;
+}
+.calendar-adding-form {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  padding-bottom: 15px;
+}
+.calendar-adding-form input {
+  outline: none;
+  font-size: 1.1em;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding-left: 5px;
+  height: 25px;
+}
+.calendar-form-left-side {
+  flex: 1;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.calendar-form-left-side span {
+  margin: 5px 0px;
+}
+.text-area {
+  border-radius: 20px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1em;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.calendar-form-right-side {
+  flex: 1;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;  
+  padding-left: 15px;
+}
+.red-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: red;
+  margin: 0px 5px;
+}
+.radio-input {
+  color: black;
+}
+.calendar-form-part {
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+}
+.calendar-form-part label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.calendar-form-part select {
+  margin-right: 5px;
+}
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  display: none;
+}
+.calendar-form-send-part {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 100px;
+}
+.calendar-form-back-button {
+  width: 75px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-right: 10px;
+  padding: 0px 5px;
+  border-radius: 10px;
+  justify-content: center;
+  cursor: pointer;
+}
+.calendar-form-back-button i {
+  font-size: 1.1em;
+  margin-right: 5px;
+}
+.calendar-form-send-button {
+  width: 50px;
+  height: 100%;
+  background-color: black;
+  font-weight: bold;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 1em;
+}
+.add-new-event-line {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.add-new-button {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  height: 50px;
+  border-radius: 20px;
+  margin-right: 25px;
+  display: flex;
+  width: 15%;
+  align-items: center;
+  position: fixed;
+  margin-top: -40px;
+  justify-content: center;
+  cursor: pointer;
+}
+.add-new-button-i {
+  margin: 0px 5px;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+   transition-property: transform;
+}
+.calendar-header {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid black;
+}
+.calendar-header-part {
+  flex: 1;
+  border-right: 1px solid black;
+  color: black;
+  padding: 5px;
+  background-color: rgba(160, 160, 160, 1);
+}
+.calendar-main-box {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.calendar-each-day {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  color: black;
+  height: 150px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.calendar-each-day-header {
+  padding: 2px;
+  background-color: rgba(190, 190, 190, 1);
+  margin-bottom: 5px;
+}
+.calendar-each-event {
+  padding: 2px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+.each-event-line {
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+}
+.each-event-note {
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.7);
+  font-style: italic;
+}
+.each-event-match {
+  border-left: 5px solid purple;
+}
+.each-event-training {
+  border-left: 5px solid green;
+}
+.each-event-special {
+  border-left: 5px solid blue;
+}
+.each-event-todo {
+  border-left: 5px solid orange;
+}
+.today {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .user-name {
+    font-size: 1em;
+  }
+}

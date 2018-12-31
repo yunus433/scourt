@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const registerGetController = require('./../controllers/auth/register/get');
+const registerGetController = require('./../controllers/auth/register/user/get');
 const loginGetController = require('../controllers/auth/login/user/get');
 const coachLoginGetController = require('../controllers/auth/login/coach/get');
 
-const registerPostController = require('./../controllers/auth/register/post');
+const registerPostController = require('./../controllers/auth/register/user/post');
 const loginPostController = require('../controllers/auth/login/user/post');
 const coachLoginPostController = require('../controllers/auth/login/coach/post');
 
@@ -19,7 +19,7 @@ router.get(
   loginGetController
 );
 router.get(
-  '/coach/login',
+  '/login/coach',
   coachLoginGetController
 );
 
@@ -33,7 +33,7 @@ router.post(
   loginPostController
 );
 router.post(
-  '/coach/login',
+  '/login/coach',
   coachLoginPostController
 );
 

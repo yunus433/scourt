@@ -7,7 +7,7 @@ block content
       .form
         form.form-left-side(action="/app/edit/image" method="POST" enctype="multipart/form-data")
           label.profile-picture(for="profile")
-            img.image(src="/res/uploads/" + user.profileFoto)
+            img.image(src="/res/uploads/" + user.profilePhoto)
             span.profile-input-explanation Click to change
           input.profile-input(type="file" id="profile" name="profile" accept="image/*")
           - if (err) {

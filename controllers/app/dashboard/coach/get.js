@@ -1,37 +1,38 @@
-const Coach = require("../../../../models/coach/Coach");
+const User = require("../../../../models/user/User");
 const Team = require("../../../../models/team/Team");
 
 module.exports = (req, res, next) => {
-  if (req.session.coach) {
-    Coach.findOne({ email: req.session.coach.email }).then(coach => {
-      Team.findOne({"creator._id":  req.session.coach._id.toString()}).exec(
-        (err, team) => {
+  User.findOne({ email: req.session.user.email }).then(user => {
+    if (user.completed) {
+      Team
+        .findById(user.team)
+        .exec((err, team) => {
           if (err) return res.redirect("/");
-
+  
           if (team) {
-            return res.render("app/coach/dashboard", {
-              page: "app/coach/dashboard",
-              title: "Coach Page",
+            return res.render("app/dashboard/coach", {
+              page: "app/dashboard/coach",
+              title: "Coach Dashboard",
               includes: {
                 external: ["fontawesome", "js"]
               },
-              coach,
+              user,
               team
             });
           } else {
-            res.render("app/coach/dashboard", {
-              page: "app/coach/dashboard",
-              title: "Coach Page",
+            res.render("app/dashboard/coach", {
+              page: "app/dashboard/coach",
+              title: "Coach Dashboard",
               includes: {
                 external: ["fontawesome", "js"]
               },
-              coach
+              user
             });
-          }
+          };
         }
       );
-    });
-  } else {
-    res.redirect("/");
-  }
+    } else {
+      res.redirect('/app/validate/coach');
+    };
+  });   
 };

@@ -1,30 +1,28 @@
-const Coach = require('../../../../models/coach/Coach');
+const User = require('../../../../models/user/User');
 
 module.exports = (req, res, next) => {
-  Coach
-    .findOne({email: req.session.coach.email})
-    .exec((err, coach) => {
-      if (err | !coach) return res.redirect('/');
+  User.findOne({email: req.session.user.email}, (err, coach) => {
+    if (err) res.redirect('/');
 
-      if (req.query.err) {
-        res.render('app/coach/validate', {
-          page: 'app/coach/validate',
-          title: 'Verify Your Account',
-          includes: {
-            external: ["fontawesome", "js"]       
-          },
-          coach,
-          err: req.query.err 
-        });
-      } else {
-        res.render('app/coach/validate', {
-          page: 'app/coach/validate',
-          title: 'Verify Your Account',
-          includes: {
-            external: ["fontawesome", "js"]       
-          },
-          coach
-        });
-      };
-    });
+    if (req.query.err) {
+      res.render('app/validate/coach', {
+        page: 'app/validate/coach',
+        title: 'Verify Your Account',
+        includes: {
+          external: ["js"]       
+        },
+        coach,
+        err: req.query.err 
+      });
+    } else {
+      res.render('app/validate/coach', {
+        page: 'app/validate/coach',
+        title: 'Verify Your Account',
+        includes: {
+          external: ["js"]       
+        },
+        coach
+      });
+    };
+  });
 };

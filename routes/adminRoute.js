@@ -7,7 +7,7 @@ const loginRouteController = require('../controllers/admin/login');
 const indexRouteController = require('../controllers/admin/index');
 
 const mainRouteGetController = require('../controllers/admin/main');
-const coachesRouteController = require('../controllers/admin/coaches/coaches');
+const coachesRouteController = require('../controllers/admin/coaches');
 
 // Post controllers
 
@@ -15,7 +15,7 @@ const loginPostController = require('../controllers/admin/loginPost');
 const isAdmin = require('../middleware/isAdmin');
 const deleteAdmin = require('../middleware/deleteAdmin');
 
-const newCoachPostController = require('../controllers/admin/coaches/newCoachPost');
+const newCoachPostController = require('../controllers/auth/register/coach/post');
 
 router.get(
   '/',

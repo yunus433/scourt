@@ -6,24 +6,32 @@ const upload = multer({dest: './public/res/uploads/'});
 
 const isLoggedIn = require('./../middleware/isLoggedin');
 
+// Validate Controllers
 const validateGetController = require('../controllers/app/validate/user/get');
+const validatePostController = require('./../controllers/app/validate/user/post');
+const validateProfilePostController = require('../controllers/app/validate/user/profilePost');
 const coachValidateGetController = require('../controllers/app/validate/coach/get');
+const coachValidatePostController = require('../controllers/app/validate/coach/post');
+const coachValidateProfilePostController = require('../controllers/app/validate/coach/profilePost');
+
+// Dashboard Controllers
 const dashboardGetController = require('./../controllers/app/dashboard/user/get');
 const coachDashboardGetController = require('../controllers/app/dashboard/coach/get');
-const editGetController = require('../controllers/app/edit/user/get');
-const teamPageGetController = require('../controllers/app/teams/teams');
-const editTeamGetController = require('../controllers/app/teams/coach/editTeam');
 
-const validatePostController = require('./../controllers/app/validate/user/post');
-const validateImageRoutePostController = require('../controllers/app/validate/user/imagePost');
-const coachValidatePostController = require('../controllers/app/validate/coach/post');
-const coachValidateImagePostController = require('../controllers/app/validate/coach/imagePost');
-const coachCreateTeamPostController = require('../controllers/app/teams/coach/postNewTeam');
-const editRoutePostController = require('../controllers/app/edit/user/post');
-const editRouteImagePostController = require('../controllers/app/edit/user/imagePost');
+// Edit Controllers
+const editGetController = require('../controllers/app/edit/user/get');
+const editPostController = require('../controllers/app/edit/user/post');
+const editProfilePostController = require('../controllers/app/edit/user/profilePost');
 const editPasswordPostController = require('../controllers/app/edit/user/passwordPost');
-const userJoinTeamPostController = require('../controllers/app/teams/user/joinTeamPost');
-const editTeamPostController = require('../controllers/app/teams/coach/editTeamPostController');
+
+// Team Controllers
+const teamPageGetController = require('../controllers/app/teams/get');
+const teamCreatePostController = require('../controllers/app/teams/new/post');
+const teamJoinPostController = require('../controllers/app/teams/join/post');
+const teamEditGetController = require('../controllers/app/teams/edit/get');
+const teamEditPostController = require('../controllers/app/teams/edit/post');
+const teamProfileEditPostController = require('../controllers/app/teams/edit/profilePost');
+const newTeamEventPostController = require('../controllers/app/teams/event/post');
 
 
 // Get Controllers
@@ -33,7 +41,7 @@ router.get(
   validateGetController
 );
 router.get(
-  '/coach/validate',
+  '/validate/coach',
   isLoggedIn,
   coachValidateGetController
 );
@@ -44,7 +52,7 @@ router.get(
   dashboardGetController
 );
 router.get(
-  '/coach/dashboard',
+  '/dashboard/coach',
   isLoggedIn,
   coachDashboardGetController
 );
@@ -64,7 +72,7 @@ router.get(
 router.get(
   '/team/edit',
   isLoggedIn,
-  editTeamGetController
+  teamEditGetController
 );
 
 
@@ -78,7 +86,7 @@ router.post(
   '/validate/image',
   upload.single('profile'),
   isLoggedIn,
-  validateImageRoutePostController
+  validateProfilePostController
 );
 router.post(
   '/coach/validate',
@@ -89,18 +97,18 @@ router.post(
   '/coach/validate/image',
   upload.single('profile'),
   isLoggedIn,
-  coachValidateImagePostController
+  coachValidateProfilePostController
 );
 router.post(
   '/edit',
   isLoggedIn,
-  editRoutePostController
+  editPostController
 );
 router.post(
   '/edit/image',
   upload.single('profile'),
   isLoggedIn,
-  editRouteImagePostController
+  editProfilePostController
 );
 router.post(
   '/edit/password',
@@ -110,18 +118,28 @@ router.post(
 router.post(
   '/team/new',
   isLoggedIn,
-  coachCreateTeamPostController
+  teamCreatePostController
 );
 router.post(
   '/team/join',
   isLoggedIn,
-  userJoinTeamPostController
+  teamJoinPostController
 );
 router.post(
-  '/coach/team/edit',
+  '/team/edit',
+  isLoggedIn,
+  teamEditPostController
+);
+router.post(
+  '/team/edit/profile',
   upload.single('teamPhoto'),
   isLoggedIn,
-  editTeamPostController
+  teamProfileEditPostController
+);
+router.post(
+  '/team/calendar/new',
+  isLoggedIn, 
+  newTeamEventPostController
 );
 
 

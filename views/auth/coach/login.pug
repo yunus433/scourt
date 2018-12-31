@@ -1,0 +1,31 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/").all-header-name scourt
+    .all-content
+      .all-content-wrapper
+        form.form(action="/auth/login/coach" method="POST")
+          input.form-inputs(type="text" name="email" placeholder="your e-mail" autocomplete="off" autofocus)
+          input.form-inputs(type="password" name="password" placeholder="password" autocomplete="off")
+          - if (err) {
+            - if (err == 1) {
+              .err-message 
+                span.err-message-text Please type all the necessary information
+            - } else if (err == 2) { 
+              .err-message 
+                span.err-message-text Sorry, your e-mail or password is wrong
+            - }
+          - }
+          input.submit-button(type="submit" value="Login")
+        .form-explanation
+          span.form-explanation-title You need a coach id and a password to login. You can learn yours by calling one of our representers or by sending an e-mail
+          .phone-number-wrapper
+            .phone-number-part
+              span Our representers:
+              li +90 534 225 87 51
+              li +90 534 512 68 22
+              li +90 537 287 70 85
+            .phone-number-part
+              span Our e-mail address:
+              span scourtapp@gmail.com
