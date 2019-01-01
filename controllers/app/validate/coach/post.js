@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
         if (req.body.password.length >= 6) { 
         
         User.findOne({"email": req.session.user.email}, (err, coach) => {
+          if (err) res.redirect('/');
           coach.name = req.body.name;
           coach.email = req.body.email;
           coach.date = req.body.date;
@@ -24,8 +25,8 @@ module.exports = (req, res, next) => {
 
               sendMail({
                 email: coach.email,
-              }, 'coachRegister', (err, info) => {
-                if (err) return console.log(err);
+              }, 'coachRegister', (err) => {
+                if (err) return res.redirect('/');
                 return res.redirect('/auth/login/coach');
               });
             };

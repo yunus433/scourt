@@ -18,34 +18,44 @@ const templates = {
     to: data.email,
     subject: 'Scourtapp.com: User Register',
     html: `
-      <a href='https://www.scourtapp.com'>Thank you for joining to our comunity in <strong>scourtapp.com</strong></a>!
+      Thank you for joining to our community in <strong>scourtapp.com</strong>!
       <br />
-      You have registered with this email address. (${data.email}) We will be using this address to inform you about your messages from your team members or from other coaches. We will also send you emails about latest updates and our newest features.
       <br />
-      Don't forget to edit your account with your contact informations and your profile photo so that others can reach you easily. We assure you that we won't share your informations with others without your permission. 
+      You have registered with this email address. (${data.email}) We will be using this address to inform you about your messages from your team members or from other coaches. We will also send you emails about latest updates and our most recent features.
       <br />
-      Click to go our web site: <a href='https://www.scourtapp.com'>https://www.scourtapp.com</a>
       <br />
-      If you don't want to take this emails you can change the settings from your dashboard as well.
+      Don't forget to update your account with your contact informations and your profile photo so that others can reach you easily. We assure you that we won't share your informations with third parties without your permission. 
+      <br />
+      <br />
+      Click here to go our web site: <a href='https://www.scourtapp.com'>https://www.scourtapp.com</a>
+      <br />
+      <br />
+      If you don't want to receive emails from us you can change your settings from your dashboard as well.
     `
   }),
   coachRegister: (data) => ({
     to: data.email,
     subject: 'Scourtapp.com: Coach Register',
     html: `
-      <a href='https://www.scourtapp.com'>Thank you for joining to our comunity in <strong>scourtapp.com</strong></a>!
+      Thank you for joining to our community in <strong>scourtapp.com</strong>!
       <br />
-      You have registered with this email address. (${data.email}) We will be using this address to inform you about your messages from your players or from other coaches. We will also send you emails about latest updates and our newest features.
       <br />
-      You can use your page to create team pages where you can send messages to your players, keep record of your practices, share your tactics and do many other useful things!
+      You have registered with this email address. (${data.email}) We will be using this address to inform you about your messages from your players or from other coaches. We will also send you emails about latest updates and our most recent features.
       <br />
-      Your players can login to your team page via the team id you will get after you create your team. 
       <br />
-      Don't forget to edit your account with your contact informations and your profile photo so that others can reach you easily. We assure you that we won't share your informations with others without your permission. 
+      You can use your page to create team pages where you can send messages to your players, keep record of your practices, share your tactics and do much more!
       <br />
-      Click to go our web site: <a href='https://www.scourtapp.com'>https://www.scourtapp.com</a>
       <br />
-      If you don't want to take this emails you can change the settings from your dashboard as well.
+      Your players can login to your team page via the team ID which you will get after you create your team. 
+      <br />
+      <br />
+      Don't forget to update your account with your contact informations and your profile photo so that others can reach you easily. We assure you that we won't share your informations with third parties without your permission. 
+      <br />
+      <br />
+      Click here to go our website: <a href='https://www.scourtapp.com'>https://www.scourtapp.com</a>
+      <br />
+      <br />
+      If you don't want to receive emails from us you can change your settings from your dashboard as well.
     `
   }),
   newMessage: (data) => ({
