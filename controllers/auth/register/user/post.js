@@ -20,7 +20,7 @@ module.exports = (req, res, next) => {
             if (err && err.code == 11000) {
               return res.redirect('/auth/register/?err=5');
             } else {
-              if (err) return console.log(err.code);
+              if (err) return res.redirect('/');
 
               sendMail({
                 email: user.email,
