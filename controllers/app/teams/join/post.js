@@ -9,12 +9,12 @@ module.exports = (req, res, next) => {
         if (err) return res.redirect('/app/dashboard');
 
         User
-          .findByIdAndUpdate(req.session.user._id, {$set: {
-            team: team
+          .findOneAndUpdate({"email": req.session.user.email}, {$set: {
+            team: team._id
           }}, {upsert: true, new: true})
           .exec(
             (err, user) => {
-              if (err) return console.log(err);
+              if (err) return res.redirect('/');
 
               Team
                 .findByIdAndUpdate(team._id, {$push: {
@@ -22,7 +22,7 @@ module.exports = (req, res, next) => {
                 }}, {upsert: true})
                 .exec(
                   (err) => {
-                    if (err) return console.log(err);
+                    if (err) return res.redirect('/');
       
                     res.redirect('/app/dashboard');
                   }
