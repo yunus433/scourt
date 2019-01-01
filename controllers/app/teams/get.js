@@ -52,7 +52,23 @@ module.exports = (req, res, next) => {
     name: "December",
     day: 31
   }];
-  
+  let beforeMonth;
+  let beforeYear;
+  let afterMonth;
+  let afterYear;
+  if (new Date().getMonth() != 0) {
+    beforeMonth = (new Date().getMonth())-1;
+    beforeYear = new Date().getFullYear();
+  } else {
+    beforeMonth = 11;    
+    beforeYear = new Date().getFullYear()-1;
+  } 
+  if (new Date().getMonth() != 11) {
+    afterMonth = (new Date().getMonth())+1;
+    afterYear = new Date().getFullYear();
+  } else {
+    afterMonth = 0;    
+    afterYear = new Date().getFullYear()+1; }
   Team
     .findOne({"teamId": req.query.id})
     .exec((err, team) => {
@@ -69,7 +85,11 @@ module.exports = (req, res, next) => {
               },
               team,
               user,
-              month
+              month,
+              beforeMonth,
+              beforeYear,
+              afterMonth,
+              afterYear
             });
           });
     });
