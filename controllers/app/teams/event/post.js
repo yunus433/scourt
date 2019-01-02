@@ -23,6 +23,6 @@ module.exports = (req, res, next) => {
     .exec((err, team) => {
       if (err) return res.redirect('/');
 
-      res.redirect('/app/team/?id=' + team.teamId);
+      res.redirect('/app/team/calendar/?id=' + team.teamId);
     });
 }

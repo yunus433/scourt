@@ -1,0 +1,43 @@
+extends ../../partials/head
+block content
+  input.team-object-value(value= team._id)
+  input.user-object-value(value= user._id)
+  .all-wrapper
+    .all-header
+      a(href="/").all-header-name scourt
+      - if(user.type == 'user') {
+        a(href="/app/edit").user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - } else {
+        .user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - }
+    .all-content-dashboard
+      .content-side-header
+        a.header-part-first.team-header-part(href="/app/team/?id=" + team.teamId)
+          span Team Page
+        a.header-part.message-header-part#selected(href="/app/team/messages/?id=" + team.teamId)
+          span Messages
+        a.header-part.date-header-part(href="/app/team/calendar/?id=" + team.teamId)
+          span Calendar
+      .messages-wrapper
+        .messages-block#messages-block
+          each message in team.messages
+            - let classValue
+            - if (message.sender._id.toString() === user._id.toString()) {
+            - classValue = 'right';
+            - } else {
+            - classValue = 'left'; 
+            - }
+            .each-message(class=classValue)
+              .message-sender
+                span #{message.sender.name}
+              .message-content
+                span #{message.content}
+        form.new-message-form
+          input.message-sender-team-input(type="text" value=team._id)
+          input.message-sender-input(type="text" value=user._id)
+          input.message-sending-input(type="text", name="message", autocomplete="off", autofocus, placeholder="Your message")
+          button.message-sending-button Send

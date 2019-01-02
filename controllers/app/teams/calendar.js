@@ -77,11 +77,11 @@ module.exports = (req, res, next) => {
         User
           .findOne({"_id": req.session.user._id})
           .exec((err, user) => {
-            res.render('app/team/dashboard', {
-              page: 'app/team/dashboard',
-              title: 'Your Team',
+            res.render('app/team/calendar', {
+              page: 'app/team/calendar',
+              title: 'Calendar',
               includes: {
-                external: ['fontawesome', 'js', 'socket.io']
+                external: ['fontawesome', 'js']
               },
               team,
               user,
