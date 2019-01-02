@@ -88,8 +88,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 .each-message {
   padding: 5px;
