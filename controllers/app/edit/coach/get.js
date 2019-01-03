@@ -5,8 +5,8 @@ module.exports = (req, res, next) => {
   User.findById(user._id, (err, user) => {
     if (err) return res.redirect('/');
 
-    res.render('app/edit/user', {
-      page: 'app/edit/user',
+    res.render('app/edit/coach', {
+      page: 'app/edit/coach',
       title: 'Edit Your Account',
       includes: {
         external: ["fontawesome", "js"]       

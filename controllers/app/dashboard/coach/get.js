@@ -2,7 +2,8 @@ const User = require("../../../../models/user/User");
 const Team = require("../../../../models/team/Team");
 
 module.exports = (req, res, next) => {
-  User.findOne({ email: req.session.user.email }).then(user => {
+  User.findOne({ email: req.session.user.email }).then((user) => {
+    if (!user) return res.redirect('/auth/login/coach'); 
     if (user.completed) {
       Team
         .findById(user.team)

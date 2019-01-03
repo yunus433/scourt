@@ -8,7 +8,7 @@ block content
           span.user-name Hi, #{user.name.split(" ")[0]}
           img.user-image(src="/res/uploads/" + user.profilePhoto)
       - } else {
-        .user-description
+        a(href="/app/edit/coach").user-description
           span.user-name Hi, #{user.name.split(" ")[0]}
           img.user-image(src="/res/uploads/" + user.profilePhoto)
       - }

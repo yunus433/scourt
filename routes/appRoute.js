@@ -23,6 +23,10 @@ const editGetController = require('../controllers/app/edit/user/get');
 const editPostController = require('../controllers/app/edit/user/post');
 const editProfilePostController = require('../controllers/app/edit/user/profilePost');
 const editPasswordPostController = require('../controllers/app/edit/user/passwordPost');
+const editCoachGetController = require('../controllers/app/edit/coach/get');
+const editCoachPostController = require('../controllers/app/edit/coach/post');
+const editCoachProfilePostController = require('../controllers/app/edit/coach/profilePost');
+const editCoachPasswordPostController = require('../controllers/app/edit/coach/passwordPost');
 
 // Team Controllers
 const teamPageDashboardGetController = require('../controllers/app/teams/dashboard');
@@ -65,7 +69,11 @@ router.get(
   isLoggedIn,
   editGetController
 );
-// router.get('/coach/edit')
+router.get(
+  '/edit/coach',
+  isLoggedIn,
+  editCoachGetController
+);
 
 router.get(
   '/team',
@@ -127,6 +135,22 @@ router.post(
   '/edit/password',
   isLoggedIn,
   editPasswordPostController
+);
+router.post(
+  '/edit/coach',
+  isLoggedIn,
+  editCoachPostController
+);
+router.post(
+  '/edit/coach/image',
+  upload.single('profile'),
+  isLoggedIn,
+  editCoachProfilePostController
+);
+router.post(
+  '/edit/coach/password',
+  isLoggedIn,
+  editCoachPasswordPostController
 );
 router.post(
   '/team/new',

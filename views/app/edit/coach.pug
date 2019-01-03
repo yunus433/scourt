@@ -2,49 +2,63 @@ extends ../../partials/head
 block content
   .all-wrapper
     .all-header
-      a(href="/").name scourt
+      a(href="/").all-header-name scourt
     .all-content
-      form.form(action="/app/coach/validate" method="POST" enctype="multipart/form-data")
-        .form-left-side
+      .form
+        form.form-left-side(action="/app/edit/coach/image" method="POST" enctype="multipart/form-data")
           label.profile-picture(for="profile")
-            img.image(src="/res/uploads/" + coach.profileFoto)
+            img.image(src="/res/uploads/" + user.profilePhoto)
+            span.profile-input-explanation Click to change
           input.profile-input(type="file" id="profile" name="profile" accept="image/*")
           - if (err) {
-            - if (err == 1) { 
+            - if (err==1) {
               .err-message 
-                span.err-message-text Please type all the necessary information
-            - }
-            - else if (err == 2) { 
+                span.err-message-text You can't delete your name and your birthday
+            - } else if (err==2) {
               .err-message 
-                span.err-message-text Please confirm your password 
-            - }
-            - else if (err == 3) { 
-              .err-message 
-                span.err-message-text Your e-mail is not valid
-            - }
-            - else if (err == 4) { 
-              .err-message 
-                span.err-message-text Your password should be longer than 5 digits
-            - }
-            - else if (err == 5) { 
-              .err-message 
-                span.err-message-text Sorry, this e-mail has already been taken
+                span.err-message-text Sorry, this email has already been taken
             - }
           - }
-        .form-right-side
+          .change-password-button 
+            span Change your password
+        form.form-right-side(action="/app/edit/coach" method="POST")
           .form-explanation
-            h2 Hi #{coach.name.split(' ')[0]},
+            h2 Hi #{user.name.split(' ')[0]},
             span Please change the informations you want to edit.
           .form-part
             span.input-info Your name:
-            input(type="text" name="name" autocomplete="off" value=coach.name) 
+            input(type="text" name="name" autocomplete="off" value=user.name) 
             span.red *
           .form-part
             span.input-info Your email:
-            input(type="text" name="email" autocomplete="off" value=coach.email) 
+            input(type="text" name="email" autocomplete="off" value=user.email) 
             span.red *
           .form-part
             span.input-info Your phone number:
-            input(type="text" name="phone" autocomplete="off") 
+            input(type="text" name="phone" autocomplete="off" value=user.phone) 
           .form-submit
-            input.submit-button(type="submit" value="Ok") 
+            .submit-button
+              a.exit-edit-page-button-wrapper(href="/app/dashboard/coach") 
+                i.exit-edit-page-button.fas.fa-arrow-circle-left
+              input(type="submit" value="Ok") 
+      form.password-form(action="/app/edit/coach/password" method="POST")
+        .form-part.password-form-part-wrapper
+          span.input-info Your old password:
+          .password-form-part
+            input(type="password" name="oldPassword" autocomplete="off" autofocus) 
+            span.red *
+        .form-part.password-form-part-wrapper
+          span.input-info Your new password:
+          .password-form-part
+            input(type="password" name="password" autocomplete="off") 
+            span.red *
+        .form-part.password-form-part-wrapper
+          span.input-info Confirm your new password:
+          .password-form-part
+            input(type="password" name="confirmPassword" autocomplete="off") 
+            span.red *
+        .form-submit
+          .submit-part
+            i.password-exit-button.fas.fa-arrow-circle-left
+            input.password-submit-button(type="submit" value="Ok")
+      
