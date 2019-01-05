@@ -230,16 +230,16 @@
   display: flex;
   align-items: center;
 }
-.calendar-before-arrow, .calendar-before-after-arrow {
+.calendar-before-arrow, .calendar-before-after-arrow, .calendar-before-two-after-arrow, .calendar-two-before-arrow {
   color: black;
   display: flex;
   align-items: center;
   flex: 1;
 }
-.calendar-before-arrow i, .calendar-before-after-arrow i {
+.calendar-before-arrow i, .calendar-before-after-arrow i, .calendar-before-two-after-arrow i, .calendar-two-before-arrow i {
   margin-right: 7.5px;
 }
-.calendar-after-arrow, .calendar-after-before-arrow {
+.calendar-after-arrow, .calendar-after-before-arrow, .calendar-after-two-before-arrow, .calendar-two-after-arrow  {
   color: black;
   display: flex;
   align-items: center;
@@ -247,10 +247,10 @@
   flex: 1;
   justify-content: flex-end;
 }
-.calendar-after-arrow i, .calendar-after-before-arrow i {
+.calendar-after-arrow i, .calendar-after-before-arrow i, .calendar-after-two-before-arrow i, .calendar-two-after-arrow i {
   margin-left: 7.5px;
 }
-.calendar-two-before-arrow {
+.calendar-three-before-arrow {
   color: black;
   display: flex;
   align-items: center;
@@ -258,10 +258,10 @@
   flex: 1;
   display: none;
 }
-.calendar-two-before-arrow i {
+.calendar-three-before-arrow i {
   margin-right: 7.5px;
 }
-.calendar-two-after-arrow {
+.calendar-three-after-arrow {
   color: black;
   display: flex;
   align-items: center;
@@ -270,20 +270,20 @@
   justify-content: flex-end;
   display: none;
 }
-.calendar-two-after-arrow i {
+.calendar-three-after-arrow i {
   margin-left: 7.5px;
 }
-.calendar-before-button, .calendar-after-button, .calendar-after-before-button, .calendar-before-after-button {
+.calendar-before-button, .calendar-after-button, .calendar-two-before-button, .calendar-two-after-button, .calendar-after-before-button, .calendar-before-after-button, .calendar-after-two-before-button, .calendar-before-two-after-button {
   padding: 10px;
   background-color: white;
   border-radius: 20px;
   cursor: pointer;
   border: 1px solid black;
 }
-.calendar-after-before-arrow, .calendar-before-after-arrow { 
+.calendar-after-before-arrow, .calendar-after-two-before-arrow, .calendar-before-after-arrow, .calendar-before-two-after-arrow, .calendar-two-before-arrow, .calendar-two-after-arrow  { 
   display: none;
 }
-.calendar-two-before-button, .calendar-two-after-button {
+.calendar-three-before-button, .calendar-three-after-button {
   padding: 10px;
   background-color: white;
   border-radius: 20px;
@@ -308,7 +308,7 @@
   grid-auto-rows: 1fr;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.calendar-before-main-box, .calendar-after-main-box {
+.calendar-before-main-box, .calendar-two-before-main-box, .calendar-after-main-box, .calendar-two-after-main-box {
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   height: 1000px;
