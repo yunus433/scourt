@@ -2,6 +2,15 @@ const validator = require('validator');
 const sendMail = require('../../../../utils/sendMail');
 const User = require('../../../../models/user/User');
 
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 module.exports = (req, res, next) => {
   if (req.body && req.body.email && req.body.password && req.body.confirmpassword) {
     if (req.body.password === req.body.confirmpassword) {
@@ -11,7 +20,8 @@ module.exports = (req, res, next) => {
           let newUserData = {
             email: req.body.email,
             password: req.body.password,
-            type: "user"
+            type: "user",
+            color: getRandomColor()
           }; 
     
           const newUser = new User(newUserData);

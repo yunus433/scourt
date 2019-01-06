@@ -324,13 +324,17 @@
   border-bottom: 1px solid black;
   color: black;
   height: 150px;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 .calendar-each-day-header {
   padding: 2px;
   background-color: rgba(190, 190, 190, 1);
   margin-bottom: 5px;
+  height: 20px;
+}
+.calendar-each-day-content {
+  height: 120px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .trash-icon {
   margin-left: 10px;

@@ -41,6 +41,10 @@ const UserSchema = new Schema({
   team: {
     type: String,
     default: undefined
+  },
+  color: {
+    type: String,
+    default: "#ffffff"
   }
 });
 
