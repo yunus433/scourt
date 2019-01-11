@@ -15,7 +15,8 @@ module.exports = socket => {
       let message = {
         sender: user,
         content: params.content,
-        team: params.team
+        team: params.team,
+        handled: params.handled
       };
 
       socket.to(params.team).emit("newMessage", { message });

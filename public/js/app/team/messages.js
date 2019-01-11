@@ -55,25 +55,30 @@ window.onload = () => {
       user: userValue.value
     });
 
-    if (messagesBlock) {
-      messageSend.onclick = function (event) {
-        event.preventDefault();
-        const newMessageObject = {
-          sender: messageSenderInput.value,
-          content: messageContent.value,
-          team: teamValue.value
-        }
-
-        socket.emit('sendMessage', newMessageObject, function (err, message) {
-          messageContent.value = '';
-
-          createNewMessage(message);
-        });
+    messageSend.onclick = function (event) {
+      event.preventDefault();
+      const newMessageObject = {
+        sender: messageSenderInput.value,
+        content: messageContent.value,
+        team: teamValue.value,
+        handled: false
       };
-        
-      socket.on('newMessage', function(params) {
-          createNewMessage(params.message);
+
+      socket.emit('sendMessage', newMessageObject, function (err, message) {
+        messageContent.value = '';
+
+        if (!message.handled) {
+          message.handled = true;
+          createNewMessage(message);
+        };
       });
     };
+        
+    socket.on('newMessage', function(params) {
+        if (!params.message.handled) {
+          params.message.handled = true;
+          createNewMessage(params.message);
+        };
+    });
   });
 }
