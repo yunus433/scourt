@@ -1,17 +1,21 @@
 .all-content-dashboard {
   color: rgba(255, 255, 255, 0.9);
   display: flex;
-  height: 90vh;
   width: 90vw;
   margin-left: 50%;
   transform: translateX(-50%);
+  position: relative;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 25px;
+  min-height: 80vh;
 }
 .user-description {
-  width: 30%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-left: 60%;
+  margin-left: 10%;
 }
 .user-name {
   font-size: 1.6em;
@@ -28,13 +32,28 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   height: 90%;
+}
+.left-side-top {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 50%;
+  width: 100%;
+  flex: 1;
+  border-radius: 20px;
+}
+.left-side-bottom {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 50%;
+  width: 100%;
+  flex: 1;
+  margin-top: 25px;
+  border-radius: 20px;
 }
 .content-right-side {
   background-color: rgba(0, 0, 0, 0.7);
-  height: 90%;
   width: 100%;
+  min-height: 80vh;
   flex: 1;
   border-radius: 20px;
   margin-left: 25px;
@@ -48,21 +67,24 @@
   width: 95%;
   padding-left: 15px;
   padding-top: 5px;
-  height: 40px;
+  height: 60px;
   margin-top: 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   padding-bottom: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .content-right-info {
   width: 100%;
   height: 90%;
+  margin-top: 25px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-items: center;
   color: rgba(255, 255, 255, 0.8);
 }
 .content-right-not-member {
@@ -73,8 +95,8 @@
   justify-content: center;
 }
 .join-team-button {
-  margin: 25px 0px;
-  width: 60%;
+  margin: 15px 0px;
+  width: 80%;
   height: 40px;
   border-radius: 15px;
   color: black;
@@ -90,18 +112,103 @@
 .content-right-join-team {
   display: none;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
-.join-team-form {
+.create-team-form {
   margin-bottom: 15px;
+  padding: 25px;
+  width: 100% - 50px;
+  display: flex;
 } 
-.join-team-form input {
-  height: 45px;
+.team-right-side {
+  width: 50%;
+  flex: 1;
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team-right-side-explanation {
+  margin-bottom: 5px;
+  margin-top: 25px;
+}
+.team-left-side {
+  width: 50%;
+  flex: 1;
+  height: 100%;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.create-team-form-info {
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+.exit-create-team {
+  margin-top: 10px;
+  font-size: 2em;
+  cursor: pointer;
+}
+.team-right-side input {
+  height: 40px;
+  width: 80%;
   border-radius: 20px;
   outline: none;
   border: none;
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding-left: 10px;
+}
+.text-area {
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.3em;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 80%;
+}
+.create-team-button {
+  margin: 15px 0px;
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+  color: black;
+  font-size: 1.3em;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  outline: none;
+  font-size: 0.7em;
+}
+.edit-team {
+  color: rgba(255, 255, 255, 0.8);
+  outline: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.team-top-left-part {
+  outline: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 5px;
+}
+.team-top-right-part {
+  display: flex;
+  width: 50%;
+  flex: 1;
+  flex-direction: column;
+  padding-left: 5px;
 }
 .team-photo {
   height: 100%;
@@ -114,12 +221,8 @@
 .player-number {
   font-size: 0.7em;
 }
-.edit-team {
-  color: rgba(255, 255, 255, 0.8);
-  outline: none;
-  display: flex;
-  align-items: center;
-  height: 100%;
+.team-object-value {
+  display: none;
 }
 .go-to-team-button {
   margin: 25px 0px;
@@ -137,54 +240,47 @@
   outline: none;
 }
 
-@media only screen and (max-width: 750px) and (min-width: 550px) {
-  .user-name {
-    font-size: 1.4em;
-  }
-  .user-description {
-    width: 50%;
-    margin-left: 40%;
-  }
-}
-
-@media only screen and (max-width: 550px) and (min-width: 400px) {
-  .user-name {
-    font-size: 1.2em;
-  }
-  .user-image {
-    width: 40px;
-    height: 40px;
-  }
-  .user-description {
-    width: 70%;
-    margin-left: 30%;
-  }
-  .all-content-dashboard {
-    height: 80vh;
-  }
-}
-
-@media only screen and (max-width: 400px) and (min-width: 300px) {
+@media only screen and (max-width: 700px) and (min-width: 300px) {
   .user-name {
     font-size: 1.1em;
   }
-  .user-image {
-    width: 35px;
-    height: 35px;
+  .create-team-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
   }
-  .user-description {
-    width: 80%;
-    margin-left: 0px;
+  .team-left-side {
+    width: 100%;
   }
-  .content-right-not-member {
-    font-size: 0.8em;
+  .team-right-side {
+    width: 100%;
+    height: auto;
   }
-  .join-team-button {
-    height: 35px;
-    margin-top: 5px;
-    width: 70%;
+  .team-right-side input {
+    height: 45px;
   }
-  .all-content-dashboard {
-    height: 80vh;
+  .create-team-form-info {
+    font-size: 0.9em;
   }
-}
+  .team-right-side-explanation {
+    font-size: 0.9em;
+  }
+  .team-name {
+    font-size: 0.6em;
+  }
+  .player-number {
+    display: none;
+  }
+  .go-to-team-button {
+    width: 75%;
+    justify-self: center;
+    align-self: center;
+  }
+  .content-side-header {
+    height: 60px;
+  }
+  .edit-team {
+    width: 100%;
+  }
+} 

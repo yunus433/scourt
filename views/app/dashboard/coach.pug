@@ -12,10 +12,11 @@ block content
         .content-side-header
           -if (team) {
             a(href="/app/team/edit/?id=" + team._id).edit-team
-              img.team-photo(src="/res/uploads/" + team.teamPhoto)
-              span.team-name #{team.name} 
-              span.click-for-details (Click to see team id)
-            span.player-number #{team.players.length} joined players
+              .team-top-left-part
+                img.team-photo(src="/res/uploads/" + team.teamPhoto)
+              .team-top-right-part
+                span.team-name #{team.name} 
+                span.click-for-details (Click to see team id)
           - }
         .content-right-info
           - if (team) {

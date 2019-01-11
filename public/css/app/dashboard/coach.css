@@ -67,12 +67,13 @@
   width: 95%;
   padding-left: 15px;
   padding-top: 5px;
-  height: 40px;
+  height: 60px;
   margin-top: 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   padding-bottom: 5px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .content-right-info {
   width: 100%;
@@ -195,6 +196,20 @@
   align-items: center;
   height: 100%;
 }
+.team-top-left-part {
+  outline: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-right: 5px;
+}
+.team-top-right-part {
+  display: flex;
+  width: 50%;
+  flex: 1;
+  flex-direction: column;
+  padding-left: 5px;
+}
 .team-photo {
   height: 100%;
   border-radius: 10px;
@@ -230,6 +245,9 @@
 }
 
 @media only screen and (max-width: 700px) and (min-width: 300px) {
+  .user-name {
+    font-size: 1.1em;
+  }
   .create-team-form {
     flex-direction: column;
     justify-content: center;
@@ -251,5 +269,22 @@
   }
   .team-right-side-explanation {
     font-size: 0.9em;
+  }
+  .team-name {
+    font-size: 0.6em;
+  }
+  .player-number {
+    display: none;
+  }
+  .go-to-team-button {
+    width: 75%;
+    justify-self: center;
+    align-self: center;
+  }
+  .content-side-header {
+    height: 60px;
+  }
+  .edit-team {
+    width: 100%;
   }
 } 

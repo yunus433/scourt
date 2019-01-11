@@ -11,8 +11,10 @@ block content
         .content-side-header
           -if (team) {
             .edit-team
-              img.team-photo(src="/res/uploads/" + team.teamPhoto)
-              span.team-name #{team.name} 
+              .team-top-left-part
+                img.team-photo(src="/res/uploads/" + team.teamPhoto)
+              .team-top-right-part
+                span.team-name #{team.name} 
             span.player-number #{team.players.length} joined players
           - }
         .content-right-info

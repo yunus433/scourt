@@ -45,13 +45,13 @@ block content
           button.calendar-form-send-button Ok
   .all-wrapper
     .all-header
-      a(href="/").all-header-name scourt
+      a(href="/app/dashboard").all-header-name scourt
       - if(user.type == 'user') {
         a(href="/app/edit").user-description
           span.user-name Hi, #{user.name.split(" ")[0]}
           img.user-image(src="/res/uploads/" + user.profilePhoto)
       - } else {
-        .user-description
+        a(href="/app/edit/coach").user-description
           span.user-name Hi, #{user.name.split(" ")[0]}
           img.user-image(src="/res/uploads/" + user.profilePhoto)
       - }
