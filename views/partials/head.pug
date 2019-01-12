@@ -1,7 +1,7 @@
 doctype html
 html(lang="tr")
   head
-    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="viewport", content="width=device-width, initial-scale=1, minimal-ui")
     title Scourt | #{title}
     if includes && includes.external
       if includes.external.indexOf('fontawesome') > -1
@@ -16,6 +16,7 @@ html(lang="tr")
     link(rel="stylesheet", href=`/css/${page}.css`)
     link(href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet")
     link(rel="stylesheet", href=`/css/general.css`)
+    script(src="/js/general.js")
   body
     .content
       block content

@@ -23,8 +23,9 @@ block content
       .team-main-wrapper
         .team-main-header
           h2 #{team.name}
-          span #{team.players.length} joined players
-          span created at #{team.createdAt}
+          .team-main-header-explanations
+            span.team-main-header-player-number-span #{team.players.length} joined players
+            span.team-main-header-created-at-span created at #{team.createdAt}
         .team-main-content
           .team-main-content-left
             .team-picture-wrapper

@@ -114,8 +114,9 @@
   align-items: center;
   border-bottom: 2px solid white;
   padding-left: 25px;
+  min-height: 50px;
 }
-.team-main-header span {
+.team-main-header-player-number-span, .team-main-header-created-at-span {
   margin-left: 15px;
   color: rgba(255, 255, 255, 0.7);
   font-style: italic;
@@ -138,7 +139,7 @@
   flex: 1;
   width: 50%;
   height: 100%;  
-  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   flex-direction: column;
 }
@@ -156,8 +157,8 @@
   padding: 15px;
 }
 .team-picture {
-  width: 70%;
   border-radius: 20px;
+  height: 100%;
 }
 .team-description {
   font-style: italic;
@@ -176,6 +177,7 @@
   font-style: italic;
   margin-top: 15px;
   align-self: center;
+  text-align: center;
 }
 .players-list-wrapper {
   overflow: scroll;
@@ -198,8 +200,196 @@
   color: rgba(0, 0, 0, 0.7);
   margin-left: 5px;
 }
+@media only screen and (max-width: 1000px) and (min-width: 850px) {
+  .header-part, .header-part-first {
+    width: 14vw;
+  }
+  .team-header-span {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (max-width: 850px) and (min-width: 750px) {
+  .team-main-wrapper {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .team-main-content {
+    flex-direction: column;
+    min-height: 800px;
+  }
+  .team-main-content-left {
+    width: 100%;
+    display: flex;
+    padding: 0px;
+    height: auto;
+  }
+  .team-main-content-right {
+    padding: 0px;
+    border: none;
+    height: auto;
+    width: 100%;
+  }
+  .each-player-in-team {
+    width: 80%;
+  }
+  .header-part, .header-part-first {
+    width: 14vw;
+  }
+  .team-header-span {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (max-width: 750px) and (min-width: 550px) {
+  .team-main-header {
+    flex-direction: column;
+    min-height: 100px;
+    align-items: flex-start;
+  }
+  .team-main-header-player-number-span {
+    margin: 0px;
+  }
+  .team-main-wrapper {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .team-main-content {
+    flex-direction: column;
+    min-height: 800px;
+  }
+  .team-main-content-left {
+    width: 100%;
+    display: flex;
+    padding: 0px;
+    height: auto;
+  }
+  .team-main-content-right {
+    padding: 0px;
+    border: none;
+    height: auto;
+    width: 100%;
+  }
+  .each-player-in-team {
+    width: 80%;
+  }
+  .header-part, .header-part-first {
+    width: 16vw;
+  }
+  .team-header-span {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (max-width: 550px) and (min-width: 400px) {
+  .team-main-header {
+    flex-direction: column;
+    min-height: 100px;
+    align-items: flex-start;
+    padding-left: 15px;
+  }
+  .team-main-header-player-number-span {
+    margin: 0px;
+  }
+  .team-main-wrapper {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .team-main-content {
+    flex-direction: column;
+    min-height: 800px;
+  }
+  .team-main-content-left {
+    width: 100%;
+    display: flex;
+    padding: 0px;
+    height: auto;
+  }
+  .team-main-content-right {
+    padding: 0px;
+    border: none;
+    height: auto;
+    width: 100%;
+  }
+  .each-player-in-team {
+    width: 80%;
+  }
+  .header-part, .header-part-first {
+    width: 22vw;
+  }
+  .team-header-span {
+    font-size: 1em;
+    margin: 5px 0px;
+  }
+  .team-description, .team-id-explanation {
+    font-size: 0.9em;
+  }
+  .team-main-header h2 {
+    font-size: 1.4em;
+    margin: 7.5px 0px;
+  }
+  .team-main-header-player-number-span, .team-main-header-created-at-span {
+    font-size: 0.9em;
+    margin: 0px;
+  }
+  .team-main-header-explanations {
+    display: flex;
+    flex-direction: column;
+  }
+}
 @media only screen and (max-width: 400px) and (min-width: 300px) {
+  .team-main-header {
+    flex-direction: column;
+    min-height: 100px;
+    align-items: flex-start;
+    padding-left: 15px;
+  }
+  .team-main-header-player-number-span {
+    margin: 0px;
+  }
+  .team-main-wrapper {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .team-main-content {
+    flex-direction: column;
+    min-height: 800px;
+  }
+  .team-main-content-left {
+    width: 100%;
+    display: flex;
+    padding: 0px;
+    height: auto;
+  }
+  .team-main-content-right {
+    padding: 0px;
+    border: none;
+    height: auto;
+    width: 100%;
+  }
+  .each-player-in-team {
+    width: 80%;
+  }
+  .team-header-span {
+    font-size: 1em;
+    margin: 5px 0px;
+  }
+  .team-description, .team-id-explanation {
+    font-size: 0.9em;
+  }
+  .team-main-header h2 {
+    font-size: 1.4em;
+    margin: 7.5px 0px;
+  }
+  .team-main-header-player-number-span, .team-main-header-created-at-span {
+    font-size: 0.9em;
+    margin: 0px;
+  }
+  .team-main-header-explanations {
+    display: flex;
+    flex-direction: column;
+  }
   .user-name {
     font-size: 1em;
+  }
+  .header-part, .header-part-first {
+    width: 25vw;
   }
 }
