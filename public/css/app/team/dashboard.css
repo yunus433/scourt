@@ -209,6 +209,9 @@
   }
 }
 @media only screen and (max-width: 850px) and (min-width: 750px) {
+  .date-header-part {
+    display: none;
+  }
   .team-main-wrapper {
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
@@ -240,6 +243,9 @@
   }
 }
 @media only screen and (max-width: 750px) and (min-width: 550px) {
+  .date-header-part {
+    display: none;
+  }
   .team-main-header {
     flex-direction: column;
     min-height: 100px;
@@ -279,6 +285,12 @@
   }
 }
 @media only screen and (max-width: 550px) and (min-width: 400px) {
+  .date-header-part {
+    display: none;
+  }
+  .user-name {
+    font-size: 1.2em;
+  }
   .team-main-header {
     flex-direction: column;
     min-height: 100px;
@@ -335,6 +347,9 @@
   }
 }
 @media only screen and (max-width: 400px) and (min-width: 300px) {
+  .date-header-part {
+    display: none;
+  }
   .team-main-header {
     flex-direction: column;
     min-height: 100px;
@@ -390,6 +405,6 @@
     font-size: 1em;
   }
   .header-part, .header-part-first {
-    width: 25vw;
+    width: 30vw;
   }
 }

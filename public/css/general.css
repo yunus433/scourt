@@ -4,6 +4,7 @@ html {
   padding: 0px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
+  height: 100%;
 }
 html::before {
   content:"";
@@ -22,6 +23,9 @@ body {
   width: 100%;
   margin: 0px;
   padding: 0px;
+  height: 100%;
+  bottom: 0px;
+  min-height: 100%;
 }
 a {
   text-decoration: none;
@@ -30,6 +34,7 @@ a {
   padding: 0px;
 }
 .all-wrapper {
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;

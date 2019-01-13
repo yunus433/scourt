@@ -160,3 +160,113 @@
 .user-object-value {
   display: none;
 }
+
+@media only screen and (orientation: portrait) {
+  .content {
+    min-height: 100%;
+  }
+  .all-wrapper {
+    min-height: 100%;
+  }
+  .content-side-header {
+    width: 90vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .all-content-dashboard {
+    height: 88vh;
+    width: 100vw;
+    margin: 0px;
+    transform: translate(0, 0);
+  }
+  .new-message-form {
+    border-radius: 0px;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 850px) {
+  .header-part, .header-part-first {
+    width: 14vw;
+  }
+  .team-header-span {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (max-width: 850px) and (min-width: 750px) {
+  .date-header-part {
+    display: none;
+  }
+  .header-part, .header-part-first {
+    width: 14vw;
+  }
+  .team-header-span {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (max-width: 750px) and (min-width: 550px) {
+  .date-header-part {
+    display: none;
+  }
+  .header-part, .header-part-first {
+    width: 16vw;
+  }
+  .team-header-span {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (max-width: 550px) and (min-width: 400px) {
+  .date-header-part {
+    display: none;
+  }
+  .user-name {
+    font-size: 1.2em;
+  }
+  .header-part, .header-part-first {
+    width: 22vw;
+  }
+  .team-header-span {
+    font-size: 1em;
+    margin: 5px 0px;
+  }
+  .team-description, .team-id-explanation {
+    font-size: 0.9em;
+  }
+  .message-content, .message-sender {
+    font-size: 0.9em;
+  }
+  .messages-block {
+    padding-right: 2px;
+    padding-left: 2px;
+  }
+  .left, .right {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .date-header-part {
+    display: none;
+  }
+  .user-name {
+    font-size: 1em;
+  }
+  .header-part, .header-part-first {
+    width: 30vw;
+  }
+  .team-header-span {
+    font-size: 1em;
+    margin: 5px 0px;
+  }
+  .team-description, .team-id-explanation {
+    font-size: 0.9em;
+  }
+  .message-content, .message-sender {
+    font-size: 0.9em;
+  }
+  .messages-block {
+    padding-right: 2px;
+    padding-left: 2px;
+  }
+  .left, .right {
+    width: 65%;
+  }
+}
