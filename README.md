@@ -1,2 +1,2 @@
 # scourt
-Türkiye'nin ilk amatör ligleri takip uygulaması
+İlk profesyonel takım yönetim ve analiz platformu
