@@ -38,14 +38,13 @@ a {
   width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
 .all-header {
-  height: 50px;
+  height: 10vh;
   display: flex;
-  padding: 25px 25px;
+  padding: 0px 25px;
   align-items: center;
 }
 .all-header-name {

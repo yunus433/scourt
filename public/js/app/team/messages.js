@@ -32,6 +32,18 @@ function createNewMessage (params) {
   elem.scrollTop = elem.scrollHeight;
 }
 
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  }
+}
+
 window.onload = () => {
   let socket = io();
 
@@ -81,4 +93,11 @@ window.onload = () => {
         };
     });
   });
+
+  document.addEventListener('click', (event) => {
+    if (event.target.className == 'screen-warning-allow') {
+      toggleFullScreen();
+      event.target.parentNode.parentNode.parentNode.style.display = 'none';
+    }
+  })
 }

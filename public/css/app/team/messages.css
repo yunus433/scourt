@@ -2,11 +2,10 @@
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   width: 90vw;
-  height: 80vh;
+  height: 85vh;
   margin-left: 50%;
   transform: translateX(-50%);
   flex-direction: column;
-  margin-bottom: 25px;
 }
 .user-description {
   width: 100%;
@@ -86,7 +85,7 @@
 }
 .messages-wrapper {
   flex-direction: column;
-  height: 100%;
+  height: 90%;
   width: 100%;
   overflow: hidden;
 }
@@ -161,7 +160,62 @@
   display: none;
 }
 
+.mobile-screen-warning-wrapper {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-screen-warning {
+  width: 50%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+.screen-warning-options {
+  margin-top: 15px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+}
+.screen-warning-not-allow {
+  height: 35px;
+  padding: 0px 8px;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+}
+.screen-warning-allow {
+  background: black;
+  height: 35px;
+  padding: 0px 8px;
+  border-radius: 5px;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+.mobile-warning-from {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+} 
+
 @media only screen and (orientation: portrait) {
+  .mobile-screen-warning-wrapper {
+    display: flex;
+  }
   .content {
     min-height: 100%;
   }
@@ -174,9 +228,10 @@
     transform: translateX(-50%);
   }
   .all-content-dashboard {
-    height: 88vh;
     width: 100vw;
+    height: 90vh;
     margin: 0px;
+    padding: 0px;
     transform: translate(0, 0);
   }
   .new-message-form {
@@ -241,6 +296,9 @@
   .left, .right {
     width: 65%;
   }
+  .mobile-screen-warning {
+    width: 80%;
+  }
 }
 @media only screen and (max-width: 400px) and (min-width: 300px) {
   .date-header-part {
@@ -268,5 +326,8 @@
   }
   .left, .right {
     width: 65%;
+  }
+  .mobile-screen-warning {
+    width: 80%;
   }
 }

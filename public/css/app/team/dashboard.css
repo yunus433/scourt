@@ -2,7 +2,7 @@
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   width: 90vw;
-  height: 80vh;
+  height: 85vh;
   margin-left: 50%;
   transform: translateX(-50%);
   flex-direction: column;
@@ -154,7 +154,6 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
-  padding: 15px;
 }
 .team-picture {
   border-radius: 20px;
