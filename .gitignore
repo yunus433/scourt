@@ -1,1 +1,6 @@
 node_modules/
+public/res/uploads/*
+!public/res/uploads/defaultUserPicture.png
+!public/res/uploads/defaultCoachPicture.png
+!public/res/uploads/defaultTeamPicture.png
+.env
