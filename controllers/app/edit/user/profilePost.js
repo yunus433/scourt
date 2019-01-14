@@ -16,11 +16,13 @@ module.exports = (req, res, next) => {
         { upsert: true }
       ).exec((err, user) => {
         if (err) return res.redirect('/');
-        fs.unlink("./public/res/uploads/" + user.profilePhoto, err => {
-          if (err) return res.redirect('/');
-
-          res.redirect("/app/edit");
-        });
+        if (user.profilePhoto != "defaultUserPicture.png") {
+          fs.unlink("./public/res/uploads/" + user.profilePhoto, err => {
+            if (err) return res.redirect('/');
+  
+            res.redirect("/app/edit");
+          });
+        };
       });
     });
   } else {

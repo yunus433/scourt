@@ -17,11 +17,13 @@ module.exports = (req, res, next) => {
       ).exec((err, user) => {
         if (err) return res.redirect('/');
         
-        fs.unlink("./public/res/uploads/" + user.profilePhoto, err => {
-          if (err) return res.redirect('/');
-
-          res.redirect("/app/edit/coach");
-        });
+        if (user.profilePhoto != "defaultCoachPicture.png") {
+          fs.unlink("./public/res/uploads/" + user.profilePhoto, err => {
+            if (err) return res.redirect('/');
+  
+            res.redirect("/app/edit/coach");
+          });
+        };
       });
     });
   } else {

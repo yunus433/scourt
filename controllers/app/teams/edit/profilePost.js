@@ -10,11 +10,13 @@ module.exports = (req, res, next) => {
       (err, team) => {
         if (err) return res.redirect('/');
 
-        fs.unlink("./public/res/uploads/" + team.teamPhoto, err => {
-          if (err) return res.redirect('/');
-
-          return res.redirect('/app/team/edit/?id=' + req.query.id);
-        });
+        if (team.teamPhoto != "defaultTeamPicture.png") {
+          fs.unlink("./public/res/uploads/" + team.teamPhoto, err => {
+            if (err) return res.redirect('/');
+  
+            return res.redirect('/app/team/edit/?id=' + req.query.id);
+          });
+        }
       }
     );
 };
