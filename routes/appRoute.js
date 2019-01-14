@@ -32,6 +32,7 @@ const editCoachPasswordPostController = require('../controllers/app/edit/coach/p
 const teamPageDashboardGetController = require('../controllers/app/teams/dashboard');
 const teamPageMessagesGetController = require('../controllers/app/teams/messages');
 const teamPageCalendarGetController = require('../controllers/app/teams/calendar');
+const teamPageVideosGetController = require('../controllers/app/teams/videos');
 const teamCreatePostController = require('../controllers/app/teams/new/post');
 const teamJoinPostController = require('../controllers/app/teams/join/post');
 const teamEditGetController = require('../controllers/app/teams/edit/get');
@@ -39,7 +40,6 @@ const teamEditPostController = require('../controllers/app/teams/edit/post');
 const teamProfileEditPostController = require('../controllers/app/teams/edit/profilePost');
 const newTeamEventPostController = require('../controllers/app/teams/event/post');
 const deleteTeamEventPostController = require('../controllers/app/teams/event/delete');
-
 
 // Get Controllers
 router.get(
@@ -94,6 +94,11 @@ router.get(
   '/team/calendar',
   isLoggedIn,
   teamPageCalendarGetController
+);
+router.get(
+  '/team/videos',
+  isLoggedIn,
+  teamPageVideosGetController
 );
 
 

@@ -40,6 +40,10 @@ const TeamSchema = new Schema({
   events: {
     type: Array,
     default: []
+  },
+  videos: {
+    type: Array,
+    default: []
   }
 });
 

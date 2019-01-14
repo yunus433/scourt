@@ -88,12 +88,15 @@
   cursor: pointer;
 }
 .team-header-part {
-  z-index: 10;
+  z-index: 4;
 }
 .message-header-part {
-  z-index: 5;
+  z-index: 3;
 }
 .date-header-part {
+  z-index: 2;
+}
+.videos-header-part {
   z-index: 1;
 }
 #selected {

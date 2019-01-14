@@ -1,0 +1,27 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/app/dashboard").all-header-name scourt
+      - if(user.type == 'user') {
+        a(href="/app/edit").user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - } else {
+        a(href="/app/edit/coach").user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - }
+    .all-content-dashboard
+      .content-side-header
+        a.header-part-first.team-header-part(href="/app/team/?id=" + team.teamId)
+          span Team Page
+        a.header-part.message-header-part(href="/app/team/messages/?id=" + team.teamId)
+          span Messages
+        a.header-part.date-header-part(href="/app/team/calendar/?id=" + team.teamId)
+          span Calendar
+        a.header-part.videos-header-part#selected(href="/app/team/videos/?id=" + team.teamId)
+          span Video Analyzes
+      .messages-wrapper
+        span.not-ready-warning This page isn't finished yet. It will be over soon.
+        

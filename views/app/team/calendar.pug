@@ -63,6 +63,8 @@ block content
             span Messages
           a.header-part.date-header-part#selected(href="/app/team/calendar/?id=" + team.teamId)
             span Calendar
+          a.header-part.videos-header-part(href="/app/team/videos/?id=" + team.teamId)
+            span Video Analyzes
         .calendar-wrapper
           - if (user.type == 'coach') {
             .add-new-event-line 

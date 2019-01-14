@@ -30,6 +30,8 @@ block content
           span Messages
         a.header-part.date-header-part(href="/app/team/calendar/?id=" + team.teamId)
           span Calendar
+        a.header-part.videos-header-part(href="/app/team/videos/?id=" + team.teamId)
+          span Video Analyzes
       .messages-wrapper
         .messages-block#messages-block
           each message in team.messages
