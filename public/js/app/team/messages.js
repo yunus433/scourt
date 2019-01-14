@@ -96,8 +96,8 @@ window.onload = () => {
 
   document.addEventListener('click', (event) => {
     if (event.target.className == 'screen-warning-allow') {
-      toggleFullScreen();
       event.target.parentNode.parentNode.parentNode.style.display = 'none';
+      toggleFullScreen(); 
     }
   });
 };

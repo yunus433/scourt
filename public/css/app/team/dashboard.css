@@ -108,6 +108,8 @@
   padding: 0px 5px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .team-main-header {
   display: flex;
@@ -211,10 +213,6 @@
   .date-header-part {
     display: none;
   }
-  .team-main-wrapper {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-  }
   .team-main-content {
     flex-direction: column;
     min-height: 800px;
@@ -252,10 +250,6 @@
   }
   .team-main-header-player-number-span {
     margin: 0px;
-  }
-  .team-main-wrapper {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
   }
   .team-main-content {
     flex-direction: column;
@@ -298,10 +292,6 @@
   }
   .team-main-header-player-number-span {
     margin: 0px;
-  }
-  .team-main-wrapper {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
   }
   .team-main-content {
     flex-direction: column;
@@ -357,10 +347,6 @@
   }
   .team-main-header-player-number-span {
     margin: 0px;
-  }
-  .team-main-wrapper {
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
   }
   .team-main-content {
     flex-direction: column;
