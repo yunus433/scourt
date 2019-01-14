@@ -215,7 +215,6 @@
   border-radius: 10px;
 }
 .team-name {
-  margin: 0px 10px;
   font-size: 0.8em;
 }
 .click-for-details {
@@ -235,13 +234,13 @@
   border-radius: 15px;
   color: black;
   font-size: 1.2em;
-  background: white;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   outline: none;
+  padding: 5px 0px;
 }
 
 @media only screen and (max-width: 700px) and (min-width: 300px) {

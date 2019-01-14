@@ -1,3 +1,4 @@
+const fs = require('fs');
 const User = require("../../../../models/user/User");
 
 module.exports = (req, res, next) => {
@@ -13,9 +14,14 @@ module.exports = (req, res, next) => {
           }
         },
         { upsert: true }
-      ).exec(err => {
+      ).exec((err, user) => {
         if (err) return res.redirect('/');
-        res.redirect("/app/edit/coach");
+        
+        fs.unlink("./public/res/uploads/" + user.profilePhoto, err => {
+          if (err) return res.redirect('/');
+
+          res.redirect("/app/edit/coach");
+        });
       });
     });
   } else {

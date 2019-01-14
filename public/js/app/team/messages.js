@@ -99,5 +99,5 @@ window.onload = () => {
       toggleFullScreen();
       event.target.parentNode.parentNode.parentNode.style.display = 'none';
     }
-  })
-}
+  });
+};

@@ -1,3 +1,4 @@
+const fs = require('fs');
 const Team = require('../../../../models/team/Team');
 
 module.exports = (req, res, next) => {
@@ -6,10 +7,14 @@ module.exports = (req, res, next) => {
       teamPhoto: req.file.filename
     }}, {upsert: true})
     .exec(
-      (err) => {
-        if (err) return console.log(err);
+      (err, team) => {
+        if (err) return res.redirect('/');
 
-        return res.redirect('/app/team/edit/?id=' + req.query.id);
+        fs.unlink("./public/res/uploads/" + team.teamPhoto, err => {
+          if (err) return res.redirect('/');
+
+          return res.redirect('/app/team/edit/?id=' + req.query.id);
+        });
       }
     );
-}
+};

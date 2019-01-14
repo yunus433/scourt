@@ -237,6 +237,7 @@
   background-color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   outline: none;
+  padding: 5px 0px;
 }
 
 @media only screen and (max-width: 700px) and (min-width: 300px) {

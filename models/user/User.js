@@ -53,7 +53,7 @@ UserSchema.pre('save', hashPassword);
 UserSchema.statics.findUser = function (email, password, type, callback) {
   let User = this;
 
-  return User.findOne({email, type}).then(user => {
+  User.findOne({email, type}).then(user => {
         
     if (!user) {
         return callback(true);
