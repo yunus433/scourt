@@ -16,6 +16,8 @@ module.exports = (req, res, next) => {
   
             return res.redirect('/app/team/edit/?id=' + req.query.id);
           });
+        } else {
+          return res.redirect('/app/team/edit/?id=' + req.query.id);
         }
       }
     );

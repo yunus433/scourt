@@ -20,9 +20,11 @@ module.exports = (req, res, next) => {
           fs.unlink("./public/res/uploads/" + user.profilePhoto, err => {
             if (err) return res.redirect('/');
   
-            res.redirect("/app/edit");
+            return res.redirect("/app/edit");
           });
-        };
+        } else {
+          return res.redirect("/app/edit");
+        }
       });
     });
   } else {
