@@ -24,28 +24,30 @@ const authRouteController = require('./routes/authRoute');
 const appRouteController = require('./routes/appRoute');
 const adminRouteController = require('./routes/adminRoute');
 
-if (app.get('env') == 'development') {
-  dotenv.config({path: path.join(__dirname, '.env')});
-  const {
-    SESSION_SECRET,
-    CLOUDINARY_CLOUD_NAME,
-    CLOUDINARY_API_KEY,
-    CLOUDINARY_API_SECRET
-  } = process.env;
-} else {
-  const SESSION_SECRET = "scourtapp";
-  const CLOUDINARY_CLOUD_NAME = "dvnac86j8";
-  const CLOUDINARY_API_KEY = "225569931328295";
-  const CLOUDINARY_API_SECRET = "G2IlEQrKxNrR_JMoBYKqGkPaNBM";
-};
+// const SESSION_SECRET = "scourtapp";
+// const CLOUDINARY_CLOUD_NAME = "dvnac86j8";
+// const CLOUDINARY_API_KEY = "225569931328295";
+// const CLOUDINARY_API_SECRET = "G2IlEQrKxNrR_JMoBYKqGkPaNBM";
+
+// if (app.get('env') == 'development') {
+//   dotenv.config({path: path.join(__dirname, '.env')});
+//   const {
+//     SESSION_SECRET,
+//     CLOUDINARY_CLOUD_NAME,
+//     CLOUDINARY_API_KEY,
+//     CLOUDINARY_API_SECRET
+//   } = process.env;
+// } else {
+  
+// };
 
 
 
-cloudinary.config({ 
-  cloud_name: CLOUDINARY_CLOUD_NAME, 
-  api_key: CLOUDINARY_API_KEY, 
-  api_secret: CLOUDINARY_API_SECRET
-});
+// cloudinary.config({ 
+//   cloud_name: CLOUDINARY_CLOUD_NAME, 
+//   api_key: CLOUDINARY_API_KEY, 
+//   api_secret: CLOUDINARY_API_SECRET
+// });
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -57,7 +59,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 const session = expressSession({
-  secret: SESSION_SECRET,
+  secret: "scourtapp",
   resave: false,
   saveUninitialized: true,
   cookie: {secure: false}
