@@ -24,14 +24,22 @@ const authRouteController = require('./routes/authRoute');
 const appRouteController = require('./routes/appRoute');
 const adminRouteController = require('./routes/adminRoute');
 
-dotenv.config({path: path.join(__dirname, '.env')});
+if (app.get('env') == 'development') {
+  dotenv.config({path: path.join(__dirname, '.env')});
+  const {
+    SESSION_SECRET,
+    CLOUDINARY_CLOUD_NAME,
+    CLOUDINARY_API_KEY,
+    CLOUDINARY_API_SECRET
+  } = process.env;
+} else {
+  const SESSION_SECRET = "scourtapp";
+  const CLOUDINARY_CLOUD_NAME = "dvnac86j8";
+  const CLOUDINARY_API_KEY = "225569931328295";
+  const CLOUDINARY_API_SECRET = "G2IlEQrKxNrR_JMoBYKqGkPaNBM";
+};
 
-const {
-  SESSION_SECRET,
-  CLOUDINARY_CLOUD_NAME,
-  CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET
-} = process.env;
+
 
 cloudinary.config({ 
   cloud_name: CLOUDINARY_CLOUD_NAME, 
