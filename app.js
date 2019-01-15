@@ -49,7 +49,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 const session = expressSession({
-  secret: "scourt",
+  secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {secure: false}
