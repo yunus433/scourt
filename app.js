@@ -24,6 +24,8 @@ const authRouteController = require('./routes/authRoute');
 const appRouteController = require('./routes/appRoute');
 const adminRouteController = require('./routes/adminRoute');
 
+dotenv.config({path: path.join(__dirname, '.env')});
+
 const {
   SESSION_SECRET,
   CLOUDINARY_CLOUD_NAME,
