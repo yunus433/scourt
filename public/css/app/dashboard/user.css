@@ -153,9 +153,8 @@
   font-size: 2em;
   cursor: pointer;
 }
-.team-right-side input {
+.join-team-form input {
   height: 40px;
-  width: 80%;
   border-radius: 20px;
   outline: none;
   border: none;
@@ -257,7 +256,7 @@
     width: 100%;
     height: auto;
   }
-  .team-right-side input {
+  .join-team-form input {
     height: 45px;
   }
   .create-team-form-info {
