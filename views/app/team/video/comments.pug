@@ -1,0 +1,76 @@
+extends ../../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/app/dashboard").all-header-name scourt
+      - if(user.type == 'user') {
+        a(href="/app/edit").user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - } else {
+        a(href="/app/edit/coach").user-description
+          span.user-name Hi, #{user.name.split(" ")[0]}
+          img.user-image(src="/res/uploads/" + user.profilePhoto)
+      - }
+    .all-content-dashboard
+      .content-side-header
+        a.header-part-first.team-header-part(href="/app/team/?id=" + team.teamId)
+          span Team Page
+        a.header-part.message-header-part(href="/app/team/messages/?id=" + team.teamId)
+          span Messages
+        a.header-part.date-header-part(href="/app/team/calendar/?id=" + team.teamId)
+          span Calendar
+        a.header-part.videos-header-part#selected(href="/app/team/videos/?id=" + team.teamId)
+          span Video Analyzes
+      .videos-wrapper
+        .videos-header-wrapper
+          .header-left-side
+            h2 Comments
+            span.header-videos-number for "#{video.name}"
+          .header-right-side
+            .add-new-video-wrapper
+                .add-new-button(for="video")
+                  i.fas.fa-plus-circle
+                  span.video-upload-info Create a new comment
+        .videos-content-wrapper
+          .video-content-left-side
+            .top-part
+              .video-wrapper
+                video.video(width="100%" controls) Your browser doesn't support this video format
+                  source(src="/res/uploads/" + video.file)
+            .bottom-part  
+              span.comment-info Click to the Create a New Comment button at the time you want your comment to be added
+          .video-content-right-side
+            form.new-comment-form(action="/app/team/video/comment/new/?id=" + team.teamId + "&video=" + video.file method="post")
+              input.time-at-input(type="text" name="time" autocomplete="off")
+              .form-header-part
+                span.time-at-span at 0.00
+                div(title="Click here to tag a player to this comment").tag-one-button
+                  span Tag a player
+              textarea.comment-content-input(name="content" cols="30" rows="10" placeholder="Your comment" autofocus)
+              .form-footer-part
+                .tagged-players
+                  span.tagged-players-span Currently 0 tagged players to this comment
+                .form-buttons
+                  .form-close-button Cancel
+                  button.form-send-button Upload
+              .form-players-list
+                span.players-list-title Select the players you want to tag:
+                each player in team.players
+                  .each-player
+                    input.each-player-input(type="checkbox" name=player._id value=player._id)
+                    span #{player.name}
+                    span.player-email-span (#{player.email})
+                .players-list-buttons
+                  .players-list-close-button Cancel
+                  .players-list-send-button Ok
+            each comment in video.comments.sort(function(a, b) {return a.time - b.time})
+              .each-comment
+                .go-to-comment-button 
+                  i.fas.fa-external-link-square-alt
+                span.each-comment-value= comment.time
+                span.comment-time-span at #{Math.floor(comment.time / 60) + ":" + Math.floor(comment.time % 60)}
+                .tagged-players-comment
+                  each player in comment.taggedPlayers
+                    span @#{player.name}
+                span #{comment.content}

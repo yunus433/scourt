@@ -31,6 +31,9 @@ const templates = {
       <br />
       <br />
       If you don't want to receive emails from us you can change your settings from your dashboard as well.
+      <br />
+      <br />
+      Scourtapp Team
     `
   }),
   coachRegister: (data) => ({
@@ -56,15 +59,25 @@ const templates = {
       <br />
       <br />
       If you don't want to receive emails from us you can change your settings from your dashboard as well.
+      <br />
+      <br />
+      Scourtapp Team
     `
   }),
-  newMessage: (data) => ({
-    to: data.email,
-    subject: `Scourtapp.com: You have new messages!`,
+  newComment: (data) => ({
+    to: data.player.email,
+    subject: `Scourtapp.com: Your coach tagged you to a comment!`,
     html: `
-      You didn't check your account for a while! There are new messages from your team members and coaches.
+      Hi ${data.player.name.split(' ')[0]},
       <br />
-      To see them click the link: <a href='https://www.scourtapp.com'> www.scourtapp.com <a />
+      <br />
+      Your coach tagged you to one of his comments! Don't forget to check your account to see your mistakes in the analyzed video. You can use your coach's comments to improve your technique.
+      <br />
+      <br />
+      To see the comment click the link: <a href='https://www.scourtapp.com/app/team/videos/comments/?id=${data.player.team}&video=${data.video}'> www.scourtapp.com <a />
+      <br />
+      <br />
+      Scourtapp Team
     `
   }),
   // resetPassword: (data) => ({

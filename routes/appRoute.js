@@ -40,6 +40,11 @@ const teamEditPostController = require('../controllers/app/teams/edit/post');
 const teamProfileEditPostController = require('../controllers/app/teams/edit/profilePost');
 const newTeamEventPostController = require('../controllers/app/teams/event/post');
 const deleteTeamEventPostController = require('../controllers/app/teams/event/delete');
+const teamAddVideoPostController = require('../controllers/app/teams/videos/post');
+const teamEditNamePostController = require('../controllers/app/teams/videos/changeNamePost');
+const teamDeleteVideoPostController = require('../controllers/app/teams/videos/deleteVideo');
+const commentsGetController = require('../controllers/app/teams/videos/comments');
+const commentPostContoller = require('../controllers/app/teams/videos/commentPost');
 
 // Get Controllers
 router.get(
@@ -99,6 +104,16 @@ router.get(
   '/team/videos',
   isLoggedIn,
   teamPageVideosGetController
+);
+router.get(
+  '/team/videos/delete',
+  isLoggedIn,
+  teamDeleteVideoPostController
+);
+router.get(
+  '/team/videos/comments/',
+  isLoggedIn,
+  commentsGetController
 );
 
 
@@ -188,8 +203,22 @@ router.get(
   isLoggedIn,
   deleteTeamEventPostController
 );
-
-
+router.post(
+  '/team/videos/new',
+  upload.single('video'),
+  isLoggedIn,
+  teamAddVideoPostController
+);
+router.post(
+  '/team/videos/edit/name',
+  isLoggedIn,
+  teamEditNamePostController
+);
+router.post(
+  '/team/video/comment/new',
+  isLoggedIn,
+  commentPostContoller
+);
 
 module.exports = router;
 
