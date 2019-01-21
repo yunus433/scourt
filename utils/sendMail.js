@@ -74,7 +74,7 @@ const templates = {
       Your coach tagged you to one of his comments! Don't forget to check your account to see your mistakes in the analyzed video. You can use your coach's comments to improve your technique.
       <br />
       <br />
-      To see the comment click the link: <a href='https://www.scourtapp.com/app/team/videos/comments/?id=${data.player.team}&video=${data.video}'> www.scourtapp.com <a />
+      To see the comment click the link: <a href='https://www.scourtapp.com'> www.scourtapp.com <a />
       <br />
       <br />
       Scourtapp Team
