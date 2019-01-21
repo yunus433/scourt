@@ -14,6 +14,9 @@ block content
             - if (err==1) {
               .err-message 
                 span.err-message-text You can't delete your name and your birthday
+            - } else if (err==2) {
+              .err-message 
+                span.err-message-text Sorry, this email has already been taken
             - }
           - }
           .change-password-button 
