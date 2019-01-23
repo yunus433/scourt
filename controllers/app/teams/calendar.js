@@ -93,31 +93,31 @@ module.exports = (req, res, next) => {
     after2Year = new Date().getFullYear();
   }
   Team
-    .findOne({"teamId": req.query.id})
+    .findById(req.session.user.team)
     .exec((err, team) => {
-      if (err) return console.log(err);
+      if (err) return res.redirect('/');
 
-        User
-          .findOne({"_id": req.session.user._id})
-          .exec((err, user) => {
-            res.render('app/team/calendar', {
-              page: 'app/team/calendar',
-              title: 'Calendar',
-              includes: {
-                external: ['fontawesome', 'js']
-              },
-              team,
-              user,
-              month,
-              beforeMonth,
-              before2Month,
-              beforeYear,
-              before2Year,
-              afterMonth,
-              after2Month,
-              afterYear,
-              after2Year
-            });
+      User
+        .findOne({"_id": req.session.user._id})
+        .exec((err, user) => {
+          res.render('app/team/calendar', {
+            page: 'app/team/calendar',
+            title: 'Calendar',
+            includes: {
+              external: ['fontawesome', 'js']
+            },
+            team,
+            user,
+            month,
+            beforeMonth,
+            before2Month,
+            beforeYear,
+            before2Year,
+            afterMonth,
+            after2Month,
+            afterYear,
+            after2Year
           });
+        });
     });
-}
+};

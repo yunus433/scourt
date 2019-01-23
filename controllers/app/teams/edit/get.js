@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
       if (err) return res.redirect('/');
       
       Team
-        .findById(req.query.id)
+        .findById(req.session.user.team)
         .exec((err, team) => {
           if (err) return res.redirect('/');
 
@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
               external: ["fontawesome", "js"]       
             },
             team,
-            coach: user
+            user
           });
         });
     });

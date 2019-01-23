@@ -3,17 +3,17 @@ const User = require('../../../../models/user/User');
 
 module.exports = (req, res, next) => {
   Team
-    .findOne({"teamId": req.query.id})
+    .findById(req.session.user.team)
     .exec((err, team) => {
       if (err) return res.redirect('/');
 
         User
-          .findOne({"_id": req.session.user._id})
+          .findById(req.session.user._id)
           .exec((err, user) => {
             if (err) return res.redirect('/');
             
             team.videos.forEach(video => {
-              if (video.file == req.query.video) {
+              if (video._id == req.query.id) {
                 res.render('app/team/video/comments', {
                   page: 'app/team/video/comments',
                   title: 'Video Comments',

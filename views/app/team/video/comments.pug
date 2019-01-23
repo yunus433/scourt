@@ -14,13 +14,13 @@ block content
       - }
     .all-content-dashboard
       .content-side-header
-        a.header-part-first.team-header-part(href="/app/team/?id=" + team.teamId)
+        a.header-part-first.team-header-part(href="/app/team")
           span Team Page
-        a.header-part.message-header-part(href="/app/team/messages/?id=" + team.teamId)
+        a.header-part.message-header-part(href="/app/team/messages")
           span Messages
-        a.header-part.date-header-part(href="/app/team/calendar/?id=" + team.teamId)
+        a.header-part.date-header-part(href="/app/team/calendar")
           span Calendar
-        a.header-part.videos-header-part#selected(href="/app/team/videos/?id=" + team.teamId)
+        a.header-part.videos-header-part#selected(href="/app/team/videos")
           span Video Analyzes
       .videos-wrapper
         .videos-header-wrapper
@@ -37,17 +37,17 @@ block content
             .top-part
               .video-wrapper
                 video.video(width="100%" controls) Your browser doesn't support this video format
-                  source(src="/res/uploads/" + video.file)
+                  source(src=video.url)
             .bottom-part  
               span.comment-info Click to the Create a New Comment button at the time you want your comment to be added
           .video-content-right-side
-            form.new-comment-form(action="/app/team/video/comment/new/?id=" + team.teamId + "&video=" + video.file method="post")
+            form.new-comment-form(action="/app/team/video/comment/new/?id=" + video._id method="post")
               input.time-at-input(type="text" name="time" autocomplete="off")
               .form-header-part
                 span.time-at-span at 0.00
                 div(title="Click here to tag a player to this comment").tag-one-button
                   span Tag a player
-              textarea.comment-content-input(name="content" cols="30" rows="10" placeholder="Your comment" autofocus)
+              textarea.comment-content-input(required name="content" cols="30" rows="10" placeholder="Your comment" autofocus)
               .form-footer-part
                 .tagged-players
                   span.tagged-players-span Currently 0 tagged players to this comment

@@ -1,4 +1,4 @@
-const User = require('../../../../models/user/User');
+const User = require('../../../models/user/User');
 
 module.exports = (req, res, next) => {
   User
@@ -6,15 +6,15 @@ module.exports = (req, res, next) => {
       if (err) res.redirect('/');
 
       if (req.query.err) {
-        res.render('app/validate/user', {
-          page: 'app/validate/user',
+        res.render('app/validate', {
+          page: 'app/validate',
           title: 'Verify Your Account',
           user,
           err: req.query.err 
         });
       } else {
-        res.render('app/validate/user', {
-          page: 'app/validate/user',
+        res.render('app/validate', {
+          page: 'app/validate',
           title: 'Verify Your Account',
           includes: {
             external: ["js"]       

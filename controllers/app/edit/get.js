@@ -1,12 +1,11 @@
-const User = require('../../../../models/user/User');
+const User = require('../../../models/user/User');
 
 module.exports = (req, res, next) => {
-  let user = req.session.user;
-  User.findById(user._id, (err, user) => {
+  User.findById(req.session.user._id, (err, user) => {
     if (err) return res.redirect('/');
 
-    res.render('app/edit/user', {
-      page: 'app/edit/user',
+    res.render('app/edit', {
+      page: 'app/edit',
       title: 'Edit Your Account',
       includes: {
         external: ["fontawesome", "js"]       

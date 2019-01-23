@@ -1,0 +1,63 @@
+.all-content {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cloudinary-button {
+  width: 25%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  outline: none;
+  font-family: "Roboto Slab" "Roboto";
+  font-size: 0.8em;
+}
+.all-content-bottom {
+  width: 25%;
+  display: flex;
+  align-items: stretch;
+  margin-top: 10px;
+  height: 40px;
+}
+.exit-upload-button {
+  flex: 1;
+  width: 50%;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8em;
+  margin-right: 2.5px;
+}
+.exit-upload-button:hover {
+  box-shadow: 1px 3px rgba(0, 0, 0, 0.3);
+}
+.send-upload-button:hover {
+  box-shadow: 1px 3px rgba(0, 0, 0, 0.3);
+}
+.send-upload-button {
+  flex: 1;
+  width: 50%;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  outline: none;
+  font-family: "Roboto Slab" "Roboto";
+  font-size: 0.8em;
+  margin-left: 2.5px;
+  cursor: pointer;
+}
+.thumbnail-wrapper {
+  width: 50%;
+}
+.video-id-span, .team-id-span {
+  display: none;
+}
+input {
+  display: none;
+}

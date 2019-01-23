@@ -1,5 +1,5 @@
-const User = require('../../../../models/user/User');
-const Team = require('../../../../models/team/Team');
+const User = require('../../../models/user/User');
+const Team = require('../../../models/team/Team');
 
 module.exports = (req, res, next) => {
   User
@@ -12,32 +12,32 @@ module.exports = (req, res, next) => {
               if (err) return res.redirect('/');
   
               if (team) {
-                return res.render('app/dashboard/user', {
-                  page: 'app/dashboard/user',
-                  title: 'User Dashboard',
+                return res.render('app/dashboard', {
+                  page: 'app/dashboard',
+                  title: 'Dashboard',
                   includes: {
-                    external: ["fontawesome", "js", "socket.io"]       
+                    external: ["fontawesome", "js"]       
                   },
                   user,
                   team
                 });
               } else {
-                return res.render('app/dashboard/user', {
-                  page: 'app/dashboard/user',
-                  title: 'User Dashboard',
+                return res.render('app/dashboard', {
+                  page: 'app/dashboard',
+                  title: 'Dashboard',
                   includes: {
-                    external: ["fontawesome", "js", "socket.io"]       
+                    external: ["fontawesome", "js"]       
                   },
                   user
                 });
               }
             }); 
         } else {
-          res.render('app/dashboard/user', {
-            page: 'app/dashboard/user',
+          res.render('app/dashboard', {
+            page: 'app/dashboard',
             title: 'Main Page',
             includes: {
-              external: ["fontawesome", "js", "socket.io"]       
+              external: ["fontawesome", "js"]       
             },
             user
           });

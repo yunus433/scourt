@@ -1,4 +1,5 @@
 const User = require('../../../../models/user/User');
+const Team = require('../../../../models/team/Team');
 
 module.exports = (req, res, next) => {
   if (req.body && req.body.email && req.body.password) {
@@ -8,10 +9,9 @@ module.exports = (req, res, next) => {
         if (!coach) {
           return res.redirect('/auth/login/coach/?err=2');
         }
-        
         req.session.user = coach;
-        return res.redirect('/app/dashboard/coach');
-      })
+        return res.redirect('/app/dashboard');
+      });
   } else {
     return res.redirect('/auth/login/coach/?err=1');
   }

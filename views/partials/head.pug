@@ -14,6 +14,8 @@ html(lang="tr")
         script(src=`/js/${page}.js`)
       if includes.external.indexOf('socket.io') > -1 
         script(src=`/socket.io/socket.io.js`)
+      if includes.external.indexOf('cloudinary') > -1 
+        script(src=`https://widget.cloudinary.com/v2.0/global/all.js`)
     link(rel="stylesheet", href=`/css/${page}.css`)
     link(href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet")
     link(rel="stylesheet", href=`/css/general.css`)

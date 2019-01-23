@@ -22,17 +22,18 @@ module.exports = (req, res, next) => {
         User
           .findByIdAndUpdate(req.session.user._id, {$set: {
             team: team._id
-          }}, {upsert: true})
+          }}, {upsert: true, new: true})
           .exec(
-            (err) => {
+            (err, user) => {
               if (err) return res.redirect('/');
               
-              return res.redirect('/app/dashboard/coach');
+              req.session.user = user;
+              return res.redirect('/app/dashboard');
             }
           );
       });
 
   } else {
-    return res.redirect('/app/dashboard/coach');
+    return res.redirect('/app/dashboard');
   }
 }

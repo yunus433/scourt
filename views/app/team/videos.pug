@@ -3,75 +3,68 @@ block content
   .all-wrapper
     .all-header
       a(href="/app/dashboard").all-header-name scourt
-      - if(user.type == 'user') {
-        a(href="/app/edit").user-description
-          span.user-name Hi, #{user.name.split(" ")[0]}
-          img.user-image(src="/res/uploads/" + user.profilePhoto)
-      - } else {
-        a(href="/app/edit/coach").user-description
-          span.user-name Hi, #{user.name.split(" ")[0]}
-          img.user-image(src="/res/uploads/" + user.profilePhoto)
-      - }
+      a(href="/app/edit").user-description
+        span.user-name Hi, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
     .all-content-dashboard
       .content-side-header
-        a.header-part-first.team-header-part(href="/app/team/?id=" + team.teamId)
+        a.header-part-first.team-header-part(href="/app/team")
           span Team Page
-        a.header-part.message-header-part(href="/app/team/messages/?id=" + team.teamId)
+        a.header-part.message-header-part(href="/app/team/messages")
           span Messages
-        a.header-part.date-header-part(href="/app/team/calendar/?id=" + team.teamId)
+        a.header-part.date-header-part(href="/app/team/calendar")
           span Calendar
-        a.header-part.videos-header-part#selected(href="/app/team/videos/?id=" + team.teamId)
+        a.header-part.videos-header-part#selected(href="/app/team/videos")
           span Video Analyzes
       .videos-wrapper
         .videos-header-wrapper
           .header-left-side
             h2 Video Analyzes Page
-            span.header-videos-number You can upload #{20 - team.videos.length} more videos
+            span.header-videos-number You can upload #{21 - team.videos.length} more videos
           .header-right-side
-            form.add-new-video-wrapper(method="post" action="/app/team/videos/new/?id=" + team.id enctype="multipart/form-data")
-              - if (team.videos.length > 20) {
+            .add-new-video-wrapper
+              - if (team.videos.length > 21) {
                 .add-new-button-not-allowed
                   i.fas.fa-plus-circle
                   span Upload a new video   
               - } else {
                 - if (user.type == 'coach') {
-                  label.add-new-button(for="video")
-                    i.fas.fa-plus-circle
-                    span.video-upload-info Upload a new video
-                    span.video-uploading-info Uploading...
-                  input.add-new-button-input(type="file" name="video" id="video" accept="video/*")
+                  a.add-new-button(href="/app/team/videos/new") Upload a new video
                 - }
               - }
         .videos-content-wrapper
           each video in team.videos
-            .each-video-wrapper
-              .each-video-left
-                .video-wrapper
-                  video.video(controls width="100%") Your browser doesn't support this video format
-                    source(src="/res/uploads/" + video.file)
-                form(action="/app/team/videos/edit/name/?id=" + video.file method="post").video-name-part-wrapper
-                  input(type="text" value=video.name autofocus onclick="this.select()" name="videoName" autocomplete="off").video-name-input
-                  span.video-name #{video.name}
-                  - if (user.type == 'coach') {
-                    i(title="Change the name").fas.fa-edit.video-name-change
-                  - }
-                span.video-created-at uploaded at #{video.createdAt}
-                span -
-                span.video-comments #{video.comments.length} comments
-              .each-video-right
-                - let value = false;
-                - video.comments.forEach(comment => {
-                  - if (comment.taggedPlayers.filter(function(e) { return e._id.toString() === user._id.toString(); }).length > 0) {
-                    - value = true;
-                  - }
-                - }); 
-                - if (value) {
-                  .each-video-tagged(title="Your coach tagged you to this video")
-                - } 
-                .icons
-                  a(href="/app/team/videos/comments/?id=" + team.teamId + "&video=" + video.file)
-                    i(title="Write and see comments").fas.fa-comments
-                  - if (user.type == 'coach') {
-                    a(href="/app/team/videos/delete/?id=" + team._id + "&video=" + video.file onclick="return confirm('Are you sure you want to delete this video? All comments and analyzes will be deleted permanently.');")
-                      i(title="Delete this video record").fas.fa-trash
-                  - }   
+            - if (video.completed) {
+              .each-video-wrapper
+                .each-video-left
+                  .video-wrapper
+                    video.video(controls width="100%") Your browser doesn't support this video format
+                      source(src=video.url)
+                  form(action="/app/team/videos/edit/name" method="post").video-name-part-wrapper
+                    input(type="text" value=video.name autofocus onclick="this.select()" name="videoName" autocomplete="off").video-name-input
+                    span.video-name #{video.name}
+                    - if (user.type == 'coach') {
+                      i(title="Change the name").fas.fa-edit.video-name-change
+                    - }
+                  span.video-created-at uploaded at #{video.createdAt}
+                  span -
+                  span.video-comments #{video.comments.length} comments
+                .each-video-right
+                  - let value = false;
+                  - video.comments.forEach(comment => {
+                    - if (comment.taggedPlayers.filter(function(e) { return e._id.toString() === user._id.toString(); }).length > 0) {
+                      - value = true;
+                    - }
+                  - }); 
+                  - if (value) {
+                    .each-video-tagged(title="Your coach tagged you to this video")
+                  - } 
+                  .icons
+                    a(href="/app/team/videos/comments/?id=" + video._id)
+                      i(title="Write and see comments").fas.fa-comments
+                    - if (user.type == 'coach') {
+                      a(href="/app/team/videos/delete/?id=" + video._id onclick="return confirm('Are you sure you want to delete this video? All comments and analyzes will be deleted permanently.');")
+                        i(title="Delete this video record").fas.fa-trash
+                    - }  
+            - }
+             

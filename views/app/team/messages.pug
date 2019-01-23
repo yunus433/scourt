@@ -8,29 +8,23 @@ block content
       .mobile-warning-from
         span Scourt App Team
       .screen-warning-options
-        a.screen-warning-not-allow(href="/app/team/?id=" + team.teamId) Cancel
+        a.screen-warning-not-allow(href="/app/team") Cancel
         button.screen-warning-allow Allow
   .all-wrapper
     .all-header
       a(href="/app/dashboard").all-header-name scourt
-      - if(user.type == 'user') {
-        a(href="/app/edit").user-description
-          span.user-name Hi, #{user.name.split(" ")[0]}
-          img.user-image(src="/res/uploads/" + user.profilePhoto)
-      - } else {
-        a(href="/app/edit/coach").user-description
-          span.user-name Hi, #{user.name.split(" ")[0]}
-          img.user-image(src="/res/uploads/" + user.profilePhoto)
-      - }
+      a(href="/app/edit").user-description
+        span.user-name Hi, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
     .all-content-dashboard
       .content-side-header
-        a.header-part-first.team-header-part(href="/app/team/?id=" + team.teamId)
+        a.header-part-first.team-header-part(href="/app/team")
           span Team Page
-        a.header-part.message-header-part#selected(href="/app/team/messages/?id=" + team.teamId)
+        a.header-part.message-header-part#selected(href="/app/team/messages")
           span Messages
-        a.header-part.date-header-part(href="/app/team/calendar/?id=" + team.teamId)
+        a.header-part.date-header-part(href="/app/team/calendar")
           span Calendar
-        a.header-part.videos-header-part(href="/app/team/videos/?id=" + team.teamId)
+        a.header-part.videos-header-part(href="/app/team/videos")
           span Video Analyzes
       .messages-wrapper
         .messages-block#messages-block

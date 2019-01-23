@@ -192,6 +192,7 @@
 .video {
   width: 100%;
   border-radius: 10px;
+  max-height: 250px;
 }
 .video-name-part-wrapper {
   display: flex;

@@ -1,5 +1,6 @@
 const validator = require('validator');
 const User = require('../../../../models/user/User');
+const Team = require('../../../../models/team/Team');
 
 module.exports = (req, res, next) => {
   if (req.body && req.body.email && req.body.password) {
@@ -10,7 +11,7 @@ module.exports = (req, res, next) => {
             if (err) return res.redirect('/auth/login/?err=1');
 
             req.session.user = user;
-            return res.redirect("/app/dashboard");
+            return res.redirect('/app/dashboard');
           });
         } else {
           return res.redirect('/auth/login/?err=1');

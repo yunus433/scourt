@@ -24,6 +24,7 @@ module.exports = (req, res, next) => {
                   (err) => {
                     if (err) return res.redirect('/');
       
+                    req.session.user = user;
                     res.redirect('/app/dashboard');
                   }
                 );

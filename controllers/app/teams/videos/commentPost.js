@@ -4,13 +4,13 @@ const sendMail = require('../../../../utils/sendMail');
 module.exports = (req, res, next) => {
   if (req.body && req.body.time) {
     const comment = {
-      content: req.body.content || '-',
+      content: req.body.content,
       time: req.body.time,
       taggedPlayers: []
     };
 
     Team
-      .findOne({"teamId": req.query.id}, (err, team) => {
+      .findById(req.session.user.team, (err, team) => {
         if (err) return res.redirect('/');
 
         team.players.forEach(player => {
@@ -21,7 +21,7 @@ module.exports = (req, res, next) => {
 
         Team
           .findOneAndUpdate({
-            "videos.file": req.query.video
+            "videos._id": req.query.id
           }, {$push: {
             "videos.$.comments": comment
           }}, err => {
@@ -35,10 +35,10 @@ module.exports = (req, res, next) => {
                 if (err) return res.redirect('/');
               });
             })
-            return res.redirect("/app/team/videos/comments/?id=" + req.query.id + "&video=" + req.query.video);
+            return res.redirect("/app/team/videos/comments/?id=" + req.query.id);
           });
       });
   } else {
-    return res.redirect("/app/team/videos/comments/?id=" + req.query.id + "&video=" + req.query.video);
+    return res.redirect("/app/team/videos/comments/?id=" + req.query.id);
   };
 };

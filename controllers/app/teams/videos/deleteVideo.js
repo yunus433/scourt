@@ -1,16 +1,17 @@
-const fs = require('fs');
 const Team = require('../../../../models/team/Team');
 
 module.exports = (req, res, next) => {
   Team
-    .findByIdAndUpdate(req.query.id, {$pull: {
-      "videos": {"file": req.query.video}
+    .findOneAndUpdate({"_id": req.session.user.team}, {$pull: {
+      "videos": {"_id": req.query.id}
     }}, (err, team) => {
       if (err) return res.redirect('/');
-      fs.unlink("./public/res/uploads/" + req.query.video, err => {
-        if (err) return res.redirect("/");
+      req.cloudinary.v2.api.delete_resources(["video_folder/team_" + req.session.user.team + "/" + req.query.id], {
+        "resource_type": "video"
+      }, err => {
+        if (err) return res.redirect('/');
 
-        return res.redirect('/app/team/videos/?id=' + team.teamId);
+        return res.redirect('/app/team/videos');
       });
     });
 };

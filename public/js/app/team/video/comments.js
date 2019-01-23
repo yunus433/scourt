@@ -42,11 +42,6 @@ window.onload = () => {
         };
       });
       document.querySelector('.tagged-players-span').innerHTML = "Currently " + number + " tagged players to this comment";
-    } else if (event.target.closest('.form-send-button')) {
-      document.querySelector('.form-players-list').style.display = 'block';
-      document.querySelector('.form-header-part').style.display = 'flex';
-      document.querySelector('.form-footer-part').style.display = 'block';
-      document.querySelector('.comment-content-input').style.display = 'block';
     } else if (event.target.closest('.go-to-comment-button i')) {
       document.querySelector('.video').currentTime = Math.floor(event.target.parentNode.parentNode.children[1].innerHTML);
     }

@@ -3,28 +3,25 @@ const moment = require("moment");
 const Team = require("../../../../models/team/Team");
 
 module.exports = (req, res, next) => {
-  if (req.file) {
-    const videoObject = {
-      name: "Default Video Name",
-      createdAt: moment(Date.now()).format("dddd, MMMM Do YYYY"),
-      comments: [],
-      file: req.file.filename
-    };
+  const videoObject = {
+    name: "Default Video Name",
+    createdAt: moment(Date.now()).format("dddd, MMMM Do YYYY"),
+    comments: [],
+    url: "https://res.cloudinary.com/dvnac86j8/video/upload/v1548182773/video_folder/team_" + req.session.user.team + "/" + req.body.videoId,
+    completed: true,
+    _id: req.body.videoId
+  };
 
-    Team.findOneAndUpdate(
-      { _id: req.query.id },
-      {
-        $push: {
-          videos: videoObject
-        }
-      },
-      (err, team) => {
-        if (err) return res.redirect("/");
-
-        return res.redirect("/app/team/videos/?id=" + team.teamId);
+  Team
+    .findOneAndUpdate(
+    { "videos._id": req.body.videoId },
+    {
+      $set: {
+        "videos": videoObject
       }
-    );
-  } else {
-    return res.redirect("/");
-  }
+    }, err => {
+      if (err) return res.redirect("/");
+
+      return res.redirect("/app/team/videos");
+    });
 };

@@ -198,6 +198,7 @@
 .video {
   width: 100%;
   border-radius: 10px;
+  max-height: 400px;
 }
 .new-comment-form {
   height: 50%;

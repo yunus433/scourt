@@ -8,12 +8,12 @@ module.exports = (req, res, next) => {
     email: id,
     password: "scourt123",
     type: "coach",
-    profilePhoto: "defaultCoachPicture.png"
+    profilePhoto: "/res/uploads/defaultCoachPicture.png"
   };
 
   const newUser = new User(newUserData);
   newUser.save(err => {
-    if (err) return console.log(err);
+    if (err) return res.redirect('/');
 
     res.redirect("/admin/coaches");
   });

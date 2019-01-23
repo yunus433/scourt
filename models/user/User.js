@@ -26,7 +26,7 @@ const UserSchema = new Schema({
   },
   profilePhoto: {
     type: String,
-    default: "defaultUserPicture.png"
+    default: "/res/uploads/defaultUserPicture.png"
   },
   phone: {
     type: String

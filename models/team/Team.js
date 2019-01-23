@@ -6,9 +6,9 @@ const TeamSchema = new Schema({
   name: {
     type: String
   },
-  teamPhoto: {
+  profilePhoto: {
     type: String,
-    default: "defaultTeamPicture.png"
+    default: "/res/uploads/defaultTeamPicture.png"
   },
   teamId: {
     type: String,

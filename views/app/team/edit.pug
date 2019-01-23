@@ -3,18 +3,18 @@ block content
   .all-wrapper
     .all-header
       a(href="/").all-header-name scourt
-      a(href="/app/edit/coach").user-description
-        span.user-name Hi, #{coach.name.split(" ")[0]}
-        img.user-image(src="/res/uploads/" + coach.profilePhoto)
+      a(href="/app/edit").user-description
+        span.user-name Hi, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
     .all-content
       .content-side 
         .create-team-form
           form.team-left-side(action="/app/team/edit/profile/?id=" + team._id method="POST" enctype="multipart/form-data")
             span.team-id Your team id is #{team.teamId}
             label.team-picture(for="teamPicture")
-              img.team-picture-image(src="/res/uploads/" + team.teamPhoto)
+              img.team-picture-image(src=team.profilePhoto)
               input.team-picture-input(type="file" id="teamPicture" name="teamPhoto" accept="image/*")
-            a(href="/app/dashboard/coach").exit-create-team 
+            a(href="/app/dashboard").exit-create-team 
               i.fas.fa-arrow-circle-left
           form.team-right-side(action="/app/team/edit/?id=" + team._id method="POST")
             span.create-team-form-info  From this page you can edit the informations you want to change
