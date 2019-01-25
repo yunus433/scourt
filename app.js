@@ -21,7 +21,9 @@ const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/scourt';
 
 const indexRouteController = require('./routes/indexRoute');
 const authRouteController = require('./routes/authRoute');
+const deAuthRouteController = require('./routes/deAuth');
 const appRouteController = require('./routes/appRoute');
+const deRouteController = require('./routes/deRoute');
 const adminRouteController = require('./routes/adminRoute');
 
 dotenv.config({path: path.join(__dirname, '.env')});
@@ -65,7 +67,9 @@ app.use(helmet());
 
 app.use('/', indexRouteController)
 app.use('/app', appRouteController);
+app.use('/de', deRouteController);
 app.use('/auth', authRouteController)
+app.use('/deAuth', deAuthRouteController)
 app.use('/admin', adminRouteController);
 
 io.on('connection', (socket) => {

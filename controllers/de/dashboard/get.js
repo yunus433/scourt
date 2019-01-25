@@ -9,11 +9,11 @@ module.exports = (req, res, next) => {
         if (user.team) {
           Team
             .findById(user.team, (err, team) => {
-              if (err) return res.redirect('/');
+              if (err) return res.redirect('/de');
   
               if (team) {
-                return res.render('app/dashboard', {
-                  page: 'app/dashboard',
+                return res.render('de/dashboard', {
+                  page: 'de/dashboard',
                   title: 'Dashboard',
                   includes: {
                     external: ["fontawesome", "js"]       
@@ -22,8 +22,8 @@ module.exports = (req, res, next) => {
                   team
                 });
               } else {
-                return res.render('app/dashboard', {
-                  page: 'app/dashboard',
+                return res.render('de/dashboard', {
+                  page: 'de/dashboard',
                   title: 'Dashboard',
                   includes: {
                     external: ["fontawesome", "js"]       
@@ -33,8 +33,8 @@ module.exports = (req, res, next) => {
               }
             }); 
         } else {
-          res.render('app/dashboard', {
-            page: 'app/dashboard',
+          res.render('de/dashboard', {
+            page: 'de/dashboard',
             title: 'Dashboard',
             includes: {
               external: ["fontawesome", "js"]       
@@ -43,7 +43,7 @@ module.exports = (req, res, next) => {
           });
         };
       } else {
-        res.redirect('/app/validate');
+        res.redirect('/de/validate');
       };
     });     
 };

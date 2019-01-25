@@ -1,0 +1,47 @@
+extends ../../partials/head
+block content
+  input.team-object-value(value= team._id)
+  input.user-object-value(value= user._id)
+  .mobile-screen-warning-wrapper
+    .mobile-screen-warning
+      span For the best chatting experience, please allow us to use the full screen mode. Thank you for your understanding.
+      .mobile-warning-from
+        span Scourt App Team
+      .screen-warning-options
+        a.screen-warning-not-allow(href="/de/team") Cancel
+        button.screen-warning-allow Allow
+  .all-wrapper
+    .all-header
+      a(href="/de/dashboard").all-header-name scourt
+      a(href="/de/edit").user-description
+        span.user-name Hi, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
+    .all-content-dashboard
+      .content-side-header
+        a.header-part-first.team-header-part(href="/de/team")
+          span Teamseite
+        a.header-part.message-header-part#selected(href="/de/team/messages")
+          span Nachrichten
+        a.header-part.date-header-part(href="/de/team/calendar")
+          span Kalender
+        a.header-part.videos-header-part(href="/de/team/videos")
+          span Videoanalysen
+      .messages-wrapper
+        .messages-block#messages-block
+          each message in team.messages
+            - let classValue
+            - if (message.sender._id.toString() === user._id.toString()) {
+            - classValue = 'right';
+            - } else {
+            - classValue = 'left'; 
+            - }
+            .each-message(class=classValue)
+              .message-sender
+                span #{message.sender.name}
+              .message-content
+                span #{message.content}
+        form.new-message-form
+          input.message-sender-team-input(type="text" value=team._id)
+          input.message-sender-input(type="text" value=user._id)
+          input.message-sending-input(type="text", name="message", autocomplete="off", autofocus, placeholder="Deine Nachricht")
+          button.message-sending-button Senden

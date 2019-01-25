@@ -1,0 +1,92 @@
+extends ../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/").all-header-name scourt
+    .all-content
+      .form
+        form.form-left-side(action="/de/edit/image" method="POST" enctype="multipart/form-data")
+          label.profile-picture(for="profile")
+            img.image(src=user.profilePhoto)
+            span.profile-input-explanation Click to change
+          input.profile-input(type="file" id="profile" name="profile" accept="image/*")
+          - if (err) {
+            - if (err==1) {
+              .err-message 
+                span.err-message-text You can't delete your name or your birthday
+            - } else if (err==2) {
+              .err-message 
+                span.err-message-text Sorry, this email has already been taken
+            - }
+          - }
+          .change-password-button 
+            span Change your password
+        - if (user.type == 'user') {
+          form.form-right-side(action="/de/edit" method="POST")
+            .form-explanation
+              h2 Hallo #{user.name.split(' ')[0]},
+              span Bitte ändern Sie die Informationen, die Sie bearbeiten möchten
+            .form-part
+              span.input-info Name:
+              input(type="text" name="name" autocomplete="off" value=user.name) 
+              span.red *
+            .form-part
+              span.input-info E-Mail-Adresse:
+              input(type="text" name="email" autocomplete="off" value=user.email) 
+              span.red *
+            .form-part
+              span.input-info Geburtstag:
+              input(type="text" name="date" placeholder="dd/mm/yyyy" autocomplete="off" value=user.date) 
+              span.red *
+            .form-part
+              span.input-info Handynummer:
+              input(type="text" name="phone" autocomplete="off" value=user.phone) 
+            .form-submit
+              .submit-button
+                a.exit-edit-page-button-wrapper(href="/de/dashboard") 
+                  i.exit-edit-page-button.fas.fa-arrow-circle-left
+                input(type="submit" value="Ok") 
+        - } else {
+          form.form-right-side(action="/de/edit" method="POST")
+            .form-explanation
+              h2 Hi #{user.name.split(' ')[0]},
+              span Bitte ändern Sie die Informationen, die Sie bearbeiten möchten: 
+            .form-part
+              span.input-info Name:
+              input(type="text" name="name" autocomplete="off" value=user.name) 
+              span.red *
+            .form-part
+              span.input-info E-Mail-Adresse:
+              input(type="text" name="email" autocomplete="off" value=user.email) 
+              span.red *
+            .form-part
+              span.input-info Handynummer:
+              input(type="text" name="phone" autocomplete="off" value=user.phone) 
+            .form-submit
+              .submit-button
+                a.exit-edit-page-button-wrapper(href="/de/dashboard") 
+                  i.exit-edit-page-button.fas.fa-arrow-circle-left
+                input(type="submit" value="Ok") 
+        - }
+        
+      form.password-form(action="/de/edit/password" method="POST")
+        .form-part.password-form-part-wrapper
+          span.input-info Your old password:
+          .password-form-part
+            input(type="password" name="oldPassword" autocomplete="off" autofocus) 
+            span.red *
+        .form-part.password-form-part-wrapper
+          span.input-info Your new password:
+          .password-form-part
+            input(type="password" name="password" autocomplete="off") 
+            span.red *
+        .form-part.password-form-part-wrapper
+          span.input-info Confirm your new password:
+          .password-form-part
+            input(type="password" name="confirmPassword" autocomplete="off") 
+            span.red *
+        .form-submit
+          .submit-part
+            i.password-exit-button.fas.fa-arrow-circle-left
+            input.password-submit-button(type="submit" value="Ok")
+      

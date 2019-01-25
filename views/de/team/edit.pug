@@ -1,0 +1,25 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/de").all-header-name scourt
+      a(href="/de/edit").user-description
+        span.user-name Hallo, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
+    .all-content
+      .content-side 
+        .create-team-form
+          form.team-left-side(action="/de/team/edit/profile/?id=" + team._id method="POST" enctype="multipart/form-data")
+            span.team-id Ihre Team-ID ist  #{team.teamId}
+            label.team-picture(for="teamPicture")
+              img.team-picture-image(src=team.profilePhoto)
+              input.team-picture-input(type="file" id="teamPicture" name="teamPhoto" accept="image/*")
+            a(href="/de/dashboard").exit-create-team 
+              i.fas.fa-arrow-circle-left
+          form.team-right-side(action="/de/team/edit/?id=" + team._id method="POST")
+            span.create-team-form-info Auf dieser Seite können Sie die Informationen bearbeiten, die Sie ändern möchten
+            span Name des Teams: 
+            input(type="text" placeholder="Team name" name="name" autocomplete="off" autofocus value= team.name)
+            span Teambeschreibung:
+            textarea.text-area(name="description", cols="25", rows="8") #{team.description}
+            button.create-team-button Ändern

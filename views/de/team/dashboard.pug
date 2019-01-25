@@ -1,0 +1,40 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/de/dashboard").all-header-name scourt
+      a(href="/de/edit").user-description
+        span.user-name Hallo, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
+    .all-content-dashboard
+      .content-side-header
+        a.header-part-first.team-header-part#selected(href="/de/team")
+          span Teamseite
+        a.header-part.message-header-part(href="/de/team/messages")
+          span Nachrichten
+        a.header-part.date-header-part(href="/de/team/calendar")
+          span Kalender
+        a.header-part.videos-header-part(href="/de/team/videos")
+          span Videoanalysen
+      .team-main-wrapper
+        .team-main-header
+          h2 #{team.name}
+          .team-main-header-explanations
+            span.team-main-header-player-number-span #{team.players.length} teilnehmende Spieler
+            span.team-main-header-created-at-span created at #{team.createdAt}
+        .team-main-content
+          .team-main-content-left
+            .team-picture-wrapper
+              img.team-picture(src=team.profilePhoto)
+            span.team-header-span Teambeschreibung
+            span.team-description "#{team.description}"
+            span.team-header-span Team-ID:
+            span.team-id #{team.teamId}
+            span.team-id-explanation Sie können diese ID verwenden, um Ihre Teammitglieder in Ihr Team einzuladen.
+          .team-main-content-right
+            span.team-header-span Spielerliste 
+            .players-list-wrapper 
+              each player in team.players
+                .each-player-in-team
+                  span #{player.name}
+                  span.each-player-email (#{player.email})   

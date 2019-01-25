@@ -1,0 +1,34 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/de").all-header-name scourt
+    .all-content
+      form.form(action="/deAuth/register" method="POST")
+        input.form-inputs(type="email" name="email" placeholder="e-mail-adresse" autocomplete="off" autofocus)
+        input.form-inputs(type="password" name="password" placeholder="passwort" autocomplete="off")
+        input.form-inputs(type="password" name="confirmpassword" placeholder="passwort bestätigen" autocomplete="off")
+        - if (err) {
+          - if (err == 1) { 
+            .err-message 
+              span.err-message-text Please type all the necessary information
+          - }
+          - else if (err == 2) { 
+            .err-message 
+              span.err-message-text Please confirm your password 
+          - }
+          - else if (err == 3) { 
+            .err-message 
+              span.err-message-text Your e-mail is not valid
+          - }
+          - else if (err == 4) { 
+            .err-message 
+              span.err-message-text Your password should be longer than 5 digits
+          - }
+          - else if (err == 5) { 
+            .err-message 
+              span.err-message-text Sorry, this e-mail has already been taken
+          - }
+        - }
+        input.submit-button(type="submit" value="Registrieren")
+        a.login-link(href="/deAuth/login") Haben Sie bereits ein Konto?

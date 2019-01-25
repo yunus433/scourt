@@ -1,0 +1,62 @@
+extends ../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/de").all-header-name scourt
+      a(href="/de/edit").user-description
+        span.user-name Hallo, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
+    .all-content-dashboard
+      .content-right-side.content-side
+        .content-side-header
+          -if (team) {
+            - if (user.type == 'user') {
+              .edit-team
+                .team-top-left-part
+                  img.team-photo(src=team.profilePhoto)
+                .team-top-right-part
+                  span.team-name #{team.name} 
+              span.player-number #{team.players.length} teilnehmende Spieler
+            - } else {
+              a(href="/de/team/edit").edit-team
+                .team-top-left-part
+                  img.team-photo(src=team.profilePhoto)
+                .team-top-right-part
+                  span.team-name #{team.name} 
+                  span.click-for-details (Click to see team id)
+            - }
+          - }
+        .content-right-info
+          - if (user.type == 'user') {
+            - if (!team) {
+              .content-right-not-member
+                span Your are not a member of a team
+                button.join-team-button Join a team
+              .content-right-join-team
+                form.join-team-form(action="/de/team/join" method="POST")
+                  input(type="text" placeholder="Team-ID" name="id" autocomplete="off" autofocus)
+                span Please type a team id to join
+            - } else {
+                a.go-to-team-button(href="/de/team") Zur Teamseite
+            - }
+          - } else {
+            - if (team) {
+              a.go-to-team-button(href="/de/team") Zur Teamseite
+            - } else {
+              .content-right-not-member
+                span Your didn't create a team
+                button.create-team-button Create a team
+              .content-right-join-team
+                form.create-team-form(action="/de/team/new" method="POST")
+                  .team-left-side 
+                    span.create-team-form-info  You should type the following informations before you create your team. After you have created it, you can share it with your players by giving them its unique sharing id.      
+                    .exit-create-team 
+                      i.fas.fa-arrow-circle-left
+                      button.create-team-button-send Create
+                  .team-right-side
+                    span.team-right-side-explanation Write your team's name: 
+                    input(type="text" placeholder="Team name" name="name" autocomplete="off" autofocus)
+                    span.team-right-side-explanation Write a short description of your team
+                    textarea.text-area(name="description", cols="25", rows="8")
+            - }
+          - }

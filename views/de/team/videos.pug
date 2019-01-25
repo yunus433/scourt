@@ -1,0 +1,70 @@
+extends ../../partials/head
+block content
+  .all-wrapper
+    .all-header
+      a(href="/de/dashboard").all-header-name scourt
+      a(href="/de/edit").user-description
+        span.user-name Hallo, #{user.name.split(" ")[0]}
+        img.user-image(src=user.profilePhoto)
+    .all-content-dashboard
+      .content-side-header
+        a.header-part-first.team-header-part(href="/de/team")
+          span Team Page
+        a.header-part.message-header-part(href="/de/team/messages")
+          span Messages
+        a.header-part.date-header-part(href="/de/team/calendar")
+          span Calendar
+        a.header-part.videos-header-part#selected(href="/de/team/videos")
+          span Video Analyzes
+      .videos-wrapper
+        .videos-header-wrapper
+          .header-left-side
+            h2 Videoanalyse-Seite 
+            span.header-videos-number Sie können #{21 - team.videos.length} weitere Videos hochladen
+          .header-right-side
+            .add-new-video-wrapper
+              - if (team.videos.length > 21) {
+                .add-new-button-not-allowed
+                  i.fas.fa-plus-circle
+                  span Video hochladen  
+              - } else {
+                - if (user.type == 'coach') {
+                  a.add-new-button(href="/de/team/videos/new") Video hochladen
+                - }
+              - }
+        .videos-content-wrapper
+          each video in team.videos
+            - if (video.completed) {
+              .each-video-wrapper
+                .each-video-left
+                  .video-wrapper
+                    video.video(controls width="100%") Your browser doesn't support this video format
+                      source(src=video.url)
+                  form(action="/de/team/videos/edit/name" method="post").video-name-part-wrapper
+                    input(type="text" value=video.name autofocus onclick="this.select()" name="videoName" autocomplete="off").video-name-input
+                    span.video-name #{video.name}
+                    - if (user.type == 'coach') {
+                      i(title="Name ändern").fas.fa-edit.video-name-change
+                    - }
+                  span.video-created-at uploaded at #{video.createdAt}
+                  span -
+                  span.video-comments #{video.comments.length} Kommentar
+                .each-video-right
+                  - let value = false;
+                  - video.comments.forEach(comment => {
+                    - if (comment.taggedPlayers.filter(function(e) { return e._id.toString() === user._id.toString(); }).length > 0) {
+                      - value = true;
+                    - }
+                  - }); 
+                  - if (value) {
+                    .each-video-tagged(title="Your coach tagged you to this video")
+                  - } 
+                  .icons
+                    a(href="/de/team/videos/comments/?id=" + video._id)
+                      i(title="Write and see comments").fas.fa-comments
+                    - if (user.type == 'coach') {
+                      a(href="/de/team/videos/delete/?id=" + video._id onclick="return confirm('Möchten Sie dieses Video wirklich löschen? Alle Kommentare und Analysen werden dauerhaft gelöscht.');")
+                        i(title="Delete this video record").fas.fa-trash
+                    - }  
+            - }
+             
