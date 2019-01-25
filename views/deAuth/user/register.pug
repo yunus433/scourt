@@ -11,23 +11,23 @@ block content
         - if (err) {
           - if (err == 1) { 
             .err-message 
-              span.err-message-text Please type all the necessary information
+              span.err-message-text Bitte geben Sie alle erforderlichen Informationen ein
           - }
           - else if (err == 2) { 
             .err-message 
-              span.err-message-text Please confirm your password 
+              span.err-message-text Bitte bestätigen Sie Ihr Passwort
           - }
           - else if (err == 3) { 
             .err-message 
-              span.err-message-text Your e-mail is not valid
+              span.err-message-text Ihre E-Mail-Adresse ist nicht gültig
           - }
           - else if (err == 4) { 
             .err-message 
-              span.err-message-text Your password should be longer than 5 digits
+              span.err-message-text Ihr Passwort sollte länger als 5 Zeichen sein.
           - }
           - else if (err == 5) { 
             .err-message 
-              span.err-message-text Sorry, this e-mail has already been taken
+              span.err-message-text Diese E-Mail-Adresse ist bereits registriert
           - }
         - }
         input.submit-button(type="submit" value="Registrieren")
