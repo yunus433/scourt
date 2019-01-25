@@ -16,12 +16,12 @@ block content
           select(name="year")
             option(value=new Date().getFullYear()) #{new Date().getFullYear()}
             option(value=afterYear) #{afterYear}
-        span Write a short name for the event
+        span Name des Events
         input(type="text" placeholder="Name" name="name" autocomplete="off" autofocus required)
-        span Write a short note 
+        span Notiz hinzufügen
         textarea.text-area(name="description", cols="25", rows="8")
       .calendar-form-right-side
-        span Type of the event
+        span Art des Events
         .calendar-form-part
           label
             input.radio-input(type="radio" name="type" value="training" required) 
@@ -29,15 +29,15 @@ block content
         .calendar-form-part
           label
             input.radio-input(type="radio" name="type" value="match" required) 
-            span Match
+            span Spiel
         .calendar-form-part
           label
             input.radio-input(type="radio" name="type" value="todo" required) 
-            span Todo
+            span To-Do
         .calendar-form-part
           label
             input.radio-input(type="radio" name="type" value="special" required) 
-            span Special
+            span Andere
         .calendar-form-send-part
           a.calendar-form-back-button
             i.fas.fa-arrow-circle-left
