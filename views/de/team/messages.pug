@@ -37,7 +37,7 @@ block content
             - }
             .each-message(class=classValue)
               .message-sender
-                span #{message.sender.name}
+                span(style="color: " + message.sender.color) #{message.sender.name}
               .message-content
                 span #{message.content}
         form.new-message-form

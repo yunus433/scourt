@@ -17,6 +17,7 @@ function createNewMessage (params) {
   const messageContent = document.createElement("div");
 
   spanOne.innerHTML = params.sender.name;
+  spanOne.style = "color: " + params.sender.color;
   messageSender.classList.add("message-sender");
   messageSender.appendChild(spanOne);
 
