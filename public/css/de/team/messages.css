@@ -294,8 +294,8 @@
     font-size: 0.9em;
   }
   .messages-block {
-    padding-right: 2px;
-    padding-left: 2px;
+    padding-right: 5px;
+    padding-left: 10px;
   }
   .left, .right {
     width: 65%;

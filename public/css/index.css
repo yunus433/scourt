@@ -40,13 +40,10 @@
   justify-content: space-between;
 }
 .language-change-button {
-  color: black;
-  text-decoration: none;
-  font-size: 1.3em;
-  color: black;
+  height: 40px;
 }
-.language-change-button:hover {
-  border-bottom: 2px solid black;
+.language-change-image {
+  height: 100%;
 }
 
 @media only screen and (max-width: 800px) and (min-width: 700px) {

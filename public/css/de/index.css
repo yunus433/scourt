@@ -17,11 +17,11 @@
 }
 .register-button {
   margin: 25px 0px;
-  width: 50%;
+  width: 30%;
   height: 5vh;
   border-radius: 50px;
   font-size: 1.3em;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   color: black;
   background-color: rgba(255, 255, 255, 0.8);
@@ -40,13 +40,10 @@
   justify-content: space-between;
 }
 .language-change-button {
-  color: black;
-  text-decoration: none;
-  font-size: 1.3em;
-  color: black;
+  height: 40px;
 }
-.language-change-button:hover {
-  border-bottom: 2px solid black;
+.language-change-image {
+  height: 100%;
 }
 
 @media only screen and (max-width: 800px) and (min-width: 700px) {
