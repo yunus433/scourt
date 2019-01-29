@@ -1,7 +1,7 @@
 extends ../../partials/head
 block content
   .calendar-adding-new-event-wrapper
-    h2 Veranstaltung hinzufügen:
+    h2 Event hinzufügen:
     form.calendar-adding-form(action="/de/team/calendar/new/?id=" + team._id method="post")
       .calendar-form-left-side
         .calendar-form-part
@@ -64,7 +64,7 @@ block content
             .add-new-event-line 
               .add-new-button
                 i.add-new-button-i.fas.fa-plus
-                span Veranstaltung hinzufügen
+                span Event hinzufügen
           - }
           .calendar-month-change-line
             .calendar-three-before-arrow

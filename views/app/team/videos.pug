@@ -15,7 +15,7 @@ block content
         a.header-part.date-header-part(href="/app/team/calendar")
           span Calendar
         a.header-part.videos-header-part#selected(href="/app/team/videos")
-          span Video Analyzes
+          span Video Analysis
       .videos-wrapper
         .videos-header-wrapper
           .header-left-side
@@ -40,7 +40,7 @@ block content
                   .video-wrapper
                     video.video(controls) Your browser doesn't support this video format
                       source(src=video.url)
-                  form(action="/app/team/videos/edit/name" method="post").video-name-part-wrapper
+                  form(action="/app/team/videos/edit/name/?id" + video._id method="post").video-name-part-wrapper
                     input(type="text" value=video.name autofocus onclick="this.select()" name="videoName" autocomplete="off").video-name-input
                     span.video-name #{video.name}
                     - if (user.type == 'coach') {

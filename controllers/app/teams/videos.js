@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
             page: 'app/team/videos',
             title: 'Video Analyzes',
             includes: {
-              external: ['fontawesome', 'js']
+              external: ['fontawesome', 'js', 'teamGeneral']
             },
             team,
             user

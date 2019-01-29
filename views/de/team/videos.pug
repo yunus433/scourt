@@ -9,13 +9,13 @@ block content
     .all-content-dashboard
       .content-side-header
         a.header-part-first.team-header-part(href="/de/team")
-          span Team Page
+          span Teamseite
         a.header-part.message-header-part(href="/de/team/messages")
-          span Messages
+          span Nachrichten
         a.header-part.date-header-part(href="/de/team/calendar")
-          span Calendar
+          span Kalender
         a.header-part.videos-header-part#selected(href="/de/team/videos")
-          span Video Analyzes
+          span Videoanalysen
       .videos-wrapper
         .videos-header-wrapper
           .header-left-side
@@ -40,13 +40,13 @@ block content
                   .video-wrapper
                     video.video(controls width="100%") Your browser doesn't support this video format
                       source(src=video.url)
-                  form(action="/de/team/videos/edit/name" method="post").video-name-part-wrapper
+                  form(action="/de/team/videos/edit/name/?id" + video._id method="post").video-name-part-wrapper
                     input(type="text" value=video.name autofocus onclick="this.select()" name="videoName" autocomplete="off").video-name-input
                     span.video-name #{video.name}
                     - if (user.type == 'coach') {
                       i(title="Name ändern").fas.fa-edit.video-name-change
                     - }
-                  span.video-created-at uploaded at #{video.createdAt}
+                  span.video-created-at erstellt am #{video.createdAt}
                   span -
                   span.video-comments #{video.comments.length} Kommentar
                 .each-video-right

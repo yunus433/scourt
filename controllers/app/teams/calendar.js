@@ -104,7 +104,7 @@ module.exports = (req, res, next) => {
             page: 'app/team/calendar',
             title: 'Calendar',
             includes: {
-              external: ['fontawesome', 'js']
+              external: ['fontawesome', 'js', 'teamGeneral']
             },
             team,
             user,

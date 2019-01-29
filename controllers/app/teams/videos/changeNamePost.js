@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
   if (req.body && req.body.videoName) {
     Team
       .findOneAndUpdate({
-        "videos.file": req.query.id
+        "videos._id": req.query.id
         }, {$set: {
           "videos.$.name": req.body.videoName
         }}, (err, team) => {
