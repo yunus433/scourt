@@ -40,7 +40,7 @@ block content
                   .video-wrapper
                     video.video(controls) Your browser doesn't support this video format
                       source(src=video.url)
-                  form(action="/app/team/videos/edit/name/?id" + video._id method="post").video-name-part-wrapper
+                  form(action="/app/team/videos/edit/name/?id=" + video._id method="post").video-name-part-wrapper
                     input(type="text" value=video.name autofocus onclick="this.select()" name="videoName" autocomplete="off").video-name-input
                     span.video-name #{video.name}
                     - if (user.type == 'coach') {
