@@ -141,7 +141,7 @@
   .team-main-content-right {
     padding: 0px;
     border: none;
-    height: auto;
+    height: 50%;
     width: 100%;
   }
   .each-player-in-team {
@@ -173,7 +173,7 @@
   .team-main-content-right {
     padding: 0px;
     border: none;
-    height: auto;
+    height: 50%;
     width: 100%;
   }
   .each-player-in-team {
@@ -207,7 +207,7 @@
   .team-main-content-right {
     padding: 0px;
     border: none;
-    height: auto;
+    height: 50%;
     width: 100%;
     flex: none;
   }
@@ -257,7 +257,7 @@
   .team-main-content-right {
     padding: 0px;
     border: none;
-    height: auto;
+    height: 50%;
     width: 100%;
   }
   .each-player-in-team {
