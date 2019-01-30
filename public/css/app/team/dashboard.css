@@ -156,6 +156,9 @@
   .team-header-span {
     font-size: 1.2em;
   }
+  .team-picture-wrapper {
+    height: 50%;
+  }
 }
 @media only screen and (max-width: 750px) and (min-width: 550px) {
   .team-main-header {
@@ -187,6 +190,9 @@
   }
   .team-header-span {
     font-size: 1.2em;
+  }
+  .team-picture-wrapper {
+    height: 50%;
   }
 }
 @media only screen and (max-width: 550px) and (min-width: 400px) {
@@ -237,6 +243,9 @@
     display: flex;
     flex-direction: column;
   }
+  .team-picture-wrapper {
+    height: 50%;
+  }
 }
 @media only screen and (max-width: 400px) and (min-width: 300px) {
   .team-main-header {
@@ -285,5 +294,8 @@
   .team-main-header-explanations {
     display: flex;
     flex-direction: column;
+  }
+  .team-picture-wrapper {
+    height: 50%;
   }
 }
