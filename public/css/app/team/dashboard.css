@@ -159,6 +159,7 @@
     width: 90%;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
   }
   .each-player-email {
     margin: 0px;
@@ -201,6 +202,7 @@
     width: 90%;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
   }
   .each-player-email {
     margin: 0px;
@@ -259,6 +261,7 @@
     width: 90%;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
   }
   .each-player-email {
     margin: 0px;
@@ -315,6 +318,7 @@
     width: 90%;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
   }
   .each-player-email {
     margin: 0px;
