@@ -1,4 +1,13 @@
 window.onload = () => {
+  let contentSideHeader = document.querySelector('.content-side-header');
+  document.addEventListener('click', (event) => {
+    if (event.target.className == 'content-side-header-open-button' || event.target.parentNode.className == 'content-side-header-open-button') { 
+      contentSideHeader.style.display = 'flex'; 
+    } else {
+      contentSideHeader.style.display = 'none'; 
+    }
+  })
+  
   document.addEventListener('click', (event) => {
     if (event.target.closest('.add-new-button')) {
       const buttonPlus = document.querySelector('.add-new-button-i');

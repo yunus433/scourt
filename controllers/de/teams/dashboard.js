@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
             page: 'de/team/dashboard',
             title: 'Your Team',
             includes: {
-              external: ['fontawesome']
+              external: ['fontawesome', 'teamDeGeneral', 'js']
             },
             team,
             user

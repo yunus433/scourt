@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
               page: 'de/team/messages',
               title: 'Messages',
               includes: {
-                external: ['fontawesome', 'js', 'socket.io']
+                external: ['fontawesome', 'js', 'socket.io', 'teamDeGeneral']
               },
               team,
               user

@@ -1,78 +1,3 @@
-.all-content-dashboard {
-  color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  width: 90vw;
-  height: 80vh;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  flex-direction: column;
-  margin-bottom: 25px;
-}
-.user-description {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-left: 20%;
-}
-.user-name {
-  font-size: 1.6em;
-  color: black;
-  margin-right: 5px;
-}
-.user-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  margin-right: 5px;
-}
-.content-side-header {
-  height: 45px;
-  width: 99%;
-  margin: 0px;
-  margin-bottom: 15px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  display: flex;
-  align-items: center;
-}
-.header-part-first {
-  width: 10vw;
-  background-color: white;
-  color: black;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 15px;
-  border-top-right-radius: 20px;
-  box-shadow: 2px 1px black;
-  cursor: pointer;
-}
-.header-part {
-  width: 10vw;
-  background-color: white;
-  color: black;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  margin-left: -15px;
-  padding-left: 25px;
-  border-top-right-radius: 20px;
-  box-shadow: 2px 1px black;
-  cursor: pointer;
-}
-.team-header-part {
-  z-index: 4;
-}
-.message-header-part {
-  z-index: 3;
-}
-.date-header-part {
-  z-index: 2;
-}
-.videos-header-part {
-  z-index: 1;
-}
 .calendar-adding-new-event-wrapper {
   background-color: white;
   position: absolute;
@@ -88,10 +13,6 @@
   padding: 0px 15px;
   color: black;
   display: none;
-}
-#selected {
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
 }
 .calendar-adding-form {
   display: flex;
@@ -195,18 +116,17 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  height: 100px;
 }
 .add-new-button {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  background-color: white;
+  color: black;
   height: 50px;
   border-radius: 20px;
-  margin-right: 25px;
+  border: 1px solid black;
   display: flex;
   width: 15%;
   align-items: center;
-  position: fixed;
-  margin-top: -40px;
   justify-content: center;
   cursor: pointer;
 }

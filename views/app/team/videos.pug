@@ -7,8 +7,11 @@ block content
         span.user-name Hi, #{user.name.split(" ")[0]}
         img.user-image(src=user.profilePhoto)
     .all-content-dashboard
+      .content-side-header-open-button
+        i.fas.fa-bars
+        span Menu
       .content-side-header
-        a.header-part-first.team-header-part(href="/app/team")
+        a.header-part.team-header-part(href="/app/team")
           span Team Page
         a.header-part.message-header-part(href="/app/team/messages")
           span Messages

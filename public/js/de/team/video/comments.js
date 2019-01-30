@@ -4,7 +4,7 @@ window.onload = () => {
     if (event.target.closest('.add-new-button')) {
       document.querySelector('.new-comment-form').style.display = 'flex';
       const time = document.querySelector('.video').currentTime;
-      document.querySelector('.time-at-span').innerHTML = "um " + Math.floor(time / 60) + ":" + Math.floor(time % 60);
+      document.querySelector('.time-at-span').innerHTML = "at " + Math.floor(time / 60) + ":" + Math.floor(time % 60);
       document.querySelector('.time-at-input').value = time;
       document.querySelector('.video').pause();
     } else if (event.target.closest('.form-close-button')) {
@@ -41,7 +41,7 @@ window.onload = () => {
           number++;
         };
       });
-      document.querySelector('.tagged-players-span').innerHTML = "Derzeit " + number + " Spieler mit diesem Kommentar markiert";
+      document.querySelector('.tagged-players-span').innerHTML = "Currently " + number + " tagged players to this comment";
     } else if (event.target.closest('.go-to-comment-button i')) {
       document.querySelector('.video').currentTime = Math.floor(event.target.parentNode.parentNode.children[1].innerHTML);
     }
