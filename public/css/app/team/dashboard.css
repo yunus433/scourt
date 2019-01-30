@@ -115,7 +115,7 @@
   color: black;
   display: flex;
   align-items: center;
-  padding-left: 5px;
+  padding-left: 7.5px;
   margin-bottom: 5px;
 }
 .each-player-email {
@@ -150,6 +150,13 @@
   .team-header-span {
     font-size: 1.2em;
   }
+  .each-player-in-team {
+    flex-direction: column; 
+    height: 55px;
+    width: 90%;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 @media only screen and (max-width: 750px) and (min-width: 550px) {
   .team-main-header {
@@ -182,6 +189,13 @@
   .team-header-span {
     font-size: 1.2em;
   }
+  .each-player-in-team {
+    flex-direction: column; 
+    height: 55px;
+    width: 90%;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 @media only screen and (max-width: 550px) and (min-width: 400px) {
   .team-main-header {
@@ -211,9 +225,6 @@
     width: 100%;
     flex: none;
   }
-  .each-player-in-team {
-    width: 80%;
-  }
   .team-header-span {
     font-size: 1em;
     margin: 5px 0px;
@@ -232,6 +243,13 @@
   .team-main-header-explanations {
     display: flex;
     flex-direction: column;
+  }
+  .each-player-in-team {
+    flex-direction: column; 
+    height: 55px;
+    width: 90%;
+    align-items: flex-start;
+    justify-content: center;
   }
 }
 @media only screen and (max-width: 400px) and (min-width: 300px) {
@@ -260,9 +278,6 @@
     height: 50%;
     width: 100%;
   }
-  .each-player-in-team {
-    width: 80%;
-  }
   .team-header-span {
     font-size: 1em;
     margin: 5px 0px;
@@ -281,5 +296,12 @@
   .team-main-header-explanations {
     display: flex;
     flex-direction: column;
+  }
+  .each-player-in-team {
+    flex-direction: column; 
+    height: 55px;
+    width: 90%;
+    align-items: flex-start;
+    justify-content: center;
   }
 }
