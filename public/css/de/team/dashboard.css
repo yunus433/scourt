@@ -109,6 +109,7 @@
   margin: 5px;
   border-radius: 10px;
   position: relative;
+  min-height: 300px;
 }
 .each-player-in-team {
   background-color: rgba(255, 255, 255, 0.9);
