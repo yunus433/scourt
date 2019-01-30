@@ -51,6 +51,8 @@
   align-items: center;
   top: 32px;
   border-right: 1px solid black;
+  z-index: 10;
+  background-color: white;
 }
 .header-part {
   width: 100%;

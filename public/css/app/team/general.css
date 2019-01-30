@@ -48,6 +48,7 @@
   flex-direction: column;
   position: absolute;
   background-color: white;
+  z-index: 10;
   align-items: center;
   top: 32px;
   border-right: 1px solid black;

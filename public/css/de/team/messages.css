@@ -139,9 +139,6 @@
 } 
 
 @media only screen and (orientation: portrait) {
-  .mobile-screen-warning-wrapper {
-    display: flex;
-  }
   .content {
     min-height: 100%;
   }
