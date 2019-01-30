@@ -62,7 +62,7 @@
   border-left: 1px solid white;
   display: flex;
   flex-direction: column;
-  position: relative;
+  min-height: 300px;
 }
 .team-main-content-left {
   flex: 1;
