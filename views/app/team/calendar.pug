@@ -146,204 +146,41 @@ block content
                   span #{month[2].name}
                 - }
                 i.fas.fa-arrow-circle-right
-          .calendar-header
-            .calendar-header-part
-              span Monday
-            .calendar-header-part
-              span Tuesday
-            .calendar-header-part
-              span Wednesday
-            .calendar-header-part
-              span Thursday
-            .calendar-header-part
-              span Friday
-            .calendar-header-part
-              span Saturday
-            .calendar-header-part
-              span Sunday
-          .calendar-two-before-main-box
-            - if ((((new Date(before2Year, before2Month, 1).getDay() - 3) % 7)) == 0) {
-              - for(let i = 0; i < 6; i++) {
-                .calendar-each-day
-              - }
-            - } else {
-              - for(let i = 0; i < (new Date(before2Year, before2Month, 1).getDay() - 3); i++) {
-                .calendar-each-day
-              - }
-            - }
-            - if (month[before2Month].name == 'February') {
-              - if (before2Year % 4 == 0) {
-                - for(let i = 1; i <= month[before2Month].day2; i++) {
+          .calendar-days-wrapper
+            .calendar-header
+              .calendar-header-part
+                span Monday
+              .calendar-header-part
+                span Tuesday
+              .calendar-header-part
+                span Wednesday
+              .calendar-header-part
+                span Thursday
+              .calendar-header-part
+                span Friday
+              .calendar-header-part
+                span Saturday
+              .calendar-header-part
+                span Sunday
+            .calendar-two-before-main-box
+              - if ((((new Date(before2Year, before2Month, 1).getDay() - 3) % 7)) == 0) {
+                - for(let i = 0; i < 6; i++) {
                   .calendar-each-day
-                    .calendar-each-day-header
-                      span #{i} #{month[before2Month].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === before2Month.toString() && event.date.year === before2Year.toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
                 - }
               - } else {
-                - for(let i = 1; i <= month[before2Month].day; i++) {
+                - for(let i = 0; i < (new Date(before2Year, before2Month, 1).getDay() - 3); i++) {
                   .calendar-each-day
-                    .calendar-each-day-header
-                      span #{i} #{month[before2Month].name}
-                  .calendar-each-day-content
-                    each event in team.events
-                      - if (event.date.day === i.toString() && event.date.month === before2Month.toString() && event.date.year === before2Year.toString()) {
-                        .calendar-each-event(class="each-event-" + event.type)
-                          .each-event-line
-                            span.each-event-name #{event.name}
-                            - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
-                                i.fas.fa-trash.trash-icon
-                            - }
-                          .each-event-line
-                            span.each-event-note #{event.note}
-                      - }
                 - }
-              - } 
-            - } else {
-              - for(let i = 1; i <= month[before2Month].day; i++) {
-                .calendar-each-day
-                  .calendar-each-day-header
-                    span #{i} #{month[before2Month].name}
-                  .calendar-each-day-content
-                    each event in team.events
-                      - if (event.date.day === i.toString() && event.date.month === before2Month.toString() && event.date.year === before2Year.toString()) {
-                        .calendar-each-event(class="each-event-" + event.type)
-                          .each-event-line
-                            span.each-event-name #{event.name}
-                            - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                          .each-event-line
-                            span.each-event-note #{event.note}
-                      - }
               - }
-            - }
-            - for(let i = 0; i < 7 - ((new Date(before2Year, new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
-              .calendar-each-day
-            - }
-          .calendar-before-main-box
-            - if ((((new Date(beforeYear, beforeMonth, 1).getDay() - 1) % 7)) == 0) {
-              - for(let i = 0; i < 6; i++) {
-                .calendar-each-day
-              - }
-            - } else {
-              - for(let i = 0; i < (new Date(beforeYear, beforeMonth, 1).getDay() - 1); i++) {
-                .calendar-each-day
-              - }
-            - }
-            - if (month[beforeMonth].name == 'February') {
-              - if (beforeYear % 4 == 0) {
-                - for(let i = 1; i <= month[beforeMonth].day2; i++) {
-                  .calendar-each-day
-                    .calendar-each-day-header
-                      span #{i} #{month[beforeMonth].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
-                - }
-              - } else {
-                - for(let i = 1; i <= month[beforeMonth].day; i++) {
-                  .calendar-each-day
-                    .calendar-each-day-header
-                      span #{i} #{month[beforeMonth].name}
-                  .calendar-each-day-content
-                    each event in team.events
-                      - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
-                        .calendar-each-event(class="each-event-" + event.type)
-                          .each-event-line
-                            span.each-event-name #{event.name}
-                            - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
-                                i.fas.fa-trash.trash-icon
-                            - }
-                          .each-event-line
-                            span.each-event-note #{event.note}
-                      - }
-                - }
-              - } 
-            - } else {
-              - for(let i = 1; i <= month[beforeMonth].day; i++) {
-                .calendar-each-day
-                  .calendar-each-day-header
-                    span #{i} #{month[beforeMonth].name}
-                  .calendar-each-day-content
-                    each event in team.events
-                      - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
-                        .calendar-each-event(class="each-event-" + event.type)
-                          .each-event-line
-                            span.each-event-name #{event.name}
-                            - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                          .each-event-line
-                            span.each-event-note #{event.note}
-                      - }
-              - }
-            - }
-            - for(let i = 0; i < 7 - ((new Date(beforeYear, new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
-              .calendar-each-day
-            - }
-          .calendar-main-box
-            - if ((((new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay() - 1) % 7)) == 0) {
-              - for(let i = 0; i < 6; i++) {
-                .calendar-each-day
-              - }
-            - } else {
-              - for(let i = 0; i < (new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay() - 1); i++) {
-                .calendar-each-day
-              - }
-            - }
-            - if (month[new Date().getMonth()].name == 'February') {
-              - if (new Date().getFullYear() % 4 == 0) {
-                - for(let i = 1; i <= month[new Date().getMonth()].day2; i++) {
-                  - if (i == new Date().getDate()) {
-                    .calendar-each-day
-                      .calendar-each-day-header.today
-                        span #{i} #{month[new Date().getMonth()].name}
-                      .calendar-each-day-content
-                        each event in team.events
-                          - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
-                            .calendar-each-event(class="each-event-" + event.type)
-                              .each-event-line
-                                span.each-event-name #{event.name}
-                                - if(user.type == 'coach') {
-                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                  i.fas.fa-trash.trash-icon
-                              - }
-                              .each-event-line
-                                span.each-event-note #{event.note}
-                          - }
-                  - } else {
+              - if (month[before2Month].name == 'February') {
+                - if (before2Year % 4 == 0) {
+                  - for(let i = 1; i <= month[before2Month].day2; i++) {
                     .calendar-each-day
                       .calendar-each-day-header
-                        span #{i} #{month[new Date().getMonth()].name}
+                        span #{i} #{month[before2Month].name}
                       .calendar-each-day-content
                         each event in team.events
-                          - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                          - if (event.date.day === i.toString() && event.date.month === before2Month.toString() && event.date.year === before2Year.toString()) {
                             .calendar-each-event(class="each-event-" + event.type)
                               .each-event-line
                                 span.each-event-name #{event.name}
@@ -355,7 +192,210 @@ block content
                                 span.each-event-note #{event.note}
                           - }
                   - }
+                - } else {
+                  - for(let i = 1; i <= month[before2Month].day; i++) {
+                    .calendar-each-day
+                      .calendar-each-day-header
+                        span #{i} #{month[before2Month].name}
+                    .calendar-each-day-content
+                      each event in team.events
+                        - if (event.date.day === i.toString() && event.date.month === before2Month.toString() && event.date.year === before2Year.toString()) {
+                          .calendar-each-event(class="each-event-" + event.type)
+                            .each-event-line
+                              span.each-event-name #{event.name}
+                              - if(user.type == 'coach') {
+                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
+                                  i.fas.fa-trash.trash-icon
+                              - }
+                            .each-event-line
+                              span.each-event-note #{event.note}
+                        - }
+                  - }
+                - } 
+              - } else {
+                - for(let i = 1; i <= month[before2Month].day; i++) {
+                  .calendar-each-day
+                    .calendar-each-day-header
+                      span #{i} #{month[before2Month].name}
+                    .calendar-each-day-content
+                      each event in team.events
+                        - if (event.date.day === i.toString() && event.date.month === before2Month.toString() && event.date.year === before2Year.toString()) {
+                          .calendar-each-event(class="each-event-" + event.type)
+                            .each-event-line
+                              span.each-event-name #{event.name}
+                              - if(user.type == 'coach') {
+                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                  i.fas.fa-trash.trash-icon
+                              - }
+                            .each-event-line
+                              span.each-event-note #{event.note}
+                        - }
                 - }
+              - }
+              - for(let i = 0; i < 7 - ((new Date(before2Year, new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
+                .calendar-each-day
+              - }
+            .calendar-before-main-box
+              - if ((((new Date(beforeYear, beforeMonth, 1).getDay() - 1) % 7)) == 0) {
+                - for(let i = 0; i < 6; i++) {
+                  .calendar-each-day
+                - }
+              - } else {
+                - for(let i = 0; i < (new Date(beforeYear, beforeMonth, 1).getDay() - 1); i++) {
+                  .calendar-each-day
+                - }
+              - }
+              - if (month[beforeMonth].name == 'February') {
+                - if (beforeYear % 4 == 0) {
+                  - for(let i = 1; i <= month[beforeMonth].day2; i++) {
+                    .calendar-each-day
+                      .calendar-each-day-header
+                        span #{i} #{month[beforeMonth].name}
+                      .calendar-each-day-content
+                        each event in team.events
+                          - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
+                            .calendar-each-event(class="each-event-" + event.type)
+                              .each-event-line
+                                span.each-event-name #{event.name}
+                                - if(user.type == 'coach') {
+                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                  i.fas.fa-trash.trash-icon
+                              - }
+                              .each-event-line
+                                span.each-event-note #{event.note}
+                          - }
+                  - }
+                - } else {
+                  - for(let i = 1; i <= month[beforeMonth].day; i++) {
+                    .calendar-each-day
+                      .calendar-each-day-header
+                        span #{i} #{month[beforeMonth].name}
+                    .calendar-each-day-content
+                      each event in team.events
+                        - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
+                          .calendar-each-event(class="each-event-" + event.type)
+                            .each-event-line
+                              span.each-event-name #{event.name}
+                              - if(user.type == 'coach') {
+                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
+                                  i.fas.fa-trash.trash-icon
+                              - }
+                            .each-event-line
+                              span.each-event-note #{event.note}
+                        - }
+                  - }
+                - } 
+              - } else {
+                - for(let i = 1; i <= month[beforeMonth].day; i++) {
+                  .calendar-each-day
+                    .calendar-each-day-header
+                      span #{i} #{month[beforeMonth].name}
+                    .calendar-each-day-content
+                      each event in team.events
+                        - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
+                          .calendar-each-event(class="each-event-" + event.type)
+                            .each-event-line
+                              span.each-event-name #{event.name}
+                              - if(user.type == 'coach') {
+                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                  i.fas.fa-trash.trash-icon
+                              - }
+                            .each-event-line
+                              span.each-event-note #{event.note}
+                        - }
+                - }
+              - }
+              - for(let i = 0; i < 7 - ((new Date(beforeYear, new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
+                .calendar-each-day
+              - }
+            .calendar-main-box
+              - if ((((new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay() - 1) % 7)) == 0) {
+                - for(let i = 0; i < 6; i++) {
+                  .calendar-each-day
+                - }
+              - } else {
+                - for(let i = 0; i < (new Date(new Date().getFullYear(), new Date().getMonth(), 1).getDay() - 1); i++) {
+                  .calendar-each-day
+                - }
+              - }
+              - if (month[new Date().getMonth()].name == 'February') {
+                - if (new Date().getFullYear() % 4 == 0) {
+                  - for(let i = 1; i <= month[new Date().getMonth()].day2; i++) {
+                    - if (i == new Date().getDate()) {
+                      .calendar-each-day
+                        .calendar-each-day-header.today
+                          span #{i} #{month[new Date().getMonth()].name}
+                        .calendar-each-day-content
+                          each event in team.events
+                            - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                              .calendar-each-event(class="each-event-" + event.type)
+                                .each-event-line
+                                  span.each-event-name #{event.name}
+                                  - if(user.type == 'coach') {
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                    i.fas.fa-trash.trash-icon
+                                - }
+                                .each-event-line
+                                  span.each-event-note #{event.note}
+                            - }
+                    - } else {
+                      .calendar-each-day
+                        .calendar-each-day-header
+                          span #{i} #{month[new Date().getMonth()].name}
+                        .calendar-each-day-content
+                          each event in team.events
+                            - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                              .calendar-each-event(class="each-event-" + event.type)
+                                .each-event-line
+                                  span.each-event-name #{event.name}
+                                  - if(user.type == 'coach') {
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                    i.fas.fa-trash.trash-icon
+                                - }
+                                .each-event-line
+                                  span.each-event-note #{event.note}
+                            - }
+                    - }
+                  - }
+                - } else {
+                  - for(let i = 1; i <= month[new Date().getMonth()].day; i++) {
+                    - if (i == new Date().getDate()) {
+                      .calendar-each-day
+                        .calendar-each-day-header.today
+                          span #{i} #{month[new Date().getMonth()].name}
+                        .calendar-each-day-content
+                          each event in team.events
+                            - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                              .calendar-each-event(class="each-event-" + event.type)
+                                .each-event-line
+                                  span.each-event-name #{event.name}
+                                  - if(user.type == 'coach') {
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                    i.fas.fa-trash.trash-icon
+                                - }
+                                .each-event-line
+                                  span.each-event-note #{event.note}
+                            - }
+                    - } else {
+                      .calendar-each-day
+                        .calendar-each-day-header
+                          span #{i} #{month[new Date().getMonth()].name}
+                        .calendar-each-day-content
+                          each event in team.events
+                            - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                              .calendar-each-event(class="each-event-" + event.type)
+                                .each-event-line
+                                  span.each-event-name #{event.name}
+                                  - if(user.type == 'coach') {
+                                    a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
+                                      i.fas.fa-trash.trash-icon
+                                  - }
+                                .each-event-line
+                                  span.each-event-note #{event.note}
+                            - }
+                    - }
+                  - }
+                - } 
               - } else {
                 - for(let i = 1; i <= month[new Date().getMonth()].day; i++) {
                   - if (i == new Date().getDate()) {
@@ -369,9 +409,9 @@ block content
                               .each-event-line
                                 span.each-event-name #{event.name}
                                 - if(user.type == 'coach') {
-                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                  i.fas.fa-trash.trash-icon
-                              - }
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                    i.fas.fa-trash.trash-icon
+                                - }
                               .each-event-line
                                 span.each-event-note #{event.note}
                           - }
@@ -379,94 +419,75 @@ block content
                     .calendar-each-day
                       .calendar-each-day-header
                         span #{i} #{month[new Date().getMonth()].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
-                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
-                                  i.fas.fa-trash.trash-icon
-                              - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
+                      .calendar-each-day-content
+                        each event in team.events
+                          - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
+                            .calendar-each-event(class="each-event-" + event.type)
+                              .each-event-line
+                                span.each-event-name #{event.name}
+                                - if(user.type == 'coach') {
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                    i.fas.fa-trash.trash-icon
+                                - }
+                              .each-event-line
+                                span.each-event-note #{event.note}
+                          - }
                   - }
                 - }
-              - } 
-            - } else {
-              - for(let i = 1; i <= month[new Date().getMonth()].day; i++) {
-                - if (i == new Date().getDate()) {
+              - }
+              - for(let i = 0; i < 7 - ((new Date(new Date().getFullYear(), new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
+                .calendar-each-day
+              - }
+            .calendar-after-main-box
+              - if ((((new Date(afterYear, afterMonth, 1).getDay() - 1) % 7)) == 0) {
+                - for(let i = 0; i < 6; i++) {
                   .calendar-each-day
-                    .calendar-each-day-header.today
-                      span #{i} #{month[new Date().getMonth()].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
+                - }
+              - } else {
+                - for(let i = 0; i < (new Date(afterYear, afterMonth, 1).getDay() - 1); i++) {
+                  .calendar-each-day
+                - }
+              - }
+              - if (month[afterMonth].name == 'February') {
+                - if (afterYear % 4 == 0) {
+                  - for(let i = 1; i <= month[afterMonth].day2; i++) {
+                    .calendar-each-day
+                      .calendar-each-day-header
+                        span #{i} #{month[afterMonth].name}
+                      .calendar-each-day-content
+                        each event in team.events
+                          - if (event.date.day === i.toString() && event.date.month === afterMonth.toString() && event.date.year === afterYear.toString()) {
+                            .calendar-each-event(class="each-event-" + event.type)
+                              .each-event-line
+                                span.each-event-name #{event.name}
+                                - if(user.type == 'coach') {
                                 a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
                                   i.fas.fa-trash.trash-icon
                               - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
+                              .each-event-line
+                                span.each-event-note #{event.note}
+                          - }
+                  - }
                 - } else {
-                  .calendar-each-day
-                    .calendar-each-day-header
-                      span #{i} #{month[new Date().getMonth()].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === new Date().getMonth().toString() && event.date.year === new Date().getFullYear().toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
-                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                  i.fas.fa-trash.trash-icon
-                              - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
-                - }
-              - }
-            - }
-            - for(let i = 0; i < 7 - ((new Date(new Date().getFullYear(), new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
-              .calendar-each-day
-            - }
-          .calendar-after-main-box
-            - if ((((new Date(afterYear, afterMonth, 1).getDay() - 1) % 7)) == 0) {
-              - for(let i = 0; i < 6; i++) {
-                .calendar-each-day
-              - }
-            - } else {
-              - for(let i = 0; i < (new Date(afterYear, afterMonth, 1).getDay() - 1); i++) {
-                .calendar-each-day
-              - }
-            - }
-            - if (month[afterMonth].name == 'February') {
-              - if (afterYear % 4 == 0) {
-                - for(let i = 1; i <= month[afterMonth].day2; i++) {
-                  .calendar-each-day
-                    .calendar-each-day-header
-                      span #{i} #{month[afterMonth].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === afterMonth.toString() && event.date.year === afterYear.toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
-                - }
+                  - for(let i = 1; i <= month[afterMonth].day; i++) {
+                    .calendar-each-day
+                      .calendar-each-day-header
+                        span #{i} #{month[afterMonth].name}
+                      .calendar-each-day-content
+                        each event in team.events
+                          - if (event.date.day === i.toString() && event.date.month === afterMonth.toString() && event.date.year === afterYear.toString()) {
+                            .calendar-each-event(class="each-event-" + event.type)
+                              .each-event-line
+                                span.each-event-name #{event.name}
+                                - if(user.type == 'coach') {
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                    i.fas.fa-trash.trash-icon
+                                - }
+                              .each-event-line
+                                span.each-event-note #{event.note}
+                          - }
+                  - }
+                - } 
               - } else {
                 - for(let i = 1; i <= month[afterMonth].day; i++) {
                   .calendar-each-day
@@ -486,60 +507,60 @@ block content
                               span.each-event-note #{event.note}
                         - }
                 - }
-              - } 
-            - } else {
-              - for(let i = 1; i <= month[afterMonth].day; i++) {
-                .calendar-each-day
-                  .calendar-each-day-header
-                    span #{i} #{month[afterMonth].name}
-                  .calendar-each-day-content
-                    each event in team.events
-                      - if (event.date.day === i.toString() && event.date.month === afterMonth.toString() && event.date.year === afterYear.toString()) {
-                        .calendar-each-event(class="each-event-" + event.type)
-                          .each-event-line
-                            span.each-event-name #{event.name}
-                            - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                          .each-event-line
-                            span.each-event-note #{event.note}
-                      - }
               - }
-            - }
-            - for(let i = 0; i < 7 - ((new Date(afterYear, new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
-              .calendar-each-day
-            - }
-          .calendar-two-after-main-box
-            - if ((((new Date(after2Year, after2Month, 1).getDay()) % 7) - 1) == 0) {
-              - for(let i = 0; i < 6; i++) {
+              - for(let i = 0; i < 7 - ((new Date(afterYear, new Date().getMonth(), month[new Date().getMonth()].day).getDay()) % 7); i++) {
                 .calendar-each-day
               - }
-            - } else {
-              - for(let i = 0; i < (new Date(after2Year, after2Month, 1).getDay() - 1); i++) {
-                .calendar-each-day
-              - }
-            - }
-            - if (month[after2Month].name == 'February') {
-              - if (after2Year % 4 == 0) {
-                - for(let i = 1; i <= month[after2Month].day2; i++) {
+            .calendar-two-after-main-box
+              - if ((((new Date(after2Year, after2Month, 1).getDay()) % 7) - 1) == 0) {
+                - for(let i = 0; i < 6; i++) {
                   .calendar-each-day
-                    .calendar-each-day-header
-                      span #{i} #{month[after2Month].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === after2Month.toString() && event.date.year === after2Year.toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
                 - }
+              - } else {
+                - for(let i = 0; i < (new Date(after2Year, after2Month, 1).getDay() - 1); i++) {
+                  .calendar-each-day
+                - }
+              - }
+              - if (month[after2Month].name == 'February') {
+                - if (after2Year % 4 == 0) {
+                  - for(let i = 1; i <= month[after2Month].day2; i++) {
+                    .calendar-each-day
+                      .calendar-each-day-header
+                        span #{i} #{month[after2Month].name}
+                      .calendar-each-day-content
+                        each event in team.events
+                          - if (event.date.day === i.toString() && event.date.month === after2Month.toString() && event.date.year === after2Year.toString()) {
+                            .calendar-each-event(class="each-event-" + event.type)
+                              .each-event-line
+                                span.each-event-name #{event.name}
+                                - if(user.type == 'coach') {
+                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                  i.fas.fa-trash.trash-icon
+                              - }
+                              .each-event-line
+                                span.each-event-note #{event.note}
+                          - }
+                  - }
+                - } else {
+                  - for(let i = 1; i <= month[after2Month].day; i++) {
+                    .calendar-each-day
+                      .calendar-each-day-header
+                        span #{i} #{month[after2Month].name}
+                      .calendar-each-day-content
+                        each event in team.events
+                          - if (event.date.day === i.toString() && event.date.month === after2Month.toString() && event.date.year === after2Year.toString()) {
+                            .calendar-each-event(class="each-event-" + event.type)
+                              .each-event-line
+                                span.each-event-name #{event.name}
+                                - if(user.type == 'coach') {
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
+                                    i.fas.fa-trash.trash-icon
+                                - }
+                              .each-event-line
+                                span.each-event-note #{event.note}
+                          - }
+                  - }
+                - } 
               - } else {
                 - for(let i = 1; i <= month[after2Month].day; i++) {
                   .calendar-each-day
@@ -559,29 +580,9 @@ block content
                               span.each-event-note #{event.note}
                         - }
                 - }
-              - } 
-            - } else {
-              - for(let i = 1; i <= month[after2Month].day; i++) {
-                .calendar-each-day
-                  .calendar-each-day-header
-                    span #{i} #{month[after2Month].name}
-                  .calendar-each-day-content
-                    each event in team.events
-                      - if (event.date.day === i.toString() && event.date.month === after2Month.toString() && event.date.year === after2Year.toString()) {
-                        .calendar-each-event(class="each-event-" + event.type)
-                          .each-event-line
-                            span.each-event-name #{event.name}
-                            - if(user.type == 'coach') {
-                              a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
-                                i.fas.fa-trash.trash-icon
-                            - }
-                          .each-event-line
-                            span.each-event-note #{event.note}
-                      - }
               - }
-            - }
-            - if ((new Date(after2Year, after2Month, month[after2Month].day).getDay()) % 7 != 0) {
-              - for(let i = 0; i < 7 - ((new Date(after2Year, after2Month, month[after2Month].day).getDay()) % 7); i++) {
-                .calendar-each-day
+              - if ((new Date(after2Year, after2Month, month[after2Month].day).getDay()) % 7 != 0) {
+                - for(let i = 0; i < 7 - ((new Date(after2Year, after2Month, month[after2Month].day).getDay()) % 7); i++) {
+                  .calendar-each-day
+                - }
               - }
-            - }

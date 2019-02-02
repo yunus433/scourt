@@ -76,6 +76,10 @@
   flex-direction: column;
   height: 100%;
 }
+.calendar-days-wrapper {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
 .calendar-form-send-part {
   width: 100%;
   display: flex;
@@ -125,7 +129,7 @@
   border-radius: 20px;
   border: 1px solid black;
   display: flex;
-  width: 15%;
+  width: 160px;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -144,8 +148,9 @@
 .calendar-header {
   display: flex;
   width: 100%;
-  height: 50px;
+  height: 35px;
   border-bottom: 1px solid black;
+  min-width: 900px;
 }
 .calendar-month-change-line {
   height: 100px;
@@ -230,6 +235,7 @@
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-auto-rows: 1fr;
   background-color: rgba(0, 0, 0, 0.6);
+  min-width: 900px;
 }
 .calendar-before-main-box, .calendar-two-before-main-box, .calendar-after-main-box, .calendar-two-after-main-box {
   overflow: scroll;
@@ -241,6 +247,7 @@
   grid-auto-rows: 1fr;
   background-color: rgba(0, 0, 0, 0.6);
   display: none;
+  min-width: 900px;
 }
 .calendar-each-day {
   border-left: 1px solid black;

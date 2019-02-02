@@ -121,6 +121,7 @@
   padding-left: 7.5px;
   margin-bottom: 5px;
   position: relative;
+  z-index: 2;
 }
 .each-player-email {
   color: rgba(0, 0, 0, 0.7);
