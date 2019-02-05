@@ -18,6 +18,7 @@ const dashboardGetController = require('../controllers/app/dashboard/get');
 const editGetController = require('../controllers/app/edit/get');
 const editPostController = require('../controllers/app/edit/post');
 const editProfilePostController = require('../controllers/app/edit/profilePost');
+const editPasswordGetController = require('../controllers/app/edit/passwordGet');
 const editPasswordPostController = require('../controllers/app/edit/passwordPost');
 
 // Team Controllers
@@ -54,6 +55,11 @@ router.get(
   '/edit',
   isLoggedIn,
   editGetController
+);
+router.get(
+  '/edit/password',
+  isLoggedIn,
+  editPasswordGetController
 );
 
 router.get(

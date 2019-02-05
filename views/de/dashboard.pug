@@ -3,9 +3,16 @@ block content
   .all-wrapper
     .all-header
       a(href="/de").all-header-name scourt
-      a(href="/de/edit").user-description
-        span.user-name Hallo, #{user.name.split(" ")[0]}
-        img.user-image(src=user.profilePhoto)
+      .user-description
+        .user-description-line-first
+          span.user-name Hallo, #{user.name.split(" ")[0]}
+          img.user-image(src=user.profilePhoto)
+        a(href="/de/edit").user-description-line
+          span Einstellungen
+        a(href="/de/edit/password").user-description-line
+          span Veränderung Passwort
+        a(href="/de").user-description-line
+          span Abmeldung
     .all-content-dashboard
       .content-right-side.content-side
         .content-side-header

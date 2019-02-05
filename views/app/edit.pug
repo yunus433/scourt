@@ -19,8 +19,6 @@ block content
                 span.err-message-text Sorry, this email has already been taken
             - }
           - }
-          .change-password-button 
-            span Change your password
         - if (user.type == 'user') {
           form.form-right-side(action="/app/edit" method="POST")
             .form-explanation
@@ -68,25 +66,4 @@ block content
                   i.exit-edit-page-button.fas.fa-arrow-circle-left
                 input(type="submit" value="Ok") 
         - }
-        
-      form.password-form(action="/app/edit/password" method="POST")
-        .form-part.password-form-part-wrapper
-          span.input-info Your old password:
-          .password-form-part
-            input(type="password" name="oldPassword" autocomplete="off" autofocus) 
-            span.red *
-        .form-part.password-form-part-wrapper
-          span.input-info Your new password:
-          .password-form-part
-            input(type="password" name="password" autocomplete="off") 
-            span.red *
-        .form-part.password-form-part-wrapper
-          span.input-info Confirm your new password:
-          .password-form-part
-            input(type="password" name="confirmPassword" autocomplete="off") 
-            span.red *
-        .form-submit
-          .submit-part
-            i.password-exit-button.fas.fa-arrow-circle-left
-            input.password-submit-button(type="submit" value="Ok")
       

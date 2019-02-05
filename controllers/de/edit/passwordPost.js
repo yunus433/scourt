@@ -8,28 +8,32 @@ module.exports = (req, res, next) => {
     req.body.oldPassword &&
     req.body.confirmPassword
   ) {
-    if (bcrypt.compare(req.body.oldPassword, req.session.user.password)) {
-      if (req.body.password == req.body.confirmPassword) {
-        User.findOne({"email": req.session.user.email},
-          (err, user) => {
-            if (err || !user) return res.redirect("/de");
-
-            user.password = req.body.password;
-            user.save((err, newUser) => {
-              if (err) return res.redirect('/de');
-
-              req.session.user.password = newUser.password;
-              res.redirect("/de/dashboard");
-            }); 
-          }
-        );
+    return bcrypt.compare(req.body.oldPassword, req.session.user.password, (err, result) => {
+      if (err) {
+        return res.redirect('/de/edit/password/?err=2');
+      } else if (!result) {
+        return res.redirect('/de/edit/password/?err=2');
       } else {
-        return res.redirect("/de/edit");
+        if (req.body.password == req.body.confirmPassword) {
+          User.findOne({"email": req.session.user.email},
+            (err, user) => {
+              if (err || !user) return res.redirect('/de');
+
+              user.password = req.body.password;
+              user.save((err, newUser) => {
+                if (err) return res.redirect('/de');
+
+                req.session.user.password = newUser.password;
+                return res.redirect('/de/dashboard');
+              });
+            }
+          );
+        } else {
+          return res.redirect("/de/edit/password/?err=3");
+        }
       }
-    } else {
-      return res.redirect("/de/edit");
-    }
+    });
   } else {
-    return res.redirect("/de/edit");
+    return res.redirect("/de/edit/password/?err=1");
   }
 };

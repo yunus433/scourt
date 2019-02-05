@@ -5,6 +5,7 @@ const multer  = require('multer');
 const upload = multer({dest: './public/res/uploads/'});
 
 const isLoggedIn = require('./../middleware/isLoggedin');
+
 const indexGetController = require('../controllers/de/index');
 
 // Validate Controllers
@@ -19,6 +20,7 @@ const dashboardGetController = require('../controllers/de/dashboard/get');
 const editGetController = require('../controllers/de/edit/get');
 const editPostController = require('../controllers/de/edit/post');
 const editProfilePostController = require('../controllers/de/edit/profilePost');
+const editPasswordGetController = require('../controllers/de/edit/passwordGet');
 const editPasswordPostController = require('../controllers/de/edit/passwordPost');
 
 // Team Controllers
@@ -40,11 +42,12 @@ const teamDeleteVideoPostController = require('../controllers/de/teams/videos/de
 const commentsGetController = require('../controllers/de/teams/videos/comments');
 const commentPostContoller = require('../controllers/de/teams/videos/commentPost');
 
-// Get Controllers
 router.get(
   '/',
   indexGetController
 );
+
+// Get Controllers
 router.get(
   '/validate', 
   isLoggedIn,
@@ -59,6 +62,11 @@ router.get(
   '/edit',
   isLoggedIn,
   editGetController
+);
+router.get(
+  '/edit/password',
+  isLoggedIn,
+  editPasswordGetController
 );
 
 router.get(

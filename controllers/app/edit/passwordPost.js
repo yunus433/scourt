@@ -8,28 +8,32 @@ module.exports = (req, res, next) => {
     req.body.oldPassword &&
     req.body.confirmPassword
   ) {
-    if (bcrypt.compare(req.body.oldPassword, req.session.user.password)) {
-      if (req.body.password == req.body.confirmPassword) {
-        User.findOne({"email": req.session.user.email},
-          (err, user) => {
-            if (err || !user) return res.redirect("/");
-
-            user.password = req.body.password;
-            user.save((err, newUser) => {
-              if (err) return res.redirect('/');
-
-              req.session.user.password = newUser.password;
-              res.redirect("/app/dashboard");
-            }); 
-          }
-        );
+    return bcrypt.compare(req.body.oldPassword, req.session.user.password, (err, result) => {
+      if (err) {
+        return res.redirect('/app/edit/password/?err=2');
+      } else if (!result) {
+        return res.redirect('/app/edit/password/?err=2');
       } else {
-        return res.redirect("/app/edit");
+        if (req.body.password == req.body.confirmPassword) {
+          User.findOne({"email": req.session.user.email},
+            (err, user) => {
+              if (err || !user) return res.redirect('/');
+
+              user.password = req.body.password;
+              user.save((err, newUser) => {
+                if (err) return res.redirect('/');
+
+                req.session.user.password = newUser.password;
+                return res.redirect('/app/dashboard');
+              });
+            }
+          );
+        } else {
+          return res.redirect("/app/edit/password/?err=3");
+        }
       }
-    } else {
-      return res.redirect("/app/edit");
-    }
+    });
   } else {
-    return res.redirect("/app/edit");
+    return res.redirect("/app/edit/password/?err=1");
   }
 };

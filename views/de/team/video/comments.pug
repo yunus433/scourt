@@ -3,15 +3,16 @@ block content
   .all-wrapper
     .all-header
       a(href="/de/dashboard").all-header-name scourt
-      - if(user.type == 'user') {
-        a(href="/de/edit").user-description
+      .user-description
+        .user-description-line-first
           span.user-name Hallo, #{user.name.split(" ")[0]}
-          img.user-image(src="/res/uploads/" + user.profilePhoto)
-      - } else {
-        a(href="/de/edit/coach").user-description
-          span.user-name Hallo, #{user.name.split(" ")[0]}
-          img.user-image(src="/res/uploads/" + user.profilePhoto)
-      - }
+          img.user-image(src=user.profilePhoto)
+        a(href="/de/edit").user-description-line
+          span Einstellungen
+        a(href="/de/edit/password").user-description-line
+          span Veränderung Passwort
+        a(href="/de").user-description-line
+          span Abmeldung
     .all-content-dashboard
       .content-side-header
         a.header-part-first.team-header-part(href="/de/team")
