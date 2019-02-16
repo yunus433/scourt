@@ -69,6 +69,8 @@ block content
             span Calendar
           a.header-part.videos-header-part(href="/app/team/videos")
             span Video Analysis
+          a.header-part.videos-header-part(href="/app/team/trainings")
+            span Training Page
         .calendar-wrapper
           - if (user.type == 'coach') {
             .add-new-event-line 
@@ -394,7 +396,7 @@ block content
                                 .each-event-line
                                   span.each-event-name #{event.name}
                                   - if(user.type == 'coach') {
-                                    a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
+                                    a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id onclick="return confirm('Are you sure you want to delete this event?');")
                                       i.fas.fa-trash.trash-icon
                                   - }
                                 .each-event-line

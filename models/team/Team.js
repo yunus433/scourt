@@ -17,6 +17,14 @@ const TeamSchema = new Schema({
     trim: true,
     unique: true
   },
+  description: {
+    type: String,
+    default: '-'
+  },
+  createdAt: {
+    type: String,
+    default: moment(Date.now()).format("dddd, MMMM Do YYYY")
+  },
   creator: {
     type: Object,
     required: true
@@ -29,20 +37,16 @@ const TeamSchema = new Schema({
     type: Array,
     default: []
   },
-  description: {
-    type: String,
-    default: '-'
-  },
-  createdAt: {
-    type: String,
-    default: moment(Date.now()).format("dddd, MMMM Do YYYY")
-  },
   events: {
     type: Array,
     default: []
   },
   videos: {
     type: Array,
+    default: []
+  },
+  trainings: {
+    type: Array, 
     default: []
   }
 });

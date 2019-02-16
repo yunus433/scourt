@@ -1,0 +1,284 @@
+.add-new-training-wrapper {
+  background-color: white;
+  position: absolute;
+  z-index: 5;
+  width: 45%;
+  min-height: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -75%);
+  box-shadow: 2px 2px black;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 0px 15px;
+  color: black;
+  display: none;
+}
+.training-adding-form {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-date-line {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.form-date-line select {
+  margin-left: 5px;
+  font-size: 1.1em;
+  outline: none;
+}
+.form-line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.form-line span {
+  margin-right: 10px;
+}
+.form-place-input {
+  outline: none;
+  font-size: 1.1em;
+  border-radius: 5px;
+}
+.form-textarea {
+  margin: 5px 0px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1.1em;
+  padding: 5px;
+}
+.form-buttons-line {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.exit-add-new-button, .send-add-new-button {
+  width: 100px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-family: 'Roboto Slab', 'Roboto';
+  font-size: 1em;
+  color: black;
+  outline: none;
+  cursor: pointer;
+  padding: 0px;
+}
+.send-add-new-button {
+  background: rgba(0, 0, 0, 0.4);
+  margin-left: 5px;
+}
+.main-box-wrapper {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.main-box-header {
+  min-height: 50px;
+  border-bottom: 2px solid white;
+  padding-left: 25px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+.main-box-header h2 {
+  margin: 0px;
+}
+.main-box-header-explanations {
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 15px;
+  font-style: italic;
+}
+.main-box-content {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.content-new-ones, .content-old-ones {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  min-height: 150px;
+  padding-bottom: 0px;
+}
+.content-new-ones {
+  padding-top: 0px;
+}
+.content-old-ones {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.content-header {
+  font-size: 1.3em;
+  border-bottom: 1px solid white;
+  padding-bottom: 3px;
+  max-width: 150px;
+}
+.add-new-training-line {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+}
+.add-new-training-button {
+  background-color: white;
+  color: black;
+  height: 50px;
+  border-radius: 20px;
+  border: 1px solid black;
+  display: flex;
+  width: 180px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.add-new-training-button-i {
+  margin-right: 5px;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-property: transform;
+}
+.trainings-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.each-training {
+  background: white;
+  color: black;
+  margin-top: 15px;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.each-training-line {
+  display: flex;
+  margin-bottom: 3px;
+  align-items: center;
+  width: 100%;
+}
+.each-training-line-justified {
+  display: flex;
+  margin-bottom: 3px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.each-training-content-item {
+  margin-right: 10px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.each-training-content-item-color {
+  color: rgba(0, 0, 0, 0.9);
+}
+.each-training-content-item-header {
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 1em;
+}
+.each-training-content-item-button {
+  margin-right: 5px;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 0.9em;
+}
+.each-training-show-more-button {
+  cursor: pointer;
+  justify-self: flex-end;
+  padding-bottom: 1px;
+  margin-top: 10px;
+}
+.each-training-show-more-button:hover {
+  border-bottom: 1px solid black;
+  padding: 0px;
+}
+.each-training-show-less-button {
+  cursor: pointer;
+  justify-self: flex-end;
+  padding-bottom: 1px;
+  margin-top: 10px;
+  display: none;
+}
+.each-training-show-less-button:hover {
+  border-bottom: 1px solid black;
+  padding: 0px;
+}
+.each-training-more-content {
+  margin-left: 25px;
+  background: white;
+  color: black;
+  margin-top: -10px;
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+.each-training-more-content-span {
+  padding-top: 5px;
+}
+.each-player-in-team {
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 35px;
+  border-radius: 10px;
+  color: black;
+  display: flex;
+  align-items: center;
+  padding-left: 7.5px;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 2;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+.each-player-email {
+  color: rgba(0, 0, 0, 0.7);
+  margin-left: 5px;
+}
+.red {
+  color: red;
+  font-style: italic;
+}
+.green {
+  color: green;
+  font-style: italic;
+}
+.not-coming-user-button {
+  background: rgba(0, 128, 0, 1);
+  color: rgba(0, 0, 0, 0.9);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.coming-user-button {
+  background: rgba(135, 0, 0, 1);
+  color: rgba(0, 0, 0, 0.9);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 10px;
+}

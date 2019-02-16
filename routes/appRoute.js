@@ -26,19 +26,27 @@ const teamPageDashboardGetController = require('../controllers/app/teams/dashboa
 const teamPageMessagesGetController = require('../controllers/app/teams/messages');
 const teamPageCalendarGetController = require('../controllers/app/teams/calendar');
 const teamPageVideosGetController = require('../controllers/app/teams/videos');
+const teamPageTrainingsGetController = require('../controllers/app/teams/training');
+
 const teamCreatePostController = require('../controllers/app/teams/new/post');
 const teamJoinPostController = require('../controllers/app/teams/join/post');
+
 const teamEditGetController = require('../controllers/app/teams/edit/get');
 const teamEditPostController = require('../controllers/app/teams/edit/post');
 const teamProfileEditPostController = require('../controllers/app/teams/edit/profilePost');
+
 const newTeamEventPostController = require('../controllers/app/teams/event/post');
 const deleteTeamEventPostController = require('../controllers/app/teams/event/delete');
+
 const teamAddVideoGetController = require('../controllers/app/teams/videos/get');
 const teamAddVideoPostController = require('../controllers/app/teams/videos/post');
 const teamEditNamePostController = require('../controllers/app/teams/videos/changeNamePost');
 const teamDeleteVideoPostController = require('../controllers/app/teams/videos/deleteVideo');
 const commentsGetController = require('../controllers/app/teams/videos/comments');
 const commentPostContoller = require('../controllers/app/teams/videos/commentPost');
+
+const trainingPostController = require('../controllers/app/teams/trainings/post');
+const trainingUpdatePostController = require('../controllers/app/teams/trainings/update');
 
 // Get Controllers
 router.get(
@@ -101,6 +109,11 @@ router.get(
   '/team/videos/comments/',
   isLoggedIn,
   commentsGetController
+);
+router.get(
+  '/team/trainings',
+  isLoggedIn,
+  teamPageTrainingsGetController
 );
 
 
@@ -178,6 +191,16 @@ router.post(
   '/team/video/comment/new',
   isLoggedIn,
   commentPostContoller
+);
+router.post(
+  '/team/trainings/add',
+  isLoggedIn,
+  trainingPostController
+);
+router.get(
+  '/team/trainings/update',
+  isLoggedIn,
+  trainingUpdatePostController
 );
 
 module.exports = router;
