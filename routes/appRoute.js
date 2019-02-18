@@ -47,6 +47,7 @@ const commentPostContoller = require('../controllers/app/teams/videos/commentPos
 
 const trainingPostController = require('../controllers/app/teams/trainings/post');
 const trainingUpdatePostController = require('../controllers/app/teams/trainings/update');
+const trainingDeletePostController = require('../controllers/app/teams/trainings/delete');
 
 // Get Controllers
 router.get(
@@ -201,6 +202,11 @@ router.get(
   '/team/trainings/update',
   isLoggedIn,
   trainingUpdatePostController
+);
+router.get(
+  '/team/trainings/delete',
+  isLoggedIn,
+  trainingDeletePostController
 );
 
 module.exports = router;
