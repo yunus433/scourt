@@ -45,7 +45,7 @@ module.exports = (req, res, next) => {
                   email: coach.email,
                 }, 'coachRegister', (err, user) => {
                   if (err) return res.redirect('/');
-                  res.session.user = user;
+                  req.session.user = user;
 
                   return res.redirect('/app/dashboard');
                 });
