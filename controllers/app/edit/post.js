@@ -48,8 +48,8 @@ module.exports = (req, res, next) => {
             phone: req.body.phone || undefined
           }
         },
-        { upsert: true }
-      ).exec(err => {
+        { upsert: true, new: true }
+      ).exec((err, user) => {
         if (err && err.code == 11000) {
           return res.redirect('/app/edit/?err=2');
         }
