@@ -95,11 +95,12 @@ module.exports = (req, res, next) => {
   Team
     .findById(req.session.user.team)
     .exec((err, team) => {
-      if (err) return res.redirect('/');
+      if (err || !team) return res.redirect('/');
 
       User
         .findOne({"_id": req.session.user._id})
         .exec((err, user) => {
+          if (err) return res.redirect('/');
           res.render('app/team/calendar', {
             page: 'app/team/calendar',
             title: 'Calendar',
