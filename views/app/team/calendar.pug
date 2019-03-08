@@ -69,8 +69,10 @@ block content
             span Calendar
           a.header-part.videos-header-part(href="/app/team/videos")
             span Video Analysis
-          a.header-part.videos-header-part(href="/app/team/trainings")
+          a.header-part.training-header-part(href="/app/team/trainings")
             span Training Page
+          //- a.header-part.tactic-header-part(href="/app/team/tactic")
+          //-   span Tactic Page
         .calendar-wrapper
           - if (user.type == 'coach') {
             .add-new-event-line 
@@ -172,12 +174,12 @@ block content
               .calendar-header-part
                 span Sunday
             .calendar-two-before-main-box
-              - if ((((new Date(before2Year, before2Month, 1).getDay() - 3) % 7)) == 0) {
+              - if ((((new Date(before2Year, before2Month, 1).getDay() - 1) % 7)) == 0) {
                 - for(let i = 0; i < 6; i++) {
                   .calendar-each-day
                 - }
               - } else {
-                - for(let i = 0; i < (new Date(before2Year, before2Month, 1).getDay() - 3); i++) {
+                - for(let i = 0; i < (new Date(before2Year, before2Month, 1).getDay() - 1); i++) {
                   .calendar-each-day
                 - }
               - }
@@ -279,19 +281,19 @@ block content
                     .calendar-each-day
                       .calendar-each-day-header
                         span #{i} #{month[beforeMonth].name}
-                    .calendar-each-day-content
-                      each event in team.events
-                        - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
-                          .calendar-each-event(class="each-event-" + event.type)
-                            .each-event-line
-                              span.each-event-name #{event.name}
-                              - if(user.type == 'coach') {
-                                a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
-                                  i.fas.fa-trash.trash-icon
-                              - }
-                            .each-event-line
-                              span.each-event-note #{event.note}
-                        - }
+                      .calendar-each-day-content
+                        each event in team.events
+                          - if (event.date.day === i.toString() && event.date.month === beforeMonth.toString() && event.date.year === beforeYear.toString()) {
+                            .calendar-each-event(class="each-event-" + event.type)
+                              .each-event-line
+                                span.each-event-name #{event.name}
+                                - if(user.type == 'coach') {
+                                  a(href="/app/team/calendar/delete/?team=" + team._id + "&id=" + event._id) onclick="return confirm('Are you sure you want to delete this event?');"
+                                    i.fas.fa-trash.trash-icon
+                                - }
+                              .each-event-line
+                                span.each-event-note #{event.note}
+                          - }
                   - }
                 - } 
               - } else {

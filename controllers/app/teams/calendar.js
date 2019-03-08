@@ -74,7 +74,7 @@ module.exports = (req, res, next) => {
     beforeMonth = (new Date().getMonth())-1;
     before2Month = (new Date().getMonth())-2;
     beforeYear = new Date().getFullYear();
-    beforeTwoYear = new Date().getFullYear();
+    before2Year = new Date().getFullYear();
   } 
   if (new Date().getMonth() == 11) {
     afterMonth = 0;    
