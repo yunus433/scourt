@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     (err, team) => {
       if (err) return res.redirect("/de");
 
-      res.redirect('/de/team/?id=' + team.teamId);
+      res.redirect('/de/team/calendar');
     }
   );
 };

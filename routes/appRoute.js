@@ -27,6 +27,7 @@ const teamPageMessagesGetController = require('../controllers/app/teams/messages
 const teamPageCalendarGetController = require('../controllers/app/teams/calendar');
 const teamPageVideosGetController = require('../controllers/app/teams/videos');
 const teamPageTrainingsGetController = require('../controllers/app/teams/training');
+const teamPageTacticGetController = require('../controllers/app/teams/tactic');
 
 const teamCreatePostController = require('../controllers/app/teams/new/post');
 const teamJoinPostController = require('../controllers/app/teams/join/post');
@@ -48,6 +49,11 @@ const commentPostContoller = require('../controllers/app/teams/videos/commentPos
 const trainingPostController = require('../controllers/app/teams/trainings/post');
 const trainingUpdatePostController = require('../controllers/app/teams/trainings/update');
 const trainingDeletePostController = require('../controllers/app/teams/trainings/delete');
+
+const tacticSavePostController = require('../controllers/app/teams/tactic/save');
+const tacticDeletePlayerPostController = require('../controllers/app/teams/tactic/deletePlayer');
+const tacticDeleteNotePostController = require('../controllers/app/teams/tactic/deleteNote');
+const tacticDeleteLinePostController = require('../controllers/app/teams/tactic/deleteLine');
 
 // Get Controllers
 router.get(
@@ -115,6 +121,11 @@ router.get(
   '/team/trainings',
   isLoggedIn,
   teamPageTrainingsGetController
+);
+router.get(
+  '/team/tactic',
+  isLoggedIn,
+  teamPageTacticGetController
 );
 
 
@@ -207,6 +218,26 @@ router.get(
   '/team/trainings/delete',
   isLoggedIn,
   trainingDeletePostController
+);
+router.post(
+  '/team/tactic/save',
+  isLoggedIn,
+  tacticSavePostController
+);
+router.get(
+  '/team/tactic/deletePlayer',
+  isLoggedIn,
+  tacticDeletePlayerPostController
+);
+router.get(
+  '/team/tactic/deleteNote',
+  isLoggedIn,
+  tacticDeleteNotePostController
+);
+router.get(
+  '/team/tactic/deleteLine',
+  isLoggedIn,
+  tacticDeleteLinePostController
 );
 
 module.exports = router;

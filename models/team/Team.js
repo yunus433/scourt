@@ -48,6 +48,14 @@ const TeamSchema = new Schema({
   trainings: {
     type: Array, 
     default: []
+  },
+  tacticBoard: {
+    type: Object,
+    default: {
+      lineDatas: [],
+      playerDatas: [],
+      noteDatas: []
+    }
   }
 });
 

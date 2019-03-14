@@ -45,8 +45,6 @@ window.onload = () => {
   
   let socket = io();
 
-  const messagesBlock = document.querySelector('.messages-block');
-
   const messageSend = document.querySelector('.message-sending-button');
   const messageSenderInput = document.querySelector('.message-sender-input');
   const messageContent = document.querySelector('.message-sending-input');
