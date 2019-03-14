@@ -139,7 +139,6 @@ function createOldElements(canvas) {
 
 window.onload = () => {
   const canvas = document.getElementById('drawing-area-canvas');
-  console.log(canvas.offsetWidth);
   setTimeout(function () {
     createOldElements(canvas);
   }, 500);
@@ -274,7 +273,7 @@ window.onload = () => {
     }
 
     // Tactic board adding element listeners
-    if (newPlayerAddButtonChecked && event.target.className == 'drawing-area-canvas') {
+    if (newPlayerAddButtonChecked && event.target.className == 'drawing-area-canvas' && document.querySelector('.canvas-player-name-input').value) {
       const canvas = document.querySelector('.drawing-area-canvas');
       const mousePosition = getMouseCanvasPosition(canvas, event);
       const playerName = document.querySelector('.canvas-player-name-input').value;
@@ -442,22 +441,30 @@ window.onload = () => {
       const wrapper = document.createElement("div");
       wrapper.classList.add("canvas-player-wrapper");
       const position = JSON.parse(event.target.childNodes[2].innerHTML);
+      position.x = position.x * canvas.offsetWidth / 100;
+      position.y = position.y * (canvas.offsetWidth * 376 / 600) / 100;
 
-      if (position.x + 25 > canvas.offsetWidth) {
-        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - 30 - 8) + "px";
-      } else if (position.x > 25) {
-        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - 10 - 8) + "px";
+      const playerWidth = (30 * canvas.offsetWidth / 960);
+
+      if (position.x + (playerWidth / 2) > canvas.offsetWidth) {
+        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - playerWidth + 13 - 10) + "px";
+      } else if (position.x > (playerWidth / 2)) {
+        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - (playerWidth / 2) + 15 - 10) + "px";
       } else {
-        wrapper.style.marginLeft = (document.querySelector(".drawing-area-menu").offsetWidth + 15 - 8) + "px";
+        wrapper.style.marginLeft = (document.querySelector(".drawing-area-menu").offsetWidth + 20 - 10) + "px";
       }
     
-      if (position.y + 25 > canvas.offsetHeight) {
-        wrapper.style.marginTop = (position.y - 50 - 3) + "px";
-      } else if (position.y - 35 > 0) {
-        wrapper.style.marginTop = (position.y - 25 - 3) + "px";
+      if (position.y + (playerWidth / 2) > canvas.offsetHeight) {
+        wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+      } else if (position.y - playerWidth > 0) {
+        wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
       } else {
-        wrapper.style.marginTop = "-6px";
+        wrapper.style.marginTop = "-5px";
       }
+
+      console.log(playerWidth);
+      wrapper.style.width = (playerWidth + 20) + "px";
+      wrapper.style.height = (playerWidth + 20) + "px";
 
       allContent.appendChild(wrapper);
 

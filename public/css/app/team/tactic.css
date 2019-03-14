@@ -255,8 +255,6 @@
   display: none;
 }
 .canvas-player-wrapper {
-  width: 55px;
-  height: 55px;
   background-color: #46ca464d;
   position: absolute;
   z-index: 15;
