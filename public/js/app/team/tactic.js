@@ -1,3 +1,8 @@
+let updatePlayers = [];
+let lineDatas = [];
+let playerDatas = [];
+let noteDatas = [];
+
 function generateRandomId() {
   return (String.fromCharCode(65 + Math.floor(Math.random() * 26))) + Date.now();
 }
@@ -27,9 +32,13 @@ function drawLine(canvas, firstPosition, lastPosition, color, width, dashed) {
   ctx.moveTo((firstPosition.x * canvas.offsetWidth) / 100, firstPosition.y);
   ctx.lineTo((lastPosition.x * canvas.offsetWidth) / 100, lastPosition.y);
   ctx.stroke();
+
+  window.onbeforeunload = function() {
+    return true;
+};
 };
 
-function addPlayer(name, position) {
+function addPlayer(name, position, id) {
   const canvas = document.querySelector('.drawing-area-canvas');
 
   position.x = position.x * canvas.offsetWidth / 100;
@@ -38,6 +47,10 @@ function addPlayer(name, position) {
   const allContent = document.querySelector('.all-content-main');
   const newPlayer = document.createElement("div");
   newPlayer.classList.add("canvas-each-player");
+
+  const playerMoveIcon = document.createElement("i");
+  playerMoveIcon.classList.add("fas");
+  playerMoveIcon.classList.add("fa-arrows-alt");
 
   const newImage = document.createElement("img");
   newImage.src = "/res/images/player.png";
@@ -66,9 +79,19 @@ function addPlayer(name, position) {
 
   newPlayer.style.width = playerWidth + "px";
 
+  const playerSpanData = document.createElement("span");
+  playerSpanData.classList.add("none");
+  playerSpanData.textContent = id;
+
   newPlayer.appendChild(newImage);
+  newPlayer.appendChild(playerMoveIcon);
   newPlayer.appendChild(playerNameSpan);
+  newPlayer.appendChild(playerSpanData);
   allContent.appendChild(newPlayer);
+
+  window.onbeforeunload = function() {
+    return true;
+};
 }
 
 function addNote(content, color, position, id) {
@@ -93,6 +116,7 @@ function addNote(content, color, position, id) {
   noteSpan.innerHTML = content;
 
   const noteDeleteButton = document.createElement("i");
+  noteDeleteButton.onclick = "return confirm('Are you sure you want to delete this note? You can't take back once it is deleted.);"
   noteDeleteButton.classList.add("fas");
   noteDeleteButton.classList.add("fa-trash");
 
@@ -116,13 +140,33 @@ function addNote(content, color, position, id) {
   newNote.appendChild(noteButtonDiv);
   newNote.appendChild(noteSpan);
   allContent.appendChild(newNote);
+
+  window.onbeforeunload = function() {
+    return true;
+};
+}
+
+function savePage() {
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "/app/team/tactic/save");
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.send(JSON.stringify({
+      lineDatas,
+      playerDatas,
+      noteDatas,
+      updatePlayers
+  }));
+
+  window.onbeforeunload = null;
 }
 
 function createOldElements(canvas) {
   const tacticBoard = JSON.parse(document.querySelector(".all-data-span").innerHTML);
 
   tacticBoard.playerDatas.forEach(player => {
-    addPlayer(player.name, player.position);
+    addPlayer(player.name, player.position, player._id);
+
+    updatePlayers.push(player);
   });
 
   tacticBoard.noteDatas.forEach(note => {
@@ -142,6 +186,7 @@ window.onload = () => {
   setTimeout(function () {
     createOldElements(canvas);
   }, 500);
+  window.onbeforeunload = null;
 
   const contentSideHeader = document.querySelector('.content-side-header');
   document.addEventListener('click', (event) => {
@@ -172,10 +217,6 @@ window.onload = () => {
   let newLineAddButtonChecked = false;
   let newPlayerAddButtonChecked = false;
   let newNoteAddButtonChecked = false;
-
-  let lineDatas = [];
-  let playerDatas = [];
-  let noteDatas = [];
 
   const lineProperties = document.querySelector('.canvas-line-properties');
   const playerProperties = document.querySelector('.canvas-player-properties');
@@ -248,18 +289,7 @@ window.onload = () => {
     }
 
     if (event.target.className == 'canvas-save-changes-button' || event.target.parentNode.className == 'canvas-save-changes-button') {
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", "/app/team/tactic/save");
-      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-      xhr.send(JSON.stringify({
-          lineDatas,
-          playerDatas,
-          noteDatas
-      }));
-
-      lineDatas = [];
-      playerDatas = [];
-      noteDatas = [];
+      savePage();
 
       const saveButton = document.querySelector('.canvas-save-changes-button');
       saveButton.childNodes[0].innerHTML = "Saved";
@@ -270,6 +300,16 @@ window.onload = () => {
         saveButton.style.cursor = "pointer";
         location.reload();
       }, 1000)
+    }
+
+    if (event.target.className == 'drawing-area-button' || event.target.parentNode.className == 'drawing-area-button') {
+      const menu = document.querySelector('.drawing-area-menu');
+
+      if (menu.style.display == 'none') {
+        menu.style.display = 'flex';
+      } else {
+        menu.style.display = 'none';
+      }
     }
 
     // Tactic board adding element listeners
@@ -294,7 +334,7 @@ window.onload = () => {
       playerName.value = "";
       playerInfo.value = "";
 
-      addPlayer(playerName, mousePosition);
+      addPlayer(playerName, mousePosition, playerData._id);
     }
 
     if (newNoteAddButtonChecked && event.target.className == 'drawing-area-canvas' && document.querySelector('.canvas-new-note-value').value) {
@@ -318,7 +358,59 @@ window.onload = () => {
       addNote(text, color, position, id);
     }
 
-    // Player object listeners
+    // Player listeners
+
+    if (event.target.className == 'fas fa-arrows-alt') {
+      event.target.style.color = "black";
+      
+      const player = event.target.parentNode;
+      const playerID = event.target.parentNode.childNodes[3].innerHTML;
+
+      document.addEventListener('mousemove', function mouseMove(mouseEvent) {
+        const position = getMouseCanvasPosition(canvas, mouseEvent);
+      
+        const oldPosition = {
+          x: position.x, 
+          y: position.y
+        };
+        position.x = position.x * canvas.offsetWidth / 100;
+        position.y = position.y * (canvas.offsetWidth * 376 / 600) / 100;
+        const playerWidth = (30 * canvas.offsetWidth / 960);
+      
+        if (position.x + (playerWidth / 2) > canvas.offsetWidth) {
+          player.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - playerWidth + 13) + "px";
+        } else if (position.x > (playerWidth / 2) && position.x < canvas.offsetWidth) {
+          player.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - (playerWidth / 2) + 15) + "px";
+        } else {
+          player.style.marginLeft = (document.querySelector(".drawing-area-menu").offsetWidth + 20) + "px";
+        }
+    
+        if (position.y + (playerWidth / 2) > canvas.offsetHeight) {
+          player.style.marginTop = (position.y - playerWidth) + "px";
+        } else if ((position.y - playerWidth) > 0 && position.y < canvas.offsetHeight) {
+          player.style.marginTop = (position.y - playerWidth) + "px";
+        } else if ((position.y - playerWidth) > 0) {
+          player.style.marginTop = (canvas.offsetHeight - playerWidth) + "px";
+        } else {
+          player.style.marginTop = "0px";
+        }
+
+        document.addEventListener('click', function outOfPlayerMoveIcon() {
+          document.removeEventListener('mousemove', mouseMove);
+          event.target.style.color = "rgba(0, 0, 0, 0.5)";
+
+          if (updatePlayers.findIndex(item => item._id === playerID) > -1) {
+            updatePlayers[updatePlayers.findIndex(item => item._id === playerID)].position.x = oldPosition.x;
+            updatePlayers[updatePlayers.findIndex(item => item._id === playerID)].position.y = oldPosition.y;
+            document.removeEventListener('click', outOfPlayerMoveIcon);
+            window.onbeforeunload = function() {
+              return true;
+            };
+          }
+        });       
+      });
+    }
+    
     if (event.target.className == 'each-player-object') {
       if (event.target.parentNode.childNodes[1].style.display == 'block') {
         event.target.parentNode.childNodes[1].style.display = 'none';
@@ -326,6 +418,7 @@ window.onload = () => {
         event.target.parentNode.childNodes[1].style.display = 'block';
       }
     }
+
     if (event.target.parentNode.className == 'each-player-object') {
       if (event.target.parentNode.parentNode.childNodes[1].style.display == 'block') {
         event.target.parentNode.parentNode.childNodes[1].style.display = 'none';
@@ -334,7 +427,7 @@ window.onload = () => {
       }
     }
 
-    // Note object listeners
+    // Note listeners
     if (event.target.className == 'fas fa-times') {
       event.target.parentNode.parentNode.childNodes[0].style.display = 'none';
       event.target.parentNode.parentNode.childNodes[1].style.display = 'none';
@@ -446,23 +539,40 @@ window.onload = () => {
 
       const playerWidth = (30 * canvas.offsetWidth / 960);
 
-      if (position.x + (playerWidth / 2) > canvas.offsetWidth) {
-        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - playerWidth + 13 - 10) + "px";
-      } else if (position.x > (playerWidth / 2)) {
-        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - (playerWidth / 2) + 15 - 10) + "px";
+      if (window.innerWidth > 1100) {
+        if (position.x + (playerWidth / 2) > canvas.offsetWidth) {
+          wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - playerWidth + 13 - 10) + "px";
+        } else if (position.x > (playerWidth / 2)) {
+          wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - (playerWidth / 2) + 15 - 10) + "px";
+        } else {
+          wrapper.style.marginLeft = (document.querySelector(".drawing-area-menu").offsetWidth + 20 - 10) + "px";
+        }
+      
+        if (position.y + (playerWidth / 2) > canvas.offsetHeight) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else if (position.y - playerWidth > 0) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else {
+          wrapper.style.marginTop = "-5px";
+        }
       } else {
-        wrapper.style.marginLeft = (document.querySelector(".drawing-area-menu").offsetWidth + 20 - 10) + "px";
-      }
-    
-      if (position.y + (playerWidth / 2) > canvas.offsetHeight) {
-        wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
-      } else if (position.y - playerWidth > 0) {
-        wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
-      } else {
-        wrapper.style.marginTop = "-5px";
+        if (position.x + (playerWidth / 2) > canvas.offsetWidth) {
+          wrapper.style.marginLeft = (position.x - playerWidth + 13 - 10) + "px";
+        } else if (position.x > (playerWidth / 2)) {
+          wrapper.style.marginLeft = (position.x - (playerWidth / 2) + 15 - 10) + "px";
+        } else {
+          wrapper.style.marginLeft = (20 - 10) + "px";
+        }
+      
+        if (position.y + (playerWidth / 2) > canvas.offsetHeight) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else if (position.y - playerWidth > 0) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else {
+          wrapper.style.marginTop = "-5px";
+        }
       }
 
-      console.log(playerWidth);
       wrapper.style.width = (playerWidth + 20) + "px";
       wrapper.style.height = (playerWidth + 20) + "px";
 
@@ -484,20 +594,38 @@ window.onload = () => {
       wrapper.classList.add("canvas-player-wrapper");
       const position = JSON.parse(event.target.parentNode.childNodes[2].innerHTML);
 
-      if (position.x + 25 > canvas.offsetWidth) {
-        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - 30 - 8) + "px";
-      } else if (position.x > 25) {
-        wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - 10 - 8) + "px";
+      if (window.innerWidth > 1100) {
+        if (position.x + (playerWidth / 2) > canvas.offsetWidth) {
+          wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - playerWidth + 13 - 10) + "px";
+        } else if (position.x > (playerWidth / 2)) {
+          wrapper.style.marginLeft = (position.x + document.querySelector(".drawing-area-menu").offsetWidth - (playerWidth / 2) + 15 - 10) + "px";
+        } else {
+          wrapper.style.marginLeft = (document.querySelector(".drawing-area-menu").offsetWidth + 20 - 10) + "px";
+        }
+      
+        if (position.y + (playerWidth / 2) > canvas.offsetHeight) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else if (position.y - playerWidth > 0) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else {
+          wrapper.style.marginTop = "-5px";
+        }
       } else {
-        wrapper.style.marginLeft = (document.querySelector(".drawing-area-menu").offsetWidth + 15 - 8) + "px";
-      }
-    
-      if (position.y + 25 > canvas.offsetHeight) {
-        wrapper.style.marginTop = (position.y - 50 - 6) + "px";
-      } else if (position.y - 35 > 0) {
-        wrapper.style.marginTop = (position.y - 25 - 6) + "px";
-      } else {
-        wrapper.style.marginTop = "-6px";
+        if (position.x + (playerWidth / 2) > canvas.offsetWidth) {
+          wrapper.style.marginLeft = (position.x - playerWidth + 13 - 10) + "px";
+        } else if (position.x > (playerWidth / 2)) {
+          wrapper.style.marginLeft = (position.x  - (playerWidth / 2) + 15 - 10) + "px";
+        } else {
+          wrapper.style.marginLeft = (20 - 10) + "px";
+        }
+      
+        if (position.y + (playerWidth / 2) > canvas.offsetHeight) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else if (position.y - playerWidth > 0) {
+          wrapper.style.marginTop = (position.y - playerWidth - 5) + "px";
+        } else {
+          wrapper.style.marginTop = "-5px";
+        }
       }
 
       allContent.appendChild(wrapper);
@@ -543,8 +671,8 @@ window.onload = () => {
       drawLine(canvas, lineObject.firstPosition, lineObject.lastPosition, '#ff0000', lineObject.width, dashed);
     }
   });
+};
 
-  window.onresize = () => {
-    location.reload();
-  };
+window.onresize = () => {
+  location.reload();
 };

@@ -32,6 +32,8 @@ block content
         a.header-part.tactic-header-part#selected(href="/app/team/tactic")
             span Tactic Page
       .all-content-main
+        .drawing-area-button
+          i.fas.fa-cog
         .drawing-area-menu
           - if (user.type == 'coach') {
             .drawing-options-menu
@@ -102,7 +104,7 @@ block content
                     - }
                 - }
                 .canvas-send-line
-                  a.canvas-delete-changes-button(href="/app/team/tactic", onclick="return confirm('Are you sure you want delete all of not-saved changes? You cannot take back them once they are deleted.');")
+                  a.canvas-delete-changes-button(href="/app/team/tactic", onclick="window.onbeforeunload = null; return confirm('Are you sure you want delete all of not-saved changes? You cannot take back them once they are deleted.');")
                     span Delete all new changes
                   .canvas-save-changes-button
                     span Save
@@ -122,7 +124,7 @@ block content
                       span.each-player-info-content= player.info
                       - if (user.type == 'coach') {
                         .each-player-edit
-                          a(href="/app/team/tactic/deletePlayer/?id=" + player._id onclick="return confirm('Are you sure you want to delete this player?')")
+                          a(href="/app/team/tactic/deletePlayer/?id=" + player._idi, onclick="return confirm('Are you sure you want to delete this player?')")
                             i.fas.fa-trash
                       - } 
               - } else {

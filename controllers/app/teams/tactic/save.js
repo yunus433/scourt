@@ -7,7 +7,21 @@ module.exports = (req, res, next) => {
       "tacticBoard.playerDatas": { $each: req.body.playerDatas},
       "tacticBoard.noteDatas": { $each: req.body.noteDatas}
     }}, {upsert: true}, err => {
-      if (err) console.log(err);
       if (err) {return res.redirect("/")};  
     });
+  req.body.updatePlayers.forEach(player => {
+    Team
+      .findOneAndUpdate({
+        "_id": req.session.user.team, 
+        "tacticBoard.playerDatas._id": player._id}, {$set: {
+        "tacticBoard.playerDatas.$.position": player.position
+      }}, {upsert: true}, err => {
+        if (err) {
+          console.log(err); 
+          return res.redirect('/')
+        } else {
+          res.redirect('/app/team/tactic');
+        }        
+      });
+  });
 };
