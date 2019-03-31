@@ -5,7 +5,6 @@ const sendMail = require('../../../utils/sendMail');
 module.exports = (req, res, next) => {
   if (req.session.user.type == 'user') {
     if (req.body && req.body.name && req.body.date) {
-
       User.findOneAndUpdate({"email": req.session.user.email}, {$set: {
         name: req.body.name,
         date: req.body.date,
@@ -14,9 +13,8 @@ module.exports = (req, res, next) => {
       }}, {upsert: true})
       .exec(err => {
         if (err) return res.redirect('/');
-        res.redirect('/app/dashboard')
+        return res.redirect('/app/dashboard')
       });
-  
     } else {
       return res.redirect('/app/validate/?err=1');
     };
