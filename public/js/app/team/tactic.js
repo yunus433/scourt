@@ -179,6 +179,7 @@ function createOldElements(canvas) {
 
     drawLine(canvas, line.firstPosition, line.lastPosition, line.color, line.width, dashed);
   });
+  window.onbeforeunload = null;
 };
 
 window.onload = () => {

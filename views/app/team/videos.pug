@@ -36,14 +36,16 @@ block content
             h2 Video Analyzes Page
             span.header-videos-number You can upload #{21 - team.videos.length} more videos
           .header-right-side
-            .add-new-video-wrapper
+            form.add-new-video-wrapper(action="/app/team/videos/upload" method="POST" enctype="multipart/form-data" onsubmit="return false")
               - if (team.videos.length > 21) {
                 .add-new-button-not-allowed
                   i.fas.fa-plus-circle
                   span Upload a new video   
               - } else {
                 - if (user.type == 'coach') {
-                  a.add-new-button(href="/app/team/videos/new") Upload a new video
+                  input.video-upload-input(type="file", name="video", id="video", accept="video/*") 
+                  label(for="video")
+                    span.add-new-button Upload a new video
                 - }
               - }
         .videos-content-wrapper
@@ -81,4 +83,3 @@ block content
                         i(title="Delete this video record").fas.fa-trash
                     - }  
             - }
-             
