@@ -1,4 +1,22 @@
 const Team = require('../../../../models/team/Team');
+const AWS = require('aws-sdk');
+const path = require('path');
+const dotenv = require('dotenv');
+
+dotenv.config({path: path.join(__dirname, '/../.env')});
+
+const {
+  AWS_ACCESSKEYID,
+  AWS_SECRETACCESSKEY
+} = process.env;
+
+AWS.config = {
+  credentials: {
+    accessKeyId: AWS_ACCESSKEYID, 
+    secretAccessKey: AWS_SECRETACCESSKEY
+  },
+  region: 'us-west-2'
+};
 
 module.exports = (req, res, next) => {
   Team
@@ -6,12 +24,18 @@ module.exports = (req, res, next) => {
       "videos": {"_id": req.query.id}
     }}, (err, team) => {
       if (err) return res.redirect('/');
-      req.cloudinary.v2.api.delete_resources(["video_folder/team_" + req.session.user.team + "/" + req.query.id], {
-        "resource_type": "video"
-      }, err => {
+      
+      const params = {
+        Bucket: "scourtapp-video-database",
+        Key: team._id + "/" + req.query.id
+      };
+
+      const s3 = new AWS.S3()
+
+      s3.deleteObject(params, err => {
         if (err) return res.redirect('/');
 
-        return res.redirect('/app/team/videos');
+        res.redirect("/app/team/videos");
       });
     });
 };
