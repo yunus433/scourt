@@ -36,7 +36,6 @@ const teamProfileEditPostController = require('../controllers/de/teams/edit/prof
 const newTeamEventPostController = require('../controllers/de/teams/event/post');
 const deleteTeamEventPostController = require('../controllers/de/teams/event/delete');
 const teamAddVideoGetController = require('../controllers/de/teams/videos/get');
-const teamAddVideoPostController = require('../controllers/de/teams/videos/post');
 const teamEditNamePostController = require('../controllers/de/teams/videos/changeNamePost');
 const teamDeleteVideoPostController = require('../controllers/de/teams/videos/deleteVideo');
 const commentsGetController = require('../controllers/de/teams/videos/comments');
@@ -93,11 +92,6 @@ router.get(
   '/team/videos',
   isLoggedIn,
   teamPageVideosGetController
-);
-router.get(
-  '/team/videos/new',
-  isLoggedIn,
-  teamAddVideoGetController
 );
 router.get(
   '/team/videos/delete',
@@ -171,10 +165,10 @@ router.get(
   deleteTeamEventPostController
 );
 router.post(
-  '/team/videos/new',
+  '/team/videos/upload',
   upload.single('video'),
   isLoggedIn,
-  teamAddVideoPostController
+  teamAddVideoGetController
 );
 router.post(
   '/team/videos/edit/name',

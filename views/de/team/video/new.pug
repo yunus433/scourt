@@ -1,29 +1,23 @@
 extends ../../../partials/head
 block content
-  .all-wrapper
-    .all-content
-      .thumbnails-wrapper
-      button(id="upload_widget" class="cloudinary-button") Upload a new video
-      form.all-content-bottom(action="/app/team/videos/new" method="post")
-        input(type="text" value=video._id name="videoId")
-        a.exit-upload-button(href="/app/team/videos") 
-          i.fas.fa-left-arrow-circle
-          span Exit
-        button.send-upload-button 
-          span Done
-      span.video-id-span= video._id
-      span.team-id-span= team._id
-    script(type="text/javascript").
-      var myWidget = cloudinary.createUploadWidget({
-        cloudName: 'dvnac86j8', 
-        uploadPreset: 'azjlvlac',
-        public_id: document.querySelector('.video-id-span').innerHTML,
-        multiple: false,
-        folder: 'video_folder/team_' +  document.querySelector('.team-id-span').innerHTML,
-        resourceType: 'video', 
-        showCompletedButton: true,
-        thumbnails: '.thumbnails-wrapper'}, (error, result) => { console.log(error, result) })
-
-      document.getElementById("upload_widget").addEventListener("click", function(){
-        myWidget.open();
-      }, false);
+  span.none#video-data= JSON.stringify(videoData)
+  span.none#team-data= JSON.stringify(team)
+  .upload-form
+    .video-wrapper
+      video.video(controls)
+        source(src="/res/uploads/" + videoData.filename)
+    .header
+      span Uploading the video 
+      i.video-original-name "#{videoData.originalname}"
+      span  as
+      b.video-new-name  "Default Video Name"
+    .upload-info
+      .upload-bar
+        .upload-bar-done
+        .upload-bar-rest
+        .upload-bar-percent 
+          span % #{100 - (videoData.size * 100 / videoData.size)}
+      .upload-process
+        span #{Math.round(videoData.size/10000) / 100} megabytes left in #{Math.round(videoData.size/10000) / 100} megabytes
+    .upload-reminder
+      span You can change your video's name and add comments on it once it is uploaded. Please be patient and do not leave the page while it is uploading. Thank you for your understanding.

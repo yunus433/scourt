@@ -1,4 +1,3 @@
-
 module.exports = (req, res, next) => {
   res.render('app/team/video/new', {
     page: 'app/team/video/new',
