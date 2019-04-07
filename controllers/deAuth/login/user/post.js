@@ -9,6 +9,7 @@ module.exports = (req, res, next) => {
 
           User.findUser(req.body.email, req.body.password, "user", (err, user) => {
             if (err) return res.redirect('/deAuth/login/?err=1');
+            if (!user) return res.redirect('/deAuth/login/?err=1')
 
             req.session.user = user;
             return res.redirect('/de/dashboard');
