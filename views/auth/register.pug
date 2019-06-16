@@ -1,0 +1,25 @@
+extends ../partials/head
+block main
+  form.all-wrapper(method="post" action="/auth/register")
+    .big-circle    
+    .small-circle
+    .all-content
+      .input-box
+        span.input-box-title Welcome!
+        span.input-box-name= email
+        .input-line
+          input.password-input.password-input-one(type="password" name="password" placeholder="Password" autofocus autocomplete="off" spellcheck="false")
+          i.see-password-button.far.fa-eye
+        .input-line
+          input.password-input.password-input-two(type="password" name="passwordConfirm" placeholder="Confirm password" autocomplete="off" spellcheck="false")
+          i.see-password-button.far.fa-eye
+        .form-send-button 
+          span Continue
+        .login-line
+          a.login-tag(href="/auth/login") Already have an account?
+        .error-line
+          span.error-line-span.short-password-error Your password should be longer than 5 digits
+          span.error-line-span.confirm-password-error Please confirm your password
+          span.error-line-span.no-password-error Please enter a password before move on
+    .images-wrapper
+      img.main-image(src="/res/images/registerDesign1.png")

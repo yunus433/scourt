@@ -24,9 +24,12 @@ const UserSchema = new Schema({
   name: {
     type: String
   },
+  surname: {
+    type: String
+  },
   profilePhoto: {
     type: String,
-    default: "/res/uploads/defaultUserPicture.png"
+    default: "/res/images/defaultUserPicture.png"
   },
   phone: {
     type: String
@@ -44,27 +47,28 @@ const UserSchema = new Schema({
   },
   color: {
     type: String,
-    default: "#ffffff"
+    default: "#000000"
+  },
+  messages: {
+    type: Array,
+    default: []
   }
 });
 
 UserSchema.pre('save', hashPassword);
 
-UserSchema.statics.findUser = function (email, password, type, callback) {
+UserSchema.statics.findUser = function (email, password, callback) {
   let User = this;
 
-  User.findOne({email, type}).then(user => {
-        
+  User.findOne({email}).then(user => { 
     if (!user) {
-        return callback(true);
+      return callback(true);
     }
 
-    verifyPassword(password, user, (err, res) => {
-      if (res) {
-        return callback(undefined, user);
-      } else {
-        return callback(err);
-      }
+    verifyPassword(password, user.password, res => {
+      if (res) return callback(null, user);
+       
+      return callback(true);
     });
   });
 };

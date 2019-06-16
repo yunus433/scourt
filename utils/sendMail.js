@@ -65,10 +65,10 @@ const templates = {
     `
   }),
   newComment: (data) => ({
-    to: data.player.email,
+    to: data.player,
     subject: `Scourtapp.com: Your coach tagged you to a comment!`,
     html: `
-      Hi ${data.player.name.split(' ')[0]},
+      Hi there,
       <br />
       <br />
       Your coach tagged you to one of his comments! Don't forget to check your account to see your mistakes in the analyzed video. You can use your coach's comments to improve your technique.

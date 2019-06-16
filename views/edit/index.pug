@@ -1,0 +1,17 @@
+extends ../partials/header
+block content
+  .main-wrapper
+    span.form-title Change the informations you want to edit:
+    .form-wrapper
+      form.form-left-side(action="/edit/profile" method="POST" enctype="multipart/form-data")
+        label
+          img.user-image(src=user.profilePhoto)
+          input.display-none(type="file" name="profile" id="profile" accept="image/*")
+          span.user-image-span Click to change
+      form.form-right-side(action="/edit" method="POST")
+        input.input(type="text" name="name" value=user.name placeholder="Your name" autofocus autocomplete="off" spellcheck="false")
+        input.input(type="text" name="surname" value=user.surname placeholder="Your surname" autocomplete="off" spellcheck="false")
+        input.input(type="text" name="email" value=user.email placeholder="Your email" autocomplete="off" spellcheck="false")
+        input.input(type="text" name="date" value=user.date placeholder="Your birthdate" autocomplete="off" spellcheck="false")
+        input.input(type="text" name="phone" value=user.phone placeholder="Your phone number" autocomplete="off" spellcheck="false")
+        button.form-send-button Ok

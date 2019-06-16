@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
     email: id,
     password: "scourt123",
     type: "coach",
-    profilePhoto: "/res/uploads/defaultCoachPicture.png",
+    profilePhoto: "/res/images/defaultCoachPicture.png",
     color: getRandomColor()
   };
 

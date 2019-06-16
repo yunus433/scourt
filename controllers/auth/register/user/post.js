@@ -1,4 +1,3 @@
-const validator = require('validator');
 const sendMail = require('../../../../utils/sendMail');
 const User = require('../../../../models/user/User');
 
@@ -12,48 +11,28 @@ function getRandomColor() {
 }
 
 module.exports = (req, res, next) => {
-  if (req.body && req.body.email && req.body.password && req.body.confirmpassword) {
-    if (req.body.password === req.body.confirmpassword) {
-      if (validator.isEmail(req.body.email)) {
-        if (req.body.password.length >= 6) {
+  if (req.session.email) {
+    let newUserData = {
+      email: req.session.email,
+      password: req.body.password,
+      type: "user",
+      color: getRandomColor()
+    }; 
 
-          let newUserData = {
-            email: req.body.email,
-            password: req.body.password,
-            type: "user",
-            color: getRandomColor()
-          }; 
-    
-          const newUser = new User(newUserData);
-    
-          newUser.save((err, user) => {
-            if (err && err.code == 11000) {
-              return res.redirect('/auth/register/?err=5');
-            } else {
-              if (err) return res.redirect('/');
+    const newUser = new User(newUserData);
 
-              sendMail({
-                email: user.email,
-              }, 'userRegister', err => {
-                if (err) return res.redirect('/');
-                res.redirect('/app/validate');
-              });
+    newUser.save((err, user) => {
+      if (err) return res.redirect('/'); 
 
-              req.session.user = user;
-              return res.redirect('/app/validate');
-            };
-          });
-
-        } else {
-          return res.redirect('/auth/register/?err=4');
-        }
-      } else {
-        return res.redirect('/auth/register/?err=3');
-      }
-    } else {
-      return res.redirect('/auth/register/?err=2');
-    }
+      sendMail({
+        email: user.email,
+      }, 'userRegister', () => {
+        req.session.email = null;
+        req.session.user = user;
+        return res.redirect('/auth/validate');
+      });
+    });
   } else {
-    return res.redirect('/auth/register/?err=1');
+    return res.redirect('/');
   }
 }

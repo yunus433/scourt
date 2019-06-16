@@ -1,0 +1,38 @@
+extends ../partials/header
+block content
+  .all-content-main
+    .team-image-wrapper
+      img.team-image(src=team.profilePhoto)
+    span.explanation-title Team ID:
+    span.team-info= team.teamId
+    span.explanation-title Team Name:
+    span.team-info= team.name
+    span.explanation-title Team Description:
+    span.team-description= team.description
+    if user.type == 'coach'
+      .edit-team-button
+        span Edit
+  if user.type == "coach"
+    .all-content-main-form
+      form.team-image-wrapper(action="/edit/team/profile")
+        label
+          img.team-image(src=team.profilePhoto)
+          span.team-image-input-span Click to change
+          input.display-none(type="file" name="profile")
+      form.team-info-form(action="/edit/team" method="POST")
+        span.explanation-title Team ID:
+        span.team-info Contact with us to change your team ID
+        span.explanation-title Team Name:
+        input.team-info-input(value=team.name name="name")
+        span.explanation-title Team Description:
+        textarea.team-description-input(name="description")= team.description
+        button.form-send-button
+          span Ok
+  .players-wrapper
+    each player in team.players
+      .each-player
+        span.player-name #{player.name + " " + player.surname} 
+        span.player-email (#{player.email})
+        if (user.type == "coach")
+          a.player-delete-button(href="/players/delete/?id" + player._id)
+            i.fas.fa-ban

@@ -1,0 +1,221 @@
+.all-content {
+  display: flex;
+  align-items: center;
+  height: 93vh;
+  padding: 0px 5%;
+}
+.all-content-menu {
+  width: 40vw;
+  height: 40vw;
+  background: white;
+  border-radius: 79px;
+  display: flex;
+  flex-direction: column;
+}
+.menu-title {
+  position: relative;
+  left: 5%;
+  top: 10%;
+  font-family: "Raleway";
+  color: rgb(78, 78, 78);
+  font-weight: 500;
+  font-size: 67px;
+}
+.menu-subtitle {
+  position: relative;
+  top: 10%;
+  left: 5%;
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  font-size: 22px;
+}
+.menu-items-wrapper {
+  position: relative;
+  top: 15%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 5%;
+  left: 4%;
+  right: 4%;
+  width: 100%;
+}
+.menu-item {
+  background: rgb(249, 249, 249);
+  border: 1px solid rgba(217, 217, 217, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 10vw;
+  height: 10vw;
+  cursor: pointer;
+}
+.menu-item-image {
+  max-width: 50%;
+}
+.menu-item-title {
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  font-size: 22px;
+  margin-top: 5%;
+}
+.menu-item:hover {
+  border: 1px solid rgb(217, 217, 217);
+}
+.join-team-wrapper {
+  position: relative;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20%;
+}
+.join-team-span {
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  font-size: 22px;
+}
+.join-team-input {
+  padding: 2% 3%;
+  outline: none;
+  box-shadow: 0px;
+  border: 1px solid rgb(171, 171, 171);
+  color: rgb(112, 112, 112);
+  border-radius: 82px;
+  padding-right: 5%;
+  font-size: 28px;
+  font-family: "Source Sans Pro";
+  font-weight: lighter;
+  margin-top: 2%;
+}
+.images-wrapper {
+  width: 50vw;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-image {
+  max-width: 100%;
+  max-height: 80%;
+  border-radius: 30px;
+}
+.team-name {
+  margin-top: 5px;
+  font-size: 50px;
+  font-weight: bold;
+  color: rgb(112, 112, 112);
+  font-family: "Raleway";
+}
+.team-player-number {
+  font-size: 36px;
+  font-weight: lighter;
+  color: rgb(112, 112, 112);
+  font-family: "Raleway";
+}
+.team-id {
+  margin-top: 3%;
+  font-size: 36px;
+  color: rgb(112, 112, 112);
+  font-family: "Raleway";
+}
+.team-id strong {
+  font-size: 40px;
+}
+.create-team-form {
+  position: relative;
+  top: 15%;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.create-team-form-info {
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  font-size: 22px;
+  line-height: 30px;
+}
+.team-name-input {
+  padding: 2% 3%;
+  outline: none;
+  box-shadow: 0px;
+  border: 1px solid rgb(171, 171, 171);
+  color: rgb(112, 112, 112);
+  border-radius: 82px;
+  padding-right: 5%;
+  font-size: 28px;
+  font-family: "Source Sans Pro";
+  font-weight: lighter;
+  margin-top: 2%;
+}
+.team-description-input {
+  padding: 2% 3%;
+  outline: none;
+  box-shadow: 0px;
+  border: 1px solid rgb(171, 171, 171);
+  color: rgb(112, 112, 112);
+  border-radius: 30px;
+  padding-right: 5%;
+  font-size: 20px;
+  font-family: "Source Sans Pro";
+  font-weight: lighter;
+  margin-top: 2%;
+}
+.create-team-button {
+  margin-top: 2%;
+  outline: none;
+  box-shadow: 0px;
+  background: rgb(249, 249, 249);
+  border: 1px solid rgba(171, 171, 171, 0.7);
+  color: rgba(78, 78, 78, 0.8);
+  border-radius: 82px;
+  font-size: 25px;
+  font-family: "Source Sans Pro";
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 5%;
+}
+.create-team-button:hover {
+  border: 1px solid rgba(171, 171, 171, 1);
+}
+
+@media only screen and (orientation: portrait) {
+  .images-wrapper {
+    display: none;
+  }
+  .all-content-menu {
+    width: 100vw;
+    height: 60vh;
+    padding: 5%;
+    border-radius: 40px;
+  }
+  .menu-title {
+    font-size: 90px;
+  }
+  .menu-subtitle {
+    font-size: 40px;
+  }
+  .join-team-span, .create-team-form-info {
+    font-size: 25px;
+    text-align: center;
+  }
+  .menu-item {
+    width: 20vw; 
+    height: 20vw;
+    border-radius: 15px;
+  }
+  .menu-item-image {
+    max-width: 40%;
+  }
+}

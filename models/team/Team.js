@@ -8,7 +8,7 @@ const TeamSchema = new Schema({
   },
   profilePhoto: {
     type: String,
-    default: "/res/uploads/defaultTeamPicture.png"
+    default: "/res/images/defaultTeamPicture.png"
   },
   teamId: {
     type: String,
@@ -47,6 +47,10 @@ const TeamSchema = new Schema({
   },
   trainings: {
     type: Array, 
+    default: []
+  },
+  trainingModels: {
+    type: Array,
     default: []
   },
   tacticBoard: {

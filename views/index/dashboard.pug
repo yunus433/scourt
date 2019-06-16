@@ -1,0 +1,49 @@
+extends ../partials/header
+block content 
+  input.user-object-value(style="display: none" value=user._id)
+  .all-content-menu
+    span.menu-title Welcome #{user.name.split(" ")[0]}!
+    if user.type == 'user'
+      span.menu-subtitle Here you can join to a team!
+    else 
+      span.menu-subtitle Here you can create a team and manage it!
+    if user.team
+      .menu-items-wrapper
+        a.menu-item(href="/players")
+          img.menu-item-image(src="/res/images/icons/playersPageIcon.png")
+          span.menu-item-title Players
+        a.menu-item(href="/messages/?room=" + user.team)
+          img.menu-item-image(src="/res/images/icons/messagesPageIcon.png")
+          span.menu-item-title Messages
+        a.menu-item(href="/calendar/?month=0")
+          img.menu-item-image(src="/res/images/icons/calendarPageIcon.png")
+          span.menu-item-title Calendar
+        a.menu-item(href="/analysis")
+          img.menu-item-image(src="/res/images/icons/analysisPageIcon.png")
+          span.menu-item-title Analysis
+        a.menu-item(href="/trainings")
+          img.menu-item-image(src="/res/images/icons/trainingPageIcon.png")
+          span.menu-item-title Trainings
+        a.menu-item(href="/tactics")
+          img.menu-item-image(src="/res/images/icons/tacticPageIcon.png")
+          span.menu-item-title Tactic Page
+    else
+      if user.type == 'user'
+        form.join-team-wrapper(action="/join" method="POST")
+          span.join-team-span You are not a member of a team. Why don't you join one now?
+          span.join-team-span You can learn your team ID from you coach.
+          input.join-team-input(name="id" type="text" placeholder="Write a team ID" autocomplete="false" autofocus)
+      else
+        form.create-team-form(action="/create" method="POST")
+          span.create-team-form-info  You should type the following informations to create your team. After you have created it, you can share it with your players by giving them its unique sharing id.      
+          input.team-name-input(type="text" placeholder="Team name" name="name" autocomplete="off" autofocus spellcheck="off")
+          textarea.team-description-input(name="description" cols="25" rows="5" placeholder="A short description of your team" autocomplete="off" spellcheck="off")
+          button.create-team-button Create
+  .images-wrapper
+    if (team)
+      img.main-image(src=team.profilePhoto)
+    if user.team
+      span.team-name= team.name
+      span.team-player-number #{team.players.length} joined players
+      span.team-id Team ID: 
+        strong #{team.teamId}

@@ -19,12 +19,16 @@ let io = socketIO(server);
 const PORT = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/scourt';
 
+const adminRouteController = require('./routes/adminRoute');
 const indexRouteController = require('./routes/indexRoute');
 const authRouteController = require('./routes/authRoute');
-const deAuthRouteController = require('./routes/deAuth');
-const appRouteController = require('./routes/appRoute');
-const deRouteController = require('./routes/deRoute');
-const adminRouteController = require('./routes/adminRoute');
+const editRouteController = require('./routes/editRoute');
+const playersRouteController = require('./routes/playersRoute');
+const messagesRouteController = require('./routes/messagesRoute');
+const calendarRouteController = require('./routes/calendarRoute');
+const analysisRouteController = require('./routes/analysisRoute');
+const trainingsRouteController = require('./routes/trainingsRoute');
+const tacticsRouteController = require('./routes/tacticsRoute');
 
 dotenv.config({path: path.join(__dirname, '.env')});
 
@@ -41,13 +45,12 @@ cloudinary.config({
   api_secret: CLOUDINARY_API_SECRET
 });
 
-
-
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 mongoose.connect(mongoUri, {useNewUrlParser: true, auto_reconnect: true});
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -68,12 +71,16 @@ app.use((req, res, next) => {
 
 app.use(helmet());
 
-app.use('/', indexRouteController)
-app.use('/app', appRouteController);
-app.use('/de', deRouteController);
-app.use('/auth', authRouteController)
-app.use('/deAuth', deAuthRouteController)
+app.use('/', indexRouteController);
 app.use('/admin', adminRouteController);
+app.use('/auth', authRouteController);
+app.use('/edit', editRouteController);
+app.use('/players', playersRouteController);
+app.use('/messages', messagesRouteController);
+app.use('/calendar', calendarRouteController);
+app.use('/analysis', analysisRouteController);
+app.use('/trainings', trainingsRouteController);
+app.use('/tactics', tacticsRouteController);
 
 io.on('connection', (socket) => {
   sockets(socket);

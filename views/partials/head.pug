@@ -15,13 +15,9 @@ html(lang="tr")
         script(src=`/socket.io/socket.io.js`)
       if includes.external.indexOf('cloudinary') > -1 
         script(src=`https://widget.cloudinary.com/v2.0/global/all.js`)
-      if includes.external.indexOf('teamGeneral') > -1
-        link(rel="stylesheet", href="/css/app/team/general.css")
-      if includes.external.indexOf('teamDeGeneral') > -1
-        link(rel="stylesheet", href="/css/de/team/general.css")
+    script(src="/js/responsiveDesign.js")
     link(rel="stylesheet", href=`/css/${page}.css`)
-    link(href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet")
     link(rel="stylesheet", href=`/css/general.css`)
   body
-    .content
-      block content
+    block main

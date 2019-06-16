@@ -1,0 +1,37 @@
+extends ../partials/head
+block main
+  form.all-wrapper(method="post" action="/auth/validate")
+    .big-circle
+    .small-circle
+    .all-content
+      .input-box
+        if user.type == 'user'
+          span.input-box-title Hi #{user.email}!
+          span.input-box-name Please write your name and your birthday before move on, so that teams can find you.
+        else
+          span.input-box-title Hi coach!
+          span.input-box-name Please write your name and and choose a new password before move on.
+        .input-line
+          input.general-input.name-input(type="text" name="name" placeholder="Name" autofocus autocomplete="off" spellcheck="false")
+          input.general-input.surname-input(type="text" name="surname" placeholder="Surname" autofocus autocomplete="off" spellcheck="false")
+        if user.type == 'user'
+          .input-line
+            input.general-input.date-input(type="text" name="date" placeholder="Birthday (ex: 01/01/1999)" autocomplete="off" spellcheck="false")
+          .input-line
+            input.general-input.phone-input(type="text" name="phone" placeholder="Phone" autocomplete="off" spellcheck="false")
+        else
+          .input-line
+            input.general-input.email-input(type="text" name="email" placeholder="Email" autocomplete="off" spellcheck="false")
+          .input-line
+            input.general-input.password-input(type="text" name="password" placeholder="Password" autocomplete="off" spellcheck="false")
+        .form-send-button Almost done!
+        .error-line
+          span.error-line-span.no-input-error Please enter all the necessary information
+          span.error-line-span.not-valid-date-error Your birthday should be in 01/01/1998 format
+          span.error-line-span.short-password-error Your password should be longer than 5 digits
+          if err && err == "not valid email"
+            span.error-line-span.not-valid-email-error This email is not valid
+          if err && err == "already taken email"
+            span.error-line-span.already-taken-email-error Sorry, this email is already taken
+    .images-wrapper
+      img.main-image(src="/res/images/registerDesign1.png")

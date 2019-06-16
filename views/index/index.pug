@@ -1,0 +1,23 @@
+extends ./../partials/head
+block main
+  form.all-wrapper(action="/post" method="POST")
+    .big-circle    
+    .small-circle
+    .all-content
+      span.all-content-header Scourt App
+      span.all-content-span Manage your team with professional skills.
+      .input-line
+        input.form-email-input(type="text" placeholder="Enter your email" spellcheck="false" autofocus name="email" autocomplete="off")
+        button.form-register-button 
+          span Register
+      .login-line
+        a.login-tag(href="/auth/login") Already have an account?
+      .error-line
+        if err == "user has found"
+          span.error-line-span.animation-class Sorry, this email has already been taken
+        else if err == "email not valid"
+          span.error-line-span.animation-class Your email is not valid
+        span.error-line-default-span Please enter a valid email before move on
+    .images-wrapper
+      img.background-image(src="/res/images/indexDesign1.png")
+      img.main-image(src="/res/images/indexDesign2.png")

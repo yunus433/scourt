@@ -1,0 +1,17 @@
+extends ./head
+block main
+  .all-header
+    a(href="/dashboard").all-header-name Scourt
+    .user-description
+      span.user-name #{user.name.split(" ")[0]}
+      img.user-image(src=user.profilePhoto)
+    .user-edit-menu
+      a(href="/edit").user-description-line
+        span Settings
+      a(href="/edit/password").user-description-line
+        span Change password
+      a(href="/").user-description-line
+        span Logout
+  .notification-line
+  .all-content 
+    block content

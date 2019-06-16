@@ -1,0 +1,26 @@
+extends ../partials/head
+block main
+  form.all-wrapper(method="post" action="/auth/login")
+    .big-circle    
+    .small-circle
+    .all-content
+      .input-box
+        span.input-box-title Nice to see you again!
+        span.input-box-name= email
+        .input-line
+          input.password-input.email-input(type="text" name="email" placeholder="Email" autofocus autocomplete="off" spellcheck="false")
+        .input-line
+          input.password-input.password-input(type="password" name="password" placeholder="Password" autocomplete="off" spellcheck="false")
+          i.see-password-button.far.fa-eye
+        button.form-send-button Login
+        .login-line
+          a.login-tag(href="/auth/register") Don't you have an account?
+        .error-line
+          span.error-line-span-default Please enter all the necessary information
+          - if (err && err == "no input") {
+            span.error-line-span.no-input-error.animation-class Please enter all the necessary information
+          - } else if (err && err == "not valid") {
+            span.error-line-span.not-valid-error.animation-class Sorry, your email or password is wrong
+          - }
+    .images-wrapper
+      img.main-image(src="/res/images/indexDesign1.png")

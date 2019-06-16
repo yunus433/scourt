@@ -2,23 +2,14 @@ html {
   width: 100%;
   margin: 0px;
   padding: 0px;
-  overflow: scroll;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100%;
-}
-html::before {
-  content:"";
-	z-index:-1;
-	position:fixed;
-	top:0;
-	right:0;
-	bottom:0;
-	left:0;
-	background:rgba(66, 66, 66, 1) url("/res/images/app_background.jpg") center;
+	background: linear-gradient(180deg, rgba(223, 255, 222, 1), rgba(223, 255, 136, 1));
 	background-size: cover;
 }
 body {
-  font-family: "Roboto Slab", "Roboto";
+  font-family: "Raleway";
   -webkit-font-smoothing: subpixel-antialiased;
   width: 100%;
   margin: 0px;
@@ -26,111 +17,104 @@ body {
   height: 100%;
   bottom: 0px;
   min-height: 100%;
+  overflow: hidden;
 }
 a {
   text-decoration: none;
 }
-.main {
-  padding: 0px;
-}
-.all-wrapper {
-  min-height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+.display-none {
+  display: none;
 }
 .all-header {
-  height: 10vh;
+  height: 7vh;
+  background: white;
+  border: 1px solid rgba(230, 255, 194, 1);
+  padding: 0px 5%;
   display: flex;
-  padding: 0px 25px;
   align-items: center;
   justify-content: space-between;
 }
 .all-header-name {
-  font-size: 2em;
-  color: black;
-}
-.all-content {
-  color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  width: 100vw;
-  align-items: center;
-  flex-direction: column;
-}
-.--button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-.all-content-dashboard {
-  color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  width: 90vw;
-  height: 85vh;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  flex-direction: column;
-  margin-bottom: 25px;
+  font-family: "Raleway";
+  color: rgb(78, 78, 78);
+  font-weight: 500;
+  font-size: 49px;
 }
 .user-description {
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
   cursor: pointer;
-  position: absolute;
-  left: 95%;
-  transform: translateX(-95%);
-  top: 20px;
-  width: 250px;
-  z-index: 2;
-}
-.user-description-line-first {
-  display: flex;
-  align-content: center;
-  height: 50px;
-  margin-bottom: 10px;
-}
-.user-description-line {
-  display: flex;
-  background-color: white;
-  height: 50px;
-  width: 100%;
-  justify-content: center;
-  border: 1px solid black;
-  border-bottom: 0px;
-  align-items: center;
-  color: black;
-  display: none;
-}
-.user-description-line:hover {
-  background-color: rgba(66, 66, 66, 1);
-  color: white;
 }
 .user-name {
-  font-size: 1.6em;
-  color: black;
-  margin-right: 5px;
-  display: flex;
-  align-items: center;
+  font-size: 37px;
+  font-family: "Raleway";
+  color: rgb(78, 78, 78);
+  font-weight: 500;
+  margin-right: 10px;
 }
 .user-image {
-  width: 50px;
-  height: 50px;
+  max-height: 80%;
   border-radius: 100%;
-  margin-right: 5px;
 }
-
-@media only screen and (orientation: portrait) {
-  html::before {
-    content: "";
-    background: url("/res/images/app_background_vertical.jpg");
-    background-size: cover;
-  }
-  .all-header-name {
-    color: rgba(255, 255, 255, 0.8);
-  }
+.user-edit-menu {
+  position: absolute;
+  right: 5vw;
+  top: 7vh;
+  background: white;
+  display: none;
+  flex-direction: column;
+  border: 1px solid rgba(230, 255, 194, 1);
+  border-top: 0px;
+  z-index: 10;
+}
+.user-description-line {
+  padding: 15px;
+  font-size: 20px;
+  color: rgb(78, 78, 78);
+  font-weight: 400;
+  z-index: 2;
+  font-family: "Raleway";
+}
+.user-description-line:hover {
+  text-decoration: underline;
+}
+.notification-line {
+  margin-top: 2%;
+  right: 2%;
+  position: absolute;
+  z-index: 5;
+  height: 10vh;
+  display: flex;
+  justify-content: flex-end;
+}
+.each-notification {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  border: 1px solid rgba(230, 255, 194, 1);
+  border: 1px solid rgb(217, 217, 217);
+}
+.notification-title {
+  font-size: 20px;
+  color: rgb(78, 78, 78);
+  font-family: "Raleway";
+  font-weight: 700;
+}
+.notification-content {
+  font-size: 18px;
+  color: rgb(78, 78, 78);
+  font-family: "Raleway";
+  font-weight: lighter;
+}
+.each-notification-symbol {
+  position: absolute;
+  margin-top: 0;
+  margin-right: 0;
+  transform: translate(100%, -100%);
+  color: rgb(78, 78, 78);
+  font-size: 20px;
 }

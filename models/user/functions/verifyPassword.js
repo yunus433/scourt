@@ -1,8 +1,8 @@
 const bcrypt = require('bcrypt');
 
-module.exports = function (password, user, callback) {
-  bcrypt.compare(password, user.password, (err, res) => {
-    if (err) return callback(err);
-    callback(null, res);
+module.exports = function (password, password2, callback) {
+  bcrypt.compare(password, password2, (err, res) => {
+    if (err || !res) return callback(false);
+    callback(true);
   });
 };

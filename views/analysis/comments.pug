@@ -1,0 +1,69 @@
+extends ../partials/header
+block content
+  span.display-none#video-id= video._id
+  .left-side-wrapper
+    video.video(width="100%") Your browser doesn't support this video format
+      source(src=video.url)
+    .video-bar
+      .video-time-bar
+        .video-done-time
+        .video-current-time-button
+      .video-settings-wrapper
+        .settings-left-side
+          .start-icon
+            i.fas.fa-play
+          .voice-icon
+            i.fas.fa-volume-down
+            .voice-bar
+              .voice-selected-bar
+              .voice-current-level
+          .video-time
+            span.video-done-time-span 00:00 /
+            span.video-left-time-span  00:00
+        .settings-right-side
+          .expand-icon
+            i.fas.fa-expand
+    .video-name
+      span= video.name
+  .right-side-wrapper
+    .video-comments-wrapper
+      .comments-header
+        span.comments-title Comments
+        if (user.type == 'coach')
+          .add-new-button
+            i.fas.fa-plus
+      form.add-new-comment-wrapper
+        span.new-comment-time at 00:00
+        input.display-none#comment-time-input(type="text")
+        input.display-none#comment-exact-time-input(type="text")
+        textarea.new-comment-content(name="content" rows=4 placeholder="Your comment" autofocus autocomplete="off" spellcheck="off")
+        .send-line
+          .send-comment-button
+            span Add
+          .tag-player-button
+            span Tag a Player
+          .close-comment-button
+            span Close
+        .tag-players-wrapper
+          span All tagged players will receive an email about the comment
+          each player in team.players
+            .each-tag-player
+              input(type="checkbox" name=player.email value=player.email) 
+              span #{player.name} #{player.surname} (#{player.email})
+      .comments-content
+        each comment in video.comments.sort((a, b) => {return a.exactTime - b.exactTime})
+          .each-comment
+            input.display-none(type="text" value=comment.exactTime)
+            .each-comment-header
+              span at #{comment.time}
+              if comment.taggedPlayers.includes(user.email)
+                span @you
+            .each-comment-content
+              span= comment.content
+            .each-comment-tagged-players
+              span.see-all-players-button see all tagged players
+              .tagged-players-wrapper
+                each player in comment.taggedPlayers
+                  span= player
+                if (comment.taggedPlayers.length == 0)
+                  span No tagged players

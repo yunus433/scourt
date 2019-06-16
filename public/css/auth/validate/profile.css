@@ -1,0 +1,132 @@
+.all-wrapper {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+}
+.big-circle {
+  background-color: white;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(80%, -50%);
+  z-index: -1;
+}
+.small-circle {
+  background-color: white;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(50%, 50%);
+  z-index: -1;
+}
+.all-content {
+  width: 50vw;
+  height: 100vh;
+  padding-left: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-box {
+  width: 65%;
+  height: 60%;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(230, 255, 194, 1);
+  border-radius: 79px;
+  padding: 5% 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-box-title {
+  font-size: 55px;
+  font-weight: 600;
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  width: 75%;
+  text-align: center;
+  margin-bottom: 5%;
+}
+.profile-input-label {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profile-image {
+  width: 100%;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 1px solid rgb(112, 112, 112);
+}
+.profile-image-change {
+  color: rgb(112, 112, 112);
+  font-family: "Raleway";
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+.profile-input {
+  display: none;
+}
+.form-send-button {
+  width: 75%;
+  height: 12%;
+  margin-top: 5%;
+  outline: none;
+  box-shadow: 0px;
+  border: 1px solid rgb(158, 158, 158);
+  background-color: rgb(102, 102, 102);
+  color: rgb(242, 242, 242);
+  border-radius: 82px;
+  font-size: 25px;
+  font-family: "Source Sans Pro";
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 0;
+}
+.images-wrapper {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.main-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+@media only screen and (orientation: portrait) {
+  .images-wrapper {
+    display: none;
+  }
+  .all-content {
+    width: 100vw;
+    flex: 1;
+    margin: 0px;
+    padding: 0px;
+  }
+  .form-send-button {
+    padding: 2% 0;
+  }
+  .input-box {
+    width: 90%;
+    height: auto;
+    padding: 15% 0px;
+  }
+  .all-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,48 @@
+extends ./../partials/header
+block content
+  .videos-wrapper
+    .videos-header
+      .header-left-side
+        span.header-title Video Analyze Page
+        span.header-videos-number You can upload #{20 - team.videos.length} more videos
+      form.header-right-side(action="/analysis/upload" method="POST" enctype="multipart/form-data" onsubmit="return false")
+        if (team.videos.length > 21)
+          if (user.type == 'coach')
+            .add-new-button-not-allowed
+              i.fas.fa-plus-circle
+              span Upload a new video   
+        else 
+          if (user.type == 'coach')
+            input.video-upload-input(style="display: none" type="file", name="video", id="video", accept="video/*") 
+            label.add-new-button(for="video") 
+              i.fas.fa-plus
+              span Upload more
+    .videos-content
+      each video in team.videos
+        if (video.completed)
+          .each-video-wrapper
+            .each-video-left
+              video.video Your browser doesn't support this video format
+                source(src=video.url)
+              .video-info-wrapper
+                form.video-form(action="/analysis/edit/name/?id=" + video._id method="post").video-name-part-wrapper
+                  input.video-name-input(type="text" value=video.name autofocus onclick="this.select()" name="videoName" autocomplete="off").video-name-input
+                  span.video-name #{video.name}
+                  - if (user.type == 'coach') {
+                    i.fas.fa-edit.video-name-change(title="Change the name")
+                  - }
+                span.video-created-at uploaded at #{video.createdAt}
+                a.video-comments(href="/analysis/comments/?id=" + video._id) #{video.comments.length} comments
+            .each-video-right
+              - let value = false;
+              - video.comments.forEach(comment => {
+                if comment.taggedPlayers.includes(user.email)
+                  - value = true;
+              - });
+              if (value)
+                .each-video-tagged(title="Your coach tagged you to this video")
+              a.each-icon(href="/analysis/comments/?id=" + video._id)
+                i(title="Write and see comments").fas.fa-comments
+              if (user.type == 'coach')
+                a.each-icon(href="/analysis/delete/?id=" + video._id onclick="return confirm('Are you sure you want to delete this video? All comments and analyzes will be deleted permanently.');")
+                  i(title="Delete this video record").fas.fa-trash

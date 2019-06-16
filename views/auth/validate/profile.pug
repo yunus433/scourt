@@ -1,0 +1,15 @@
+extends ../../partials/head
+block main
+  form.all-wrapper(method="post" action="/auth/validate/profile" enctype="multipart/form-data")
+    .big-circle
+    .small-circle
+    .all-content
+      .input-box
+        span.input-box-title Let's add a picture!
+        label.profile-input-label(for="input")
+          img.profile-image(src=user.profilePhoto)
+          span.profile-image-change Click to change
+        input.profile-input(id="input" type="file" name="profile" accept="image/*")
+        a.form-send-button(href="/dashboard") Let's Start!
+    .images-wrapper
+      img.main-image(src="/res/images/registerDesign1.png")

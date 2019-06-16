@@ -1,0 +1,481 @@
+.all-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 93vh;
+}
+.calendar-wrapper {
+  background-color: white;
+  border: 1px solid rgb(241, 241, 241);
+  width: 90%;
+  height: 90%;
+  border-radius: 79px;
+  display: flex;
+  flex-direction: column;
+}
+.calendar-header {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  padding: 1% 5%;
+}
+.calendar-header-left {
+  flex: 1;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+.calendar-header-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.calendar-title {
+  color: rgb(112, 112, 112);
+  font-weight: 500;
+  font-family: "Raleway";
+  font-size: 55px;
+}
+.calendar-month-change {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 30px;
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+}
+.calendar-month-name {
+  width: 90%;
+  text-align: center;
+}
+.calendar-month-change a {
+  font-size: 20px;
+  margin: 3%;
+  color: rgb(112, 112, 112);
+}
+.calendar-new-event-button {
+  width: 15%;
+  height: 50%;
+  background: rgb(233, 233, 233);
+  border-radius: 18px;
+  border: 1px solid rgb(171, 171, 171);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.calendar-new-event-button i {
+  color: rgb(112, 112, 112);
+  font-size: 30px;
+}
+.calendar-content {
+  flex: 7;
+  padding: 0% 5%;
+  display: flex;
+  flex-direction: column;
+}
+.calendar-days-header {
+  display: flex;
+}
+.calendar-each-day-header {
+  flex: 1;
+  font-size: 25px;
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  display: flex;
+  justify-content: center;
+  font-weight: 300;
+  height: 10%;
+}
+.calendar-days-main-wrapper {
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: 90%;
+  padding-top: 2%;
+}
+.calendar-days-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-gap: 2%;
+}
+.calendar-each-day {
+  min-height: 20%;
+  margin: 0px;
+  background: rgb(249, 249, 249);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid rgb(217, 217, 217);
+  font-size: 35px;
+  font-weight: 100;
+  color: rgb(112, 112, 112);
+  font-family: "Raleway";
+  cursor: pointer;
+}
+.calendar-each-day-empty {
+  min-height: 20%;
+  margin: 0px;
+  background: rgb(249, 249, 249);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid rgb(217, 217, 217);
+  font-size: 35px;
+  font-weight: 100;
+  color: rgb(112, 112, 112);
+  font-family: "Raleway";
+}
+.today {
+  border: 1px solid red;
+}
+.event {
+  border: 3px solid rgb(171, 171, 171);
+}
+.today-event {
+  border: 3px solid red;
+}
+.calendar-events-wrapper {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background: white;
+  z-index: 5;
+  width: 90%;
+  height: 85%;
+  border-radius: 79px;
+}
+.calendar-events-header {
+  display: flex;
+  flex: 1;
+  border-bottom: 1px solid rgb(171, 171, 171);
+  padding: 0% 5%;
+}
+.calendar-events-title {
+  color: rgb(112, 112, 112);
+  font-weight: 500;
+  font-family: "Raleway";
+  font-size: 55px;
+  flex: 1;
+}
+.calendar-events-content {
+  flex: 8;
+  display: flex;
+  flex-direction: column;
+  padding: 0% 2%;
+  padding-top: 2%;
+  font-size: 25px;
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+}
+.add-new-event-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 3;
+  position: absolute;
+  margin-top: 10%;
+  height: 65%;
+  width: 95%;
+  background: white;
+  padding-left: 5%;
+}
+.send-event-line {
+  display: flex;
+  width: 100%;
+}
+.event-form-send-button {
+  margin: 0% 1%;
+  margin-top: 2%;
+  outline: none;
+  box-shadow: 0px;
+  background: rgb(249, 249, 249);
+  border: 1px solid rgba(171, 171, 171, 0.7);
+  color: rgba(78, 78, 78, 0.8);
+  border-radius: 82px;
+  font-size: 40px;
+  font-family: "Source Sans Pro";
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 1%;
+}
+.event-form-send-button:hover {
+  border-color: rgb(171, 171, 171);
+}
+.event-form-back-button {
+  margin-top: 2%;
+  min-width: 100px;
+  outline: none;
+  box-shadow: 0px;
+  background: rgb(249, 249, 249);
+  border: 1px solid rgba(171, 171, 171, 0.7);
+  color: rgba(78, 78, 78, 0.8);
+  border-radius: 82px;
+  font-size: 40px;
+  font-family: "Source Sans Pro";
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 1%;
+}
+.event-form-back-button:hover {
+  border-color: rgb(171, 171, 171);
+}
+.event-name-input {
+  padding: 1% 2%;
+  outline: none;
+  box-shadow: 0px;
+  border: 1px solid rgb(171, 171, 171);
+  color: rgb(112, 112, 112);
+  border-radius: 82px;
+  padding-right: 15%;
+  font-size: 45px;
+  font-family: "Source Sans Pro";
+  font-weight: lighter;
+}
+.event-input-header {
+  font-size: 45px;
+  font-family: "Raleway";
+  font-weight: lighter;
+  margin: 1% 0%;
+  color: rgb(112, 112, 112);
+}
+.event-description-input {
+  outline: none;
+  box-shadow: 0px;
+  border: 1px solid rgb(171, 171, 171);
+  color: rgb(112, 112, 112);
+  font-size: 40px;
+  border-radius: 10px;
+  padding: 1%;
+  font-family: "Source Sans Pro";
+  font-weight: lighter;
+}
+.select-input {
+  display: block;
+  font-size: 40px;
+  font-family: "Source Sans Pro";
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: .6em 1.4em .5em .8em;
+  min-width: 25%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+  border-radius: .5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
+    linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+  outline: none;
+}
+.select-input::-ms-expand {
+  display: none;
+  outline: none;
+}
+.select-input:hover {
+  border-color: #888;
+  outline: none;
+}
+.select-input:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222; 
+  outline: none;
+}
+.select-input option {
+  font-weight:normal;
+  outline: none;
+}
+.no-event-span {
+  align-self: center;
+  justify-self: center;
+  font-size: 20px;
+}
+.calendar-each-event {
+  border: 1px solid rgb(217, 217, 217);
+  background: rgb(249, 249, 249);
+  border-radius: 30px;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
+.each-event-title {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  color: rgb(112, 112, 112);
+  font-weight: 500;
+  font-family: "Raleway";
+  font-size: 30px;
+}
+.event-title-left {
+  flex: 1;
+} 
+.each-event-time {
+  margin-left: 1%;
+  color: rgb(112, 112, 112);
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 18px;
+}
+.event-type {
+  color: rgb(112, 112, 112);
+  font-weight: lighter;
+}
+.each-event-content {
+  flex: 3;
+  padding: 0% 1%;
+  color: rgb(112, 112, 112);
+  font-weight: 100;
+  font-family: "Raleway";
+  font-size: 20px;
+}
+.calendar-events-footer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgb(171, 171, 171);
+  padding: 0% 5%;
+  font-size: 30px;
+  font-family: "Raleway";
+  color: rgb(112, 112, 112);
+  font-weight: 300;
+}
+.calendar-events-span {
+  font-size: 30px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  padding: 0px 5px;
+}
+.calendar-events-close-button {
+  width: 7.5%;
+  height: 50%;
+  background: rgb(233, 233, 233);
+  border-radius: 18px;
+  border: 1px solid rgb(171, 171, 171);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0% 1%;
+  color: rgb(112, 112, 112);
+  font-size: 25px;
+}
+
+@media only screen and (orientation: portrait) {
+  .calendar-wrapper {
+    border-radius: 50px;
+  }
+  .calendar-events-wrapper {
+    border-radius: 50px;
+  }
+  .calendar-each-day {
+    background: transparent;
+  }
+  .calendar-each-day-empty {
+    background: transparent;
+  }
+  .calendar-new-event-button {
+    width: 35%;
+  } 
+  .calendar-events-close-button {
+    font-size: 40px;
+    width: 30%;
+  }
+  .calendar-events-span {
+    font-size: 50px;
+    line-height: 55px;
+  }
+  .add-new-event-wrapper {
+    margin-top: 20%;
+    height: 55%;
+  }
+  .event-form-send-button, 
+  .event-form-back-button,
+  .event-name-input,
+  .event-input-header,
+  .event-description-input,
+  .select-input {
+    font-size: 125px;
+  }
+  .calendar-new-event-button i {
+    font-size: 50px;
+  }
+}
+
+.move-up-animation-class {
+  -webkit-animation: moveUp 1.3s 1 forwards ease-out;
+}
+.move-down-animation-class {
+  -webkit-animation: moveDown 3s 1 forwards ease-out;
+}
+.opacity-decrease-animation-class {
+  -webkit-animation: opacityDecrease 1.5s 1 forwards ease-out;
+}
+.opacity-increase-animation-class {
+  -webkit-animation: opacityIncrease 1.3s 1 forwards ease-out;
+}
+
+@-webkit-keyframes moveUp {
+  from {
+    margin-top: 120%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+@-webkit-keyframes moveDown {
+  from {
+    margin-top: 0%;
+  }
+  to {
+    margin-top: 200%;
+    display: none;
+  }
+}
+
+@-webkit-keyframes opacityDecrease {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+@-webkit-keyframes opacityIncrease {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}

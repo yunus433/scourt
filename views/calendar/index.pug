@@ -1,0 +1,103 @@
+extends ../partials/header
+block content
+  input.display-none#team-object(value=JSON.stringify(team))
+  input.display-none#month-value(type="text" value=monthNumber)
+  .calendar-events-wrapper
+    .calendar-events-header
+      .calendar-header-left
+        span.calendar-events-title 25/05/2019 Saturday
+      .calendar-header-right
+        if user.type == 'coach'
+          .calendar-new-event-button
+            i.fas.fa-plus
+    .calendar-events-content
+    if user.type == 'coach'
+      form.add-new-event-wrapper(action="/calendar/new" method="POST")
+          span.event-input-header Event name:
+          input.event-name-input(type="text" name="name" placeholder="Write a name" autofocus autocomplete="off")
+          span.event-input-header Event type:
+          select.select-input(name="type")
+            option(value="match") Match
+            option(value="activity") Activity
+            option(value="todo") Todo
+            option(value="other") Other
+          span.event-input-header Event description:
+          textarea.event-description-input(name="description" cols="50" rows="5" placeholder="Write a description")
+          input.display-none(id="event-date-input" name="date" type="text")
+          .send-event-line
+            .event-form-back-button 
+              span Back
+            button.event-form-send-button Create new event
+    .calendar-events-footer
+      .calendar-events-close-button
+        span Go back
+      .calendar-events-span
+        if user.type == 'user'
+          span By clicking on a day, you can see the events marked on that day. If there is an event than the border's of the day are bolded. 
+        else
+          span By clicking on a day, you can add, edit and delete events that are marked on that day.
+  .calendar-wrapper
+    .calendar-header
+      span.calendar-title Calendar #{calendarDate.getFullYear()}
+      .calendar-month-change
+        a.fas.fa-angle-left(href="/calendar/?month=" + (parseInt(monthNumber)-1))
+        span.calendar-month-name= month[calendarDate.getMonth()].name
+        a.fas.fa-angle-right(href="/calendar/?month=" + (parseInt(monthNumber)+1))
+    .calendar-content
+      .calendar-days-header
+        .calendar-each-day-header
+          span monday
+        .calendar-each-day-header
+          span tuesday
+        .calendar-each-day-header
+          span wednesday
+        .calendar-each-day-header
+          span thursday
+        .calendar-each-day-header
+          span friday
+        .calendar-each-day-header
+          span saturday
+        .calendar-each-day-header
+          span sunday
+      .calendar-days-main-wrapper
+        .calendar-days-wrapper
+          if (((new Date(calendarDate.getFullYear(), calendarDate.getMonth(), 1).getDay() % 7)) != 0)
+            - for (let i = 0; i < (new Date(calendarDate.getFullYear(), calendarDate.getMonth(), 1).getDay() - 1); i++) {
+              .calendar-each-day-empty
+            - }
+          else
+            - for (let i = 0; i < 6; i++) {
+              .calendar-each-day-empty
+            - }
+          if month[calendarDate.getMonth()].name == 'February'
+            if (calendarDate.getFullYear() % 4 == 0)
+              - for (let i = 1; i <= month[calendarDate.getMonth()].day2; i++) {
+                if i == new Date().getDate() && monthNumber == 0
+                  .calendar-each-day.today(class = (team.events.filter(function(event){ if (event.date.day == i && event.date.month == calendarDate.getMonth() && event.date.year == calendarDate.getFullYear()+yearNumber) return event}).length > 0) ? "today-event" : "")
+                    span= i
+                else
+                  .calendar-each-day(class = (team.events.filter(function(event){ if (event.date.day == i && event.date.month == calendarDate.getMonth() && event.date.year == calendarDate.getFullYear()) return event}).length > 0) ? "event" : "")
+                    span= i
+              - }
+            else
+              - for (let i = 1; i <= month[calendarDate.getMonth()].day; i++) {
+                if i == new Date().getDate() && monthNumber == 0
+                  .calendar-each-day.today(class = (team.events.filter(function(event){ if (event.date.day == i && event.date.month == calendarDate.getMonth() && event.date.year == calendarDate.getFullYear()) return event}).length > 0) ? "today-event" : "")
+                    span= i
+                else 
+                  .calendar-each-day(class = (team.events.filter(function(event){ if (event.date.day == i && event.date.month == calendarDate.getMonth() && event.date.year == calendarDate.getFullYear()) return event}).length > 0) ? "event" : "")
+                    span= i
+              - }
+          else
+            - for (let i = 1; i <= month[calendarDate.getMonth()].day; i++) {
+              if (i == new Date().getDate() && monthNumber == 0)
+                .calendar-each-day.today(class = (team.events.filter(function(event){ if (event.date.day == i && event.date.month == calendarDate.getMonth() && event.date.year == calendarDate.getFullYear()) return event}).length > 0) ? "today-event" : "")
+                  span= i
+              else
+                .calendar-each-day(class = (team.events.filter(function(event){ if (event.date.day == i && event.date.month == calendarDate.getMonth() && event.date.year == calendarDate.getFullYear()) return event}).length > 0) ? "event" : "")
+                  span= i
+            - }
+          if ((new Date(calendarDate.getFullYear(), calendarDate.getMonth(), month[calendarDate.getMonth()].day).getDay()) != 0) 
+            - for (let i = 0; i < 7 - ((new Date(calendarDate.getFullYear(), calendarDate.getMonth(), month[calendarDate.getMonth()].day).getDay()) % 7); i++) {
+              .calendar-each-day-empty
+            - }

@@ -1,0 +1,74 @@
+extends ../partials/header
+block content
+  input.user-object-value(value= user._id style="display: none;")
+  input.team-object-value(value= team._id style="display: none;")
+  input.room-id(value=room style="display: none;")
+  .menu-open-line
+    i.fas.fa-chevron-left
+    span.menu-open-span All Messages
+  .messages-menu
+    a.messages-menu-item(href="/messages/?room=" + team._id.toString() id= "messages_menu_" + team._id)
+      .messages-menu-item-image
+        img(src=team.profilePhoto)
+      .messages-menu-item-content
+        span.menu-item-title All Team
+        if team.messages.length
+          span.latest-message= team.messages[team.messages.length-1].content 
+        else
+          span.latest-message -
+    each player in team.players
+      if player._id.toString() != user._id.toString()
+        a.messages-menu-item(href="/messages/?room=" + player._id.toString() id= "messages_menu_" + player._id)
+          .messages-menu-item-image
+            img(src=player.profilePhoto)
+          .messages-menu-item-content
+            span.menu-item-title= player.name + " " + player.surname
+            if user.messages.filter((message) => { if (message.to == player._id.toString() || message.from._id.toString() == player._id.toString()) return message}).length != 0
+              span.latest-message= user.messages.filter((message) => { if (message.to == player._id.toString() || message.from._id.toString() == player._id.toString()) return message})[user.messages.filter((message) => { if (message.to == player._id.toString() || message.from._id.toString() == player._id.toString()) return message}).length-1].content 
+            else
+              span.latest-message -
+    if user.type != 'coach'
+      a.messages-menu-item(href="/messages/?room=" + team.creator._id.toString() id= "messages_menu_" + team.creator._id)
+        .messages-menu-item-image
+          img(src= team.creator.profilePhoto)
+        .messages-menu-item-content
+          span.menu-item-title= team.creator.name + " " + team.creator.surname
+          if user.messages.filter((message) => { if (message.to == user._id.toString() || message.from._id.toString() ==team.creator._id.toString()) return message}).length != 0
+            span.latest-message= user.messages.filter((message) => { if (message.to == user._id.toString() || message.from._id.toString() ==team.creator._id.toString()) return message})[user.messages.filter((message) => { if (message.to == user._id.toString() || message.from._id.toString() ==team.creator._id.toString()) return message}).length-1].content || '-'
+          else
+            span.latest-message -
+  .messages-wrapper
+    .messages-block
+      if room == team._id.toString()
+        each message in team.messages
+          if message.from._id.toString() === user._id.toString()
+            .each-message.right
+              strong.message-sender(style="color: " + message.from.color) You
+              span.message-content #{message.content}
+          else
+            .each-message.left
+              strong.message-sender(style="color: " + message.from.color) #{message.from.name}
+              span.message-content #{message.content}
+      else if team.players.filter(player => {return player._id.toString() == room}).length > 0
+        each message in user.messages.filter((message) => { if (message.to == team.players.filter(player => {return player._id.toString() == room})[0]._id.toString() || message.from._id.toString() == team.players.filter(player => {return player._id.toString() == room})[0]._id.toString()) return message})
+          if message.from._id.toString() === user._id.toString()
+            .each-message.right
+              strong.message-sender(style="color: " + message.from.color) You
+              span.message-content #{message.content}
+          else
+            .each-message.left
+              strong.message-sender(style="color: " + message.from.color) #{message.from.name}
+              span.message-content #{message.content}
+      else
+        each message in user.messages.filter((message) => { if (message.to == team.creator._id.toString() || message.from._id.toString() ==team.creator._id.toString()) return message})
+          if message.from._id.toString() === user._id.toString()
+            .each-message.right
+              strong.message-sender(style="color: " + message.from.color) You
+              span.message-content #{message.content}
+          else
+            .each-message.left
+              strong.message-sender(style="color: " + message.from.color) #{message.from.name}
+              span.message-content #{message.content}
+    form.new-message-form
+      input.message-sending-input(type="text" name="message" autocomplete="off" autofocus spellcheck="false" placeholder="Write here")
+      button.message-sending-button Send

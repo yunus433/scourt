@@ -1,0 +1,57 @@
+extends ../partials/header
+block content
+  .trainings-wrapper
+    .training-header
+      .trainings-title-wrapper
+        span.trainings-title Trainings page
+        if user.type == 'coach'
+          span Here you can add and customize a training
+        else 
+          span Here you can see the trainings your coach has created
+      .add-new-training-button
+        i.fas.fa-plus
+    .training-contents
+      .training-models-wrapper
+        .training-each-header
+          span Training Models
+          i.fas.fa-sort-down
+        .training-each-content
+          each model in team.trainingModels
+            .each-training-model
+              .training-model-header
+                span.training-model-name= model.name
+                span.training-model-date created at #{model.createAt}
+              span.trainig-model-info click to view the model
+          if team.trainingModels.length <= 0
+            span.no-model-title You didn't create any model yet
+      .coming-trainings-wrapper
+        .training-each-header
+          span Coming Trainings
+          i.fas.fa-sort-down
+      .old-trainings-wrapper
+        .training-each-header
+          span Old Trainings
+          i.fas.fa-sort-down
+  .add-new-training-wrapper
+    .add-new-header
+      span Add a new training
+    form.add-new-form(action="/app/team/trainings/add")
+      .form-each-line
+        span.form-info Date
+        .input-wrapper
+          input.form-date-input(name="day" value=new Date().getDate() type="number")
+          input.form-date-input(name="month" value=new Date().getMonth()+1 type="number")
+          input.form-date-input(name="year" value=new Date().getFullYear() type="number")
+      .form-each-line
+        span.form-info Place
+        .input-wrapper
+          input.form-text-input(name="place" type="text")
+      .form-each-line
+        span.form-info Extra Information
+      .form-each-line
+        textarea.form-text-input(style="margin: 0px;" name="info" cols="30" rows="10")
+      .form-each-line
+        .form-button#form-close-button
+          span Back
+        .form-button
+          span Add

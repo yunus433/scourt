@@ -1,0 +1,173 @@
+.all-content {
+  display: flex;
+  align-items: center;
+  height: 93vh;
+  padding: 0px 5%;
+}
+.all-content-main {
+  width: 40vw;
+  height: 40vw;
+  background: white;
+  border-radius: 79px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+.all-content-main-form {
+  width: 40vw;
+  height: 40vw;
+  background: white;
+  border-radius: 79px;
+  display: none;
+  flex-direction: column;
+  margin-right: 15px;
+}
+.team-info-form {
+  display: flex;
+  flex-direction: column;
+}
+.team-image-wrapper {
+  width: 90%;
+  height: 30%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+.team-image-wrapper label {
+  max-width: 100%;
+  max-height: 100%;
+}
+.team-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+.explanation-title {
+  font-size: 25px;
+  color: rgb(112, 112, 112);
+  margin: 0px 30px;
+  font-weight: 800;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+.team-info, .team-info-input {
+  font-size: 22px;
+  color: rgb(112, 112, 112);
+  margin: 0px 30px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  border: 0px;
+  outline: none;
+  font-family: "Raleway";
+}
+.team-description, .team-description-input{
+  font-size: 22px;
+  color: rgb(112, 112, 112);
+  margin: 0px 30px;
+  height: 15%;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 10px;
+  outline: none;
+  border: 0px;
+  font-weight: lighter;
+}
+.players-wrapper {
+  width: 40vw;
+  height: 40vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.each-player {
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+}
+.player-name {
+  color: rgb(112, 112, 112);
+  font-size: 23px;
+  font-weight: 700;
+}
+.player-email {
+  color: rgb(112, 112, 112);
+  font-size: 23px;
+  font-weight: 100;
+  margin-left: 5px;
+}
+.player-delete-button {
+  margin-left: 10px;
+  color: rgba(112, 112, 112, 0.7);
+  font-size: 30px;
+}
+.player-delete-button:hover {
+  color: rgb(112, 112, 112);
+}
+.edit-team-button, .form-send-button {
+  outline: none;  
+  width: 30%;
+  height: 50px;
+  box-shadow: 0px;
+  border: 1px solid rgb(158, 158, 158);
+  background: rgb(233, 233, 233);
+  border-radius: 18px;
+  border: 1px solid rgba(171, 171, 171, 0.7);
+  color: rgb(112, 112, 112);
+  font-size: 25px;
+  font-family: "Raleway";
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  margin-right: 35px;
+  margin-top: 15px;
+}
+.edit-team-button:hover, .form-send-button:hover {
+  border: 1px solid rgba(171, 171, 171, 1);
+}
+
+@media only screen and (max-width: 1100px) {
+  .all-content {
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    height: 83vh;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .all-content-menu {
+    flex: initial;
+    width: 100%;
+    border-radius: 50px;
+    margin-right: 0px;
+    margin-bottom: 25px;
+    height: auto;
+    padding: 15px 0px;
+  }
+  .team-image-wrapper {
+    height: auto;
+  }
+  .team-image {
+    max-height: initial;
+    max-width: 100%;
+  }
+  .team-info {
+    height: auto;
+  }
+  .players-wrapper {
+    flex: initial;
+    width: 100%;
+    margin-left: 0px;
+    height: auto;
+    overflow: visible;
+  }
+}

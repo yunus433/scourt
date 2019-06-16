@@ -1,0 +1,23 @@
+extends ../partials/header
+block content
+  span.display-none#video-data= JSON.stringify(videoData)
+  span.display-none#team-data= JSON.stringify(team)
+  .upload-form
+    .video-wrapper
+      video.video(controls)
+        source(src="/res/uploads/" + videoData.filename)
+    .header
+      span Uploading the video 
+      span.video-original-name "#{videoData.originalname}"
+      span  as
+      span.video-new-name "Default Video Name"
+    .upload-info
+      .upload-bar
+        .upload-bar-done
+        .upload-bar-rest
+        .upload-bar-percent 
+          span % #{100 - (Math.round(videoData.size * 100 / videoData.size * 100) / 100)}
+      .upload-process
+        span #{Math.round(videoData.size/10000) / 100} megabytes left in #{Math.round(videoData.size/10000) / 100} megabytes
+    .upload-reminder
+      span You can change your video's name and add comments on it once it is uploaded. Please be patient and do not leave the page while it is uploading. Thank you for your understanding.
