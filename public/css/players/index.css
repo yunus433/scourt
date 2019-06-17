@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 15px;
+  padding: 0px 30px;
 }
 .all-content-main-form {
   width: 40vw;
@@ -21,6 +22,7 @@
   display: none;
   flex-direction: column;
   margin-right: 15px;
+  padding: 0px 30px;
 }
 .team-info-form {
   display: flex;
@@ -28,7 +30,7 @@
 }
 .team-image-wrapper {
   width: 90%;
-  height: 30%;
+  height: 150px;
   margin-top: 25px;
   display: flex;
   justify-content: center;
@@ -36,18 +38,27 @@
   align-self: center;
 }
 .team-image-wrapper label {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.team-image-input-span {
+  color: rgb(112, 112, 112);
+  font-size: 20px;
+  margin-top: 5px;
 }
 .team-image {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
   border-radius: 10px;
 }
 .explanation-title {
   font-size: 25px;
   color: rgb(112, 112, 112);
-  margin: 0px 30px;
   font-weight: 800;
   margin-top: 25px;
   margin-bottom: 5px;
@@ -55,7 +66,6 @@
 .team-info, .team-info-input {
   font-size: 22px;
   color: rgb(112, 112, 112);
-  margin: 0px 30px;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   border: 0px;
@@ -65,14 +75,13 @@
 .team-description, .team-description-input{
   font-size: 22px;
   color: rgb(112, 112, 112);
-  margin: 0px 30px;
   height: 15%;
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 10px;
   outline: none;
   border: 0px;
-  font-weight: lighter;
+  font-weight: 400;
 }
 .players-wrapper {
   width: 40vw;
@@ -90,6 +99,7 @@
   margin-bottom: 25px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .player-name {
   color: rgb(112, 112, 112);
@@ -99,7 +109,7 @@
 .player-email {
   color: rgb(112, 112, 112);
   font-size: 23px;
-  font-weight: 100;
+  font-weight: 300;
   margin-left: 5px;
 }
 .player-delete-button {
@@ -135,39 +145,29 @@
   border: 1px solid rgba(171, 171, 171, 1);
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (orientation: portrait) {
   .all-content {
     flex-direction: column;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    height: 83vh;
+    padding-top: 25px;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
   }
-  .all-content-menu {
-    flex: initial;
-    width: 100%;
+  .all-content-main, 
+  .all-content-main-form {
     border-radius: 50px;
-    margin-right: 0px;
-    margin-bottom: 25px;
+    width: 100%;
+    margin: 0px;
     height: auto;
-    padding: 15px 0px;
-  }
-  .team-image-wrapper {
-    height: auto;
-  }
-  .team-image {
-    max-height: initial;
-    max-width: 100%;
-  }
-  .team-info {
-    height: auto;
+    padding: 25px;
   }
   .players-wrapper {
-    flex: initial;
     width: 100%;
-    margin-left: 0px;
+    margin: 0px;
+    margin-top: 25px;
+    overflow: hidden;
     height: auto;
-    overflow: visible;
+  }
+  .edit-team-button, .form-send-button {
+    margin: 0px;
   }
 }

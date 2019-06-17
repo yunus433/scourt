@@ -35,17 +35,16 @@
   font-family: "Raleway";
   color: rgb(112, 112, 112);
   font-size: 25px;
-  font-weight: lighter;
+  font-weight: 300;
 }
 .header-right-side {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  height: 100%;
   align-items: center;
 }
 .add-new-button {
-  height: 50%;
+  height: 50px;
   background: rgb(233, 233, 233);
   border-radius: 18px;
   border: 1px solid rgb(171, 171, 171);
@@ -82,10 +81,10 @@
   background: rgb(249, 249, 249);
   margin-bottom: 1%;
   border-radius: 30px;
-  height: 20%;
+  height: 30%;
   width: 70%;
   border: 1px solid rgb(217, 217, 217);
-  padding: 2.5%;
+  padding: 3%;
   display: flex;
 }
 .each-video-left {
@@ -99,7 +98,7 @@
 .video {
   height: 100%;
   max-width: 25%;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 .video-info-wrapper {
   max-width: 70%;
@@ -139,13 +138,13 @@
 }
 .video-created-at {
   margin-top: 2%;
-  font-weight: lighter;
+  font-weight: 300;
   color: rgb(112, 112, 112);
   font-size: 23px;
   line-height: 25px;
 }
 .video-comments {
-  font-weight: lighter;
+  font-weight: 300;
   color: rgb(112, 112, 112);
   font-size: 23px;
   line-height: 25px;  

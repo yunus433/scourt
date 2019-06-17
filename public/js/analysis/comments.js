@@ -16,6 +16,15 @@ function beautifulVideoTime (time) {
   return returnTime;
 }
 
+function switchCommentPlace(comment) {
+  while (comment.previousElementSibling) {
+    if (comment.childNodes[0].value < comment.previousElementSibling.childNodes[0].value)
+      comment.parentNode.insertBefore(comment, comment.previousElementSibling);
+    else
+      break;
+  }
+}
+
 function createComment (comment) {
   const commentWrapper = document.querySelector('.comments-content');
 
@@ -61,6 +70,7 @@ function createComment (comment) {
 
   commentWrapper.appendChild(eachComment);
   responsiveDesign(eachComment);
+  switchCommentPlace(eachComment);
 }
 
 window.onload = () => {
@@ -223,6 +233,7 @@ window.onload = () => {
     }
 
     if (event.target.className == 'add-new-button' || event.target.parentNode.className == 'add-new-button') {
+      video.pause();
       document.querySelector('.add-new-comment-wrapper').style.display = 'flex';
       document.querySelector('span.new-comment-time').innerHTML = "at " + beautifulVideoTime(Math.round(video.currentTime / 6 * 10) / 100);
       document.getElementById('comment-time-input').value = beautifulVideoTime(Math.round(video.currentTime / 6 * 10) / 100);
@@ -231,6 +242,7 @@ window.onload = () => {
 
     if (event.target.className == 'close-comment-button' || event.target.parentNode.className == 'close-comment-button') {
       document.querySelector('.add-new-comment-wrapper').style.display = 'none';
+      video.play();
     }
 
     if (event.target.className == 'see-all-players-button') {
@@ -265,8 +277,19 @@ window.onload = () => {
       xhr.send(JSON.stringify(comment));
 
       createComment(comment);
+      video.play();
     }
   });
+
+  video.onplay = () => {
+    document.querySelector('.start-icon').childNodes[0].classList.remove('fa-play');
+    document.querySelector('.start-icon').childNodes[0].classList.add('fa-pause');
+  };
+
+  video.onpause = () => {
+    document.querySelector('.start-icon').childNodes[0].classList.remove('fa-pause');
+    document.querySelector('.start-icon').childNodes[0].classList.add('fa-play');
+  };
 
   document.addEventListener('mouseover', (event) => {
     if (event.target.className == 'voice-icon' || event.target.parentNode.className == 'voice-icon' || event.target.parentNode.parentNode.className == 'voice-icon') {
@@ -287,44 +310,19 @@ window.onload = () => {
       videoDoneTimeSpan.innerHTML = beautifulVideoTime(Math.round(video.currentTime / 60 * 100) / 100) + " /";
     else
       videoDoneTimeSpan.innerHTML = "00:00 /"
+    
+    const comments = document.querySelectorAll('.each-comment');
+    for (let i = 0; i < comments.length; i++) {
+      if (comments[i].childNodes[0].value == video.currentTime) {
+        comments[i].scrollIntoView();
+      } else if (comments[i].childNodes[0].value > video.currentTime) {
+        break;
+      }
+    }
   };
 
   video.onended = () => {
     document.querySelector('.start-icon').childNodes[0].classList.remove('fa-pause');
     document.querySelector('.start-icon').childNodes[0].classList.add('fa-play');
-  }
-  
-  // document.addEventListener('click', (event) => {
-  //     document.querySelector('.tagged-players-span').innerHTML = "Currently 0 tagged players to this comment";
-  //   } else if (event.target.closest('.players-list-send-button')) {
-  //     const inputs = document.querySelectorAll('.each-player-input');
-
-  //     document.querySelector('.form-players-list').style.display = 'none';
-  //     document.querySelector('.form-header-part').style.display = 'flex';
-  //     document.querySelector('.form-footer-part').style.display = 'block';
-  //     document.querySelector('.comment-content-input').style.display = 'block';
-
-  //     let number = 0;
-  //     inputs.forEach(input => {
-  //       if (input.checked) {
-  //         number++;
-  //       };
-  //     });
-  //     document.querySelector('.tagged-players-span').innerHTML = "Currently " + number + " tagged players to this comment";
-  //   } else if (event.target.closest('.go-to-comment-button i')) {
-  //     document.querySelector('.video').currentTime = Math.floor(event.target.parentNode.parentNode.children[1].innerHTML);
-  //   }
-  // });
-  // document.querySelector('.video').ontimeupdate = () => {
-  //   const comments = document.querySelectorAll('.each-comment-value');
-
-  //   comments.forEach(comment => {
-  //     comment.parentNode.classList.remove('current-comment');
-      
-  //     if (Math.floor(comment.innerHTML) == Math.floor(document.querySelector('.video').currentTime)) {
-  //       comment.parentNode.classList.add('current-comment');
-  //       comment.parentNode.scrollIntoView();
-  //     }
-  //   });
-  // };
+  } 
 };

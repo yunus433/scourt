@@ -40,10 +40,12 @@ block content
           textarea.team-description-input(name="description" cols="25" rows="5" placeholder="A short description of your team" autocomplete="off" spellcheck="off")
           button.create-team-button Create
   .images-wrapper
-    if (team)
+    if team
       img.main-image(src=team.profilePhoto)
     if user.team
       span.team-name= team.name
       span.team-player-number #{team.players.length} joined players
       span.team-id Team ID: 
         strong #{team.teamId}
+      if user.type == 'coach'
+        a.team-edit-link(href="/players") Edit team information

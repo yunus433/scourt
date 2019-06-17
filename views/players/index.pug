@@ -31,8 +31,9 @@ block content
   .players-wrapper
     each player in team.players
       .each-player
-        span.player-name #{player.name + " " + player.surname} 
-        span.player-email (#{player.email})
+        div
+          span.player-name #{player.name + " " + player.surname} 
+          span.player-email (#{player.email})
         if (user.type == "coach")
-          a.player-delete-button(href="/players/delete/?id" + player._id)
-            i.fas.fa-ban
+          a.player-delete-button(href="/players/delete/?id=" + player._id onclick="return confirm('Are you sure you want to exit the player? If you want to ban the player from your team, you should change your team ID.')")
+            i.fas.fa-ban(title="Delete player")
