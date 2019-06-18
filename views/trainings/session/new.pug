@@ -1,0 +1,102 @@
+extends ../../partials/header
+block content
+  .selected-session-type
+    span None
+  form.session-send-form(action="/trainings/session/new" method="post")
+    input.display-none#session-drill-input(type="text" name="drills")
+    input.session-name-input(type="text" name="name" placeholder="Write a name for your session" autocomplete="off" autofocus)
+    .form-send-line
+      .form-close-button
+        span Back
+      button.form-send-button Ok
+  .session-create-area
+    .session-more-header
+      .session-drill-setting
+        i.fas.fa-cog
+      span Name
+      span Duration
+      span For
+      span Extra
+    .session-each-drill-wrapper 
+      span.session-drag-drop-span Drag and drop the drill's from the menu to create a new session
+    .session-send-line
+      .send-button 
+        span Create Session
+  .session-types-wrapper
+    .session-times-header
+      span.selected-session-time 5 min
+      span 10 min
+      span 30 min
+    .session-types-content
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/overlapping-full-backs-creating-crossing-opportunities" target="_blank")
+        span Overlapping Full Backs Creating Crossing Opportunities
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/passing-and-receiving-support-circle" target="_blank")
+        span Passing and Receiving Support Circle
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/passing-and-receiving-technique-in-traffic" target="_blank")
+        span Passing and Receiving Technique in Traffic
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/goalkeeper-circuit" target="_blank")
+        span Goalkeeper Circuit
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/warm-up-angled-support-and-sideways-on-positioning" target="_blank")
+        span Warm Up: Angled Support and Sideways On Positioning
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/flank-attack-drill" target="_blank")
+        span Flank Attack Drill
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/double-pass-drill" target="_blank")
+        span Double Pass Drill
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/a-quick-pressing-game" target="_blank")
+        span A Quick Pressing Game
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/the-elusive-final-pass" target="_blank")
+        span The Elusive Final Pass
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/small-sided-attacking-training-session" target="_blank")
+        span Small-Sided Attacking Training Session
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/team-crossing-exercise" target="_blank")
+        span Team Crossing Exercise
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/passing-warm-up" target="_blank")
+        span Passing Warm Up
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/awareness-changeover-session" target="_blank")
+        span Awareness Changeover Session
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/attacking-getting-forward-and-playing-off-the-highest-player" target="_blank")
+        span Attacking: Getting Forward and Playing Off the Highest Player
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/passing-and-support-possession-game" target="_blank")
+        span Passing and Support Possession Game
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/conditioned-possession-game-press-score" target="_blank")
+        span Conditioned Possession Game - Press & Score
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/aerobic-endurance-training-session" target="_blank")
+        span Aerobic Endurance Training Session
+      .each-session-type
+        .each-session-button-line
+          a.fas.fa-question(href="https://www.amplifiedsoccerathlete.com/coachguide/wall-passing-give-and-gos-training-session" target="_blank")
+        span Wall Passing / Give And Go’s Training Session

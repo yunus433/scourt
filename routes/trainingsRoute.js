@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 const getController = require('../controllers/trainings/get');
+const newSessionGetController = require('../controllers/trainings/session/new');
 
 const postController = require('../controllers/trainings/post');
 const updatePostController = require('../controllers/trainings/update');
@@ -14,6 +15,11 @@ router.get(
   '/',
     isLoggedIn,
     getController
+);
+router.get(
+  '/session/new',
+    isLoggedIn,
+    newSessionGetController
 );
 
 router.post(

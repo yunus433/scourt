@@ -13,25 +13,32 @@ block content
     .training-contents
       .training-models-wrapper
         .training-each-header
-          span Training Models
+          span Training Sessions
           i.fas.fa-sort-down
         .training-each-content
-          each model in team.trainingModels
-            .each-training-model
-              .training-model-header
-                span.training-model-name= model.name
-                span.training-model-date created at #{model.createAt}
-              span.trainig-model-info click to view the model
           if team.trainingModels.length <= 0
-            span.no-model-title You didn't create any model yet
+            span.no-model-title You didn't create any session yet
+            a.create-session-link(href="/trainings/session/new") Why don't you create one now?
+          else
+            each model in team.trainingModels
+              .each-training-model
+                .training-model-header
+                  span.training-model-name= model.name
+                  span.training-model-date created at #{model.createAt}
+                span.trainig-model-info click to view the model
+            a.create-session-link(href="/trainings/session/new") Create more session
       .coming-trainings-wrapper
         .training-each-header
           span Coming Trainings
           i.fas.fa-sort-down
+        .training-each-content
+          span coming content
       .old-trainings-wrapper
         .training-each-header
           span Old Trainings
           i.fas.fa-sort-down
+        .training-each-content
+          span old content
   .add-new-training-wrapper
     .add-new-header
       span Add a new training

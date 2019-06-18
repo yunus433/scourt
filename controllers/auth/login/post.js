@@ -10,7 +10,10 @@ module.exports = (req, res, next) => {
         }
 
         req.session.user = user;
-        return res.redirect('/dashboard');
+        if (req.session.redirect)
+          return res.redirect(req.session.redirect);
+        else
+          return res.redirect('/dashboard');
       });    
     } else {
       req.session.error = 'not valid';
