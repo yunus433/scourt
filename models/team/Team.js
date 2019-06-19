@@ -49,7 +49,7 @@ const TeamSchema = new Schema({
     type: Array, 
     default: []
   },
-  trainingModels: {
+  trainingSessions: {
     type: Array,
     default: []
   },

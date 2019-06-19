@@ -89,8 +89,30 @@ window.onload = () => {
     }
 
     if (event.target.className == 'session-send-line' || event.target.parentNode.className == 'session-send-line') {
-      console.log("click");
       document.querySelector('.session-send-form').style.display = 'flex';
+
+      const array = [];
+      const drills = document.querySelectorAll('.each-drill');
+
+      for (let i = 0; i < drills.length; i++) {
+        const newDrill = {
+          name: "",
+          duration: "",
+          for: "",
+          extra: ""
+        };
+        
+        newDrill.name = drills[i].childNodes[1].innerHTML;
+        newDrill.duration = drills[i].childNodes[2].innerHTML;
+        newDrill.for = drills[i].childNodes[3].value;
+        newDrill.extra = drills[i].childNodes[4].value;
+
+        array.push(newDrill);
+      }
+
+      setTimeout(() => {
+        document.getElementById('session-drill-input').value = JSON.stringify(array);
+      }, 100);     
     }
 
     if (event.target.className == 'form-close-button' || event.target.parentNode.className == 'form-close-button') {
@@ -98,13 +120,13 @@ window.onload = () => {
     }
   });
 
-  let leaveEventAlreadyCalled = true;
-
   const selectedDrill = document.querySelector('.selected-session-type');
 
   document.addEventListener('mousemove', event => {
-    selectedDrill.style.left = event.clientX - selectedDrill.offsetWidth / 2 + "px";
-    selectedDrill.style.top = event.clientY - selectedDrill.offsetHeight / 2 + "px";
+    if (selectedDrill.style.display != 'none') {
+      selectedDrill.style.left = event.clientX - selectedDrill.offsetWidth / 2 + "px";
+      selectedDrill.style.top = event.clientY - selectedDrill.offsetHeight / 2 + "px";
+    }
   });
 
   document.addEventListener('mousedown', event => {
@@ -134,8 +156,8 @@ window.onload = () => {
       event.clientX > positionOfWrapper.left &&
       event.clientX < positionOfWrapper.right &&
       event.clientY > positionOfWrapper.top &&
-      event.clientY < positionOfWrapper.bottom ) {
-
+      event.clientY < positionOfWrapper.bottom 
+    ) {
       document.querySelector('.session-more-header').style.display = 'flex';
       document.querySelector('.session-send-line').style.display = 'flex';
       document.querySelector('.session-drag-drop-span').style.display = 'none';
@@ -144,6 +166,8 @@ window.onload = () => {
       sessionTypeSelected = false;
     } else {
       selectedDrill.style.display = 'none';
+      selectedDrill.style.left = "100vw";
+      selectedDrill.style.top = "100vh";
       sessionTypeSelected = false;
     }
   });

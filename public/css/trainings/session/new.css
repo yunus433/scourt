@@ -196,9 +196,6 @@
 .each-session-button-line i {
   margin-right: 5px;
 }
-.each-session-button-line i:hover {
-  color: rgb(112, 112, 112);
-}
 .each-session-button-line a {
   color: rgba(112, 112, 112, 0.7);
 }

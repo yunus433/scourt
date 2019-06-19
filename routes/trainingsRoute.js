@@ -8,6 +8,7 @@ const newSessionGetController = require('../controllers/trainings/session/new');
 const postController = require('../controllers/trainings/post');
 const updatePostController = require('../controllers/trainings/update');
 const deletePostController = require('../controllers/trainings/delete');
+const newSessionPostController = require('../controllers/trainings/session/post');
 
 const isLoggedIn = require('../middleware/isLoggedin');
 
@@ -36,6 +37,11 @@ router.get(
   '/delete',
     isLoggedIn,
     deletePostController
+);
+router.post(
+  '/session/new',
+    isLoggedIn,
+    newSessionPostController
 );
 
 module.exports = router;

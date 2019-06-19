@@ -4,7 +4,7 @@ block content
     span None
   form.session-send-form(action="/trainings/session/new" method="post")
     input.display-none#session-drill-input(type="text" name="drills")
-    input.session-name-input(type="text" name="name" placeholder="Write a name for your session" autocomplete="off" autofocus)
+    input.session-name-input(type="text" required name="name" placeholder="Write a name for your session" autocomplete="off" autofocus)
     .form-send-line
       .form-close-button
         span Back

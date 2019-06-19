@@ -1,7 +1,7 @@
 const Team = require('../../models/team/Team');
 
 module.exports = (req, res, next) => {
-  console.log(req.query.id);
+
   Team  
     .findOneAndUpdate({"_id": req.session.user.team}, {$pull: {
       "trainings": {"_id": req.query.id}
