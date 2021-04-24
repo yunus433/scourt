@@ -13,7 +13,7 @@
   "author": "Yunus Gürlek",
   "license": "ISC",
   "dependencies": {
-    "airtable": "^0.5.7",
+    "airtable": "^0.7.2",
     "async": "^2.6.1",
     "aws-sdk": "^2.437.0",
     "bcrypt": "^3.0.2",
